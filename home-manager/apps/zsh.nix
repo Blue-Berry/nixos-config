@@ -1,0 +1,41 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    zsh
+    zsh-autocomplete
+    zsh-syntax-highlighting
+    zsh-autopair
+
+    starship
+  ];
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = true;
+    enableLsColors = true;
+    shellAliases = {
+      ls = "exa --icons";
+      ll = "exa --icons -l";
+      la = "exa --icons -la";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "thefuck"
+        "git"
+        "npm"
+        "history"
+        "node"
+        "rust"
+        "deno"
+      ];
+      theme = "";
+    };
+  };
+  # z
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+}

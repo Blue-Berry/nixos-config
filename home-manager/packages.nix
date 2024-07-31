@@ -1,11 +1,58 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
 
   home.packages = with pkgs; [
-    zsh
-    zsh-autocomplete
-    zsh-syntax-highlighting
-    zsh-autopair
-
+    alacritty
+    alejandra
+    base16-schemes
+    bat
+    btop
+    eza
+    fastfetch
+    fd
+    ffmpeg
+    font-awesome
+    fzf
+    gcc
+    gh
+    git
+    gleam
+    gmp
+    gmp
+    gnumake
+    go
+    gparted
+    hyprpaper
+    kitty
+    libqalculate
+    linuxPackages_latest.perf
+    lrzip
+    mpv
+    neovide
+    neovim
+    nerdfonts
+    nixd
+    nodejs
+    obsidian
+    ocamlPackages.findlib
+    opam
+    opam
+    postman
+    python3
+    qalculate-qt
+    qbittorrent
+    ripgrep
+    rustup
+    spotify
+    starship
+    tealdeer
+    teams-for-linux
+    thefuck
+    tmux
+    vlc
+    wget
+    xclip
+    yazi
+    zoxide
   ];
 }
