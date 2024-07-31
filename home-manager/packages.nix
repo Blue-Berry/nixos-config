@@ -53,6 +53,7 @@
     wget
     xclip
     yazi
+    zed-editor
     zoxide
   ];
 }
