@@ -23,6 +23,7 @@
     ./apps/git.nix
     ./apps/kitty.nix
     ./apps/zsh.nix
+    ./apps/starship.nix
 
     ./desktop/hyprland/hyprland.nix
   ];
@@ -52,7 +53,6 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "liam";
     homeDirectory = "/home/liam";
@@ -95,5 +95,5 @@
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Did you read the comment?
 }

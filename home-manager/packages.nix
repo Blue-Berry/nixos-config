@@ -11,6 +11,7 @@
     fastfetch
     fd
     ffmpeg
+    firefox
     font-awesome
     fzf
     gcc
@@ -24,6 +25,7 @@
     gparted
     hyprpaper
     kitty
+    lazygit
     libqalculate
     linuxPackages_latest.perf
     lrzip

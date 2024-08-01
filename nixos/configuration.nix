@@ -20,19 +20,24 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
-
     ./packages/default.nix
+
+    ./hardware-configuration.nix
     ./hardware/bluetooth.nix
     ./hardware/sound.nix
     ./hardware/graphics-amd.nix
-    ./desktop/hyprland/default.nix
-    # ./desktop/kde/default.nix
-    # ./hardware/touchpad.nix
+    ./hardware/touchpad.nix
+    ./hardware/displaylink/default.nix
+
     ./apps/nvim.nix
     ./apps/steam.nix
     ./apps/wireguard.nix
+
     ./ports.nix
+
+    ./desktop/hyprland/default.nix
+    # ./desktop/kde/default.nix
+    ./desktop/gnome/default.nix
   ];
 
   nixpkgs = {
@@ -82,6 +87,8 @@
     };
 
   #NOTE: Basic system configuration
+  programs.firefox.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 3;
@@ -109,20 +116,13 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # FIXME: Add the rest of your current configuration
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
-    # FIXME: Replace with your username
     liam = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
@@ -143,5 +143,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
