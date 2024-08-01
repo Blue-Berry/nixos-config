@@ -24,8 +24,8 @@
 
     ./hardware-configuration.nix
     ./hardware/bluetooth.nix
-    ./hardware/sound.nix
-    ./hardware/graphics-amd.nix
+    # ./hardware/sound.nix
+    # ./hardware/graphics-amd.nix
     ./hardware/touchpad.nix
     ./hardware/displaylink/default.nix
 
@@ -35,7 +35,7 @@
 
     ./ports.nix
 
-    ./desktop/hyprland/default.nix
+    # ./desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
     ./desktop/gnome/default.nix
   ];
@@ -120,6 +120,7 @@
   users.users = {
     liam = {
       isNormalUser = true;
+      initialPassword = "stuff";
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
