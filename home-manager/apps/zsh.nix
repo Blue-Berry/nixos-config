@@ -10,10 +10,11 @@
   ];
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    #enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    enableLsColors = true;
+    #enableLsColors = true;
     shellAliases = {
       ls = "exa --icons";
       ll = "exa --icons -l";

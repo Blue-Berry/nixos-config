@@ -17,8 +17,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./zsh.nix
-    ./fonts.nix
     ./packages.nix
     ./apps/git.nix
     ./apps/kitty.nix
@@ -34,7 +32,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default

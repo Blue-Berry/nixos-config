@@ -87,6 +87,9 @@
     };
 
   #NOTE: Basic system configuration
+  fonts.packages = with pkgs; [
+          (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
   programs.firefox.enable = true;
 
   boot.loader.systemd-boot.enable = true;

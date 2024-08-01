@@ -3,6 +3,7 @@
 
   home.packages = with pkgs; [
     alacritty
+    starship
     alejandra
     base16-schemes
     bat
@@ -31,7 +32,6 @@
     lrzip
     mpv
     neovide
-    neovim
     nerdfonts
     nixd
     nodejs
