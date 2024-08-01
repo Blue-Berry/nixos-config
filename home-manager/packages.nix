@@ -54,6 +54,7 @@
     vlc
     wget
     xclip
+    hydrapaper
     yazi
     zed-editor
     zoxide
