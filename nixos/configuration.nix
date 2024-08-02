@@ -39,6 +39,8 @@
     ./desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
     ./desktop/gnome/default.nix
+
+    ./system/gc.nix
   ];
 
   nixpkgs = {
@@ -93,7 +95,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.configurationLimit = 3;
 
   networking.hostName = "liam-nixos";
   networking.networkmanager.enable = true;
