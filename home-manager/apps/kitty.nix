@@ -1,6 +1,5 @@
-{pkgs, ... }: {
-
-  home.packages = [ pkgs.kitty ];
+{pkgs, ...}: {
+  home.packages = [pkgs.kitty];
   programs.kitty = {
     enable = true;
     theme = "Catppuccin-Mocha";

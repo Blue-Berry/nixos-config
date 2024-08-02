@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = [ pkgs.git ];
+{pkgs, ...}: {
+  home.packages = [pkgs.git];
   programs.git = {
     enable = true;
     userName = "Liam Berry";

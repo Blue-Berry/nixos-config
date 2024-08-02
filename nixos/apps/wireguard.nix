@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = [
     pkgs.wireguard-tools
   ];
@@ -8,7 +7,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     wg0 = {
       # Determines the IP address and subnet of the server's end of the tunnel interface.
-      ips = [ "10.12.0.200/32" ];
+      ips = ["10.12.0.200/32"];
 
       # The port that WireGuard listens to. Must be accessible by the client.
       listenPort = 51820;
@@ -38,7 +37,7 @@
           # Public key of the peer (not a file path).
           publicKey = "r2drw8KEHF9OO1L/rGT4iNYl1k9XNmtO58l5UMyB3DM=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = [ "10.12.0.0/16" ];
+          allowedIPs = ["10.12.0.0/16"];
           endpoint = "102.133.148.40:51820";
           persistentKeepalive = 25;
         }

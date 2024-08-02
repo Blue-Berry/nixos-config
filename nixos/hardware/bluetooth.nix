@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = [ pkgs.blueman ];
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.blueman];
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 }

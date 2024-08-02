@@ -1,9 +1,7 @@
-{pkgs, ...}:
-{
-  home.packages = [ pkgs.starship ];
+{pkgs, ...}: {
+  home.packages = [pkgs.starship];
   programs.starship = {
     enable = true;
     #settings = { };
   };
-
 }

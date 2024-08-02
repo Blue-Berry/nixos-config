@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   environment.sessionVariables = {
     PATH = [
       "/home/liam/.cargo/bin"
@@ -7,5 +6,4 @@
       "/home/liam/bin"
     ];
   };
-
 }

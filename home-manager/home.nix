@@ -1,11 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -22,6 +23,7 @@
     ./apps/kitty.nix
     ./apps/zsh.nix
     ./apps/starship.nix
+    ./apps/direnv.nix
 
     ./desktop/hyprland/hyprland.nix
   ];
@@ -66,7 +68,6 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -89,8 +90,6 @@
     TERMINAL = "kitty";
     TERM = "kitty";
   };
-
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05"; # Did you read the comment?
