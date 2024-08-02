@@ -24,6 +24,7 @@
     ./apps/zsh.nix
     ./apps/starship.nix
     ./apps/direnv.nix
+    ./apps/nix-colors.nix
 
     ./desktop/hyprland/hyprland.nix
   ];

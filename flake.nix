@@ -14,6 +14,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
