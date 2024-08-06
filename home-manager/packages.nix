@@ -56,5 +56,6 @@
     yazi
     zed-editor
     zoxide
+    rsync
   ];
 }
