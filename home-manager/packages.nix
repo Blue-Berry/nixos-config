@@ -57,5 +57,7 @@
     zed-editor
     zoxide
     rsync
+    lua-language-server
+    bottom
   ];
 }
