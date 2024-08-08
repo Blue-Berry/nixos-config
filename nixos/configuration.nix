@@ -107,6 +107,10 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  # Enable docker
+  virtualisation.docker.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "za";
@@ -126,7 +130,7 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "docker"];
     };
   };
 

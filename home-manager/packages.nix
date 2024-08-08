@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     alacritty
-    starship
     alejandra
     base16-schemes
     bat
+    bottom
     btop
     eza
     fastfetch
@@ -22,12 +22,14 @@
     gnumake
     go
     gparted
+    hydrapaper
     hyprpaper
     kitty
     lazygit
     libqalculate
     linuxPackages_latest.perf
     lrzip
+    lua-language-server
     mpv
     neovide
     nerdfonts
@@ -42,22 +44,22 @@
     qalculate-qt
     qbittorrent
     ripgrep
+    rsync
     rustup
     spotify
+    starship
     starship
     tealdeer
     teams-for-linux
     thefuck
+    thefuck
     tmux
+    tokei
     vlc
     wget
     xclip
-    hydrapaper
     yazi
     zed-editor
     zoxide
-    rsync
-    lua-language-server
-    bottom
   ];
 }

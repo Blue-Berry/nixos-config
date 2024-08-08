@@ -69,11 +69,19 @@
       misc = {
         force_default_wallpaper = -1;
       };
-      # monitor = ",preferred,auto,auto";
-      monitor = [
-        "HDMI-A-1, 1920x1080, 1920x0, 1"
-        "DP-3,1920x1080, 0x0,1"
-      ];
+      monitor = ",preferred,auto,auto";
+      # monitor = [
+      #   "eDP-2, 1920x1080, 0x0, 1"
+      #   "DVI-I-1,1920x1080, 1280x0,1"
+      #   "DVI-I-2,1920x1080, 3200x0,1"
+      #   # Monitor eDP-2 (ID 0):
+      #   # 	1920x1080@120.01500 at 0x0
+      #   #
+      #   # Monitor DVI-I-1 (ID 1):
+      #   # 	1920x1080@60.00000 at 1280x0
+      #   # # Monitor DVI-I-2 (ID 2):
+      #   # 	1920x1080@60.00000 at 3200x0
+      # ];
       # Execute your favorite apps at launch
       exec-once = "hyprpaper & waybar & swww & networkmanagerapplet & dunst & blueman-applet & ";
 
