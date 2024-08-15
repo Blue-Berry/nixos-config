@@ -29,6 +29,8 @@
     # ./hardware/graphics-amd.nix
     ./hardware/touchpad.nix
     ./hardware/displaylink/default.nix
+    ./hardware/solaar.nix
+    ./hardware/ratbag.nix
 
     ./apps/nvim.nix
     ./apps/steam.nix
