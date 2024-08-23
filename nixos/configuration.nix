@@ -31,6 +31,7 @@
     ./hardware/displaylink/default.nix
     ./hardware/solaar.nix
     ./hardware/ratbag.nix
+    ./hardware/wooting.nix
 
     ./apps/nvim.nix
     ./apps/steam.nix
