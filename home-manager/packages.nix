@@ -34,6 +34,7 @@
     neovide
     nerdfonts
     nixd
+    nmap
     nodejs
     obsidian
     ocamlPackages.findlib
