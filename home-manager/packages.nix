@@ -39,6 +39,8 @@
     obsidian
     ocamlPackages.findlib
     opam
+    chromium
+    ntfs3g
     opam
     postman
     python3

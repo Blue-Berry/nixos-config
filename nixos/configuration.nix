@@ -32,6 +32,7 @@
     ./hardware/solaar.nix
     ./hardware/ratbag.nix
     ./hardware/wooting.nix
+    ./hardware/ntfs.nix
 
     ./apps/nvim.nix
     ./apps/steam.nix

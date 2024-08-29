@@ -1,5 +1,4 @@
 {pkgs, ...}: {
   environment.systemPackages = [pkgs.wootility];
-  services.udev.packages = [ pkgs.wooting-udev ];  # Set your time zone.
+  services.udev.packages = [pkgs.wooting-udev]; # Set your time zone.
 }
-

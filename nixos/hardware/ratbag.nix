@@ -1,4 +1,4 @@
 {pkgs, ...}: {
   environment.systemPackages = [pkgs.libratbag pkgs.piper];
-    services.ratbagd.enable = true;
+  services.ratbagd.enable = true;
 }
