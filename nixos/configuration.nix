@@ -40,7 +40,7 @@
 
     ./ports.nix
 
-    ./desktop/hyprland/default.nix
+    # ./desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
     ./desktop/gnome/default.nix
 

@@ -26,7 +26,7 @@
     ./apps/direnv.nix
     ./apps/nix-colors.nix
 
-    ./desktop/hyprland/hyprland.nix
+    # ./desktop/hyprland/hyprland.nix
   ];
 
   nixpkgs = {

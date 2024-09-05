@@ -6,6 +6,7 @@
     bat
     bottom
     btop
+    dig
     eza
     fastfetch
     fd
@@ -23,7 +24,6 @@
     go
     gparted
     hydrapaper
-    hyprpaper
     kitty
     lazygit
     libqalculate
