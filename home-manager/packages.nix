@@ -24,6 +24,7 @@
     go
     gparted
     hydrapaper
+    glow
     kitty
     lazygit
     libqalculate
@@ -61,7 +62,6 @@
     vlc
     wget
     xclip
-    yazi
     zed-editor
     zoxide
   ];

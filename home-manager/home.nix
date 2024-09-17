@@ -25,6 +25,7 @@
     ./apps/starship.nix
     ./apps/direnv.nix
     ./apps/nix-colors.nix
+    ./apps/yazi/yazi.nix
 
     # ./desktop/hyprland/hyprland.nix
   ];
