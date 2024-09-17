@@ -1,12 +1,10 @@
-{pkgs,...}:{
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     yazi
-    ];
-
+  ];
 
   programs.yazi.enableZshIntegration = true;
-  
+
   programs.zsh.initExtra = ''
     function y() {
       local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -17,5 +15,4 @@
       rm -f -- "$tmp"
     }
   '';
-
 }
