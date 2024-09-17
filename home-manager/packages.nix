@@ -6,6 +6,7 @@
     bat
     bottom
     btop
+    chromium
     dig
     eza
     fastfetch
@@ -18,30 +19,30 @@
     gh
     git
     gleam
+    glow
     gmp
     gmp
     gnumake
     go
     gparted
     hydrapaper
-    glow
     kitty
     lazygit
     libqalculate
     linuxPackages_latest.perf
     lrzip
     lua-language-server
+    minicom
     mpv
     neovide
     nerdfonts
     nixd
     nmap
     nodejs
+    ntfs3g
     obsidian
     ocamlPackages.findlib
     opam
-    chromium
-    ntfs3g
     opam
     postman
     python3
