@@ -4,6 +4,7 @@
     alejandra
     base16-schemes
     bat
+    ncdu
     bottom
     btop
     chromium
@@ -26,6 +27,7 @@
     go
     gparted
     hydrapaper
+    inetutils
     kitty
     lazygit
     libqalculate
@@ -62,6 +64,7 @@
     tokei
     vlc
     wget
+    wireshark
     xclip
     zed-editor
     zoxide
