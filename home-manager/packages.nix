@@ -4,7 +4,6 @@
     alejandra
     base16-schemes
     bat
-    ncdu
     bottom
     btop
     chromium
@@ -19,6 +18,7 @@
     gcc
     gh
     git
+    gitbutler
     gleam
     glow
     gmp
@@ -36,6 +36,7 @@
     lua-language-server
     minicom
     mpv
+    ncdu
     neovide
     nerdfonts
     nixd

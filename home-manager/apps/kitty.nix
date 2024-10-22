@@ -2,7 +2,7 @@
   home.packages = [pkgs.kitty];
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
     font = {
       name = "FiraCode Nerd Font Mono";
       size = 10;
