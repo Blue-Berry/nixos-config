@@ -31,7 +31,7 @@
     # ./desktop/hyprland/hyprland.nix
   ];
 
-    home = {
+  home = {
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
   };

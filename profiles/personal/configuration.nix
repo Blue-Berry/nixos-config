@@ -7,6 +7,7 @@
   config,
   pkgs,
   systemSettings,
+  userSettings,
   ...
 }: {
   # You can import other NixOS modules here
@@ -49,7 +50,6 @@
     ../../nixos/system/gc.nix
   ];
 
-
   #NOTE: Basic system configuration
 
   programs.firefox.enable = true;
@@ -69,6 +69,9 @@
   # Enable docker
   virtualisation.docker.enable = true;
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "za";
@@ -76,9 +79,8 @@
   };
   services.printing.enable = true;
 
-
   users.users = {
-    liam = {
+    ${userSettings.username} = {
       isNormalUser = true;
       initialPassword = "stuff";
       openssh.authorizedKeys.keys = [
