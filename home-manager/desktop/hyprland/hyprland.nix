@@ -22,6 +22,7 @@
   ];
   imports = [
     ./waybar/default.nix
+    ./hyprpanel/default.nix
   ];
   services.hyprpaper.settings = {
     wallpaper = [
@@ -89,7 +90,10 @@
         "DP-3,1920x1080, 1920x0,1"
       ];
       # Execute your favorite apps at launch
-      exec-once = "hyprpaper & waybar & swww & networkmanagerapplet & dunst & blueman-applet & ";
+      exec-once = [
+        "hyprpaper & waybar & swww & networkmanagerapplet & dunst & blueman-applet &"
+        "${pkgs.hyprpanel}/bin/hyprpanel"
+      ];
 
       "$mod" = "SUPER";
       "$terminal" = "kitty";
