@@ -21,20 +21,21 @@
     wl-clipboard
   ];
   imports = [
-    ./waybar/default.nix
+    # ./waybar/default.nix
     ./hyprpanel/default.nix
   ];
+  services.hyprpaper.enable = true;
   services.hyprpaper.settings = {
     wallpaper = [
-      "DP-3, ${config.home.homeDirectory}/nixos-configs/wallpapers/earth.jpg"
-      "HDMI-A-1, ${config.home.homeDirectory}/nixos-configs/wallpapers/earth_flipped.jpg"
+      "HDMI-A-1, ${config.home.homeDirectory}/nixos-config/wallpapers/earth.jpeg"
+      "DP-1, ${config.home.homeDirectory}/nixos-config/wallpapers/earth_flipped.jpeg"
     ];
     preload = [
-      "${config.home.homeDirectory}/nixos-configs/wallpapers/earth.jpg"
-      "${config.home.homeDirectory}/nixos-configs/wallpapers/earth_flipped.jpg"
+      "${config.home.homeDirectory}/nixos-config/wallpapers/earth.jpeg"
+      "${config.home.homeDirectory}/nixos-config/wallpapers/earth_flipped.jpeg"
     ];
-    ipc = "on";
-    splash = "off";
+    ipc = "off";
+    splash = "false";
   };
 
   wayland.windowManager.hyprland = {
@@ -91,7 +92,7 @@
       ];
       # Execute your favorite apps at launch
       exec-once = [
-        "hyprpaper & waybar & swww & networkmanagerapplet & dunst & blueman-applet &"
+        "hyprpaper & swww & networkmanagerapplet & dunst & blueman-applet &"
         "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
 
