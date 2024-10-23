@@ -27,6 +27,7 @@
     ../../home-manager/apps/direnv.nix
     ../../home-manager/apps/nix-colors.nix
     ../../home-manager/apps/yazi/yazi.nix
+    ../../home-manager/desktop/hyprland/hyprland.nix
 
     # ./desktop/hyprland/hyprland.nix
   ];

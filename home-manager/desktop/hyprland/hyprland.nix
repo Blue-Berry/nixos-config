@@ -48,6 +48,9 @@
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
     settings = {
+      input = {
+        accel_profile = "flat";
+      };
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
         rounding = "4";
@@ -69,7 +72,6 @@
       misc = {
         force_default_wallpaper = -1;
       };
-      monitor = ",preferred,auto,auto";
       # monitor = [
       #   "eDP-2, 1920x1080, 0x0, 1"
       #   "DVI-I-1,1920x1080, 1280x0,1"
@@ -82,6 +84,10 @@
       #   # # Monitor DVI-I-2 (ID 2):
       #   # 	1920x1080@60.00000 at 3200x0
       # ];
+      monitor = [
+        "HDMI-A-1, 1920x1080, 0x0, 1"
+        "DP-3,1920x1080, 1920x0,1"
+      ];
       # Execute your favorite apps at launch
       exec-once = "hyprpaper & waybar & swww & networkmanagerapplet & dunst & blueman-applet & ";
 
@@ -146,6 +152,7 @@
         "$mod, mouse_up, workspace, e-1"
 
         ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
       ];
       bindl = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
