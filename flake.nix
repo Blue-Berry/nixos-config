@@ -37,6 +37,10 @@
         hostname = "liam-nixos";
         profile = "personal";
     };
+    userSettings = {
+        username = "liam";
+        profile = "personal";
+    };
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
@@ -84,7 +88,7 @@
       # FIXME replace with your username@hostname
       "liam" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs; inherit systemSettings;};
+        extraSpecialArgs = {inherit inputs outputs; inherit systemSettings; inherit userSettings;};
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
