@@ -20,7 +20,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ../../nixos/hardware-configuration.nix
+    ../../nixos/hardware/hardware-configuration.nix
     ../../nixos/boot.nix
     ../../nixos/apps/zsh.nix
 
@@ -33,7 +33,7 @@
     ../../nixos/hardware/sound.nix
     # ./hardware/graphics-amd.nix
     ../../nixos/hardware/touchpad.nix
-    ../../nixos/hardware/displaylink/default.nix
+    # ../../nixos/hardware/displaylink/default.nix
     ../../nixos/hardware/solaar.nix
     ../../nixos/hardware/ratbag.nix
 

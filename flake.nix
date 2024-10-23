@@ -72,7 +72,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      liam-nixos = nixpkgs.lib.nixosSystem {
+      system = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
@@ -90,7 +90,7 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       # FIXME replace with your username@hostname
-      "liam" = home-manager.lib.homeManagerConfiguration {
+      user = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
