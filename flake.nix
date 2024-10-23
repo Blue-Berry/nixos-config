@@ -33,6 +33,10 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    systemSettings = {
+        hostname = "liam-nixos";
+        profile = "personal";
+    };
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
