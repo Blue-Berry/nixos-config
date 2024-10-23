@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  systemSettings,
   ...
 }: {
   # You can import other NixOS modules here
@@ -17,13 +18,16 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
-    ../../nixos/packages/default.nix
-
     ../../nixos/hardware-configuration.nix
+    ../../nixos/boot.nix
+    ../../nixos/apps/zsh.nix
+
+    ../../nixos/packages/default.nix
+    ../../overlays/enable.nix
+    ../../nixos/flake-options.nix
+    ../../nixos/fonts.nix
+
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix
     # ./hardware/graphics-amd.nix
@@ -45,60 +49,12 @@
     ../../nixos/system/gc.nix
   ];
 
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.stable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
-  };
-
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
-    };
-    # Opinionated: disable channels
-    channel.enable = false;
-
-    # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
 
   #NOTE: Basic system configuration
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
-  ];
+
   programs.firefox.enable = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "liam-nixos";
+  networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -120,10 +76,6 @@
   };
   services.printing.enable = true;
 
-  # Zsh
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   users.users = {
     liam = {

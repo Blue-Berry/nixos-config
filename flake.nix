@@ -69,11 +69,11 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       liam-nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs; inherit systemSettings;};
         modules = [
           # > Our main nixos configuration file <
           solaar.nixosModules.default
-          ./nixos/configuration.nix
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
         ];
       };
     };
@@ -84,10 +84,10 @@
       # FIXME replace with your username@hostname
       "liam" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs; inherit systemSettings;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home-manager/home.nix
+          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
         ];
       };
     };
