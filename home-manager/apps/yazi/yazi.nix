@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   flavourRepo = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
-    repo = "flavors:catppuccin-mocha";
+    repo = "flavors";
     rev = "main";
     sha256 = "sha256-a9Ta0dLuxqay0TwcoAOzcQ0aqm40RyzFxXb25Qf8jcQ=";
   };
