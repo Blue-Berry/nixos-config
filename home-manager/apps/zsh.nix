@@ -17,6 +17,8 @@
       ls = "exa --icons";
       ll = "exa --icons -l";
       la = "exa --icons -la";
+      tree = "exa --icons --tree --level 3";
+      lr = "exa --icons --recurse --level 3";
     };
     oh-my-zsh = {
       enable = true;
