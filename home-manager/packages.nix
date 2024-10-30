@@ -40,6 +40,7 @@
     neovide
     nerdfonts
     nixd
+    nil
     nmap
     nodejs
     ntfs3g
