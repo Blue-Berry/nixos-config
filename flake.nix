@@ -25,6 +25,7 @@
     };
 
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   outputs = {

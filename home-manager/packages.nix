@@ -6,6 +6,10 @@
     bat
     bottom
     btop
+    steam-run
+    discord
+    zip
+    unzip
     chromium
     dig
     eza

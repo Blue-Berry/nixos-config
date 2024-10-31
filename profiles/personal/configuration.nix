@@ -28,6 +28,7 @@
     ../../overlays/enable.nix
     ../../nixos/flake-options.nix
     ../../nixos/fonts.nix
+    ../../nixos/cursor.nix
 
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix
@@ -54,6 +55,8 @@
   #NOTE: Basic system configuration
 
   programs.firefox.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;

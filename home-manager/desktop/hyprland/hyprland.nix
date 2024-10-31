@@ -165,6 +165,13 @@
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioPlay, exec, playerctl play-pause"
       ];
+
+      env = [
+          "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      ];
+
+     workspace = ["1,monitor:DP-3"];
+      
     };
   };
 }
