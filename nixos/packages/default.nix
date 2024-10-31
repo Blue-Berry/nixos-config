@@ -4,5 +4,6 @@
     pkgs.wget
     pkgs.zsh
     pkgs.git
+    pkgs.usbutils
   ];
 }
