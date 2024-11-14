@@ -167,11 +167,13 @@
       ];
 
       env = [
-          "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
       ];
 
-     workspace = ["1,monitor:DP-3"];
-      
+      workspace = [
+        "1,monitor:DP-3"
+        "1,monitor:DP-3"
+      ];
     };
   };
 }
