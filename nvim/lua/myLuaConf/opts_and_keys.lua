@@ -2,6 +2,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.clipboard = "unnamedplus"
+
 if os.getenv('WAYLAND_DISPLAY') and vim.fn.exepath('wl-copy') ~= "" then
   vim.g.clipboard = {
       name = 'wl-clipboard',

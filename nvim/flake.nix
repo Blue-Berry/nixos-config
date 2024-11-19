@@ -62,7 +62,7 @@
     # will not apply to module imports
     # as that will have your system values
     extra_pkg_config = {
-      # allowUnfree = true;
+      allowUnfree = true;
     };
     # management of the system variable is one of the harder parts of using flakes.
 
@@ -259,6 +259,8 @@
             indent-blankline-nvim
             vim-startuptime
             supermaven-nvim
+            yazi-nvim
+            lazygit-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
@@ -388,7 +390,7 @@
           # you could also pass something else:
           # see :help nixCats
           themer = true;
-          colorscheme = "nightfox";
+          colorscheme = "tokyonight";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass

@@ -3,6 +3,5 @@
     EDITOR = "nvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
-    TERM = "kitty";
   };
 }

@@ -143,15 +143,33 @@ require('lze').load {
     event = "DeferredUIEnter",
     after = function(plugin)
       require("supermaven-nvim").setup {
-      keymaps = {
-        accept_suggestion = "<Tab>",
-        clear_suggestion = "<C-]>",
-        accept_word = "<C-j>",
-      },
-      disable_inline_completion = false, -- disables inline completion for use with cmp
-      disable_keymaps = false, -- disables built in keymaps for more manual control
-    }
+        keymaps = {
+          accept_suggestion = "<Tab>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
+        },
+        disable_inline_completion = false, -- disables inline completion for use with cmp
+        disable_keymaps = false,         -- disables built in keymaps for more manual control
+      }
     end,
+  },
+  {
+    "yazi.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    -- keys = "",
+    after = function(plugin)
+      require('yazi').setup({
+        -- your config here
+        -- see :help yazi.nvim
+      })
+    end,
+  },
+  {
+    "lazygit.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    command = "LazyGit",
   },
   {
     "fidget.nvim",
