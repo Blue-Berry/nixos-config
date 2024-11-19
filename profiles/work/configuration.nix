@@ -10,6 +10,7 @@
 }: {
   # You can import other NixOS modules here
   imports = [
+    ./hardware-configuration.nix
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
@@ -21,31 +22,30 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ./packages/default.nix
+    ./../../nixos/packages/default.nix
 
-    ./hardware-configuration.nix
-    ./hardware/bluetooth.nix
-    ./hardware/sound.nix
+    ./../../nixos/hardware/bluetooth.nix
+    ./../../nixos/hardware/sound.nix
     # ./hardware/graphics-amd.nix
-    ./hardware/touchpad.nix
-    ./hardware/displaylink/default.nix
-    ./hardware/solaar.nix
-    ./hardware/ratbag.nix
-    ./hardware/wooting.nix
-    ./hardware/ntfs.nix
-    ./hardware/logic-analyzer.nix
+    ./../../nixos/hardware/touchpad.nix
+    ./../../nixos/hardware/displaylink/default.nix
+    ./../../nixos/hardware/solaar.nix
+    ./../../nixos/hardware/ratbag.nix
+    ./../../nixos/hardware/wooting.nix
+    ./../../nixos/hardware/ntfs.nix
+    ./../../nixos/hardware/logic-analyzer.nix
 
-    ./apps/nvim.nix
-    ./apps/steam.nix
-    ./apps/wireguard.nix
+    ./../../nixos/apps/nvim.nix
+    # ./../../nixos/apps/steam.nix
+    ./../../nixos/apps/wireguard.nix
 
-    ./ports.nix
+    ./../../nixos/ports.nix
 
     # ./desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
-    ./desktop/gnome/default.nix
+    ./../../nixos/desktop/gnome/default.nix
 
-    ./system/gc.nix
+    ./../../nixos/system/gc.nix
   ];
 
   nixpkgs = {
