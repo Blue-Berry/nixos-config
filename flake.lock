@@ -545,6 +545,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1727348695,
+        "narHash": "sha256-J+PeFKSDV+pHL7ukkfpVzCOO7mBSrrpJ3svwBFABbhI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1925c603f17fc89f4c8f6bf6f631a802ad85d784",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -578,7 +594,8 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "rose-pine-hyprcursor": "rose-pine-hyprcursor",
-        "solaar": "solaar"
+        "solaar": "solaar",
+        "zen-browser": "zen-browser"
       }
     },
     "rose-pine-hyprcursor": {
@@ -777,6 +794,24 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1731607960,
+        "narHash": "sha256-v06idrefFX7Lu5Sp/9WEsnfYXOG2YCIUXi4Pjd3zJwE=",
+        "owner": "Blue-Berry",
+        "repo": "zen-browser-flake",
+        "rev": "6562bea3338f7ffd268fc86da5804e379140bc87",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Blue-Berry",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     alacritty
     alejandra
     base16-schemes
-inputs.zen-browser.packages."${pkgs.system}".specific
+    inputs.zen-browser.packages."${pkgs.system}".specific
     bat
     bottom
     btop
