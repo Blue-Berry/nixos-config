@@ -18,14 +18,14 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./packages.nix
-    ./apps/git.nix
-    ./apps/kitty.nix
-    ./apps/zsh.nix
-    ./apps/starship.nix
-    ./apps/direnv.nix
-    ./apps/nix-colors.nix
-    ./apps/yazi/yazi.nix
+    ./../../home-manager/packages.nix
+    ./../../home-manager/apps/git.nix
+    ./../../home-manager/apps/kitty.nix
+    ./../../home-manager/apps/zsh.nix
+    ./../../home-manager/apps/starship.nix
+    ./../../home-manager/apps/direnv.nix
+    ./../../home-manager/apps/nix-colors.nix
+    ./../../home-manager/apps/yazi/yazi.nix
 
     # ./desktop/hyprland/hyprland.nix
   ];
