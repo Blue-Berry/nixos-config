@@ -30,31 +30,43 @@ return {
     -- event = "",
     -- ft = "",
     keys = {
-      { "<leader>fp", mode = {"n"}, desc = '[F]ind git [P]roject root', },
-      { "<leader>/", mode = {"n"}, desc = '[/] Fuzzily search in current buffer', },
-      { "<leader><leader>s", mode = {"n"}, desc = '[ ] Find existing buffers', },
-      { "<leader>f.", mode = {"n"}, desc = '[F]find Recent Files ("." for repeat)', },
-      { "<leader>fr", mode = {"n"}, desc = '[F]find [R]esume', },
-      { "<leader>fd", mode = {"n"}, desc = '[F]find [D]iagnostics', },
-      { "<leader>fg", mode = {"n"}, desc = '[F]find by [G]rep', },
-      { "<leader>fw", mode = {"n"}, desc = '[F]find current [W]ord', },
-      { "<leader>fs", mode = {"n"}, desc = '[F]find [S]elect Telescope', },
-      { "<leader>ff", mode = {"n"}, desc = '[F]find [F]iles', },
-      { "<leader>fk", mode = {"n"}, desc = '[F]find [K]eymaps', },
-      { "<leader>fh", mode = {"n"}, desc = '[F]find [H]elp', },
+      { "<leader>fp",        mode = { "n" }, desc = '[F]ind git [P]roject root', },
+      { "<leader>/",         mode = { "n" }, desc = '[/] Fuzzily search in current buffer', },
+      { "<leader><leader>s", mode = { "n" }, desc = '[ ] Find existing buffers', },
+      { "<leader>f.",        mode = { "n" }, desc = '[F]find Recent Files ("." for repeat)', },
+      { "<leader>fr",        mode = { "n" }, desc = '[F]find [R]esume', },
+      { "<leader>fd",        mode = { "n" }, desc = '[F]find [D]iagnostics', },
+      { "<leader>fg",        mode = { "n" }, desc = '[F]find by [G]rep', },
+      { "<leader>fw",        mode = { "n" }, desc = '[F]find current [W]ord', },
+      { "<leader>fs",        mode = { "n" }, desc = '[F]find [S]elect Telescope', },
+      { "<leader>ff",        mode = { "n" }, desc = '[F]find [F]iles', },
+      { "<leader>fk",        mode = { "n" }, desc = '[F]find [K]eymaps', },
+      { "<leader>fh",        mode = { "n" }, desc = '[F]find [H]elp', },
     },
     -- colorscheme = "",
-    load = function (name)
-        vim.cmd.packadd(name)
-        vim.cmd.packadd("telescope-fzf-native.nvim")
-        vim.cmd.packadd("telescope-ui-select.nvim")
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("telescope-fzf-native.nvim")
+      vim.cmd.packadd("telescope-ui-select.nvim")
     end,
-    after = function (plugin)
+    after = function(plugin)
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          prompt_prefix = "   ",
+          selection_caret = "  ",
+          sorting_strategy = "ascending",
+          layout_strategy = "flex",
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+              -- height = 0.8,
+              -- width = 0.70,
+              -- preview_width = 0.45
+            },
+          },
           mappings = {
             i = { ['<c-enter>'] = 'to_fuzzy_refine' },
           },
@@ -120,7 +132,8 @@ return {
         end
 
         -- Find the Git root directory from the current file's path
-        local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
+        local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")
+        [1]
         if vim.v.shell_error ~= 0 then
           print("Not a git repository. Searching on current working directory")
           return cwd
