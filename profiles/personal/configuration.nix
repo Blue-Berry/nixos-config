@@ -12,6 +12,7 @@
 }: {
   # You can import other NixOS modules here
   imports = [
+  ./hardware-configuration.nix
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
@@ -20,7 +21,6 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ../../nixos/hardware/hardware-configuration.nix
     ../../nixos/boot.nix
     ../../nixos/apps/zsh.nix
 

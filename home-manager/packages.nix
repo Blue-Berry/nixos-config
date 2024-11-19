@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     alacritty
     alejandra
+    asm-lsp
     base16-schemes
     inputs.zen-browser.packages."${pkgs.system}".specific
     bat
@@ -74,6 +75,7 @@
     tmux
     tokei
     vlc
+    vscode
     wget
     wireshark
     xclip
