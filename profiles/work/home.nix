@@ -90,7 +90,6 @@
     EDITOR = "nvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
-    TERM = "kitty";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
