@@ -39,7 +39,6 @@
     inherit (self) outputs;
     systemSettings = {
       hostname = "liam-nixos";
-      profile = "personal";
     };
     userSettings = {
       username = "liam";
@@ -76,7 +75,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      system = nixpkgs.lib.nixosSystem {
+      personal = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
@@ -85,7 +84,18 @@
         modules = [
           # > Our main nixos configuration file <
           solaar.nixosModules.default
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+          (./. + "/profiles" + "/personal/configuration.nix")
+        ];
+      };
+      work = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
+        modules = [
+          solaar.nixosModules.default
+          (./. + "/profiles" + "/work/configuration.nix")
         ];
       };
     };
@@ -93,8 +103,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
-      user = home-manager.lib.homeManagerConfiguration {
+      personal = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -103,7 +112,19 @@
         };
         modules = [
           # > Our main home-manager configuration file <
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          (./. + "/profiles" + "/personal/home.nix")
+        ];
+      };
+      work = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };
+        modules = [
+          # > Our main home-manager configuration file <
+          (./. + "/profiles" + "/personal/home.nix")
         ];
       };
     };
