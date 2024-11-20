@@ -165,7 +165,7 @@
         # packageDefinitions of the package this was packaged with.
         # :help nixCats.flake.outputs.categoryDefinitions.scheme
         themer = with pkgs.vimPlugins;
-          (builtins.getAttr (categories.colorscheme or "onedark") {
+          (builtins.getAttr (categories.colorscheme or "catppuccin") {
               # Theme switcher without creating a new category
               "onedark" = onedark-nvim;
               "catppuccin" = catppuccin-nvim;
@@ -245,6 +245,7 @@
             telescope-ui-select-nvim
             telescope-file-browser-nvim
             telescope-zoxide
+            catppuccin-nvim
             telescope-nvim
           ];
           noice = with pkgs.vimPlugins; [
