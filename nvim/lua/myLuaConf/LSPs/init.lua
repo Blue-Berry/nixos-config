@@ -65,6 +65,7 @@ if nixCats('go') then
   servers.gopls = {}
 end
 
+
 -- This is this flake's version of what kickstarter has set up for mason handlers.
 -- This is a convenience function that calls lspconfig on the lsps we downloaded via nix
 -- This will not download your lsp. Nix does that.
@@ -83,22 +84,7 @@ end
 -- servers.rust_analyzer = {},
 -- servers.tsserver = {},
 -- servers.html = { filetypes = { 'html', 'twig', 'hbs'} },
-
-
-if not require('nixCatsUtils').isNixCats and nixCats('lspDebugMode') then
-  vim.lsp.set_log_level("debug")
-end
--- If you were to comment out this autocommand
--- and instead pass the on attach function directly to
--- nvim-lspconfig, it would do the same thing.
--- come to think of it, it might be better because then lspconfig doesnt have to be called before lsp attach?
--- but you would still end up triggering on a FileType event anyway, so, it makes little difference.
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('nixCats-lsp-attach', { clear = true }),
-  callback = function(event)
-    require('myLuaConf.LSPs.caps-on_attach').on_attach(vim.lsp.get_client_by_id(event.data.client_id), event.buf)
-  end
-})
+servers.ocamllsp = {}
 
 require('lze').load {
   {

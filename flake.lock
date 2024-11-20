@@ -421,16 +421,17 @@
     "nixCats": {
       "inputs": {
         "nixCats": "nixCats_2",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "plugins-portal": "plugins-portal"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-MkqBMQXC6TxSuMMQDs49v0pxomurUL0nRGwN149Sgvw=",
-        "path": "/nix/store/saqcamaqc7c0wgdbrpj07s5d4929rpsj-source/nvim",
+        "narHash": "sha256-3L3qfUq2A15v1v+4vBdIIe+KyMHLBHuzIC/bxI6hGzE=",
+        "path": "/nix/store/bfw24dmqirv1z9v807fm8vnly0giy3fw-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/saqcamaqc7c0wgdbrpj07s5d4929rpsj-source/nvim",
+        "path": "/nix/store/bfw24dmqirv1z9v807fm8vnly0giy3fw-source/nvim",
         "type": "path"
       }
     },
@@ -605,6 +606,22 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plugins-portal": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711985078,
+        "narHash": "sha256-QCdyJ5in3Dm4IVlBUtbGWRZxl87gKHhRiGmZcIGEHm0=",
+        "owner": "cbochs",
+        "repo": "portal.nvim",
+        "rev": "77d9d53fec945bfa407d5fd7120f1b4f117450ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cbochs",
+        "repo": "portal.nvim",
         "type": "github"
       }
     },
