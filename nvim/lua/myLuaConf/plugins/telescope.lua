@@ -42,6 +42,9 @@ return {
       { "<leader>ff",        mode = { "n" }, desc = '[F]find [F]iles', },
       { "<leader>fk",        mode = { "n" }, desc = '[F]find [K]eymaps', },
       { "<leader>fh",        mode = { "n" }, desc = '[F]find [H]elp', },
+      { "<leader>fb",        mode = { "n" }, desc = '[F]ile [B]rowser', },
+      { "<leader>fz",        mode = { "n" }, desc = '[F]ind [Z]oxide', },
+
     },
     -- colorscheme = "",
     load = function(name)
