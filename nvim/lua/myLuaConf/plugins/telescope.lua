@@ -48,6 +48,8 @@ return {
       vim.cmd.packadd(name)
       vim.cmd.packadd("telescope-fzf-native.nvim")
       vim.cmd.packadd("telescope-ui-select.nvim")
+      vim.cmd.packadd("telescope-file-browser.nvim")
+      vim.cmd.packadd("telescope-zoxide")
     end,
     after = function(plugin)
       require('telescope').setup {
@@ -83,6 +85,8 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'noice')
+      pcall(require('telescope').load_extension, 'file_browser')
+      pcall(require('telescope').load_extension, 'zoxide')
 
 
       -- See `:help telescope.builtin`
@@ -97,6 +101,9 @@ return {
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>f', builtin.buffers, { desc = '[F]ind existing buffers' })
+      vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
+      vim.keymap.set("n", "<leader>fz", require("telescope").extensions.zoxide.list, {desc = "[F]ind [Z]oxide"})
+
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -133,7 +140,7 @@ return {
 
         -- Find the Git root directory from the current file's path
         local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")
-        [1]
+            [1]
         if vim.v.shell_error ~= 0 then
           print("Not a git repository. Searching on current working directory")
           return cwd

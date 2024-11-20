@@ -27,6 +27,7 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     zen-browser.url = "github:Blue-Berry/zen-browser-flake";
+    nixCats.url ="./nvim/flake.nix";
   };
 
   outputs = {

@@ -191,6 +191,35 @@ require('lze').load {
     end,
   },
   {
+    "nvim-bqf",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    -- keys = "",
+    after = function(plugin)
+      require('bqf').setup({})
+    end,
+  },
+  {
+    "neoscroll.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    -- keys = "",
+    after = function(plugin)
+      require('neoscroll').setup({})
+    end,
+  },
+  {
+    "portal",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    -- keys = "",
+    after = function(plugin)
+      require('portal').setup({})
+      vim.keymap.set("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
+      vim.keymap.set("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
+    end,
+  },
+  {
     "fidget.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",

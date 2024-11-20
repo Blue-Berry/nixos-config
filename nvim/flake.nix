@@ -44,6 +44,12 @@
     #   flake = false;
     # };
 
+    
+    "plugins-portal" = {
+            url = "github:cbochs/portal.nvim";
+            flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -237,6 +243,8 @@
           telescope = with pkgs.vimPlugins; [
             telescope-fzf-native-nvim
             telescope-ui-select-nvim
+            telescope-file-browser-nvim
+            telescope-zoxide
             telescope-nvim
           ];
           noice = with pkgs.vimPlugins; [
@@ -265,9 +273,13 @@
             yazi-nvim
             lazygit-nvim
             nvterm
+            nvim-bqf
+            neoscroll-nvim
+            # portal-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
+            pkgs.neovimPlugins.portal
           ];
         };
       };
@@ -356,7 +368,7 @@
     packageDefinitions = {
       # the name here is the name of the package
       # and also the default command name for it.
-      nixCats = { pkgs, ... }@misc: {
+      n = { pkgs, ... }@misc: {
         # these also recieve our pkgs variable
         # see :help nixCats.flake.outputs.packageDefinitions
         settings = {
@@ -463,7 +475,7 @@
       };
     };
 
-    defaultPackageName = "nixCats";
+    defaultPackageName = "n";
     # I did not here, but you might want to create a package named nvim.
 
     # defaultPackageName is also passed to utils.mkNixosModules and utils.mkHomeModules

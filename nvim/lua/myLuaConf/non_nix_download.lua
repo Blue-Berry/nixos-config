@@ -87,6 +87,8 @@ require('nixCatsUtils.catPacker').setup({
     opt = true,
   },
 
+  { 'cbochs/portal.nvim', },
+
   -- all the rest of the setup will be done using the normal setup functions later,
   -- thus working regardless of what method loads the plugins.
   -- only stuff pertaining to downloading should be added to paq.
