@@ -140,7 +140,7 @@
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         debug = with pkgs.vimPlugins; [
-          nvim-nio
+          nvim-nio # Asynchronous library
         ];
         general = with pkgs.vimPlugins; {
           # you can make subcategories!!!
@@ -224,12 +224,15 @@
             nvim-treesitter-textobjects
             nvim-treesitter.withAllGrammars
             # This is for if you only want some of the grammars
-            # (nvim-treesitter.withPlugins (
-            #   plugins: with plugins; [
-            #     nix
-            #     lua
-            #   ]
-            # ))
+            (nvim-treesitter.withPlugins (
+              plugins: with plugins; [
+                nix
+                lua
+                ocaml
+                rust
+                golang
+              ]
+            ))
           ];
           telescope = with pkgs.vimPlugins; [
             telescope-fzf-native-nvim

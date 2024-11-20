@@ -28,7 +28,6 @@
     gcc
     gh
     git
-    gitbutler
     gleam
     glow
     gmp
