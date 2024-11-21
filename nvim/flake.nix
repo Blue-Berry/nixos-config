@@ -294,6 +294,7 @@
             trouble-nvim
             todo-comments-nvim
             rainbow-delimiters-nvim
+            dropbar-nvim
             # portal-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.

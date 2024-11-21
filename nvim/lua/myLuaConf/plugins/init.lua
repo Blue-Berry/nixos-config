@@ -86,6 +86,14 @@ require('lze').load {
     end,
   },
   {
+    "dropbar.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('dropbar').setup({})
+    end,
+  },
+  {
     "rainbow-delimiters.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
