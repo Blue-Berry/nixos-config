@@ -178,12 +178,13 @@
         # packageDefinitions of the package this was packaged with.
         # :help nixCats.flake.outputs.categoryDefinitions.scheme
         themer = with pkgs.vimPlugins; (
-          builtins.getAttr (categories.colorscheme or "catppuccin") {
+          builtins.getAttr (categories.colorscheme or "catppuccin-macchiato") {
             # Theme switcher without creating a new category
             "onedark" = onedark-nvim;
-            "catppuccin" = catppuccin-nvim;
             "catppuccin-latte" = catppuccin-nvim;
             "catppuccin-macchiato" = catppuccin-nvim;
+            "catppuccin-frappe" = catppuccin-nvim;
+            "catppuccin-mocha" = catppuccin-nvim;
             "tokyonight" = tokyonight-nvim;
             "tokyonight-day" = tokyonight-nvim;
             "nightfox" = nightfox-nvim;
@@ -251,6 +252,8 @@
                   ocaml
                   rust
                   golang
+                  lua
+                  c
                 ]
             ))
           ];
@@ -424,7 +427,7 @@
           # you could also pass something else:
           # see :help nixCats
           themer = true;
-          colorscheme = "tokyonight";
+          colorscheme = "catppuccin-macchiato";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass
@@ -465,7 +468,7 @@
           # go = true; # <- disabled but you could enable it with override or module on install
           lspDebugMode = false;
           themer = true;
-          colorscheme = "catppuccin";
+          colorscheme = "catppuccin-latte";
         };
         extra = {
           # nixCats.extra("path.to.val") will perform vim.tbl_get(nixCats.extra, "path" "to" "val")
