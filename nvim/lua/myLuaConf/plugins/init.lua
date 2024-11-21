@@ -81,6 +81,10 @@ require('lze').load {
           which_key = true,
           rainbow_delimiters = true,
           nvim_surround = true,
+          dropbar = {
+            enabled = true,
+            color_mode = true, -- enable color for kind's texts, not just kind's icons
+          },
         },
       })
     end,
