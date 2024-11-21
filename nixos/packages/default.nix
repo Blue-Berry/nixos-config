@@ -1,4 +1,8 @@
-{pkgs,inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = [
     pkgs.vim
     pkgs.wget

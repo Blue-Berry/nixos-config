@@ -5,5 +5,6 @@
     dates = "weekly";
     options = "--delete-older-than 1w";
   };
+  nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 }

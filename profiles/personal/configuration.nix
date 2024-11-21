@@ -12,7 +12,7 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-  ./hardware-configuration.nix
+    ./hardware-configuration.nix
     # If you want to use modules your own flake exports (from modules/nixos):
     # outputs.nixosModules.example
 
