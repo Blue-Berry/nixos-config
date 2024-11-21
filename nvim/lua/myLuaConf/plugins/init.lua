@@ -57,6 +57,43 @@ require('lze').load {
   { import = "myLuaConf.plugins.noice", },
   { import = "myLuaConf.plugins.surround", },
   {
+    "catppuccin-nvim",
+    for_cat = 'general.telescope',
+    lazy = false,
+    dep_of = { "telescope.nvim", "nvim-lspconfig", "noice.nvim", },
+    after = function(plugin)
+      require("catppuccin").setup({
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          treesitter = true,
+          noice = true,
+          notify = true,
+          dap = true,
+          fzf = true,
+          flash = true,
+          -- navic = true,
+          dap_ui = true,
+          fidget = true,
+          markdown = true,
+          which_key = true,
+          rainbow_delimiters = true,
+          nvim_surround = true,
+        },
+      })
+    end,
+  },
+  {
+    "rainbow-delimiters.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('rainbow-delimiters.setup').setup({})
+    end,
+  },
+  {
     "lazydev.nvim",
     for_cat = 'neonixdev',
     cmd = { "LazyDev" },

@@ -42,15 +42,15 @@ if nixCats('neonixdev') then
       if nixCats.extra("nixdExtras.systemCFGname") then
         -- (builtins.getFlake "<path_to_system_flake>").nixosConfigurations."<name>".options
         servers.nixd.nixd.options.nixos = {
-          expr = [[(builtins.getFlake "]] .. flakePath ..  [[").nixosConfigurations."]] ..
-            nixCats.extra("nixdExtras.systemCFGname") .. [[".options]]
+          expr = [[(builtins.getFlake "]] .. flakePath .. [[").nixosConfigurations."]] ..
+              nixCats.extra("nixdExtras.systemCFGname") .. [[".options]]
         }
       end
       if nixCats.extra("nixdExtras.homeCFGname") then
         -- (builtins.getFlake "<path_to_system_flake>").homeConfigurations."<name>".options
         servers.nixd.nixd.options["home-manager"] = {
           expr = [[(builtins.getFlake "]] .. flakePath .. [[").homeConfigurations."]]
-            .. nixCats.extra("nixdExtras.homeCFGname") .. [[".options]]
+              .. nixCats.extra("nixdExtras.homeCFGname") .. [[".options]]
         }
       end
     end
@@ -58,7 +58,6 @@ if nixCats('neonixdev') then
     servers.rnix = {}
     servers.nil_ls = {}
   end
-
 end
 
 if nixCats('go') then
@@ -84,7 +83,7 @@ end
 -- servers.rust_analyzer = {},
 -- servers.tsserver = {},
 -- servers.html = { filetypes = { 'html', 'twig', 'hbs'} },
-servers.ocamllsp = {}
+
 
 require('lze').load {
   {
@@ -98,17 +97,19 @@ require('lze').load {
     end,
     after = function(plugin)
       if require('nixCatsUtils').isNixCats then
+          local lspconfig = require('lspconfig')
         for server_name, cfg in pairs(servers) do
-          require('lspconfig')[server_name].setup({
+          lspconfig[server_name].setup({
             capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities(server_name),
             -- this line is interchangeable with the above LspAttach autocommand
-            -- on_attach = require('myLuaConf.LSPs.caps-on_attach').on_attach,
+            on_attach = require('myLuaConf.LSPs.caps-on_attach').on_attach,
             settings = cfg,
             filetypes = (cfg or {}).filetypes,
             cmd = (cfg or {}).cmd,
             root_pattern = (cfg or {}).root_pattern,
           })
         end
+          lspconfig.ocamllsp.setup(require('myLuaConf.LSPs.servers.ocamllsp'))
       else
         require('mason').setup()
         local mason_lspconfig = require 'mason-lspconfig'

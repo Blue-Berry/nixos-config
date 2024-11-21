@@ -21,14 +21,6 @@
 -- See `:help telescope` and `:help telescope.setup()`
 return {
   {
-    "catppuccin-nvim",
-    for_cat = 'general.telescope',
-    dep_of = { "telescope.nvim", },
-    after = function(plugin)
-      require("catppuccin").setup()
-    end,
-  },
-  {
     "telescope.nvim",
     for_cat = 'general.telescope',
     cmd = { "Telescope", "LiveGrepGitRoot" },
