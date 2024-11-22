@@ -239,11 +239,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1732100541,
-        "narHash": "sha256-vFeNbKUstvSZbe9TD4bDYozZd+A/bKD+fxCye+p/Mp8=",
+        "lastModified": 1732242702,
+        "narHash": "sha256-/sSHuhA0FNrx1H/jCX2ux0GD7S48hNrvV8MEESrO+fY=",
         "ref": "refs/heads/main",
-        "rev": "940f7aa990dbc99815bab8d355999d8277534b17",
-        "revCount": 5484,
+        "rev": "b1003445953474b967464d4d0878955d37498647",
+        "revCount": 5486,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -426,12 +426,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-m/Wh7x2PK4LX20redx2APywe2LyNQ92k/IjBPAFh7+s=",
-        "path": "/nix/store/7phddfzr0f927gss2apc54fjw5mnqgb6-source/nvim",
+        "narHash": "sha256-5GK31VKhocAr6TzWAI8H8B1rEuHqocq/lrFLBxWXNi0=",
+        "path": "/nix/store/2ijldj33ssnjfxlkbbhm108j6wzmgvld-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/7phddfzr0f927gss2apc54fjw5mnqgb6-source/nvim",
+        "path": "/nix/store/2ijldj33ssnjfxlkbbhm108j6wzmgvld-source/nvim",
         "type": "path"
       }
     },

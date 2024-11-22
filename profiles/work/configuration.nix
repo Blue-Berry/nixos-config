@@ -23,6 +23,9 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ../../nixos/packages/default.nix
+    ../../overlays/enable.nix
+    ../../nixos/flake-options.nix
+    ../../nixos/fonts.nix
 
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix

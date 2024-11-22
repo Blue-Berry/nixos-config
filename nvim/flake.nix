@@ -131,6 +131,7 @@
           universal-ctags
           ripgrep
           fd
+          tree-sitter
         ];
         # these names are arbitrary.
         lint = with pkgs; [
@@ -178,7 +179,7 @@
         # packageDefinitions of the package this was packaged with.
         # :help nixCats.flake.outputs.categoryDefinitions.scheme
         themer = with pkgs.vimPlugins; (
-          builtins.getAttr (categories.colorscheme or "catppuccin-macchiato") {
+          builtins.getAttr (categories.colorscheme or "catppuccin-mocha") {
             # Theme switcher without creating a new category
             "onedark" = onedark-nvim;
             "catppuccin-latte" = catppuccin-nvim;
@@ -427,7 +428,7 @@
           # you could also pass something else:
           # see :help nixCats
           themer = true;
-          colorscheme = "catppuccin-macchiato";
+          colorscheme = "catppuccin-mocha";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass

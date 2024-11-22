@@ -9,6 +9,5 @@
     pkgs.zsh
     pkgs.git
     pkgs.usbutils
-    inputs.nixCats.packages."${pkgs.system}".default
   ];
 }

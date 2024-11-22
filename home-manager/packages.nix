@@ -8,16 +8,12 @@
     alejandra
     asm-lsp
     base16-schemes
-    inputs.zen-browser.packages."${pkgs.system}".specific
     bat
     bottom
     btop
-    steam-run
-    discord
-    zip
-    unzip
     chromium
     dig
+    discord
     eza
     fastfetch
     fd
@@ -37,6 +33,8 @@
     gparted
     hydrapaper
     inetutils
+    inputs.nixCats.packages."${pkgs.system}".default
+    inputs.zen-browser.packages."${pkgs.system}".specific
     kitty
     lazygit
     libqalculate
@@ -48,8 +46,8 @@
     ncdu
     neovide
     nerdfonts
-    nixd
     nil
+    nixd
     nmap
     nodejs
     ntfs3g
@@ -67,18 +65,21 @@
     spotify
     starship
     starship
+    steam-run
     tealdeer
     teams-for-linux
     thefuck
     thefuck
     tmux
     tokei
+    unzip
     vlc
     vscode
     wget
     wireshark
     xclip
     zed-editor
+    zip
     zoxide
   ];
 }
