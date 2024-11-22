@@ -27,12 +27,12 @@
   services.hyprpaper.enable = true;
   services.hyprpaper.settings = {
     wallpaper = [
-      "HDMI-A-1, ${config.home.homeDirectory}/nixos-config/wallpapers/earth.jpeg"
-      "DP-1, ${config.home.homeDirectory}/nixos-config/wallpapers/earth_flipped.jpeg"
+      "HDMI-A-1, ${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
+      "DP-2, ${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
     ];
     preload = [
-      "${config.home.homeDirectory}/nixos-config/wallpapers/earth.jpeg"
-      "${config.home.homeDirectory}/nixos-config/wallpapers/earth_flipped.jpeg"
+      "${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
+      "${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
     ];
     ipc = "off";
     splash = "false";
@@ -61,10 +61,10 @@
           size = 3;
           passes = 1;
         };
-        drop_shadow = "yes";
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        # drop_shadow = "yes";
+        # shadow_range = 4;
+        # shadow_render_power = 3;
+        # "col.shadow" = "rgba(1a1a1aee)";
       };
       general = {
         "col.active_border" = "rgba(74c7ecff)";
@@ -88,7 +88,7 @@
       # ];
       monitor = [
         "HDMI-A-1, 1920x1080, 0x0, 1"
-        "DP-3,1920x1080, 1920x0,1"
+        "DP-2,1920x1080, 1920x0,1"
       ];
       # Execute your favorite apps at launch
       exec-once = [
@@ -171,8 +171,8 @@
       ];
 
       workspace = [
-        "1,monitor:DP-3"
-        "1,monitor:DP-3"
+        "1,monitor:DP-2"
+        "1,monitor:DP-2"
       ];
     };
   };
