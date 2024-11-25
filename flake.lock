@@ -443,11 +443,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-UmvzVTU250bKv++Mi+NUwiP6pk01mAigtcIUgSRpOiQ=",
-        "path": "/nix/store/2qwb4a3ig4v2zq8la1717bm5vvk37kk7-source/nvim",
+        "path": "/nix/store/6fzbkgvsx8plc50nf5vg9fgw9y1jfq5w-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/2qwb4a3ig4v2zq8la1717bm5vvk37kk7-source/nvim",
+        "path": "/nix/store/6fzbkgvsx8plc50nf5vg9fgw9y1jfq5w-source/nvim",
         "type": "path"
       }
     },
