@@ -62,7 +62,6 @@
     ripgrep
     rsync
     rustup
-    spotify
     starship
     starship
     steam-run
