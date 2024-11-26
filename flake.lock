@@ -442,12 +442,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-LDZxwcoHTaGWzD6e5ZPRfLznaMZXzecyL7fdKGUpXHE=",
-        "path": "/nix/store/gj4fi1lmj6jd3mfql990d74xh3g3f0vy-source/nvim",
+        "narHash": "sha256-Wgrp7QzBClehJzj1FieQai4MmNPaGmvRyEDuSBfkF50=",
+        "path": "/nix/store/apd2sp9il62il7cf18kpxz7rc3rbj05d-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gj4fi1lmj6jd3mfql990d74xh3g3f0vy-source/nvim",
+        "path": "/nix/store/apd2sp9il62il7cf18kpxz7rc3rbj05d-source/nvim",
         "type": "path"
       }
     },
