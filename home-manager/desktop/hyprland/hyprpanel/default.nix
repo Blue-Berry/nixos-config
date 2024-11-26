@@ -16,7 +16,6 @@
     dart-sass
     brightnessctl
     gnome-bluetooth
-
     python312Packages.gpustat
     python312
     pywal

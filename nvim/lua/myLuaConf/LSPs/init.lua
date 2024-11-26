@@ -64,6 +64,8 @@ if nixCats('go') then
   servers.gopls = {}
 end
 
+  servers.gopls = {}
+
 
 -- This is this flake's version of what kickstarter has set up for mason handlers.
 -- This is a convenience function that calls lspconfig on the lsps we downloaded via nix
