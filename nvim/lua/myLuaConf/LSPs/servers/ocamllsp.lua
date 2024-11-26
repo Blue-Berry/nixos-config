@@ -30,6 +30,7 @@ return {
   settings = {
     inlayHints = { enable = true },
     codelens = { enable = true },
+    syntaxDocumentation = { enable = true },
   },
 
   cmd = { "ocamllsp" },
