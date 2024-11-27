@@ -57,7 +57,7 @@ M.refresh_virtlines = function()
       local text = prefix .. title
 
       -- NOTE: this can be "Comment" or "VirtNonText"
-      local lines = { { { text, "VirtNonText" } } }
+      local lines = { { { text, "@comment.documentation" } } }
       if string.len(text) > 100 then
         vim.g.something = true
         lines = {}
@@ -70,7 +70,7 @@ M.refresh_virtlines = function()
             line = line .. " ->"
           end
 
-          table.insert(lines, { { line, "VirtNonText" } })
+          table.insert(lines, { { line, "@comment.documentation" } })
         end
       end
 

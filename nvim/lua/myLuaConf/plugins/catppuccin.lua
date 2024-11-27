@@ -1,5 +1,5 @@
 return {
- {
+  {
     "catppuccin-nvim",
     for_cat = 'general.telescope',
     lazy = false,
@@ -8,13 +8,22 @@ return {
         compile_path = nixCats("cacheDir"),
         custom_highlights = function(colors)
           return {
-            LineNr = { fg = colors.teal },
+            LineNr = { fg = colors.blue },
             ["@module"] = { fg = colors.red },
             ["@keyword.conditional"] = { fg = colors.yellow },
-            ["@keyword.repeat"] = { fg = colors.yellow },
-            ["@keyword.type"] = { fg = colors.teal },
             ["@keyword.modifier"] = { fg = colors.teal },
--- @keyword.function       
+            ["@variable.parameter"] = { fg = colors.sapphire },
+            ["@variable.member"] = { fg = colors.mauve },
+            ["@keyword"] = { fg = colors.sky },
+            ["@keyword.coroutine"] = { fg = colors.sky },
+            ["@keyword.function"] = { fg = colors.sky },
+            ["@keyword.import"] = { fg = colors.sky },
+            ["@keyword.repeat"] = { fg = colors.sky },
+            ["@keyword.return"] = { fg = colors.sky },
+            ["@keyword.debug"] = { fg = colors.sky },
+            ["@comment.documentation"] = { fg = colors.overlay1 , style = {"italic"} },
+
+            -- @keyword.function
           }
         end,
         flavour = "mocha",
@@ -44,29 +53,29 @@ return {
     end,
   },
 }
--- "rosewater" 
--- "flamingo" 
--- "pink" 
--- "mauve" 
--- "red" 
--- "maroon" 
--- "peach" 
--- "yellow" 
--- "green" 
--- "teal" 
--- "sky" 
--- "sapphire" 
--- "blue" 
--- "lavender" 
--- "text" 
--- "subtext1" 
--- "subtext0" 
--- "overlay2" 
--- "overlay1" 
--- "overlay0" 
--- "surface2" 
--- "surface1" 
--- "surface0" 
--- "base" 
--- "mantle" 
+-- "rosewater"
+-- "flamingo"
+-- "pink"
+-- "mauve"
+-- "red"
+-- "maroon"
+-- "peach"
+-- "yellow"
+-- "green"
+-- "teal"
+-- "sky"
+-- "sapphire"
+-- "blue"
+-- "lavender"
+-- "text"
+-- "subtext1"
+-- "subtext0"
+-- "overlay2"
+-- "overlay1"
+-- "overlay0"
+-- "surface2"
+-- "surface1"
+-- "surface0"
+-- "base"
+-- "mantle"
 -- "crust"

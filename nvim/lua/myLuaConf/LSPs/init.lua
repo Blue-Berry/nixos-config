@@ -64,7 +64,25 @@ if nixCats('go') then
   servers.gopls = {}
 end
 
-  servers.gopls = {}
+servers.gopls = {
+  gopls = {
+    completeUnimported = true,
+    usePlaceholders = true,
+    analyses = {
+      unusedparams = true,
+    },
+    staticcheck = true,
+    hints = {
+      rangeVariableTypes = true,
+      parameterNames = true,
+      constantValues = true,
+      assignVariableTypes = true,
+      compositeLiteralFields = true,
+      compositeLiteralTypes = true,
+      functionTypeParameters = true,
+    },
+  },
+}
 
 
 -- This is this flake's version of what kickstarter has set up for mason handlers.
@@ -99,7 +117,7 @@ require('lze').load {
     end,
     after = function(plugin)
       if require('nixCatsUtils').isNixCats then
-          local lspconfig = require('lspconfig')
+        local lspconfig = require('lspconfig')
         for server_name, cfg in pairs(servers) do
           lspconfig[server_name].setup({
             capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities(server_name),
@@ -111,7 +129,7 @@ require('lze').load {
             root_pattern = (cfg or {}).root_pattern,
           })
         end
-          lspconfig.ocamllsp.setup(require('myLuaConf.LSPs.servers.ocamllsp'))
+        lspconfig.ocamllsp.setup(require('myLuaConf.LSPs.servers.ocamllsp'))
       else
         require('mason').setup()
         local mason_lspconfig = require 'mason-lspconfig'
