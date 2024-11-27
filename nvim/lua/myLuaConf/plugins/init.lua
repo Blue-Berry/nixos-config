@@ -60,9 +60,16 @@ require('lze').load {
     "catppuccin-nvim",
     for_cat = 'general.telescope',
     lazy = false,
-    dep_of = { "telescope.nvim", "nvim-lspconfig", "noice.nvim", },
     after = function(plugin)
       require("catppuccin").setup({
+        -- "rosewater" | "flamingo" | "pink" | "mauve" | "red" | "maroon" | "peach" | "yellow" | "green" | "teal" | "sky" | "sapphire" | "blue" | "lavender" | "text" | "subtext1" | "subtext0" | "overlay2" | "overlay1" | "overlay0" | "surface2" | "surface1" | "surface0" | "base" | "mantle" | "crust"
+        custom_highlights = function(colors)
+          return {
+            LineNr = { fg = colors.teal },
+
+          }
+        end,
+        flavour = "mocha",
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -74,7 +81,6 @@ require('lze').load {
           dap = true,
           fzf = true,
           flash = true,
-          -- navic = true,
           dap_ui = true,
           fidget = true,
           markdown = true,
@@ -244,7 +250,7 @@ require('lze').load {
     event = "DeferredUIEnter",
     keys =
     {
-      { "<leader>_", "<cmd>Yazi<cr>",       mode = { "n" }, noremap = true, desc = "Open yazi at the current file" },
+      { "<leader>_", "<cmd>Yazi<cr>", mode = { "n" }, noremap = true, desc = "Open yazi at the current file" },
     },
     after = function(plugin)
       require('yazi').setup({
