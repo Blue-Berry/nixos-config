@@ -415,6 +415,8 @@
           lint = true;
           format = true;
           neonixdev = true;
+          debug = true;
+          neovide = true;
           test = {
             subtest1 = true;
           };
@@ -467,7 +469,7 @@
           lint = true;
           format = true;
           test = true;
-          # go = true; # <- disabled but you could enable it with override or module on install
+          neovide = true;
           lspDebugMode = false;
           themer = true;
           colorscheme = "catppuccin-latte";

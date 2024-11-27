@@ -30,3 +30,6 @@ if nixCats('format') then
 end
 -- NOTE: I didnt actually include any linters or formatters in this configuration,
 -- but it is enough to serve as an example.
+if nixCats('neovide') then
+  require('myLuaConf.neovide')
+end

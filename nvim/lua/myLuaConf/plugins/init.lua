@@ -242,7 +242,10 @@ require('lze').load {
     "yazi.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
-    -- keys = "",
+    keys =
+    {
+      { "<leader>_", "<cmd>Yazi<cr>",       mode = { "n" }, noremap = true, desc = "Open yazi at the current file" },
+    },
     after = function(plugin)
       require('yazi').setup({
         -- your config here
