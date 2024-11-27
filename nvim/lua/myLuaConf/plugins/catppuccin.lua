@@ -6,11 +6,15 @@ return {
     after = function(plugin)
       require("catppuccin").setup({
         compile_path = nixCats("cacheDir"),
-        -- "rosewater" | "flamingo" | "pink" | "mauve" | "red" | "maroon" | "peach" | "yellow" | "green" | "teal" | "sky" | "sapphire" | "blue" | "lavender" | "text" | "subtext1" | "subtext0" | "overlay2" | "overlay1" | "overlay0" | "surface2" | "surface1" | "surface0" | "base" | "mantle" | "crust"
         custom_highlights = function(colors)
           return {
             LineNr = { fg = colors.teal },
-
+            ["@module"] = { fg = colors.red },
+            ["@keyword.conditional"] = { fg = colors.yellow },
+            ["@keyword.repeat"] = { fg = colors.yellow },
+            ["@keyword.type"] = { fg = colors.teal },
+            ["@keyword.modifier"] = { fg = colors.teal },
+-- @keyword.function       
           }
         end,
         flavour = "mocha",
@@ -40,3 +44,29 @@ return {
     end,
   },
 }
+-- "rosewater" 
+-- "flamingo" 
+-- "pink" 
+-- "mauve" 
+-- "red" 
+-- "maroon" 
+-- "peach" 
+-- "yellow" 
+-- "green" 
+-- "teal" 
+-- "sky" 
+-- "sapphire" 
+-- "blue" 
+-- "lavender" 
+-- "text" 
+-- "subtext1" 
+-- "subtext0" 
+-- "overlay2" 
+-- "overlay1" 
+-- "overlay0" 
+-- "surface2" 
+-- "surface1" 
+-- "surface0" 
+-- "base" 
+-- "mantle" 
+-- "crust"
