@@ -128,7 +128,7 @@
         };
         modules = [
           # > Our main home-manager configuration file <
-          (./. + "/profiles" + "/personal/home.nix")
+          (./. + "/profiles" + "/work/home.nix")
         ];
       };
     };

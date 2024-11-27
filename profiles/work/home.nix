@@ -19,6 +19,8 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ../../home-manager/packages.nix
+    ../../overlays/enable.nix
+    ../../home-manager/env-vars.nix
     ../../home-manager/apps/git.nix
     ../../home-manager/apps/kitty.nix
     ../../home-manager/apps/zsh.nix
@@ -30,31 +32,6 @@
 
     # ./desktop/hyprland/hyprland.nix
   ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.stable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
-  };
 
   home = {
     username = "liam";
@@ -78,7 +55,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".tmux.conf".source = ../dots/tmux.conf;
+    ".tmux.conf".source = ../../dots/tmux.conf;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -86,13 +63,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "firefox";
-    TERMINAL = "kitty";
-  };
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05"; # Did you read the comment?
 }
