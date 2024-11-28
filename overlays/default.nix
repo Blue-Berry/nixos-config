@@ -12,7 +12,7 @@
     # });
   };
 
-  hyprpanel = inputs.hyprpanel.overlay;
+  # hyprpanel = inputs.hyprpanel.overlay;
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'

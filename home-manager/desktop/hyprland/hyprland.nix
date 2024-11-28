@@ -21,8 +21,8 @@
     wl-clipboard
   ];
   imports = [
-    # ./waybar/default.nix
-    ./hyprpanel/default.nix
+    ./waybar/default.nix
+    # ./hyprpanel/default.nix
   ];
   services.hyprpaper.enable = true;
   services.hyprpaper.settings = {
@@ -92,8 +92,8 @@
       ];
       # Execute your favorite apps at launch
       exec-once = [
-        "hyprpaper & swww & networkmanagerapplet & dunst & blueman-applet &"
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+        "hyprpaper & swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+        # "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
 
       "$mod" = "SUPER";
