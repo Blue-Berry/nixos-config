@@ -45,7 +45,6 @@
     mpv
     ncdu
     neovide
-    nerdfonts
     nil
     nixd
     nmap
