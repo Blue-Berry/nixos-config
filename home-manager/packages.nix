@@ -46,6 +46,7 @@
     ncdu
     neovide
     nil
+    codecrafters-cli
     nixd
     nmap
     nodejs

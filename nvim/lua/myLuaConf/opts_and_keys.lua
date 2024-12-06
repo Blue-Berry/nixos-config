@@ -128,8 +128,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll Up' })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Next Search Result' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Previous Search Result' })
 
-vim.keymap.set("n", "<tab>", "<cmd>bprev<CR>", { desc = 'Previous buffer' })
-vim.keymap.set("n", "<S-tab>", "<cmd>bnext<CR>", { desc = 'Next buffer' })
+vim.keymap.set("n", "<S-tab>", "<cmd>bprev<CR>", { desc = 'Previous buffer' })
+vim.keymap.set("n", "<tab>", "<cmd>bnext<CR>", { desc = 'Next buffer' })
 vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = 'Last buffer' })
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = 'delete buffer' })
 
