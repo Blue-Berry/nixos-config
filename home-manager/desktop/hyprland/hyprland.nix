@@ -151,6 +151,7 @@
         # Example special workspace (scratchpad)
         # "$mod, S, togglespecialworkspace, magic"
         # "$mod SHIFT, S, movetoworkspace, special:magic"
+        "$mod, F, fullscreen"
 
         # Scroll through existing workspaces with mod + scroll
         "$mod, mouse_down, workspace, e+1"
