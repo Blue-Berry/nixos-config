@@ -12,6 +12,7 @@
     bottom
     btop
     chromium
+    codecrafters-cli
     dig
     discord
     eza
@@ -38,6 +39,7 @@
     kitty
     lazygit
     libqalculate
+    libreoffice-fresh
     linuxPackages_latest.perf
     lrzip
     lua-language-server
@@ -46,7 +48,6 @@
     ncdu
     neovide
     nil
-    codecrafters-cli
     nixd
     nmap
     nodejs
