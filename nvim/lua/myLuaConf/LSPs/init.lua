@@ -97,10 +97,10 @@ servers.gopls = {
 --  define the property 'filetypes' to the map in question.
 --  You may do the same thing with cmd
 
--- servers.clangd = {},
+servers.clangd = {}
 -- servers.gopls = {},
 -- servers.pyright = {},
--- servers.rust_analyzer = {},
+servers.rust_analyzer = {}
 -- servers.tsserver = {},
 -- servers.html = { filetypes = { 'html', 'twig', 'hbs'} },
 

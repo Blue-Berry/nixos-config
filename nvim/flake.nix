@@ -297,6 +297,7 @@
             rainbow-delimiters-nvim
             dropbar-nvim
             tiny-inline-diagnostic-nvim
+            nvim-autopairs
             # portal-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.

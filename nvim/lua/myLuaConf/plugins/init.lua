@@ -152,8 +152,8 @@ require('lze').load {
     for_cat = 'general.always',
     event = "DeferredUIEnter",
     keys = {
-      { "<leader>s",         function() require("flash").jump() end,       mode = { "n", "x", "o" }, desc = "Flash" },
-       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<leader>s", function() require("flash").jump() end, mode = { "n", "x", "o" },                            desc = "Flash" },
+      { "R",         mode = { "o", "x" },                    function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
     after = function(plugin)
       require('flash').setup({
@@ -167,6 +167,13 @@ require('lze').load {
         }
       })
     end,
+  },
+  {
+    'nvim-autopairs',
+    on_plugin = 'nvim-lspconfig',
+    after = function(_)
+      require("nvim-autopairs").setup {}
+    end
   },
   {
     'trouble.nvim',
@@ -206,7 +213,7 @@ require('lze').load {
           accept_word = "<C-j>",
         },
         disable_inline_completion = true, -- disables inline completion for use with cmp
-        disable_keymaps = false,           -- disables built in keymaps for more manual control
+        disable_keymaps = false,          -- disables built in keymaps for more manual control
       }
     end,
   },
