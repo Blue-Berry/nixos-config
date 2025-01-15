@@ -35,6 +35,7 @@
     # ./hardware/graphics-amd.nix
     ../../nixos/hardware/touchpad.nix
     # ../../nixos/hardware/displaylink/default.nix
+    ../../nixos/hardware/wooting.nix
     ../../nixos/hardware/solaar.nix
     ../../nixos/hardware/ratbag.nix
     ../../nixos/hardware/tp-link-archer-usb-wifi.nix

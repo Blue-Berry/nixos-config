@@ -11,7 +11,6 @@
     rofi-wayland
     networkmanagerapplet
     font-awesome
-    nerdfonts
     blueman
     hyprpaper
     hyprlock
