@@ -133,6 +133,10 @@ vim.keymap.set("n", "<tab>", "<cmd>bnext<CR>", { desc = 'Next buffer' })
 vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = 'Last buffer' })
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = 'delete buffer' })
 
+-- Quickfix list navigation
+vim.keymap.set("n", "<leader>n", "<cmd>cnext<CR>", { desc = 'Next quickfix item' })
+vim.keymap.set("n", "<leader>N", "<cmd>cprev<CR>", { desc = 'Previous quickfix item' })
+
 -- see help sticky keys on windows
 vim.cmd([[command! W w]])
 vim.cmd([[command! Wq wq]])

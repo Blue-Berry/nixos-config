@@ -252,6 +252,7 @@
                   golang
                   lua
                   c
+                  commonlisp
                 ]
             ))
           ];
@@ -277,6 +278,7 @@
             vim-rhubarb
             nvim-surround
             guess-indent-nvim
+            git-conflict-nvim
           ];
           extra = with pkgs.vimPlugins; [
             fidget-nvim

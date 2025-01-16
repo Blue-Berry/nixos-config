@@ -139,13 +139,18 @@ require('lze').load {
       require("ibl").setup()
     end,
   },
+  -- {
+  --   "guess-indent.nvim",
+  --   for_cat = 'general.always',
+  --   event = "DeferredUIEnter",
+  --   after = function(plugin)
+  --     require('guess-indent').setup({})
+  --   end,
+  -- },
   {
-    "guess-indent.nvim",
+    "vim-sleuth",
     for_cat = 'general.always',
     event = "DeferredUIEnter",
-    after = function(plugin)
-      require('guess-indent').setup({})
-    end,
   },
   {
     "flash.nvim",
@@ -162,7 +167,7 @@ require('lze').load {
             enabled = false
           },
           search = {
-            enabled = true
+            enabled = false
           }
         }
       })
@@ -347,6 +352,14 @@ require('lze').load {
           lualine_z = { 'tabs' }
         },
       })
+    end,
+  },
+  {
+    "git-conflict.nvim",
+    for_cat = 'general.always',
+    event = "DeferredUIEnter",
+    after = function(_)
+      require('git-conflict').setup({})
     end,
   },
   {
