@@ -63,6 +63,7 @@
     ripgrep
     rsync
     rustup
+    sshfs
     starship
     starship
     steam-run

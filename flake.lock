@@ -465,11 +465,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-IrARNfIUYQ8LayMQzLx0n/F/TryuU6DaUfihQC4FqEU=",
-        "path": "/nix/store/525gqdiy8szjb1qmzm2ldzh2viscsxp1-source/nvim",
+        "path": "/nix/store/jgkl87q42p3a73hbij786pak7jwbdq3z-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/525gqdiy8szjb1qmzm2ldzh2viscsxp1-source/nvim",
+        "path": "/nix/store/jgkl87q42p3a73hbij786pak7jwbdq3z-source/nvim",
         "type": "path"
       }
     },
