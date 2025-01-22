@@ -27,6 +27,7 @@
     ../../home-manager/apps/nix-colors.nix
     ../../home-manager/apps/yazi/yazi.nix
     ../../home-manager/apps/spotify.nix
+    ../../home-manager/apps/delta.nix
 
     # ./desktop/hyprland/hyprland.nix
   ];
