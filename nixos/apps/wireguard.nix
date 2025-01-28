@@ -43,24 +43,5 @@
         }
       ];
     };
-    wg1 = {
-      # Determines the IP address and subnet of the server's end of the tunnel interface.
-      ips = ["10.0.0.2/32"];
-
-      # The port that WireGuard listens to. Must be accessible by the client.
-      listenPort = 51821;
-
-      privateKeyFile = "/home/liam/wireguard-keys/private";
-
-      peers = [
-        {
-          publicKey = "l5Bl8G+Oz69MsdhYlBGccHAlADlpNXF6TvTn9p3CdVs=";
-          # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = ["10.0.0.0/16"];
-          endpoint = "ourgrove.duckdns.org:51820";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
   };
 }
