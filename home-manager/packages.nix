@@ -57,6 +57,7 @@
     opam
     opam
     postman
+    prismlauncher
     python3
     qalculate-qt
     qbittorrent
