@@ -218,7 +218,7 @@ require('lze').load {
           accept_word = "<C-j>",
         },
         disable_inline_completion = false, -- disables inline completion for use with cmp
-        disable_keymaps = false,          -- disables built in keymaps for more manual control
+        disable_keymaps = false,           -- disables built in keymaps for more manual control
       }
     end,
   },
@@ -479,5 +479,29 @@ require('lze').load {
         { "<leader>w_",        hidden = true },
       }
     end,
+  },
+  {
+    "vim-ocaml",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+  },
+  {
+    "mini.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    dep_of = { "markdown.nvim" },
+  },
+  {
+    "render-markdown.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+    on_plugin = "nvim-treesitter",
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("mini.nvim")
+    end,
+    after = function(_)
+      require('render-markdown').setup({})
+    end
   },
 }
