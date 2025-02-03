@@ -55,8 +55,6 @@
     ntfs3g
     obsidian
     ocamlPackages.findlib
-    opam
-    opam
     postman
     prismlauncher
     python3
