@@ -504,4 +504,22 @@ require('lze').load {
       require('render-markdown').setup({})
     end
   },
+  {
+    "obsidian.nvim",
+    event = "DeferredUIEnter",
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd("plenary.nvim")
+    end,
+    after = function()
+      require("obsidian").setup({
+        workspaces ={
+          {
+            name = "Knowledge-base",
+            path = "~/knowledge-base",
+          },
+        },
+      })
+    end
+  }
 }

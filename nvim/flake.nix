@@ -303,6 +303,7 @@
             vim-ocaml
             mini-nvim
             render-markdown-nvim
+            obsidian-nvim
             # portal-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
