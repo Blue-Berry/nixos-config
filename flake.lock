@@ -503,12 +503,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-LOVaAV3vt8RkWlJkquNXSD/gYoEWu2hxTjG2GJmhaIw=",
-        "path": "/nix/store/bqb0dxiyw3mmy2bwisljx36qh6ip7405-source/nvim",
+        "narHash": "sha256-sRHtlQ36xuBcFVVuhvgCxk3rjBpgQ2s5rSMLWY42Iyk=",
+        "path": "/nix/store/x3x0fcci76s8vrj84mmbp7h05izmi2gs-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/bqb0dxiyw3mmy2bwisljx36qh6ip7405-source/nvim",
+        "path": "/nix/store/x3x0fcci76s8vrj84mmbp7h05izmi2gs-source/nvim",
         "type": "path"
       }
     },
