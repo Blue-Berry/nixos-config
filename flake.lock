@@ -504,11 +504,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-sRHtlQ36xuBcFVVuhvgCxk3rjBpgQ2s5rSMLWY42Iyk=",
-        "path": "/nix/store/x3x0fcci76s8vrj84mmbp7h05izmi2gs-source/nvim",
+        "path": "/nix/store/db8kzcr919f4zhm8gy78yzd2bpb5r1hy-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/x3x0fcci76s8vrj84mmbp7h05izmi2gs-source/nvim",
+        "path": "/nix/store/db8kzcr919f4zhm8gy78yzd2bpb5r1hy-source/nvim",
         "type": "path"
       }
     },

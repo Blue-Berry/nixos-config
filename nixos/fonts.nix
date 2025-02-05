@@ -4,5 +4,5 @@
     nerd-fonts.droid-sans-mono
     atkinson-monolegible
     atkinson-hyperlegible
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
