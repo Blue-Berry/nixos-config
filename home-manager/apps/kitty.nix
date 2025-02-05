@@ -4,7 +4,8 @@
     enable = true;
     themeFile = "Catppuccin-Mocha";
     font = {
-      name = "FiraCode Nerd Font Mono";
+      # name = "FiraCode Nerd Font Mono";
+      name = "Hasklug Nerd Font Mono";
       size = 10;
     };
     settings = {
