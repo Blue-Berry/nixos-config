@@ -1,0 +1,8 @@
+{...} : {
+  services.ollama = {
+  enable = true;
+  acceleration = "rocm";
+  # Optional: load models on startup
+  loadModels = [];
+};
+        }

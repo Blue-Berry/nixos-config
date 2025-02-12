@@ -43,6 +43,7 @@
     ../../nixos/apps/nvim.nix
     ../../nixos/apps/steam.nix
     ../../nixos/apps/wireguard.nix
+    ../../nixos/apps/ollama.nix
 
     ../../nixos/ports.nix
 
