@@ -15,6 +15,7 @@
     codecrafters-cli
     dig
     discord
+    doggo
     dotool
     eza
     fastfetch
