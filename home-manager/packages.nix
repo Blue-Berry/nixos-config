@@ -16,6 +16,8 @@
     discord
     doggo
     dotool
+    duf
+    dust
     eza
     fastfetch
     fd
@@ -33,7 +35,6 @@
     gnumake
     go
     gparted
-    gping
     gping
     hydrapaper
     hyperfine
@@ -85,6 +86,5 @@
     zed-editor
     zip
     zoxide
-    iputils
   ];
 }
