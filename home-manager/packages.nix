@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     alacritty
     alejandra
-    asm-lsp
     base16-schemes
     bat
     bottom
@@ -34,6 +33,7 @@
     gnumake
     go
     gparted
+    gping
     gping
     hydrapaper
     hyperfine
@@ -74,7 +74,6 @@
     tealdeer
     teams-for-linux
     thefuck
-    thefuck
     tmux
     tokei
     unzip
@@ -86,5 +85,6 @@
     zed-editor
     zip
     zoxide
+    iputils
   ];
 }
