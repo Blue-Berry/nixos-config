@@ -46,6 +46,7 @@
     ../../nixos/apps/ollama.nix
 
     ../../nixos/ports.nix
+    ../../nixos/stylix.nix
 
     ../../nixos/desktop/hyprland/default.nix
     # ./desktop/kde/default.nix

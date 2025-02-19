@@ -15,13 +15,14 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-
     solaar = {
       url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
       #url = "https://flakehub.com/f/Svenum/Solaar-Flake/0.1.1.tar.gz" # uncomment line for solaar version 1.1.13
       #url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     zen-browser.url = "github:omarcresp/zen-browser-flake";
@@ -36,6 +37,7 @@
     nixpkgs,
     home-manager,
     solaar,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -85,6 +87,7 @@
         };
         modules = [
           # > Our main nixos configuration file <
+          stylix.nixosModules.stylix
           solaar.nixosModules.default
           (./. + "/profiles" + "/personal/configuration.nix")
         ];
@@ -97,6 +100,7 @@
         };
         modules = [
           solaar.nixosModules.default
+          stylix.nixosModules.stylix
           (./. + "/profiles" + "/work/configuration.nix")
         ];
       };

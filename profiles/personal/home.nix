@@ -16,18 +16,19 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
-
-    ../../home-manager/packages.nix
-    ../../overlays/enable.nix
-    ../../home-manager/env-vars.nix
+    ../../home-manager/apps/delta.nix
+    ../../home-manager/apps/direnv.nix
     ../../home-manager/apps/git.nix
     ../../home-manager/apps/kitty.nix
-    ../../home-manager/apps/zsh.nix
-    ../../home-manager/apps/starship.nix
-    ../../home-manager/apps/direnv.nix
-    ../../home-manager/apps/yazi/yazi.nix
-    ../../home-manager/desktop/hyprland/hyprland.nix
     ../../home-manager/apps/spotify.nix
+    ../../home-manager/apps/starship.nix
+    ../../home-manager/apps/yazi/yazi.nix
+    ../../home-manager/apps/zsh.nix
+    ../../home-manager/desktop/hyprland/hyprland.nix
+    ../../home-manager/env-vars.nix
+    ../../home-manager/packages.nix
+    ../../home-manager/stylix.nix
+    ../../overlays/enable.nix
   ];
 
   home = {

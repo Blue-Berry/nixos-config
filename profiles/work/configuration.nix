@@ -43,6 +43,7 @@
     ../../nixos/apps/wireguard.nix
 
     ../../nixos/ports.nix
+    ../../nixos/stylix.nix
 
     # ./desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
