@@ -1,7 +1,8 @@
-{inputs, ...}: {
+{nix-colors, ...}: {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    nix-colors.homeManagerModules.default
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.dracula;
+  # colorScheme = nix-colors.colorSchemes.kanagawa;
+  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
 }

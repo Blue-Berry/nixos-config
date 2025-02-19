@@ -3,4 +3,5 @@
 pkgs: {
   # example = pkgs.callPackage ./example { };
   wooting-udev = pkgs.callPackage ./wooting-udev {};
+  showcolors = pkgs.callPackage ./showcolors {};
 }

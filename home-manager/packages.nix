@@ -68,6 +68,7 @@
     ripgrep
     rsync
     rustup
+    showcolors
     sshfs
     starship
     starship

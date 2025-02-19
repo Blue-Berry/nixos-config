@@ -37,6 +37,7 @@
     nixpkgs,
     home-manager,
     solaar,
+    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -112,6 +113,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          inherit nix-colors;
         };
         modules = [
           # > Our main home-manager configuration file <
@@ -124,6 +126,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          inherit nix-colors;
         };
         modules = [
           # > Our main home-manager configuration file <
