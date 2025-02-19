@@ -7,6 +7,8 @@
       terminal = 0.8;
     };
     targets = {
+      bat.enable = true;
+      btop.enable = true;
       hyprland.enable = true;
       waybar.enable = false;
       spicetify.enable = false;
