@@ -488,11 +488,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-sRHtlQ36xuBcFVVuhvgCxk3rjBpgQ2s5rSMLWY42Iyk=",
-        "path": "/nix/store/iy299iynw3a8bxvdc1g9gr75ycxr8i66-source/nvim",
+        "path": "/nix/store/5mk2jb6dhdmlj8simhlgrjyq77bsa4gl-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/iy299iynw3a8bxvdc1g9gr75ycxr8i66-source/nvim",
+        "path": "/nix/store/5mk2jb6dhdmlj8simhlgrjyq77bsa4gl-source/nvim",
         "type": "path"
       }
     },

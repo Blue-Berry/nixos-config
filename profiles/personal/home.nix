@@ -25,7 +25,6 @@
     ../../home-manager/apps/zsh.nix
     ../../home-manager/apps/starship.nix
     ../../home-manager/apps/direnv.nix
-    ../../home-manager/apps/nix-colors.nix
     ../../home-manager/apps/yazi/yazi.nix
     ../../home-manager/desktop/hyprland/hyprland.nix
     ../../home-manager/apps/spotify.nix

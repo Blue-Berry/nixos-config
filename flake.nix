@@ -15,7 +15,6 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    nix-colors.url = "github:misterio77/nix-colors";
 
     solaar = {
       url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
@@ -37,7 +36,6 @@
     nixpkgs,
     home-manager,
     solaar,
-    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -113,7 +111,6 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
-          inherit nix-colors;
         };
         modules = [
           # > Our main home-manager configuration file <
@@ -126,7 +123,6 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
-          inherit nix-colors;
         };
         modules = [
           # > Our main home-manager configuration file <
