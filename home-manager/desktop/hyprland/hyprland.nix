@@ -66,7 +66,7 @@
         # "col.shadow" = "rgba(1a1a1aee)";
       };
       general = {
-        "col.active_border" = "rgba(74c7ecff)";
+        # "col.active_border" = lib.mkForce "rgba(74c7ecff)";
         gaps_in = 4;
         gaps_out = 14;
       };

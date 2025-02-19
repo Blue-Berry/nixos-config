@@ -119,6 +119,7 @@
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/personal/home.nix")
+          stylix.homeManagerModules.stylix
         ];
       };
       work = home-manager.lib.homeManagerConfiguration {
@@ -131,6 +132,7 @@
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/work/home.nix")
+          stylix.homeManagerModules.stylix
         ];
       };
     };
