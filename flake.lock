@@ -675,11 +675,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-sRHtlQ36xuBcFVVuhvgCxk3rjBpgQ2s5rSMLWY42Iyk=",
-        "path": "/nix/store/3c8dkr3iywbndc8qblrcz4hvpj88hcn0-source/nvim",
+        "path": "/nix/store/hia9glaxfmwkhgmy5dsfw2yvsfpd4471-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/3c8dkr3iywbndc8qblrcz4hvpj88hcn0-source/nvim",
+        "path": "/nix/store/hia9glaxfmwkhgmy5dsfw2yvsfpd4471-source/nvim",
         "type": "path"
       }
     },

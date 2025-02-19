@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  imports = [
+    ../nixos/stylix-common.nix
+  ];
   stylix = {
     image = ../wallpapers/earth.jpeg;
     enable = true;
@@ -12,22 +15,6 @@
       waybar.enable = false;
       hyprland.enable = true;
       spicetify.enable = false;
-    };
-
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.hasklug;
-        name = "Hasklug Nerd Font Mono";
-      };
-      sizes = {
-        terminal = 10;
-      };
-    };
-
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 20;
     };
   };
 }
