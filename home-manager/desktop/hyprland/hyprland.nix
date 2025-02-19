@@ -166,9 +166,9 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
       ];
 
-      env = [
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-      ];
+      # env = [
+      #   "HYPRCURSOR_THEME,rose-pine-hyprcursor"
+      # ];
 
       workspace = [
         "2,monitor:DP-2"

@@ -28,7 +28,7 @@
     ../../overlays/enable.nix
     ../../nixos/flake-options.nix
     ../../nixos/fonts.nix
-    ../../nixos/cursor.nix
+    # ../../nixos/cursor.nix
 
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix
