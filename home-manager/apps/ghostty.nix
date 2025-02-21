@@ -4,9 +4,9 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      # font-family = lib.mkForce "Source Code Pro";
-      # font-family = lib.mkForce "Hasklug Nerd Font Mono";
-# Hasklug Nerd Font Mono
+      initial-command = "tmux";
+      background-blur = true;
+      window-decoration = "server";
     };
   };
 }

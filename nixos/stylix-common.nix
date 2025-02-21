@@ -18,6 +18,10 @@
         package = pkgs.hello;
         name = "Hasklug Nerd Font Mono";
       };
+      emoji = {
+        package = pkgs.hello;
+        name = "Hasklug Nerd Font Mono";
+      };
       sizes = {
         terminal = 10;
       };
