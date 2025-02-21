@@ -24,18 +24,18 @@
     # ./hyprpanel/default.nix
   ];
   services.hyprpaper.enable = true;
-  services.hyprpaper.settings = {
-    wallpaper = [
-      "HDMI-A-1, ${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
-      "DP-2, ${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
-    ];
-    preload = [
-      "${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
-      "${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
-    ];
-    ipc = "off";
-    splash = "false";
-  };
+  # services.hyprpaper.settings = {
+  #   wallpaper = [
+  #     "HDMI-A-1, ${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
+  #     "DP-2, ${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
+  #   ];
+  #   preload = [
+  #     "${config.home.homeDirectory}/nixos-config/wallpapers/bh.jpg"
+  #     "${config.home.homeDirectory}/nixos-config/wallpapers/bh-bright-close.jpg"
+  #   ];
+  #   ipc = "off";
+  #   splash = "false";
+  # };
 
   wayland.windowManager.hyprland = {
     # Whether to enable Hyprland wayland compositor
@@ -91,7 +91,7 @@
       ];
       # Execute your favorite apps at launch
       exec-once = [
-        "hyprpaper & swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+        "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
         # "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
 

@@ -1,10 +1,28 @@
 {pkgs, ...}: {
   stylix = {
-    image = ../wallpapers/black_hole_horizon_3840x2160.jpg;
+    image = ../wallpapers/SolarSystem.jpg;
     enable = true;
     polarity = "dark";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    # base16Scheme = {
+    #   base00 = "#0E132C";
+    #   base01 = "#1A2132";
+    #   base02 = "#11112F";
+    #   base03 = "#1B3E49";
+    #   base04 = "#27666C";
+    #   base05 = "#35918B";
+    #   base06 = "#2D292D";
+    #   base07 = "#2F1A31";
+    #   base08 = "#544C52";
+    #   base09 = "#43C8C3";
+    #   base0A = "#6A2D43";
+    #   base0B = "#65604C";
+    #   base0C = "#899681";
+    #   base0D = "#D1CBBD";
+    #   base0E = "#B17F83";
+    #   base0F = "#B43764";
+    # };
     autoEnable = true;
 
     cursor = {
@@ -24,6 +42,9 @@
       };
       sizes = {
         terminal = 10;
+        applications = 11;
+        desktop = 10;
+        popups = 10;
       };
     };
   };
