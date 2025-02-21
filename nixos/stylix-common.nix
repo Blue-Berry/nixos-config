@@ -15,7 +15,7 @@
 
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.hasklug;
+        package = pkgs.hello;
         name = "Hasklug Nerd Font Mono";
       };
       sizes = {
