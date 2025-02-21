@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   stylix = {
-    image = ../wallpapers/earth.jpeg;
+    image = ../wallpapers/black_hole_horizon_3840x2160.jpg;
     enable = true;
     polarity = "dark";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     autoEnable = true;
 
     cursor = {
