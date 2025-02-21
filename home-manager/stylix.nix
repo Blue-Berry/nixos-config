@@ -7,6 +7,7 @@
       terminal = 0.8;
     };
     targets = {
+      yazi.enable = true;
       bat.enable = true;
       btop.enable = true;
       hyprland.enable = true;

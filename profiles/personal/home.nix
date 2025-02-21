@@ -20,6 +20,7 @@
     ../../home-manager/apps/direnv.nix
     ../../home-manager/apps/git.nix
     ../../home-manager/apps/kitty.nix
+    ../../home-manager/apps/ghostty.nix
     ../../home-manager/apps/spotify.nix
     ../../home-manager/apps/starship.nix
     ../../home-manager/apps/yazi/yazi.nix
