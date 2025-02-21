@@ -28,7 +28,6 @@
     };
   };
 }
-
 # https://tinted-theming.github.io/tinted-gallery/
 # 3024.yaml
 # apathy.yaml
@@ -300,3 +299,4 @@
 # xcode-dusk.yaml
 # zenbones.yaml
 # zenburn.yaml
+

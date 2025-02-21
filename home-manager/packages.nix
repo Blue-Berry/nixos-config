@@ -60,6 +60,7 @@
     ntfs3g
     obsidian
     ocamlPackages.findlib
+    okolors
     postman
     prismlauncher
     python3
