@@ -8,6 +8,4 @@
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
 
-  system.autoUpgrade.autoRebuild = true;
-  system.autoUpgrade.dates = "daily";
 }

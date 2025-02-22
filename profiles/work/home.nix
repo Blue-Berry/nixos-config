@@ -25,6 +25,7 @@
     ../../home-manager/apps/starship.nix
     ../../home-manager/apps/yazi/yazi.nix
     ../../home-manager/apps/zsh.nix
+    ../../home-manager/apps/neovide.nix
     ../../home-manager/env-vars.nix
     ../../home-manager/packages.nix
     ../../home-manager/stylix.nix
