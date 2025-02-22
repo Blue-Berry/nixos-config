@@ -2,7 +2,7 @@
   home.packages = [pkgs.neovide];
   programs.neovide = {
     enable = true;
-    settings ={
+    settings = {
       neovim-bin = "n";
     };
   };
