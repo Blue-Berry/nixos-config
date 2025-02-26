@@ -674,12 +674,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-sRHtlQ36xuBcFVVuhvgCxk3rjBpgQ2s5rSMLWY42Iyk=",
-        "path": "/nix/store/ib8g4qs85by9z1gsj233wvwlr2pyfmxs-source/nvim",
+        "narHash": "sha256-5I7/wiZBR9Inor0L+w2Po6i+OJWNIKmzefRP2cWsKlg=",
+        "path": "/nix/store/a7h18b1psa0k878l19bxf1nzanz6hv9w-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ib8g4qs85by9z1gsj233wvwlr2pyfmxs-source/nvim",
+        "path": "/nix/store/a7h18b1psa0k878l19bxf1nzanz6hv9w-source/nvim",
         "type": "path"
       }
     },
@@ -860,6 +860,7 @@
         "solaar": "solaar",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
+        "wallpapers": "wallpapers",
         "zen-browser": "zen-browser"
       }
     },
@@ -1171,6 +1172,22 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740557363,
+        "narHash": "sha256-7B+XLOP/4BFYqrycA1WZpPVpTEUJ+TySUUGmXr4MfvY=",
+        "ref": "refs/heads/main",
+        "rev": "414a5cb8d37b88bcae9be07fb1164f3a9609f4a7",
+        "revCount": 1,
+        "type": "git",
+        "url": "file:wallpapers"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:wallpapers"
       }
     },
     "xdph": {

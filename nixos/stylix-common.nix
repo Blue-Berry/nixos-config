@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   stylix = {
-    image = ../wallpapers/SolarSystem.jpg;
+    image = "${inputs.wallpapers}/SolarSystem.jpg";
     enable = true;
     polarity = "dark";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";

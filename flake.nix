@@ -30,6 +30,11 @@
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    wallpapers ={
+      url = "git+file:wallpapers";
+      flake = false;
+    };
   };
 
   outputs = {
