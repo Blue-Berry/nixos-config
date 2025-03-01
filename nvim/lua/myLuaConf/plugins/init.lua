@@ -486,6 +486,11 @@ require('lze').load {
     event = "DeferredUIEnter",
   },
   {
+    "ocaml.nvim",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+  },
+  {
     "mini.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",

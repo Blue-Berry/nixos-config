@@ -88,6 +88,7 @@ require('nixCatsUtils.catPacker').setup({
   },
 
   { 'cbochs/portal.nvim', },
+  { "tjdevries/ocaml.nvim", build = "make" },
 
   -- all the rest of the setup will be done using the normal setup functions later,
   -- thus working regardless of what method loads the plugins.
