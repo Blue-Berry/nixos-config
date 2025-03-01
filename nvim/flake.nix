@@ -45,6 +45,11 @@
       flake = false;
     };
 
+    "plugins-ocaml"={
+      url = "github:tjdevries/ocaml.nvim";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -304,11 +309,11 @@
             mini-nvim
             render-markdown-nvim
             obsidian-nvim
-            # portal-nvim
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
             pkgs.neovimPlugins.portal
+            pkgs.neovimPlugins.ocaml
           ];
         };
       };

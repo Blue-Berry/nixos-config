@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-ocaml": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737517714,
+        "narHash": "sha256-k3qiV5jVaQMegs5R+s6lmKM6fY2J3nvNUr1eO4fL118=",
+        "owner": "tjdevries",
+        "repo": "ocaml.nvim",
+        "rev": "9320bf553121ff269920510dfe65e9887ce314b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tjdevries",
+        "repo": "ocaml.nvim",
+        "type": "github"
+      }
+    },
     "plugins-portal": {
       "flake": false,
       "locked": {
@@ -51,6 +67,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-ocaml": "plugins-ocaml",
         "plugins-portal": "plugins-portal"
       }
     }

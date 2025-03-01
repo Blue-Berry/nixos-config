@@ -486,9 +486,17 @@ require('lze').load {
     event = "DeferredUIEnter",
   },
   {
-    "ocaml.nvim",
+    "ocaml",
     for_cat = 'general.extra',
-    event = "DeferredUIEnter",
+    on_plugin = "nvim-treesitter",
+    after = function(_)
+      require('ocaml').setup({
+        install_rapper = false,
+        install_mlx = false,
+        setup_lspconfig = false,
+        setup_conform = false,
+      })
+    end,
   },
   {
     "mini.nvim",
