@@ -71,6 +71,7 @@ require('lze').load {
     on_plugin = "nvim-lspconfig",
     after = function(plugin)
       require('tiny-inline-diagnostic').setup({})
+      vim.diagnostic.config({ virtual_text = false })
     end,
   },
   {
