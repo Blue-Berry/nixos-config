@@ -70,7 +70,12 @@ require('lze').load {
     for_cat = 'general.extra',
     on_plugin = "nvim-lspconfig",
     after = function(plugin)
-      require('tiny-inline-diagnostic').setup({})
+      require('tiny-inline-diagnostic').setup({
+         multilines = {
+             enabled = true,
+             always_show = true,
+        }
+      })
       vim.diagnostic.config({ virtual_text = false })
     end,
   },
