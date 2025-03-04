@@ -40,11 +40,6 @@
     #   flake = false;
     # };
 
-    "plugins-portal" = {
-      url = "github:cbochs/portal.nvim";
-      flake = false;
-    };
-
     "plugins-ocaml"={
       url = "github:tjdevries/ocaml.nvim";
       flake = false;
@@ -312,7 +307,6 @@
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
-            pkgs.neovimPlugins.portal
             pkgs.neovimPlugins.ocaml
           ];
         };

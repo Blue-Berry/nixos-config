@@ -287,17 +287,6 @@ require('lze').load {
     end,
   },
   {
-    "portal",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-    -- keys = "",
-    after = function(plugin)
-      require('portal').setup({})
-      vim.keymap.set("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
-      vim.keymap.set("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
-    end,
-  },
-  {
     "fidget.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
