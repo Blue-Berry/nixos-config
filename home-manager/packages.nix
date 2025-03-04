@@ -9,6 +9,7 @@
     base16-schemes
     bat
     bottom
+    bruno
     btop
     chromium
     codecrafters-cli
