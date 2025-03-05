@@ -12,7 +12,7 @@ require('lze').load {
       { "<F2>", desc = "Debug: Step Over" },
       { "<F3>", desc = "Debug: Step Out" },
       { "<leader>b", desc = "Debug: Toggle Breakpoint" },
-      { "<leader>B", desc = "Debug: Set Breakpoint" },
+      -- { "<leader>B", desc = "Debug: Set Breakpoint" },
       { "<F7>", desc = "Debug: See last session result." },
     },
     -- colorscheme = "",
