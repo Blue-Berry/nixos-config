@@ -61,6 +61,7 @@
     ntfs3g
     obsidian
     ocamlPackages.findlib
+    ocamlPackages.magic-trace
     okolors
     postman
     prismlauncher
