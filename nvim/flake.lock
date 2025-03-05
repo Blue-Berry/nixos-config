@@ -47,28 +47,11 @@
         "type": "github"
       }
     },
-    "plugins-portal": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1711985078,
-        "narHash": "sha256-QCdyJ5in3Dm4IVlBUtbGWRZxl87gKHhRiGmZcIGEHm0=",
-        "owner": "cbochs",
-        "repo": "portal.nvim",
-        "rev": "77d9d53fec945bfa407d5fd7120f1b4f117450ed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cbochs",
-        "repo": "portal.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-ocaml": "plugins-ocaml",
-        "plugins-portal": "plugins-portal"
+        "plugins-ocaml": "plugins-ocaml"
       }
     }
   },

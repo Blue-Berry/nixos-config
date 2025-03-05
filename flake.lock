@@ -670,17 +670,16 @@
       "inputs": {
         "nixCats": "nixCats_2",
         "nixpkgs": "nixpkgs_2",
-        "plugins-ocaml": "plugins-ocaml",
-        "plugins-portal": "plugins-portal"
+        "plugins-ocaml": "plugins-ocaml"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Dx5oy8r2eIgXYK7pyucDq67BhwNspE4PQ0LDrOUl6wk=",
-        "path": "/nix/store/v6i6ac1pcsy200dh6gl49s0r2k5ip7y3-source/nvim",
+        "narHash": "sha256-ZfwhkyxfaCNSQWEMZ+7PbAlMZkJ9CrXYQ2KRxYpThJY=",
+        "path": "/nix/store/c33py40hzr93vz0ij97rzv53fw5h9x5l-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/v6i6ac1pcsy200dh6gl49s0r2k5ip7y3-source/nvim",
+        "path": "/nix/store/c33py40hzr93vz0ij97rzv53fw5h9x5l-source/nvim",
         "type": "path"
       }
     },
@@ -824,22 +823,6 @@
       "original": {
         "owner": "tjdevries",
         "repo": "ocaml.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-portal": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1711985078,
-        "narHash": "sha256-QCdyJ5in3Dm4IVlBUtbGWRZxl87gKHhRiGmZcIGEHm0=",
-        "owner": "cbochs",
-        "repo": "portal.nvim",
-        "rev": "77d9d53fec945bfa407d5fd7120f1b4f117450ed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cbochs",
-        "repo": "portal.nvim",
         "type": "github"
       }
     },
