@@ -11,6 +11,7 @@
     bottom
     bruno
     btop
+    calibre
     chromium
     codecrafters-cli
     dig
