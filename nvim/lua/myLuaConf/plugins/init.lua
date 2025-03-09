@@ -71,10 +71,13 @@ require('lze').load {
     on_plugin = "nvim-lspconfig",
     after = function(plugin)
       require('tiny-inline-diagnostic').setup({
-         multilines = {
-             enabled = true,
-             always_show = true,
-        }
+        preset = "ghost",
+        options = {
+          multilines = {
+            enabled = true,
+            always_show = true,
+          },
+        },
       })
       vim.diagnostic.config({ virtual_text = false })
     end,
@@ -521,7 +524,7 @@ require('lze').load {
     end,
     after = function()
       require("obsidian").setup({
-        workspaces ={
+        workspaces = {
           {
             name = "Knowledge-base",
             path = "~/knowledge-base",

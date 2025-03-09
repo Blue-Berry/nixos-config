@@ -10,7 +10,7 @@
     bat
     bottom
     bruno
-    btop
+    btop-rocm
     calibre
     chromium
     codecrafters-cli
