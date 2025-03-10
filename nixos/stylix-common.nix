@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   stylix = {
     image = "${inputs.wallpapers}/SolarSystem.jpg";
     enable = true;

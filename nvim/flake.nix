@@ -40,7 +40,7 @@
     #   flake = false;
     # };
 
-    "plugins-ocaml"={
+    "plugins-ocaml" = {
       url = "github:tjdevries/ocaml.nvim";
       flake = false;
     };
