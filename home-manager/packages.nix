@@ -55,6 +55,7 @@
     mpv
     ncdu
     neovide
+    newsflash
     nil
     nixd
     nmap
