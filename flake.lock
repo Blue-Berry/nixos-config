@@ -696,11 +696,11 @@
       "locked": {
         "lastModified": 0,
         "narHash": "sha256-hoItIMM0vN+EQ7u8GDfU6gGQteC8pNETDw4kaNDxYDA=",
-        "path": "/nix/store/pw4b90qq3qbx0zndjqd7agi7r22i2mf5-source/nvim",
+        "path": "/nix/store/wrh92mqq6nrfbvf0xg7rxf5zhbrwcadl-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/pw4b90qq3qbx0zndjqd7agi7r22i2mf5-source/nvim",
+        "path": "/nix/store/wrh92mqq6nrfbvf0xg7rxf5zhbrwcadl-source/nvim",
         "type": "path"
       }
     },

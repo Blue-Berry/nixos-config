@@ -44,6 +44,7 @@
     ../../nixos/apps/steam.nix
     ../../nixos/apps/wireguard.nix
     ../../nixos/apps/ollama.nix
+    ../../nixos/apps/tailscale.nix
 
     ../../nixos/ports.nix
     ../../nixos/stylix.nix
