@@ -26,6 +26,7 @@
     ../../overlays/enable.nix
     ../../nixos/flake-options.nix
     ../../nixos/fonts.nix
+    ../../nixos/containers.nix
 
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix
@@ -116,9 +117,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable docker
-  virtualisation.docker.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -29,6 +29,7 @@
     ../../nixos/flake-options.nix
     ../../nixos/fonts.nix
     # ../../nixos/cursor.nix
+    ../../nixos/containers.nix
 
     ../../nixos/hardware/bluetooth.nix
     ../../nixos/hardware/sound.nix
@@ -73,9 +74,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable docker
-  virtualisation.docker.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [];

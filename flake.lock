@@ -694,13 +694,13 @@
         "plugins-ocaml": "plugins-ocaml"
       },
       "locked": {
-        "lastModified": 0,
+        "lastModified": 1,
         "narHash": "sha256-hoItIMM0vN+EQ7u8GDfU6gGQteC8pNETDw4kaNDxYDA=",
-        "path": "/nix/store/wrh92mqq6nrfbvf0xg7rxf5zhbrwcadl-source/nvim",
+        "path": "/nix/store/wf4zzy4pa0w5i5c00hdcz8h3vwjwjxxp-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/wrh92mqq6nrfbvf0xg7rxf5zhbrwcadl-source/nvim",
+        "path": "/nix/store/wf4zzy4pa0w5i5c00hdcz8h3vwjwjxxp-source/nvim",
         "type": "path"
       }
     },

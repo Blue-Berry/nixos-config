@@ -1,7 +1,8 @@
 {...}: {
   home.sessionVariables = {
     EDITOR = "n";
-    BROWSER = "firefox";
-    TERMINAL = "kitty";
+    BROWSER = "zen";
+    TERMINAL = "ghostty";
+    MANPAGER = "n +Man!";
   };
 }
