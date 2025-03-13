@@ -3,8 +3,9 @@ return {
     "catppuccin-nvim",
     for_cat = 'general.telescope',
     lazy = false,
-    after = function(plugin)
+    after = function(_)
       require("catppuccin").setup({
+        transparent_background = false, -- disables setting the background color.
         compile_path = nixCats("cacheDir"),
         custom_highlights = function(colors)
           return {

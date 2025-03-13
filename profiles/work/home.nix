@@ -29,6 +29,7 @@
     ../../home-manager/env-vars.nix
     ../../home-manager/packages.nix
     ../../home-manager/stylix.nix
+    ../../home-manager/desktop/dconf.nix
     ../../overlays/enable.nix
 
     # ./desktop/hyprland/hyprland.nix

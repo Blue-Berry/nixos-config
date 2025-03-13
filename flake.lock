@@ -881,13 +881,13 @@
         "plugins-ocaml": "plugins-ocaml"
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-ENKJGUZDg1vJdLKhjA7hWNOI9FViPeRdsR1OgIJpYK8=",
-        "path": "/nix/store/pii5fjhdkixsl37x299qy8hsqw28viwl-source/nvim",
+        "lastModified": 1,
+        "narHash": "sha256-qh+Xr+m5tNOW+F6LcOak474rTazqBhTXqqMnnKZLaf4=",
+        "path": "/nix/store/jp3gpab66fy6n5b31jz013g0p56zshvj-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/pii5fjhdkixsl37x299qy8hsqw28viwl-source/nvim",
+        "path": "/nix/store/jp3gpab66fy6n5b31jz013g0p56zshvj-source/nvim",
         "type": "path"
       }
     },

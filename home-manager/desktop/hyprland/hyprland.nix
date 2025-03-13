@@ -18,6 +18,7 @@
     grim
     slurp
     wl-clipboard
+    qt6ct
   ];
   imports = [
     ./waybar/default.nix

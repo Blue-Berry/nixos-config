@@ -27,6 +27,7 @@
     ../../home-manager/apps/zsh.nix
     ../../home-manager/apps/neovide.nix
     ../../home-manager/desktop/hyprland/hyprland.nix
+    ../../home-manager/desktop/dconf.nix
     ../../home-manager/env-vars.nix
     ../../home-manager/packages.nix
     ../../home-manager/stylix.nix
