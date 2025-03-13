@@ -58,7 +58,7 @@
         rounding = "4";
         blur = {
           enabled = true;
-          size = 3;
+          size = 5;
           passes = 1;
         };
         # drop_shadow = "yes";
@@ -96,8 +96,12 @@
         # "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
 
+      windowrulev2 = [
+        "opacity 0.99 0.94,class:^zen$"
+      ];
+
       "$mod" = "SUPER";
-      "$terminal" = "kitty";
+      "$terminal" = "ghostty";
       "$fileManager" = "Ark";
       bindm = [
         "$mod, mouse:272, movewindow"
