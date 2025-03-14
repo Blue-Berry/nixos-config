@@ -89,6 +89,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          profile = "personal";
         };
         modules = [
           # > Our main nixos configuration file <
@@ -102,6 +103,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          profile = "work";
         };
         modules = [
           solaar.nixosModules.default

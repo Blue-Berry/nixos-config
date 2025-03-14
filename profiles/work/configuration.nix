@@ -38,6 +38,7 @@
     ../../nixos/hardware/wooting.nix
     ../../nixos/hardware/ntfs.nix
     ../../nixos/hardware/logic-analyzer.nix
+    ../../nixos/hardware/optimus/default.nix
 
     ../../nixos/apps/nvim.nix
     # ./../../nixos/apps/steam.nix
