@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  profile,
   ...
 }: {
   home.packages = with pkgs; [
@@ -23,6 +24,11 @@
   imports = [
     ./waybar/default.nix
     # ./hyprpanel/default.nix
+    (
+      if profile == "personal"
+      then ./monitors/personal.nix
+      else ./monitors/work.nix
+    )
   ];
   services.hyprpaper.enable = true;
   # services.hyprpaper.settings = {
@@ -86,10 +92,6 @@
       #   # # Monitor DVI-I-2 (ID 2):
       #   # 	1920x1080@60.00000 at 3200x0
       # ];
-      monitor = [
-        "HDMI-A-1, 1920x1080, 0x0, 1"
-        "DP-2,1920x1080, 1920x0,1"
-      ];
       # Execute your favorite apps at launch
       exec-once = [
         "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"

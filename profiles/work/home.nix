@@ -32,7 +32,7 @@
     ../../home-manager/desktop/dconf.nix
     ../../overlays/enable.nix
 
-    # ./desktop/hyprland/hyprland.nix
+    ../../home-manager/desktop/hyprland/hyprland.nix
   ];
 
   home = {

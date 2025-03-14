@@ -47,7 +47,7 @@
     ../../nixos/ports.nix
     ../../nixos/stylix.nix
 
-    # ./desktop/hyprland/default.nix
+    ../../nixos/desktop/hyprland/default.nix
     # ./desktop/kde/default.nix
     ../../nixos/desktop/gnome/default.nix
 

@@ -883,11 +883,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-qh+Xr+m5tNOW+F6LcOak474rTazqBhTXqqMnnKZLaf4=",
-        "path": "/nix/store/jp3gpab66fy6n5b31jz013g0p56zshvj-source/nvim",
+        "path": "/nix/store/agbyldijkn90xnfrg929v6qkk5a0nd5f-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/jp3gpab66fy6n5b31jz013g0p56zshvj-source/nvim",
+        "path": "/nix/store/agbyldijkn90xnfrg929v6qkk5a0nd5f-source/nvim",
         "type": "path"
       }
     },

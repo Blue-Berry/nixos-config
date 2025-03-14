@@ -120,6 +120,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          profile = "personal";
         };
         modules = [
           # > Our main home-manager configuration file <
@@ -133,6 +134,7 @@
           inherit inputs outputs;
           inherit systemSettings;
           inherit userSettings;
+          profile = "work";
         };
         modules = [
           # > Our main home-manager configuration file <
