@@ -39,6 +39,7 @@
     ../../nixos/hardware/ntfs.nix
     ../../nixos/hardware/logic-analyzer.nix
     ../../nixos/hardware/optimus/default.nix
+    ../../nixos/hardware/optimus/nvidia.nix
 
     ../../nixos/apps/nvim.nix
     # ./../../nixos/apps/steam.nix
