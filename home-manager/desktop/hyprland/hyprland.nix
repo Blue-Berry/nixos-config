@@ -177,10 +177,17 @@
       #   "HYPRCURSOR_THEME,rose-pine-hyprcursor"
       # ];
 
-      workspace = [
-        "2,monitor:DP-2"
-        "1,monitor:HDMI-1"
-      ];
+      workspace =
+        if profile == "personal"
+        then [
+          "2,monitor:DP-2"
+          "1,monitor:HDMI-1"
+        ]
+        else [
+          "1,monitor:DVI-I-1"
+          "2,monitor:DVI-I-2"
+          "3,monitor:HDMI-A-1"
+        ];
     };
   };
 }
