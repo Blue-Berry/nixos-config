@@ -3,6 +3,7 @@
   lib,
   pkgs,
   profile,
+  inputs,
   ...
 }: {
   home.packages = with pkgs; [
@@ -53,7 +54,10 @@
     # Whether to enable XWayland
     xwayland.enable = true;
 
-    # Optional
+    plugins = [
+      # ... whatever
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+    ];
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
     settings = {
@@ -113,6 +117,7 @@
         "$mod ALT, mouse:272, resizewindow"
       ];
       bind = [
+        "$mod, Tab, overview:toggle, all"
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         "$mod, T, exec, $terminal"
         "$mod, Q, killactive,"
