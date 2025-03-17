@@ -20,6 +20,7 @@
     slurp
     wl-clipboard
     qt6ct
+    nwg-look
   ];
   imports = [
     ./waybar/default.nix
@@ -96,10 +97,11 @@
       exec-once = [
         "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
         # "${pkgs.hyprpanel}/bin/hyprpanel"
+        "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
       ];
 
       windowrulev2 = [
-        "opacity 0.99 0.94,class:^zen$"
+        "opacity 0.94 0.94,class:^zen$"
       ];
 
       "$mod" = "SUPER";
