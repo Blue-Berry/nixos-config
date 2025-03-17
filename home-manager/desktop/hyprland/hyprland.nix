@@ -101,7 +101,7 @@
       ];
 
       windowrulev2 = [
-        "opacity 0.94 0.94,class:^zen$"
+        "opacity 0.98 0.94,class:^zen$"
       ];
 
       "$mod" = "SUPER";
