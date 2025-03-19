@@ -903,12 +903,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-qh+Xr+m5tNOW+F6LcOak474rTazqBhTXqqMnnKZLaf4=",
-        "path": "/nix/store/5h705qirbwid9dx4inr2ds2r6vjc22d3-source/nvim",
+        "narHash": "sha256-uipT4dKCJNvPHcJZCEIVFLYgW3rkEPGgfRN9iWDCceA=",
+        "path": "/nix/store/rlsx5wzq58kpm93hfcm55rknd6ny42mg-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/5h705qirbwid9dx4inr2ds2r6vjc22d3-source/nvim",
+        "path": "/nix/store/rlsx5wzq58kpm93hfcm55rknd6ny42mg-source/nvim",
         "type": "path"
       }
     },

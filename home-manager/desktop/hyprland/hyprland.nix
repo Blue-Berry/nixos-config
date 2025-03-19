@@ -184,6 +184,13 @@
       #   "HYPRCURSOR_THEME,rose-pine-hyprcursor"
       # ];
 
+      env =
+        if profile == "work"
+        then [
+          "AQ_DRM_DEVICES,/dev/dri/card3:/dev/dri/card0:/dev/dri/card2:/dev/dri/card1"
+        ]
+        else [];
+
       workspace =
         if profile == "personal"
         then [
