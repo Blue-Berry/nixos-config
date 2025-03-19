@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    alacritty
     alejandra
     base16-schemes
     bat
@@ -45,6 +44,7 @@
     inputs.zen-browser.packages."${pkgs.system}".specific
     iputils
     kitty
+    lazydocker
     lazygit
     libqalculate
     libreoffice-fresh
