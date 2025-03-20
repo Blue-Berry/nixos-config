@@ -85,7 +85,7 @@ require('nixCatsUtils.catPacker').setup({
     "iamcco/markdown-preview.nvim",
     build = ":call mkdp#util#install()",
     opt = true,
-  },
+  }
 
 
   -- all the rest of the setup will be done using the normal setup functions later,

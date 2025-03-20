@@ -45,6 +45,11 @@
       flake = false;
     };
 
+    alloc_scan = {
+      url = "github:Blue-Berry/alloc_scan";
+      flake = true;
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -308,6 +313,7 @@
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
             pkgs.neovimPlugins.ocaml
+            inputs.alloc_scan.packages.${pkgs.system}.default
           ];
         };
       };

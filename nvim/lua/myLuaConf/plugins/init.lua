@@ -497,6 +497,11 @@ require('lze').load {
     end,
   },
   {
+    "alloc_scan",
+    for_cat = 'general.extra',
+    event = "DeferredUIEnter",
+  },
+  {
     "mini.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
