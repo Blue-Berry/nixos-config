@@ -2,18 +2,18 @@
 
 local path_to_exe = vim.fn.expand("<sfile>:h") .. "/mentasm.nvim/main.exe"
 
-function buffer_clock_setup(channel)
+function mentasm_setup(channel)
   -- The channel is exposed as a global vim variable for use in tests.
-  vim.g.buffer_clock_channel = channel
+  vim.g.mentasm_channel = channel
 end
 
 vim.api.nvim_create_user_command(
   "Mentasm",
   function(args)
-    if not vim.g.buffer_clock_job then
-      local opts = { on_exit = function() vim.g.buffer_clock_job = nil end }
+    if not vim.g.mentasm_job then
+      local opts = { on_exit = function() vim.g.mentasm_job = nil end }
       -- The job is exposed as a global vim variable for use in tests.
-      vim.g.buffer_clock_job = vim.fn.jobstart({ path_to_exe }, opts)
+      vim.g.mentasm_job = vim.fn.jobstart({ path_to_exe }, opts)
     end
   end,
   { bar = true, nargs = 0 })
