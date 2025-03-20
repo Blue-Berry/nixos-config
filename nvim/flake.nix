@@ -71,7 +71,7 @@
     # will not apply to module imports
     # as that will have your system values
     extra_pkg_config = {
-      allowUnfree = true;
+      # allowUnfree = true;
     };
     # management of the system variable is one of the harder parts of using flakes.
 
@@ -82,32 +82,26 @@
     # this allows you to use ${pkgs.system} whenever you want in those sections
     # without fear.
 
-    # sometimes our overlays require a ${system} to access the overlay.
-    # The default templates wrap the set we add them to with ${system}
-    # because using them this way requires
-    # least intervention when encountering malformed flakes.
-
-    # Your dependencyOverlays can either be lists
-    # in a set of ${system}, or simply a list.
-    # the nixCats builder function will accept either.
     # see :help nixCats.flake.outputs.overlays
-    inherit
-      (forEachSystem (system: let
-        dependencyOverlays =
-          /*
-          (import ./overlays inputs) ++
-          */
-          [
-            # This overlay grabs all the inputs named in the format
-            # `plugins-<pluginName>`
-            # Once we add this overlay to our nixpkgs, we are able to
-            # use `pkgs.neovimPlugins`, which is a set of our plugins.
-            (utils.standardPluginOverlay inputs)
-            # add any other flake overlays here.
-          ];
-      in {inherit dependencyOverlays;}))
-      dependencyOverlays
-      ;
+    dependencyOverlays =
+      /*
+      (import ./overlays inputs) ++
+      */
+      [
+        # This overlay grabs all the inputs named in the format
+        # `plugins-<pluginName>`
+        # Once we add this overlay to our nixpkgs, we are able to
+        # use `pkgs.neovimPlugins`, which is a set of our plugins.
+        (utils.standardPluginOverlay inputs)
+        # add any other flake overlays here.
+
+        # when other people mess up their overlays by wrapping them with system,
+        # you may instead call this function on their overlay.
+        # it will check if it has the system in the set, and if so return the desired overlay
+        # (utils.fixSystemizedOverlay inputs.codeium.overlays
+        #   (system: inputs.codeium.overlays.${system}.default)
+        # )
+      ];
 
     # see :help nixCats.flake.outputs.categories
     # and
@@ -136,7 +130,6 @@
           universal-ctags
           ripgrep
           fd
-          tree-sitter
         ];
         # these names are arbitrary.
         lint = with pkgs; [
@@ -165,15 +158,17 @@
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         debug = with pkgs.vimPlugins; [
-          nvim-nio # Asynchronous library
+          nvim-nio
         ];
         general = with pkgs.vimPlugins; {
           # you can make subcategories!!!
           # (always isnt a special name, just the one I chose for this subcategory)
           always = [
             lze
+            lzextras
             vim-repeat
             plenary-nvim
+            nvim-notify
           ];
           extra = [
             oil-nvim
