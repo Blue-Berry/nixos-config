@@ -940,13 +940,13 @@
         "plugins-ocaml": "plugins-ocaml"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-F+H9NzKFpf9lRQqoPAGkPhcdTiPML4vqVc0u6tzak/k=",
-        "path": "/nix/store/h2l52rr6jdq8am80n9yb8452szb9nrcq-source/nvim",
+        "lastModified": 0,
+        "narHash": "sha256-zwaa/L8rMl/kGvJLjDSyfyd/y9nb1iBDIXL3wZtKltA=",
+        "path": "/nix/store/52wah5kfj7qn8jg8vqqqva9ibqii0faf-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/h2l52rr6jdq8am80n9yb8452szb9nrcq-source/nvim",
+        "path": "/nix/store/52wah5kfj7qn8jg8vqqqva9ibqii0faf-source/nvim",
         "type": "path"
       }
     },

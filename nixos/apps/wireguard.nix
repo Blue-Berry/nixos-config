@@ -2,6 +2,9 @@
   environment.systemPackages = [
     pkgs.wireguard-tools
   ];
+  networking.firewall = {
+    allowedUDPPorts = [51820 51821]; # Clients and peers can use the same port, see listenport
+  };
   # Wireguard
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
