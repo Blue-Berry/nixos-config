@@ -24,8 +24,8 @@ function M.on_attach(client, bufnr)
   -- because otherwise they would load telescope eagerly when this is defined.
   -- due to us using the on_require handler to make sure it is available.
   if nixCats('general.telescope') then
-    nmap('gr', function() require('telescope.builtin').lsp_references() end, '[G]oto [R]eferences')
-    nmap('gI', function() require('telescope.builtin').lsp_implementations() end, '[G]oto [I]mplementation')
+    -- nmap('gr', function() require('telescope.builtin').lsp_references() end, '[G]oto [R]eferences')
+    -- nmap('gI', function() require('telescope.builtin').lsp_implementations() end, '[G]oto [I]mplementation')
     nmap('<leader>ds', function() require('telescope.builtin').lsp_document_symbols() end, '[D]ocument [S]ymbols')
     nmap('<leader>ws', function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end,
       '[W]orkspace [S]ymbols')

@@ -66,23 +66,6 @@ require('lze').load {
     end,
   },
   {
-    "tiny-inline-diagnostic.nvim",
-    for_cat = 'general.extra',
-    on_plugin = "nvim-lspconfig",
-    after = function(plugin)
-      require('tiny-inline-diagnostic').setup({
-        preset = "ghost",
-        options = {
-          multilines = {
-            enabled = true,
-            always_show = true,
-          },
-        },
-      })
-      vim.diagnostic.config({ virtual_text = false })
-    end,
-  },
-  {
     "rainbow-delimiters.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",

@@ -133,9 +133,6 @@ vim.keymap.set("n", "<tab>", "<cmd>bnext<CR>", { desc = 'Next buffer' })
 vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = 'Last buffer' })
 vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = 'delete buffer' })
 
--- Quickfix list navigation
-vim.keymap.set("n", "<leader>n", "<cmd>cnext<CR>", { desc = 'Next quickfix item' })
-vim.keymap.set("n", "<leader>N", "<cmd>cprev<CR>", { desc = 'Previous quickfix item' })
 
 -- see help sticky keys on windows
 vim.cmd([[command! W w]])
@@ -148,8 +145,6 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
@@ -173,3 +168,4 @@ vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, des
 vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
 
 
+vim.diagnostic.config({virtual_lines = true})
