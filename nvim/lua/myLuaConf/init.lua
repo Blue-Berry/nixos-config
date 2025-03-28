@@ -29,3 +29,5 @@ end
 if nixCats('neovide') then
   require('myLuaConf.neovide')
 end
+
+require("myLuaConf.merlin")

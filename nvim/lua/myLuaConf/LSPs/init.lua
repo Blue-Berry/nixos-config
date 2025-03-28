@@ -49,6 +49,7 @@ require('lze').load {
   },
   {
     "ocamllsp",
+    dep_of = { "ocaml" },
     lsp = require('myLuaConf.LSPs.servers.ocamllsp'),
   },
   {
@@ -62,6 +63,9 @@ require('lze').load {
         setup_lspconfig = false,
         setup_conform = false,
       })
+      vim.keymap.set("n", "<space>cop", require("ocaml.mappings").dune_promote_file,
+        { buffer = 0, desc = "Promote file" })
+      vim.keymap.set("n", "<space>cod", require("ocaml.mappings").destruct, { buffer = 0, desc = "Deconstruct match" })
     end,
   },
   {
