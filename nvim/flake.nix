@@ -132,6 +132,8 @@
           fd
           ocamlPackages.ocaml-lsp
           bash-language-server
+          tree-sitter
+          python3Packages.pylatexenc
         ];
         # these names are arbitrary.
         lint = with pkgs; [
@@ -438,7 +440,7 @@
 
           # this does not have an associated category of plugins,
           # but lua can still check for it
-          lspDebugMode = true;
+          lspDebugMode = false;
           # you could also pass something else:
           # see :help nixCats
           themer = true;

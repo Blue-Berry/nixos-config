@@ -49,8 +49,20 @@ require('lze').load {
   },
   {
     "ocamllsp",
-    enabled = true,
     lsp = require('myLuaConf.LSPs.servers.ocamllsp'),
+  },
+  {
+    "ocaml",
+    for_cat = 'general.extra',
+    ft = "ocaml",
+    after = function(_)
+      require('ocaml').setup({
+        install_rapper = false,
+        install_mlx = false,
+        setup_lspconfig = false,
+        setup_conform = false,
+      })
+    end,
   },
   {
     "bashls",

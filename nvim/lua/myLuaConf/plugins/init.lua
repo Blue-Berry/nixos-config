@@ -467,19 +467,6 @@ require('lze').load {
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
   },
-  -- {
-  --   "ocaml",
-  --   for_cat = 'general.extra',
-  --   on_plugin = "nvim-treesitter",
-  --   after = function(_)
-  --     require('ocaml').setup({
-  --       install_rapper = false,
-  --       install_mlx = false,
-  --       setup_lspconfig = false,
-  --       setup_conform = false,
-  --     })
-  --   end,
-  -- },
   {
     "alloc_scan",
     for_cat = 'general.extra',
