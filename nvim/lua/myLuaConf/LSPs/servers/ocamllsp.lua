@@ -1,5 +1,5 @@
 return {
-  -- on_attach = on_attach,
+  on_attach = on_attach,
   on_attach = function(client, bufnr)
     local on_attach = require("myLuaConf.LSPs.caps-on_attach").on_attach
     on_attach(client, bufnr)
@@ -35,8 +35,7 @@ return {
 
   cmd = { "ocamllsp" },
   filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
-  root_dir = require("lspconfig.util").root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project",
-    "dune-workspace"),
+  -- root_dir = require("lspconfig.util").root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
   capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities("ocamllsp"),
   get_language_id = function(_, ftype)
     return ftype

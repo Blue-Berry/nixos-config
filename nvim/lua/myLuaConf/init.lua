@@ -1,4 +1,3 @@
-
 -- NOTE: various, non-plugin config
 require('myLuaConf.opts_and_keys')
 
@@ -6,6 +5,7 @@ require('myLuaConf.opts_and_keys')
 -- NOTE: also add another one that makes enabling a spec for a category nicer
 require("lze").register_handlers(require('nixCatsUtils.lzUtils').for_cat)
 
+require('lze').register_handlers(require('lzextras').lsp)
 -- NOTE: general plugins
 require("myLuaConf.plugins")
 
@@ -21,9 +21,6 @@ if nixCats('debug') then
 end
 -- NOTE: we included these though! Or, at least, the category is enabled.
 -- these contain nvim-lint and conform setups.
-if nixCats('lint') then
-  require('myLuaConf.lint')
-end
 if nixCats('format') then
   require('myLuaConf.format')
 end

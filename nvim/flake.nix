@@ -130,6 +130,7 @@
           universal-ctags
           ripgrep
           fd
+          ocamlPackages.ocaml-lsp
         ];
         # these names are arbitrary.
         lint = with pkgs; [
@@ -144,6 +145,10 @@
           gotools
           go-tools
           gccgo
+        ];
+        ocaml = with pkgs.ocamlPackages; [
+          merlin
+          ocaml-lsp
         ];
         # and easily check if they are included in lua
         format = with pkgs; [
@@ -418,6 +423,8 @@
           lint = true;
           format = true;
           neonixdev = true;
+          go = true;
+          ocaml = true;
           debug = true;
           neovide = true;
           test = {
@@ -436,6 +443,7 @@
           themer = true;
           colorscheme = "catppuccin";
           cacheDir = "/tmp/cache/catppuccin/";
+          merlinPath = pkgs.ocamlPackages.merlin;
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass
@@ -485,7 +493,8 @@
           # even though path.to.cat would be an indexing error in that case.
           # this is to mimic the concept of "subcategories" but may get in the way of just fetching values.
           nixdExtras = {
-            nixpkgs = nixpkgs;
+            nixpkgs = ''import ${pkgs.path} {}'';
+            # or inherit nixpkgs;
           };
           # yes even tortured inputs work.
           theBestCat = "says meow!!";

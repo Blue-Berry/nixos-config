@@ -7,6 +7,20 @@ end
 -- this is just an example, feel free to do a better job!
 vim.cmd.colorscheme(colorschemeName)
 
+
+local ok, notify = pcall(require, "notify")
+if ok then
+  notify.setup({
+    on_open = function(win)
+      vim.api.nvim_win_set_config(win, { focusable = false })
+    end,
+  })
+  vim.notify = notify
+  vim.keymap.set("n", "<Esc>", function()
+      notify.dismiss({ silent = true, })
+  end, { desc = "dismiss notify popup and clear hlsearch" })
+end
+
 -- NOTE: you can check if you included the category with the thing wherever you want.
 if nixCats('general.extra') then
   -- I didnt want to bother with lazy loading this.
@@ -71,19 +85,6 @@ require('lze').load {
     event = "DeferredUIEnter",
     after = function(plugin)
       require('rainbow-delimiters.setup').setup({})
-    end,
-  },
-  {
-    "lazydev.nvim",
-    for_cat = 'neonixdev',
-    cmd = { "LazyDev" },
-    ft = "lua",
-    after = function(plugin)
-      require('lazydev').setup({
-        library = {
-          { words = { "nixCats" }, path = (require('nixCats').nixCatsPath or "") .. '/lua' },
-        },
-      })
     end,
   },
   {
@@ -466,19 +467,19 @@ require('lze').load {
     for_cat = 'general.extra',
     event = "DeferredUIEnter",
   },
-  {
-    "ocaml",
-    for_cat = 'general.extra',
-    on_plugin = "nvim-treesitter",
-    after = function(_)
-      require('ocaml').setup({
-        install_rapper = false,
-        install_mlx = false,
-        setup_lspconfig = false,
-        setup_conform = false,
-      })
-    end,
-  },
+  -- {
+  --   "ocaml",
+  --   for_cat = 'general.extra',
+  --   on_plugin = "nvim-treesitter",
+  --   after = function(_)
+  --     require('ocaml').setup({
+  --       install_rapper = false,
+  --       install_mlx = false,
+  --       setup_lspconfig = false,
+  --       setup_conform = false,
+  --     })
+  --   end,
+  -- },
   {
     "alloc_scan",
     for_cat = 'general.extra',
