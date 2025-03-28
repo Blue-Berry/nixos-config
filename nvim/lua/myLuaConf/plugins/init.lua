@@ -473,6 +473,10 @@ require('lze').load {
     event = "DeferredUIEnter",
   },
   {
+    "ctrlp.vim",
+    ft = "ocaml",
+  },
+  {
     "mini.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",

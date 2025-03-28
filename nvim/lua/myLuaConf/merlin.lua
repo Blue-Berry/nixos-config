@@ -8,3 +8,4 @@ local dest_path = dest_dir .. '/' .. "merlin.txt"
 local source_path = merlinPath .. '/doc/merlin.txt'
 vim.fn.system { 'cp', source_path, dest_path }
 vim.api.nvim_command(string.format('execute "helptags %s"', dest_dir))
+vim.api.nvim_command(string.format('execute "set rtp+=%s"',"/tmp/merlin/vim"))
