@@ -14,7 +14,7 @@ require('lze').load {
     -- when their filetype trigger loads them
     lsp = function(plugin)
       -- in this case, just extend some default arguments with the ones provided in the lsp table
-      require('lspconfig')[plugin.name].setup(vim.tbl_extend("force",{
+      require('lspconfig')[plugin.name].setup(vim.tbl_extend("force", {
         capabilities = require('myLuaConf.LSPs.caps-on_attach').get_capabilities(plugin.name),
         on_attach = require('myLuaConf.LSPs.caps-on_attach').on_attach,
       }, plugin.lsp or {}))
@@ -49,10 +49,14 @@ require('lze').load {
   },
   {
     "ocamllsp",
-    enabled = not catUtils.isNixCats,
-    lsp = {
-      filetypes = { "nix" },
-    },
+    enabled = true,
+    lsp = require('myLuaConf.LSPs.servers.ocamllsp'),
+  },
+  {
+    "bashls",
+    -- can fall back to using lspconfig to find filetypes
+    -- as long as it can be required
+    lsp = {},
   },
   {
     -- name of the lsp
