@@ -65,12 +65,12 @@ if nixCats('general.extra') then
 end
 
 require('lze').load {
-  { import = "myLuaConf.plugins.telescope", },
-  { import = "myLuaConf.plugins.treesitter", },
-  { import = "myLuaConf.plugins.completion", },
-  { import = "myLuaConf.plugins.noice", },
-  { import = "myLuaConf.plugins.surround", },
-  { import = "myLuaConf.plugins.catppuccin", },
+  { import = "conf.plugins.telescope", },
+  { import = "conf.plugins.treesitter", },
+  { import = "conf.plugins.completion", },
+  { import = "conf.plugins.noice", },
+  { import = "conf.plugins.surround", },
+  { import = "conf.plugins.catppuccin", },
   {
     "dropbar.nvim",
     for_cat = 'general.extra',
@@ -197,6 +197,22 @@ require('lze').load {
       vim.g.startuptime_event_width = 0
       vim.g.startuptime_tries = 10
       vim.g.startuptime_exe_path = require("nixCatsUtils").packageBinPath
+    end,
+  },
+  {
+    "ocaml",
+    for_cat = 'general.extra',
+    on_require = { "ocaml"},
+    after = function(_)
+      require('ocaml').setup({
+        install_rapper = false,
+        install_mlx = false,
+        setup_lspconfig = false,
+        setup_conform = false,
+      })
+      vim.keymap.set("n", "<space>op", require("ocaml.mappings").dune_promote_file,
+        { buffer = 0, desc = "Promote file" })
+      vim.keymap.set("n", "<space>od", require("ocaml.mappings").destruct, { buffer = 0, desc = "Deconstruct match" })
     end,
   },
   {
