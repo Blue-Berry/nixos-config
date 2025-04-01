@@ -51,14 +51,9 @@ require('lze').load {
     end,
   },
   {
-    "ocamllsp",
-    dep_of = { "ocaml" },
-    lsp = require('myLuaConf.LSPs.servers.ocamllsp'),
-  },
-  {
     "ocaml",
     for_cat = 'general.extra',
-    ft = "ocaml",
+    on_require = { "ocaml"},
     after = function(_)
       require('ocaml').setup({
         install_rapper = false,
