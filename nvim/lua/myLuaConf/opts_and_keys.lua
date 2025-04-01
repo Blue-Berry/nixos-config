@@ -168,4 +168,15 @@ vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, des
 vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
 
 
+-- TODO: Move to seperate file
 vim.diagnostic.config({virtual_lines = true})
+vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = " ",
+        [vim.diagnostic.severity.WARN] = " ",
+        [vim.diagnostic.severity.INFO] = " ",
+        [vim.diagnostic.severity.HINT] = "󰌵 ",
+      },
+    },
+  })

@@ -2,6 +2,9 @@ local catUtils = require('nixCatsUtils')
 if (catUtils.isNixCats and nixCats('lspDebugMode')) then
   vim.lsp.set_log_level("debug")
 end
+-- TODO: Switch to native lsp
+  -- create files for each lsp server
+
 -- this is how to use the lsp handler.
 require('lze').load {
   {

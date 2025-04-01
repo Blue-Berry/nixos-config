@@ -1,3 +1,6 @@
+-- Enable lua byte-compilation cache
+vim.loader.enable()
+
 -- NOTE: various, non-plugin config
 require('myLuaConf.opts_and_keys')
 

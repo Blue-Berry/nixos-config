@@ -1,21 +1,5 @@
-# Copyright (c) 2023 BirdeeHub
-# Licensed under the MIT license
-# Welcome to the main example config of nixCats!
-# there is a minimal flake the starter templates use
-# within the nix directory without the nixpkgs input,
-# but this one would work too!
-# Every config based on nixCats is a full nixCats.
-# This example config doesnt use lazy.nvim, and
-# it loads everything via nix.
-# It has some useful tricks
-# in it, especially for lsps, so if you have any questions,
-# first look through the docs, and then here!
-# It has examples of most of the things you would want to do
-# in your main nvim configuration.
-# If there is still not adequate info, ask in discussions
-# on the nixCats repo (or open a PR to add the info to the help!)
 {
-  description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
+  description = "Liam's Custom neovim config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -106,6 +90,7 @@
     # see :help nixCats.flake.outputs.categories
     # and
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
+    # TODO: Move to seperate file
     categoryDefinitions = {
       pkgs,
       settings,
@@ -400,6 +385,7 @@
     # The get function is to prevent errors when querying subcategories.
 
     # see :help nixCats.flake.outputs.packageDefinitions
+    # TODO: Move to seperate file
     packageDefinitions = {
       # the name here is the name of the package
       # and also the default command name for it.
