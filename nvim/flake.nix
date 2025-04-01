@@ -130,7 +130,7 @@
           universal-ctags
           ripgrep
           fd
-          ocamlPackages.ocaml-lsp
+          # ocamlPackages.ocaml-lsp
           bash-language-server
           tree-sitter
           python3Packages.pylatexenc
@@ -144,14 +144,14 @@
           go = [delve];
         };
         go = with pkgs; [
-          gopls
-          gotools
-          go-tools
-          gccgo
+          # gopls
+          # gotools
+          # go-tools
+          # gccgo
         ];
         ocaml = with pkgs.ocamlPackages; [
           merlin
-          ocaml-lsp
+          # ocaml-lsp
         ];
         # and easily check if they are included in lua
         format = with pkgs; [
@@ -441,7 +441,7 @@
 
           # this does not have an associated category of plugins,
           # but lua can still check for it
-          lspDebugMode = false;
+          lspDebugMode = true;
           # you could also pass something else:
           # see :help nixCats
           themer = true;

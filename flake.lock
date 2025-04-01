@@ -941,12 +941,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-He2OGX978SE/fwfB7oUIGX4DYE4cdWKuGaBjPvBZDPo=",
-        "path": "/nix/store/hjddmb0qvy2bx6zlg1jlyjv6vvkhmrcp-source/nvim",
+        "narHash": "sha256-qJ1EpTC8cXTcQGqHra9x89hfoZGeuT9MDdiobyFIawM=",
+        "path": "/nix/store/l4bb58wzcsz6jplavy67fg80x5vbk6iq-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/hjddmb0qvy2bx6zlg1jlyjv6vvkhmrcp-source/nvim",
+        "path": "/nix/store/l4bb58wzcsz6jplavy67fg80x5vbk6iq-source/nvim",
         "type": "path"
       }
     },
