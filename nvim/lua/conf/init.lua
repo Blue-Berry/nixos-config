@@ -10,7 +10,8 @@ require("lze").register_handlers(require('nixCatsUtils.lzUtils').for_cat)
 
 require('lze').register_handlers(require('lzextras').lsp)
 --general plugins
-require("conf.plugins.init")
+require("plugins.init")
+require("conf.colorscheme")
 
 
 -- require("conf.LSPs")

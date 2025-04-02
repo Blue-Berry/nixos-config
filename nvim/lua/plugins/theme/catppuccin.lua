@@ -22,7 +22,7 @@ return {
             ["@keyword.repeat"] = { fg = colors.sky },
             ["@keyword.return"] = { fg = colors.sky },
             ["@keyword.debug"] = { fg = colors.sky },
-            ["@comment.documentation"] = { fg = colors.overlay1, style = { "italic" } },
+            ["@comment.documentation"] = { fg = colors.overlay1 , style = {"italic"} },
 
             -- @keyword.function
           }
@@ -45,11 +45,6 @@ return {
           which_key = true,
           rainbow_delimiters = true,
           nvim_surround = true,
-          indent_blankline = {
-            enabled = true,
-            -- scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
-            colored_indent_levels = true,
-          },
           dropbar = {
             enabled = true,
             color_mode = true, -- enable color for kind's texts, not just kind's icons

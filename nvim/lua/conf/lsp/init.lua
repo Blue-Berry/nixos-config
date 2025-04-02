@@ -8,19 +8,10 @@ vim.lsp.config("*", {
   root_markers = { ".git" },
 })
 vim.lsp.inlay_hint.enable(true)
-vim.diagnostic.config({ virtual_lines = true })
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
-      [vim.diagnostic.severity.HINT] = "󰌵 ",
-    },
-  },
-})
+require("conf.lsp.lsp_cleanup")
+require("conf.lsp.diagnostics")
 
- -- required plugins
+-- required plugins
 require("lze").load {
   {
     "nvim-lspconfig",
@@ -37,7 +28,10 @@ require("lze").load {
   {
     -- lazydev makes your lsp way better in your config without needing extra lsp configuration.
     "lazydev.nvim",
-    for_cat = "neonixdev",
+    for_cat = {
+      cat = "languages.lua",
+      default = true,
+    },
     cmd = { "LazyDev" },
     ft = "lua",
     after = function(_)

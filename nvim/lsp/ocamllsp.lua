@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
           local colors = require("catppuccin.palettes").get_palette "macchiato"
           vim.api.nvim_set_hl(0, "VirtNonText", { fg = colors.peach, italic = true }) -- code lens
           vim.lsp.codelens.refresh()
-          require("conf.LSPs.servers.codelens").refresh_virtlines()
+          require("conf.lsp.codelens").refresh_virtlines()
         end,
         buffer = args.buf,
       })
@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set(
         "n",
         "<leader>tt",
-        require("conf.LSPs.servers.codelens").toggle_virtlines,
+        require("conf.lsp.codelens").toggle_virtlines,
         { silent = true, desc = "Toggle code lens", buffer = 0 }
       )
     end
