@@ -1,15 +1,13 @@
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = 'Open Parent Directory' })
 vim.keymap.set("n", "<leader>-", "<cmd>Oil .<CR>", { noremap = true, desc = 'Open nvim root directory' })
 vim.g.loaded_netrwPlugin = 1
+
 return {
   'oil.nvim',
-  for_cat = {
-    cat = 'functionality',
-    default = true,
-  },
   lazy = false,
   after = function(_)
     require('oil').setup({
+      skip_confirm_for_simple_edits = true,
       default_file_explorer = true,
       columns = {
         'icon',

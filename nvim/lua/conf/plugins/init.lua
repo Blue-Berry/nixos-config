@@ -272,15 +272,6 @@ require('lze').load {
     end,
   },
   {
-    "nvim-bqf",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-    -- keys = "",
-    after = function(plugin)
-      require('bqf').setup({})
-    end,
-  },
-  {
     "neoscroll.nvim",
     for_cat = 'general.extra',
     event = "DeferredUIEnter",

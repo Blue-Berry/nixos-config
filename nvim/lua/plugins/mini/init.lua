@@ -14,8 +14,12 @@ return {
     -- extend f, F, t, T to multiple lines
     require("mini.jump").setup()
     -- add animations to vim actions
-    require('mini.animate').setup()
+    -- require('mini.animate').setup()
+    require("plugins.mini.map")
     -- highlight words under cursor
     require("mini.cursorword").setup()
+    -- Scrollbar and text overview
+
+    -- require("plugins.mini.miniline")
   end,
 }

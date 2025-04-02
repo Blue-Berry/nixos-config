@@ -46,8 +46,8 @@ return {
           rainbow_delimiters = true,
           nvim_surround = true,
           indent_blankline = {
-            enabled = true,
-            -- scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+            enabled = false,
+            scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
             colored_indent_levels = true,
           },
           dropbar = {

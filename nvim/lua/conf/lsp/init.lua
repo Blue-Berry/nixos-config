@@ -7,8 +7,7 @@ end
 vim.lsp.config("*", {
   root_markers = { ".git" },
 })
-vim.lsp.inlay_hint.enable(true)
-require("conf.lsp.lsp_cleanup")
+-- require("conf.lsp.lsp_cleanup")
 require("conf.lsp.diagnostics")
 
 -- required plugins

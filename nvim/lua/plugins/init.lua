@@ -23,64 +23,18 @@ require('lze').load {
   { import = "plugins.surround", },
   { import = "plugins.mini", },
   { import = "plugins.undotree", },
-  {
-    "markdown-preview.nvim",
-    -- NOTE: for_cat is a custom handler that just sets enabled value for us,
-    -- based on result of nixCats('cat.name') and allows us to set a different default if we wish
-    -- it is defined in luaUtils template in lua/nixCatsUtils/lzUtils.lua
-    -- you could replace this with enabled = nixCats('cat.name') == true
-    -- if you didnt care to set a different default for when not using nix than the default you already set
-    for_cat = 'general.markdown',
-    cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle", },
-    ft = "markdown",
-    keys = {
-      { "<leader>mp", "<cmd>MarkdownPreview <CR>",       mode = { "n" }, noremap = true, desc = "markdown preview" },
-      { "<leader>ms", "<cmd>MarkdownPreviewStop <CR>",   mode = { "n" }, noremap = true, desc = "markdown preview stop" },
-      { "<leader>mt", "<cmd>MarkdownPreviewToggle <CR>", mode = { "n" }, noremap = true, desc = "markdown preview toggle" },
-    },
-    before = function(plugin)
-      vim.g.mkdp_auto_close = 0
-    end,
-  },
-  {
-    "vim-sleuth",
-    for_cat = 'general.always',
-    event = "DeferredUIEnter",
-  },
-  {
-    "flash.nvim",
-    for_cat = 'general.always',
-    event = "DeferredUIEnter",
-    keys = {
-      { "<leader>s", function() require("flash").jump() end, mode = { "n", "x", "o" },                            desc = "Flash" },
-      { "R",         mode = { "o", "x" },                    function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-    },
-    after = function(plugin)
-      require('flash').setup({
-        modes = {
-          char = {
-            enabled = false
-          },
-          search = {
-            enabled = false
-          }
-        }
-      })
-    end,
-  },
+  { import = "plugins.theme", },
+  { import = "plugins.markdown", },
+  { import = "plugins.git", },
+  { import = "plugins.flash", },
+  { import = "plugins.auto_indent", },
+  { import = "plugins.languages", },
+  { import = "plugins.terminal", },
   {
     'trouble.nvim',
     cmd = 'Trouble',
     after = function(plugin)
       require('trouble').setup({
-      })
-    end,
-  },
-  {
-    'todo-comments.nvim',
-    on_plugin = 'nvim-lspconfig',
-    after = function(plugin)
-      require('todo-comments').setup({
       })
     end,
   },
@@ -92,19 +46,6 @@ require('lze').load {
       vim.g.startuptime_event_width = 0
       vim.g.startuptime_tries = 10
       vim.g.startuptime_exe_path = require("nixCatsUtils").packageBinPath
-    end,
-  },
-  {
-    "ocaml",
-    for_cat = 'general.extra',
-    on_require = { "ocaml" },
-    after = function(_)
-      require('ocaml').setup({
-        install_rapper = false,
-        install_mlx = false,
-        setup_lspconfig = false,
-        setup_conform = false,
-      })
     end,
   },
   {
@@ -137,184 +78,6 @@ require('lze').load {
         -- see :help yazi.nvim
       })
     end,
-  },
-  {
-    "lazygit.nvim",
-    for_cat = 'general.extra',
-    -- event = "DeferredUIEnter",
-    command = "LazyGit",
-  },
-  {
-    "nvterm",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-    after = function(plugin)
-      require('nvterm').setup({})
-      local terminal = require("nvterm.terminal")
-      local toggle_modes = { 'n', 't' }
-      local mappings = {
-        { toggle_modes, '<A-h>', function() terminal.toggle('horizontal') end },
-        { toggle_modes, '<A-v>', function() terminal.toggle('vertical') end },
-        { toggle_modes, '<A-i>', function() terminal.toggle('float') end },
-      }
-      local opts = { noremap = true, silent = true }
-      for _, mapping in ipairs(mappings) do
-        vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
-      end
-    end,
-  },
-  {
-    "git-conflict.nvim",
-    for_cat = 'general.always',
-    event = "DeferredUIEnter",
-    after = function(_)
-      require('git-conflict').setup({})
-    end,
-  },
-  {
-    "gitsigns.nvim",
-    for_cat = 'general.always',
-    event = "DeferredUIEnter",
-    -- cmd = { "" },
-    -- ft = "",
-    -- keys = "",
-    -- colorscheme = "",
-    after = function(plugin)
-      require('gitsigns').setup({
-        -- See `:help gitsigns.txt`
-        signs = {
-          add = { text = '+' },
-          change = { text = '~' },
-          delete = { text = '_' },
-          topdelete = { text = '‾' },
-          changedelete = { text = '~' },
-        },
-        on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
-
-          local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-          end
-
-          -- Navigation
-          map({ 'n', 'v' }, ']c', function()
-            if vim.wo.diff then
-              return ']c'
-            end
-            vim.schedule(function()
-              gs.next_hunk()
-            end)
-            return '<Ignore>'
-          end, { expr = true, desc = 'Jump to next hunk' })
-
-          map({ 'n', 'v' }, '[c', function()
-            if vim.wo.diff then
-              return '[c'
-            end
-            vim.schedule(function()
-              gs.prev_hunk()
-            end)
-            return '<Ignore>'
-          end, { expr = true, desc = 'Jump to previous hunk' })
-
-          -- Actions
-          -- visual mode
-          map('v', '<leader>hs', function()
-            gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-          end, { desc = 'stage git hunk' })
-          map('v', '<leader>hr', function()
-            gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-          end, { desc = 'reset git hunk' })
-          -- normal mode
-          map('n', '<leader>gs', gs.stage_hunk, { desc = 'git stage hunk' })
-          map('n', '<leader>gr', gs.reset_hunk, { desc = 'git reset hunk' })
-          map('n', '<leader>gS', gs.stage_buffer, { desc = 'git Stage buffer' })
-          map('n', '<leader>gu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
-          map('n', '<leader>gR', gs.reset_buffer, { desc = 'git Reset buffer' })
-          map('n', '<leader>gp', gs.preview_hunk, { desc = 'preview git hunk' })
-          map('n', '<leader>gb', function()
-            gs.blame_line { full = false }
-          end, { desc = 'git blame line' })
-          map('n', '<leader>gd', gs.diffthis, { desc = 'git diff against index' })
-          map('n', '<leader>gD', function()
-            gs.diffthis '~'
-          end, { desc = 'git diff against last commit' })
-
-          -- Toggles
-          map('n', '<leader>gtb', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-          map('n', '<leader>gtd', gs.toggle_deleted, { desc = 'toggle git show deleted' })
-
-          -- Text object
-          map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
-        end,
-      })
-      vim.cmd([[hi GitSignsAdd guifg=#04de21]])
-      vim.cmd([[hi GitSignsChange guifg=#83fce6]])
-      vim.cmd([[hi GitSignsDelete guifg=#fa2525]])
-    end,
-  },
-  {
-    "which-key.nvim",
-    for_cat = 'general.extra',
-    -- cmd = { "" },
-
-    event = "DeferredUIEnter",
-    -- ft = "",
-    -- keys = "",
-    -- colorscheme = "",
-    after = function(plugin)
-      require('which-key').setup({
-      })
-      require('which-key').add {
-        { "<leader><leader>",  group = "buffer commands" },
-        { "<leader><leader>_", hidden = true },
-        { "<leader>c",         group = "[c]ode" },
-        { "<leader>c_",        hidden = true },
-        { "<leader>d",         group = "[d]ocument" },
-        { "<leader>d_",        hidden = true },
-        { "<leader>g",         group = "[g]it" },
-        { "<leader>g_",        hidden = true },
-        { "<leader>m",         group = "[m]arkdown" },
-        { "<leader>m_",        hidden = true },
-        { "<leader>r",         group = "[r]ename" },
-        { "<leader>r_",        hidden = true },
-        { "<leader>s",         group = "[s]earch" },
-        { "<leader>s_",        hidden = true },
-        { "<leader>t",         group = "[t]oggles" },
-        { "<leader>t_",        hidden = true },
-        { "<leader>w",         group = "[w]orkspace" },
-        { "<leader>w_",        hidden = true },
-      }
-    end,
-  },
-  {
-    "vim-ocaml",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-  },
-  {
-    "alloc_scan",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-  },
-  {
-    "ctrlp.vim",
-    ft = "ocaml",
-  },
-  {
-    "render-markdown.nvim",
-    for_cat = 'general.extra',
-    event = "DeferredUIEnter",
-    on_plugin = "nvim-treesitter",
-    load = function(name)
-      vim.cmd.packadd(name)
-      vim.cmd.packadd("mini.nvim")
-    end,
-    after = function(_)
-      require('render-markdown').setup({})
-    end
   },
   {
     "obsidian.nvim",
