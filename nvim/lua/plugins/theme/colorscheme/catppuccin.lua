@@ -8,7 +8,7 @@ return {
 				transparent_background = false, -- disables setting the background color.
 				compile_path = nixCats("cacheDir"),
 				custom_highlights = function(colors)
-					return {
+					local base_styles = {
 						LineNr = { fg = colors.blue },
 						["@module"] = { fg = colors.red },
 						["@keyword.conditional"] = { fg = colors.yellow },
@@ -23,9 +23,17 @@ return {
 						["@keyword.return"] = { fg = colors.sky },
 						["@keyword.debug"] = { fg = colors.sky },
 						["@comment.documentation"] = { fg = colors.overlay1, style = { "italic" } },
-
 						-- @keyword.function
 					}
+					local extra_styles = {
+						require("plugins.theme.colorscheme.ocaml").setup(colors),
+					}
+					for _, style in pairs(extra_styles) do
+					for key, value in pairs(style) do
+						base_styles[key] = value
+					end
+				end
+				return base_styles
 				end,
 				flavour = "mocha",
 				integrations = {
@@ -46,8 +54,7 @@ return {
 					rainbow_delimiters = true,
 					nvim_surround = true,
 					indent_blankline = {
-						enabled = false,
-						-- scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+						enabled = true,
 						colored_indent_levels = true,
 					},
 					dropbar = {
@@ -59,6 +66,13 @@ return {
 		end,
 	},
 }
+
+-- For list of highlights
+-- :telescope highlights
+-- For inspecting highihg under cursor
+-- :Inspect
+
+
 -- "rosewater"
 -- "flamingo"
 -- "pink"

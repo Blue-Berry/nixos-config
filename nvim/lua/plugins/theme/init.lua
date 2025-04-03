@@ -1,6 +1,6 @@
 return {
   { import = "plugins.theme.breadcrumbs", },
-  { import = "plugins.theme.catppuccin", },
+  { import = "plugins.theme.colorscheme.catppuccin", },
   { import = "plugins.theme.fidget", },
   { import = "plugins.theme.indentation_guides", },
   { import = "plugins.theme.keymap-help", },
