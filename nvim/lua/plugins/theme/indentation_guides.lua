@@ -2,15 +2,15 @@ return {
 	"indent-blankline.nvim",
 	for_cat = "general.extra",
 	event = "DeferredUIEnter",
-	after = function(plugin)
+	after = function(_)
 		local highlight = {
-			"RainbowRed",
-			"RainbowYellow",
+			"RainbowViolet",
 			"RainbowBlue",
 			"RainbowOrange",
+			"RainbowYellow",
 			"RainbowGreen",
-			"RainbowViolet",
 			"RainbowCyan",
+			"RainbowRed",
 		}
 		local hooks = require("ibl.hooks")
 		vim.g.rainbow_delimiters = { highlight = highlight }

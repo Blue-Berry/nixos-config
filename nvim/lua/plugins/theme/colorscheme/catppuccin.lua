@@ -10,19 +10,19 @@ return {
 				custom_highlights = function(colors)
 					local base_styles = {
 						LineNr = { fg = colors.blue },
-						["@module"] = { fg = colors.red },
-						["@keyword.conditional"] = { fg = colors.yellow },
-						["@keyword.modifier"] = { fg = colors.teal },
-						["@variable.parameter"] = { fg = colors.sapphire },
-						["@variable.member"] = { fg = colors.mauve },
-						["@keyword"] = { fg = colors.sky },
-						["@keyword.coroutine"] = { fg = colors.sky },
-						["@keyword.function"] = { fg = colors.sky },
-						["@keyword.import"] = { fg = colors.sky },
-						["@keyword.repeat"] = { fg = colors.sky },
-						["@keyword.return"] = { fg = colors.sky },
-						["@keyword.debug"] = { fg = colors.sky },
-						["@comment.documentation"] = { fg = colors.overlay1, style = { "italic" } },
+						-- ["@module"] = { fg = colors.red },
+						-- ["@keyword.conditional"] = { fg = colors.yellow },
+						-- ["@keyword.modifier"] = { fg = colors.teal },
+						-- ["@variable.parameter"] = { fg = colors.sapphire },
+						-- ["@variable.member"] = { fg = colors.mauve },
+						-- ["@keyword"] = { fg = colors.sky },
+						-- ["@keyword.coroutine"] = { fg = colors.sky },
+						-- ["@keyword.function"] = { fg = colors.sky },
+						-- ["@keyword.import"] = { fg = colors.sky },
+						-- ["@keyword.repeat"] = { fg = colors.sky },
+						-- ["@keyword.return"] = { fg = colors.sky },
+						-- ["@keyword.debug"] = { fg = colors.sky },
+						-- ["@comment.documentation"] = { fg = colors.overlay1, style = { "italic" } },
 						-- @keyword.function
 					}
 					local extra_styles = {
@@ -71,6 +71,9 @@ return {
 -- :telescope highlights
 -- For inspecting highihg under cursor
 -- :Inspect
+
+-- Styles list
+-- :h highlight-args
 
 
 -- "rosewater"
