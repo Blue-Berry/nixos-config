@@ -1,3 +1,18 @@
+-- Enable lua byte-compilation cache
+vim.loader.enable()
+
+-- This block is to start the profiler if the environ PROF is set
+if vim.env.PROF then
+  local ok, sp = pcall(require, 'snacks.profiler')
+  if ok then
+    sp.startup({
+      startup = {
+        event = 'VimEnter',
+      },
+    })
+  end
+end
+
 --[[
 NOTE:
 if you plan to always load your nixCats via nix,

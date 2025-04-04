@@ -1,3 +1,7 @@
+if not nixCats("noice") then
+  return {}
+end
+
 return {
   {
     "noice.nvim",

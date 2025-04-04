@@ -14,7 +14,9 @@ return {
 			image = { enabled = false },
 			bigfile = { enabled = true },
 			dim = { enabled = true },
+      input = { enabled = true },
 			debug = require("plugins.snacks.debug"),
+			profiler = { enabled = true, pick = { picker = "trouble" } },
 		})
 
 		-- Config for dim
@@ -28,5 +30,13 @@ return {
 				Snacks.dim.enable()
 			end
 		end, { desc = "Dim outside of scope" })
+
+		vim.keymap.set("n", "<Leader>gg", function()
+			require("snacks").lazygit.open()
+		end, { desc = "Open Lazygit" })
+
+		vim.keymap.set("n", "<Leader>ps", function()
+			Snacks.profiler.scratch()
+		end, { desc = "Profiler Scratch Bufer" })
 	end,
 }

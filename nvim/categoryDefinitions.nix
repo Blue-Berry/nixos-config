@@ -73,6 +73,7 @@
       extra = [
         oil-nvim
         nvim-web-devicons
+        snacks-nvim
       ];
     };
     languages.latex = [
@@ -143,7 +144,6 @@
         cmp-cmdline-history
         lspkind-nvim
         ctrlp-vim
-        snacks-nvim
       ];
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects
