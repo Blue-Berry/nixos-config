@@ -35,10 +35,6 @@
       url = "git+file:wallpapers";
       flake = false;
     };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
   outputs = {
