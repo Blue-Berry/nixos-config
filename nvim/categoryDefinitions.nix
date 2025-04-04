@@ -8,26 +8,23 @@
   ...
 } @ packageDef: let
   fallbackPackage = originalPackage: let
-    fallbackName = "${originalPackage.pname}-fallback";
+    originalName = builtins.baseNameOf (pkgs.lib.getExe originalPackage);
+    fallbackName = "${originalName}-fallback";
   in
     pkgs.writeShellScriptBin fallbackName ''
       exec ${pkgs.lib.getExe originalPackage} "$@"
     '';
 in let
-  fallbackSet = packageSet:
-    builtins.mapAttrs (
-      name: pkg: (fallbackPackage pkg)
+  fallbackList = packageList:
+    builtins.map (
+      pkg: (fallbackPackage pkg)
     )
-    packageSet;
-in rec {
+    packageList;
+in {
   # to define and use a new category, simply add a new list to a set here,
   # and later, you will include categoryname = true; in the set you
   # provide when you build the package using this builder function.
   # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
-
-  fallbackLsps = fallbackSet {
-    ocaml = pkgs.ocamlPackages.ocaml-lsp;
-  };
 
   # lspsAndRuntimeDeps:
   # this section is for dependencies that should be available
@@ -53,7 +50,6 @@ in rec {
       ocaml = with pkgs.ocamlPackages; [
         merlin
         # ocaml-lsp
-        fallbackLsps.ocaml
       ];
       bash = [
         bash-language-server
@@ -70,6 +66,10 @@ in rec {
         alejandra
         nixd
       ];
+
+      fallbackLsps = fallbackList (with pkgs; [
+        ocamlPackages.ocaml-lsp
+      ]);
     };
   };
 
