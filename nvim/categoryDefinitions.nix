@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   pkgs,
   settings,
   categories,
@@ -11,8 +8,7 @@
   ...
 } @ packageDef: let
   fallbackPackage = originalPackage: let
-    originalName = originalPackage.name;
-    fallbackName = "${originalName}-fallback";
+    fallbackName = "${originalPackage.pname}-fallback";
   in
     pkgs.writeShellScriptBin fallbackName ''
       exec ${pkgs.lib.getExe originalPackage} "$@"
@@ -58,7 +54,6 @@ in rec {
         merlin
         # ocaml-lsp
         fallbackLsps.ocaml
-        # (fallbackPackage ocaml-lsp)
       ];
       bash = [
         bash-language-server
