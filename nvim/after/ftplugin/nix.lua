@@ -1,2 +1,1 @@
-vim.lsp.enable("nixd")
-vim.lsp.start(vim.lsp.config.nixd)
+require("conf.lsp.utils").enable_and_start("nixd")

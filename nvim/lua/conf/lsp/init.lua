@@ -7,7 +7,7 @@ end
 vim.lsp.config("*", {
   root_markers = { ".git" },
 })
--- require("conf.lsp.lsp_cleanup")
+require("conf.lsp.lsp_cleanup")
 require("conf.lsp.diagnostics")
 
 -- required plugins

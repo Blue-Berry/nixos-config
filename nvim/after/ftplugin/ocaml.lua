@@ -1,5 +1,4 @@
-vim.lsp.enable({ "ocamllsp" })
-vim.lsp.start(vim.lsp.config.ocamllsp)
+require("conf.lsp.utils").enable_and_start("ocamllsp")
 local set = vim.opt_local
 
 set.shiftwidth = 2
