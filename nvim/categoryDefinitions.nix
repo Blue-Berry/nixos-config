@@ -1,4 +1,7 @@
-{inputs, ...}: {
+{
+  inputs,
+  ...
+}: {
   pkgs,
   settings,
   categories,
@@ -6,11 +9,29 @@
   name,
   mkNvimPlugin,
   ...
-} @ packageDef: {
+} @ packageDef: let
+  fallbackPackage = originalPackage: let
+    originalName = originalPackage.name;
+    fallbackName = "${originalName}-fallback";
+  in
+    pkgs.writeShellScriptBin fallbackName ''
+      exec ${pkgs.lib.getExe originalPackage} "$@"
+    '';
+in let
+  fallbackSet = packageSet:
+    builtins.mapAttrs (
+      name: pkg: (fallbackPackage pkg)
+    )
+    packageSet;
+in rec {
   # to define and use a new category, simply add a new list to a set here,
   # and later, you will include categoryname = true; in the set you
   # provide when you build the package using this builder function.
   # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
+
+  fallbackLsps = fallbackSet {
+    ocaml = pkgs.ocamlPackages.ocaml-lsp;
+  };
 
   # lspsAndRuntimeDeps:
   # this section is for dependencies that should be available
@@ -36,6 +57,8 @@
       ocaml = with pkgs.ocamlPackages; [
         merlin
         # ocaml-lsp
+        fallbackLsps.ocaml
+        # (fallbackPackage ocaml-lsp)
       ];
       bash = [
         bash-language-server
