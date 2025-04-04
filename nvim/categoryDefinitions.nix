@@ -69,6 +69,7 @@ in {
 
       fallbackLsps = fallbackList (with pkgs; [
         ocamlPackages.ocaml-lsp
+        gopls
       ]);
     };
   };

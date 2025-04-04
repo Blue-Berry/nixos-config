@@ -919,13 +919,13 @@
         "plugins-ocaml": "plugins-ocaml"
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-HURGvBPt5saBYRqwD1OmA688jdJ22WN5FPzjPIST8NE=",
-        "path": "/nix/store/whz3743xskp4ws9nxbglmk9k6z0j7k10-source/nvim",
+        "lastModified": 1,
+        "narHash": "sha256-EUpI/y76d0L7FsVCaCY2z548k3lMTeArhDKCLk4l9W4=",
+        "path": "/nix/store/9i8915q8kv8v8rnfgnxk8x4afkmzpz3h-source/nvim",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/whz3743xskp4ws9nxbglmk9k6z0j7k10-source/nvim",
+        "path": "/nix/store/9i8915q8kv8v8rnfgnxk8x4afkmzpz3h-source/nvim",
         "type": "path"
       }
     },
