@@ -143,6 +143,7 @@
         cmp-cmdline-history
         lspkind-nvim
         ctrlp-vim
+        snacks-nvim
       ];
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects
@@ -195,10 +196,8 @@
         vim-startuptime
         supermaven-nvim
         yazi-nvim
-        lazygit-nvim
         nvterm
         nvim-bqf
-        neoscroll-nvim
         flash-nvim
         trouble-nvim
         todo-comments-nvim

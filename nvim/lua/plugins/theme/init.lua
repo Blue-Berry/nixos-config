@@ -6,7 +6,6 @@ return {
   { import = "plugins.theme.keymap-help", },
   { import = "plugins.theme.quickfix", },
   { import = "plugins.theme.rainbow_delimiters", },
-  { import = "plugins.theme.scroll", },
   { import = "plugins.theme.statusline", },
   { import = "plugins.theme.todocomments", },
 }

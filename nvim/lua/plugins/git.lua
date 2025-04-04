@@ -91,10 +91,4 @@ return {
       vim.cmd([[hi GitSignsDelete guifg=#fa2525]])
     end,
   },
-  {
-    "lazygit.nvim",
-    for_cat = 'general.extra',
-    -- event = "DeferredUIEnter",
-    command = "LazyGit",
-  },
 }
