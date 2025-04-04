@@ -1,4 +1,4 @@
-require("conf.lsp.utils").enable_and_start("ocamllsp")
+require("conf.lsp.utils").enable_and_start("ocamllsp", "ocamllsp-fallback")
 local set = vim.opt_local
 
 set.shiftwidth = 2
