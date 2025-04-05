@@ -232,7 +232,6 @@ in {
         # pkgs.neovimPlugins.hlargs
         pkgs.neovimPlugins.ocaml
         inputs.alloc_scan.packages.${pkgs.system}.default
-        pkgs.neovimPlugins.conceal
       ];
     };
   };

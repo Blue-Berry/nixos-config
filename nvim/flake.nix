@@ -34,11 +34,6 @@
       flake = true;
     };
 
-    "plugins-conceal" = {
-      url = "github:Jxstxs/conceal.nvim";
-      flake = false;
-    };
-
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
