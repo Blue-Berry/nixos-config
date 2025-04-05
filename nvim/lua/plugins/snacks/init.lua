@@ -10,7 +10,7 @@ return {
 			-- Enabled plugins
 			lazygit = { enabled = true },
 			quickfile = { enabled = true },
-			scroll = { enabled = true },
+			-- scroll = { enabled = true },
 			image = { enabled = false },
 			bigfile = { enabled = true },
 			dim = { enabled = true },
