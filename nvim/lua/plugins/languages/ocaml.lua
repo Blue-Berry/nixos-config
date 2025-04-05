@@ -25,6 +25,6 @@ return {
     {
         "alloc_scan",
         for_cat = 'languages.ocaml',
-        event = "DeferredUIEnter",
+        ft = "ocaml",
     },
 }

@@ -4,4 +4,4 @@ vim.keymap.set("n", "<space>op", require("ocaml.mappings").dune_promote_file, { 
 vim.keymap.set("n", "<space>od", require("ocaml.mappings").destruct, { buffer = 0, desc = "Deconstruct match" })
 
 vim.o.conceallevel = 1
--- vim.o.concealcursor = "n"
+vim.o.concealcursor = "n"

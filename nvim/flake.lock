@@ -314,22 +314,6 @@
         "type": "github"
       }
     },
-    "plugins-conceal": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1701804831,
-        "narHash": "sha256-4Nhcjk89WD0Kw9iD0YsZ202tRTWlhFHxhVp2kyoju/Y=",
-        "owner": "Jxstxs",
-        "repo": "conceal.nvim",
-        "rev": "1aff9fc5d1157aef1c7c88b6df6d6db21268d00a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Jxstxs",
-        "repo": "conceal.nvim",
-        "type": "github"
-      }
-    },
     "plugins-ocaml": {
       "flake": false,
       "locked": {
@@ -352,7 +336,6 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_4",
-        "plugins-conceal": "plugins-conceal",
         "plugins-ocaml": "plugins-ocaml"
       }
     },
