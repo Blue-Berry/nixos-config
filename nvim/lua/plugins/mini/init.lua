@@ -12,7 +12,7 @@ return {
     -- autopairs
     require("mini.pairs").setup()
     -- extend f, F, t, T to multiple lines
-    require("mini.jump").setup()
+    -- require("mini.jump").setup()
     -- add animations to vim actions
     -- require('mini.animate').setup()
     require("plugins.mini.map")
