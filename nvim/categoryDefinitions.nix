@@ -161,7 +161,6 @@ in {
         cmp-cmdline
         cmp-nvim-lsp-signature-help
         cmp-cmdline-history
-        lspkind-nvim
         ctrlp-vim
       ];
       treesitter = with pkgs.vimPlugins; [

@@ -48,4 +48,23 @@ M.enable_and_start_with_fallback = function(server_name)
 	M.enable_and_start(server_name, server_name .. "-fallback")
 end
 
+M.attached_icon = function(bufnr)
+	if bufnr == 0 then
+		bufnr = vim.api.nvim_get_current_buf()
+	end
+	local clients = vim.lsp.get_clients({ bufnr = bufnr })
+	local icons = {
+		ocamllsp = "🐫",
+		gopls = "",
+		rust_analyzer = "",
+		lua_ls = "",
+	}
+	for _, client in ipairs(clients) do
+		if icons[client.name] then
+			return icons[client.name]
+		end
+	end
+	return "lsp"
+end
+
 return M

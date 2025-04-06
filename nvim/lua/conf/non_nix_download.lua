@@ -46,7 +46,6 @@ require('nixCatsUtils.catPacker').setup({
   { 'folke/lazydev.nvim', opt = true, },
 
   -- completion
-  { 'onsails/lspkind.nvim', opt = true, },
   { 'L3MON4D3/LuaSnip', opt = true, as = "luasnip", },
   { 'saadparwaiz1/cmp_luasnip', opt = true, },
   { 'hrsh7th/cmp-nvim-lsp', opt = true, },
