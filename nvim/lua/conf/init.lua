@@ -31,4 +31,3 @@ if nixCats('neovide') then
 end
 
 require("conf.merlin")
-

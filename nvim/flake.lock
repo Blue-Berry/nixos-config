@@ -314,6 +314,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-repl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743991740,
+        "narHash": "sha256-SOip4vw0ci/YWssqdmxt9KeurFpA8GXmWKDEA0fOtIo=",
+        "owner": "pappasam",
+        "repo": "nvim-repl",
+        "rev": "a20fabb8b40f1c184b9eb49f598e94defd8685d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pappasam",
+        "repo": "nvim-repl",
+        "type": "github"
+      }
+    },
     "plugins-ocaml": {
       "flake": false,
       "locked": {
@@ -336,6 +352,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_4",
+        "plugins-nvim-repl": "plugins-nvim-repl",
         "plugins-ocaml": "plugins-ocaml"
       }
     },
