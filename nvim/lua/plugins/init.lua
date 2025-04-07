@@ -93,4 +93,20 @@ require("lze").load({
 			})
 		end,
 	},
+	{
+		"nvim-repl",
+		ft = "ocaml",
+		keys = {
+			{ "<Leader>rc", "<Plug>(ReplSendCell)", mode = "n", desc = "Send Repl Cell" },
+			{ "<Leader>rr", "<Plug>(ReplSendLine)", mode = "n", desc = "Send Repl Line" },
+			{ "<Leader>rr", "<Plug>(ReplSendVisual)", mode = "x", desc = "Send Repl Visual Selection" },
+		},
+		after = function(_)
+			require("repl").setup({
+				filetype_commands = {
+					ocaml = { cmd = "dune utop", repl_type = "utop", filetype = "ocaml" },
+				},
+			})
+		end,
+	},
 })
