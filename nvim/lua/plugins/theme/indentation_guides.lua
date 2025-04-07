@@ -15,7 +15,7 @@ return {
 		local hooks = require("ibl.hooks")
 		vim.g.rainbow_delimiters = { highlight = highlight }
 		require("ibl").setup({
-			scope = { highlight = highlight, char = "▎" },
+			scope = { highlight = highlight, char = "▎", show_start = false, show_end = false },
 			indent = { char = "▎", tab_char = "▎" },
 		})
 
