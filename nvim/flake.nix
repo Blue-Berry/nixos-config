@@ -39,9 +39,9 @@
       flake = true;
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    # };
   };
 
   # see :help nixCats.flake.outputs
