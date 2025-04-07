@@ -36,7 +36,6 @@ in {
       universal-ctags
       ripgrep
       fd
-      # ocamlPackages.ocaml-lsp
       tree-sitter
     ];
     languages = {
@@ -49,7 +48,6 @@ in {
       ];
       ocaml = with pkgs.ocamlPackages; [
         merlin
-        # ocaml-lsp
       ];
       bash = [
         bash-language-server
@@ -70,6 +68,7 @@ in {
       fallbackLsps = fallbackList (with pkgs; [
         ocamlPackages.ocaml-lsp
         gopls
+        clang
       ]);
     };
   };
@@ -144,6 +143,12 @@ in {
     languages = {
       lua = [
         lazydev-nvim
+      ];
+      ocaml = [
+        pkgs.neovimPlugins.ocaml
+        pkgs.neovimPlugins.nvim-repl
+        inputs.alloc_scan.packages.${pkgs.system}.default
+        vim-ocaml
       ];
     };
     general = {
@@ -222,15 +227,12 @@ in {
         rainbow-delimiters-nvim
         dropbar-nvim
         nvim-autopairs
-        vim-ocaml
         mini-nvim
         render-markdown-nvim
         obsidian-nvim
         # If it was included in your flake inputs as plugins-hlargs,
         # this would be how to add that plugin in your config.
         # pkgs.neovimPlugins.hlargs
-        pkgs.neovimPlugins.ocaml
-        inputs.alloc_scan.packages.${pkgs.system}.default
       ];
     };
   };

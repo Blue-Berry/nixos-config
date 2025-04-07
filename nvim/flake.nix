@@ -29,6 +29,11 @@
       flake = false;
     };
 
+    "plugins-nvim-repl" = {
+      flake = false;
+      url = "github:pappasam/nvim-repl";
+    };
+
     alloc_scan = {
       url = "github:Blue-Berry/alloc_scan";
       flake = true;
