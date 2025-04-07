@@ -6,6 +6,16 @@ function M.on_attach(client, bufnr)
     vim.lsp.inlay_hint.enable(true)
   end
 
+  if client:supports_method('textDocument/codeLens') then
+    vim.api.nvim_create_autocmd({"BufEnter","CursorHold","InsertLeave"}, {
+      callback = function()
+        vim.lsp.codelens.refresh()
+      end,
+      buffer = bufnr,
+    })
+  end
+
+
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
