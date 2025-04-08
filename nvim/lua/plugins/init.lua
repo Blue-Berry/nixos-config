@@ -109,4 +109,11 @@ require("lze").load({
 			})
 		end,
 	},
+	{
+		"hex.nvim",
+		cmd = {"HexDump", "HexAssemble", "HexToggle"},
+		after = function(_)
+			require("hex").setup()
+		end
+	}
 })
