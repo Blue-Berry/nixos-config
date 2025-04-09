@@ -20,6 +20,5 @@ return {
     require("mini.cursorword").setup()
     -- Scrollbar and text overview
 
-    -- require("plugins.mini.miniline")
   end,
 }

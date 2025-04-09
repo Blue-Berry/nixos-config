@@ -33,10 +33,12 @@ require("lze").load {
     },
     cmd = { "LazyDev" },
     ft = "lua",
+    dep_of = { "nvim-dap-ui"},
     after = function(_)
       require('lazydev').setup({
         library = {
           { words = { "nixCats" }, path = (nixCats.nixCatsPath or "") .. '/lua' },
+          { "nvim-dap-ui" },
         },
       })
     end,
