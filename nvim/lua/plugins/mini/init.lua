@@ -4,6 +4,7 @@ return {
   event = "DeferredUIEnter",
   dep_of = { "markdown.nvim" },
   on_plugin = { "nvim-treesitter" },
+  on_require = { "mini" },
   after = function()
     -- use gcc for toggle comment
     require("mini.comment").setup()
@@ -19,6 +20,7 @@ return {
     -- highlight words under cursor
     require("mini.cursorword").setup()
     -- Scrollbar and text overview
+    require("mini.icons").setup()
 
   end,
 }

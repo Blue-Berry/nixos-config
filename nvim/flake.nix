@@ -34,6 +34,11 @@
       url = "github:pappasam/nvim-repl";
     };
 
+    "plugins-blink-cmp-supermaven" = {
+      flake = false;
+      url = "github:Huijiro/blink-cmp-supermaven";
+    };
+
     alloc_scan = {
       url = "github:Blue-Berry/alloc_scan";
       flake = true;

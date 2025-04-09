@@ -169,6 +169,9 @@ in {
         cmp-nvim-lsp-signature-help
         cmp-cmdline-history
         ctrlp-vim
+
+        blink-cmp
+        pkgs.neovimPlugins.blink-cmp-supermaven
       ];
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects

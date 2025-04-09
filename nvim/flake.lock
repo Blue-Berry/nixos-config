@@ -117,6 +117,22 @@
         "type": "github"
       }
     },
+    "plugins-blink-cmp-supermaven": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743533033,
+        "narHash": "sha256-pVu58uzakRdAr89I7e4xotBTr9sd5QWkQQlCs2PeFjg=",
+        "owner": "Huijiro",
+        "repo": "blink-cmp-supermaven",
+        "rev": "635ce12e9e2d2a5a483728ac764d0bc5b57af23b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Huijiro",
+        "repo": "blink-cmp-supermaven",
+        "type": "github"
+      }
+    },
     "plugins-nvim-repl": {
       "flake": false,
       "locked": {
@@ -154,6 +170,7 @@
         "alloc_scan": "alloc_scan",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_3",
+        "plugins-blink-cmp-supermaven": "plugins-blink-cmp-supermaven",
         "plugins-nvim-repl": "plugins-nvim-repl",
         "plugins-ocaml": "plugins-ocaml"
       }
