@@ -47,6 +47,8 @@ require('lze').load {
       dap.listeners.before.event_terminated['dapui_config'] = dapui.close
       dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
+      require("conf.debug.ocaml_earlybird")
+
       -- Dap UI setup
       -- For more information, see |:help nvim-dap-ui|
       dapui.setup {

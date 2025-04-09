@@ -46,23 +46,6 @@ require("lze").load({
 		end,
 	},
 	{
-		"supermaven-nvim",
-		for_cat = "general.extra",
-		event = "DeferredUIEnter",
-		after = function(_)
-			require("supermaven-nvim").setup({
-				keymaps = {
-					accept_suggestion = "<Tab>",
-					clear_suggestion = "<C-]>",
-					accept_word = "<C-j>",
-				},
-				ignore_filetypes = {bigfile = true},
-				disable_inline_completion = false, -- disables inline completion for use with cmp
-				disable_keymaps = false, -- disables built in keymaps for more manual control
-			})
-		end,
-	},
-	{
 		"yazi.nvim",
 		for_cat = "general.extra",
 		event = "DeferredUIEnter",

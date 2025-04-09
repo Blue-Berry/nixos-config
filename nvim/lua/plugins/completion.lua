@@ -76,15 +76,34 @@ return {
 		after = function(plugin)
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
-			luasnip.config.setup({})
+			luasnip.config.setup({
+				region_check_events = "CursorHold,InsertLeave,InsertEnter",
+				-- those are for removing deleted snippets, also a common problem
+				delete_check_events = "TextChanged,InsertEnter",
+			})
 
 			local ls = require("luasnip")
-
 			vim.keymap.set({ "i", "s" }, "<M-n>", function()
 				if ls.choice_active() then
 					ls.change_choice(1)
 				end
 			end)
+
+			-- LuaSnip Snippet History Fix (Seems to work really well, I think.)
+			local luasnip_fix_augroup = vim.api.nvim_create_augroup("MyLuaSnipHistory", { clear = true })
+			vim.api.nvim_create_autocmd("ModeChanged", {
+				pattern = "*",
+				callback = function()
+					if
+						((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
+						and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+						and not require("luasnip").session.jump_active
+					then
+						require("luasnip").unlink_current()
+					end
+				end,
+				group = luasnip_fix_augroup,
+			})
 		end,
 	},
 	{
@@ -127,6 +146,7 @@ return {
 				Unit = "",
 				Value = "ﬦ",
 				Variable = "ﬦ",
+				Supermaven = "",
 			}
 
 			cmp.setup({
@@ -139,6 +159,7 @@ return {
 							buffer = "🅱",
 							nvim_lsp = lsp_icon,
 							luasnip = "㊊",
+							supermaven = "",
 						})[entry.source.name]
 						return vim_item
 					end,
@@ -178,6 +199,7 @@ return {
 
 				sources = cmp.config.sources({
 					-- The insertion order influences the priority of the sources
+					{ name = "supermaven" },
 					{
 						name = "nvim_lsp" --[[ , keyword_length = 3 ]],
 					},
@@ -199,6 +221,7 @@ return {
 
 			cmp.setup.filetype("lua", {
 				sources = cmp.config.sources({
+					{ name = "supermaven" },
 					{ name = "nvim_lua" },
 					{
 						name = "nvim_lsp" --[[ , keyword_length = 3  ]],
@@ -224,6 +247,7 @@ return {
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = {
+					{ name = "supermaven" },
 					{
 						name = "nvim_lsp_document_symbol" --[[ , keyword_length = 3  ]],
 					},
@@ -244,6 +268,24 @@ return {
 					{ name = "path" },
 				}),
 			})
+		end,
+	},
+	{
+		"supermaven-nvim",
+		for_cat = "general.extra",
+		event = "DeferredUIEnter",
+		after = function(_)
+			require("supermaven-nvim").setup({
+				-- keymaps = {
+				-- 	accept_suggestion = "<Tab>",
+				-- 	clear_suggestion = "<C-]>",
+				-- 	accept_word = "<C-j>",
+				-- },
+				ignore_filetypes = {bigfile = true},
+				disable_inline_completion = false, -- disables inline completion for use with cmp
+				disable_keymaps = true, -- disables built in keymaps for more manual control
+			})
+			vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
 		end,
 	},
 }

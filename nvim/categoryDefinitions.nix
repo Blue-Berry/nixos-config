@@ -49,6 +49,7 @@ in {
       ];
       ocaml = with pkgs.ocamlPackages; [
         merlin
+        pkgs.ocamlPackages.earlybird
       ];
       bash = [
         bash-language-server
