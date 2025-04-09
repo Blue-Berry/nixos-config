@@ -205,12 +205,12 @@ in {
         nvim-lspconfig
         lualine-nvim
         gitsigns-nvim
-        vim-sleuth
         vim-fugitive
         vim-rhubarb
         nvim-surround
-        guess-indent-nvim
         git-conflict-nvim
+        vim-sleuth
+        guess-indent-nvim
       ];
       extra = with pkgs.vimPlugins; [
         fidget-nvim
