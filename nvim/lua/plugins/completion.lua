@@ -28,7 +28,7 @@ local default = {
 				},
 				ignore_filetypes = { bigfile = true },
 				disable_inline_completion = false, -- disables inline completion for use with cmp
-				disable_keymaps = true, -- disables built in keymaps for more manual control
+				disable_keymaps = true,        -- disables built in keymaps for more manual control
 			})
 			vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 		end,
@@ -117,12 +117,12 @@ if nixCats("completion") == "cmp" then
 					pattern = "*",
 					callback = function()
 						if
-							(
-								(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
-								or vim.v.event.old_mode == "i"
-							)
-							and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-							and not require("luasnip").session.jump_active
+								(
+									(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
+									or vim.v.event.old_mode == "i"
+								)
+								and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+								and not require("luasnip").session.jump_active
 						then
 							require("luasnip").unlink_current()
 						end
@@ -329,12 +329,12 @@ elseif nixCats("completion") == "blink" then
 					pattern = "*",
 					callback = function()
 						if
-							(
-								(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
-								or vim.v.event.old_mode == "i"
-							)
-							and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-							and not require("luasnip").session.jump_active
+								(
+									(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
+									or vim.v.event.old_mode == "i"
+								)
+								and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+								and not require("luasnip").session.jump_active
 						then
 							require("luasnip").unlink_current()
 						end
@@ -393,7 +393,17 @@ elseif nixCats("completion") == "blink" then
 							menu = { auto_show = true },
 						},
 					},
-					keymap = { preset = "default" },
+					keymap = {
+						preset = "default",
+						["<C-y>"] = {
+							function(cmp)
+								if cmp.is_menu_visible() then
+									return cmp.select_and_accept()
+								end
+								return cmp.show()
+							end,
+						},
+					},
 					appearance = {
 						-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 						nerd_font_variant = "mono",
@@ -440,7 +450,7 @@ elseif nixCats("completion") == "blink" then
 								-- },
 								columns = {
 									{ "kind_icon" },
-									{ "label", "label_description", gap = 1 },
+									{ "label",      "label_description", gap = 1 },
 									{ "source_name" },
 								},
 								components = {
