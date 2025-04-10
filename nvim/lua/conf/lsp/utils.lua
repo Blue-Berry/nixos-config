@@ -19,6 +19,9 @@ M.enable_and_start = function(server_name, fallback_server)
 	if not M.bufname_valid(vim.api.nvim_buf_get_name(0)) then
 		return
 	end
+	if vim.lsp._enabled_configs[server_name] ~= nil then
+		return
+	end
 	vim.lsp.enable(server_name)
 	local lsp_clients = vim.lsp.get_clients()
 	local client_running = false
