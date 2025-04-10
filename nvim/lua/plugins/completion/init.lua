@@ -28,7 +28,7 @@ local default = {
 				},
 				ignore_filetypes = { bigfile = true },
 				disable_inline_completion = false, -- disables inline completion for use with cmp
-				disable_keymaps = true,        -- disables built in keymaps for more manual control
+				disable_keymaps = true, -- disables built in keymaps for more manual control
 			})
 			vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
 		end,
@@ -117,12 +117,12 @@ if nixCats("completion") == "cmp" then
 					pattern = "*",
 					callback = function()
 						if
-								(
-									(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
-									or vim.v.event.old_mode == "i"
-								)
-								and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-								and not require("luasnip").session.jump_active
+							(
+								(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
+								or vim.v.event.old_mode == "i"
+							)
+							and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+							and not require("luasnip").session.jump_active
 						then
 							require("luasnip").unlink_current()
 						end
@@ -140,46 +140,20 @@ if nixCats("completion") == "cmp" then
 			-- ft = "",
 			-- keys = "",
 			-- colorscheme = "",
-			after = function(plugin)
+			after = function(_)
 				-- [[ Configure nvim-cmp ]]
 				-- See `:help cmp`
 				local cmp = require("cmp")
 				local luasnip = require("luasnip")
-				local cmp_kinds = {
-					Class = "ﴯ",
-					Color = "",
-					Constant = "",
-					Constructor = "λ",
-					Enum = "λ",
-					EnumMember = "",
-					Event = "",
-					Field = "λ",
-					File = "",
-					Folder = "",
-					Function = "λ",
-					Interface = "",
-					Keyword = "",
-					Method = "λ",
-					Module = "",
-					Operator = "",
-					Property = "λ",
-					Reference = "",
-					Snippet = "﬌",
-					Struct = "",
-					Text = "",
-					TypeParameter = "",
-					Unit = "",
-					Value = "λ",
-					Variable = "λ",
-					Supermaven = "",
-				}
-
+				local lsp_utils = require("conf.lsp.utils")
 				cmp.setup({
 					formatting = {
 						fields = { "kind", "abbr", "menu" },
 						format = function(entry, vim_item)
-							vim_item.kind = cmp_kinds[vim_item.kind]
-							local lsp_icon = require("conf.lsp.utils").attached_icon(0)
+							if lsp_utils.attached_lsp_name() == "ocamllsp" then
+								vim_item.kind = require("plugins.completion.ocaml").cmp_kinds[vim_item.kind]
+							end
+							local lsp_icon = lsp_utils.attached_icon(0)
 							vim_item.menu = ({
 								buffer = "🅱",
 								nvim_lsp = lsp_icon,
@@ -301,13 +275,13 @@ elseif nixCats("completion") == "blink" then
 		{
 			"friendly-snippets",
 			for_cat = "general.cmp",
-			dep_of = { "blink.cmp" },
+			dep_of = { "luasnip", "blink.cmp" },
 		},
 		{
 			"luasnip",
 			for_cat = "general.cmp",
 			dep_of = { "blink.cmp" },
-			after = function(plugin)
+			after = function(_)
 				local luasnip = require("luasnip")
 				require("luasnip.loaders.from_vscode").lazy_load()
 				luasnip.config.setup({
@@ -329,12 +303,12 @@ elseif nixCats("completion") == "blink" then
 					pattern = "*",
 					callback = function()
 						if
-								(
-									(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
-									or vim.v.event.old_mode == "i"
-								)
-								and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-								and not require("luasnip").session.jump_active
+							(
+								(vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n")
+								or vim.v.event.old_mode == "i"
+							)
+							and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+							and not require("luasnip").session.jump_active
 						then
 							require("luasnip").unlink_current()
 						end
@@ -353,39 +327,11 @@ elseif nixCats("completion") == "blink" then
 			for_cat = "general.cmp",
 			-- cmd = { "" },
 			event = { "DeferredUIEnter" },
-			on_require = { "cmp" },
 			-- ft = "",
 			-- keys = "",
 			-- colorscheme = "",
 			after = function(_)
-				local cmp_kinds = {
-					Class = "ﴯ",
-					Color = "",
-					Constant = "",
-					Constructor = "λ",
-					Enum = "λ",
-					EnumMember = "",
-					Event = "",
-					Field = "λ",
-					File = "",
-					Folder = "",
-					Function = "λ",
-					Interface = "",
-					Keyword = "",
-					Method = "λ",
-					Module = "",
-					Operator = "",
-					Property = "λ",
-					Reference = "",
-					Snippet = "﬌",
-					Struct = "",
-					Text = "",
-					TypeParameter = "",
-					Unit = "",
-					Value = "λ",
-					Variable = "λ",
-					Supermaven = "",
-				}
+				local lsp_utils = require("conf.lsp.utils")
 				require("blink.cmp").setup({
 					cmdline = {
 						enabled = true,
@@ -406,15 +352,17 @@ elseif nixCats("completion") == "blink" then
 					},
 					appearance = {
 						-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-						nerd_font_variant = "mono",
+						nerd_font_variant = "normal",
 					},
 					signature = { enabled = true },
-					snippets = {
-						preset = "luasnip",
-					},
+					-- snippets = {
+					-- 	-- preset = "default",
+					-- 	preset = "luasnip",
+					-- },
 					sources = {
 						default = { "supermaven", "lsp", "path", "snippets", "buffer" },
 						providers = {
+							-- supermaven integration into blink
 							supermaven = {
 								name = "supermaven",
 								module = "blink-cmp-supermaven",
@@ -427,6 +375,7 @@ elseif nixCats("completion") == "blink" then
 									return items
 								end,
 							},
+							-- Local buffer text completion
 							buffer = {
 								opts = {
 									get_bufnrs = function()
@@ -450,7 +399,7 @@ elseif nixCats("completion") == "blink" then
 								-- },
 								columns = {
 									{ "kind_icon" },
-									{ "label",      "label_description", gap = 1 },
+									{ "label", "label_description", gap = 1 },
 									{ "source_name" },
 								},
 								components = {
@@ -459,11 +408,13 @@ elseif nixCats("completion") == "blink" then
 											if ctx.source_name == "supermaven" then
 												return ""
 											end
-											local kind_icon = cmp_kinds[ctx.kind]
-											if kind_icon then
-												return kind_icon
+											if lsp_utils.attached_lsp_name() == "ocamllsp" then
+												local kind_icon = require("plugins.completion.ocaml").cmp_kinds[ctx.kind]
+												if kind_icon then
+													return kind_icon
+												end
 											end
-											kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+											local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
 											return kind_icon
 										end,
 									},
