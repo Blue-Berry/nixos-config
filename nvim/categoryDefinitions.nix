@@ -154,25 +154,52 @@ in {
       ];
     };
     general = {
-      cmp = with pkgs.vimPlugins; [
-        # cmp stuff
-        which-key-nvim
-        nvim-cmp
-        luasnip
-        friendly-snippets
-        cmp_luasnip
-        cmp-buffer
-        cmp-path
-        cmp-nvim-lua
-        cmp-nvim-lsp
-        cmp-cmdline
-        cmp-nvim-lsp-signature-help
-        cmp-cmdline-history
-        ctrlp-vim
+      cmp = with pkgs.vimPlugins; (builtins.getAttr (categories.completion or "cmp") {
+        cmp = [
+          which-key-nvim
+          nvim-cmp
+          luasnip
+          friendly-snippets
+          cmp_luasnip
+          cmp-buffer
+          cmp-path
+          cmp-nvim-lua
+          cmp-nvim-lsp
+          cmp-cmdline
+          cmp-nvim-lsp-signature-help
+          cmp-cmdline-history
+          ctrlp-vim
+        ];
+        blink = [
+          pkgs.neovimPlugins.blink-cmp-supermaven
+          blink-cmp
+          luasnip
+          which-key-nvim
+          ctrlp-vim
+          friendly-snippets
+        ];
+      });
 
-        blink-cmp
-        pkgs.neovimPlugins.blink-cmp-supermaven
-      ];
+      # cmp = with pkgs.vimPlugins; [
+      #   # cmp stuff
+      #   which-key-nvim
+      #   nvim-cmp
+      #   luasnip
+      #   friendly-snippets
+      #   cmp_luasnip
+      #   cmp-buffer
+      #   cmp-path
+      #   cmp-nvim-lua
+      #   cmp-nvim-lsp
+      #   cmp-cmdline
+      #   cmp-nvim-lsp-signature-help
+      #   cmp-cmdline-history
+      #   ctrlp-vim
+      #
+      #   blink-cmp
+      #   pkgs.neovimPlugins.blink-cmp-supermaven
+      # ];
+
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars

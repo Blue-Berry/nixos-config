@@ -24,7 +24,6 @@
     # enable the categories you want from categoryDefinitions
     categories = {
       markdown = true;
-      general = true;
       lint = true;
       format = true;
       languages = true;
@@ -32,6 +31,10 @@
       neovide = true;
       noice = true;
       fallbackLsps = true;
+      general = true;
+ 
+      # completion = "cmp";
+      completion = "blink";
 
       # enabling this category will enable the go category,
       # and ALSO debug.go and debug.default due to our extraCats in categoryDefinitions.
