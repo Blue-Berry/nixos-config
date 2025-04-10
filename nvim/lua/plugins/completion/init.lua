@@ -332,6 +332,7 @@ elseif nixCats("completion") == "blink" then
 			-- colorscheme = "",
 			after = function(_)
 				local lsp_utils = require("conf.lsp.utils")
+				local ocaml = require("plugins.completion.ocaml")
 				require("blink.cmp").setup({
 					cmdline = {
 						enabled = true,
@@ -409,7 +410,7 @@ elseif nixCats("completion") == "blink" then
 												return ""
 											end
 											if lsp_utils.attached_lsp_name() == "ocamllsp" then
-												local kind_icon = require("plugins.completion.ocaml").cmp_kinds[ctx.kind]
+												local kind_icon = ocaml.cmp_kinds[ctx.kind]
 												if kind_icon then
 													return kind_icon
 												end
@@ -448,8 +449,8 @@ elseif nixCats("completion") == "blink" then
 	}
 end
 
-for key, value in pairs(default) do
-	plugins[key] = value
+for _, value in pairs(default) do
+	table.insert(plugins, value)
 end
 
 return plugins
