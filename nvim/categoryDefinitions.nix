@@ -180,26 +180,6 @@ in {
         ];
       });
 
-      # cmp = with pkgs.vimPlugins; [
-      #   # cmp stuff
-      #   which-key-nvim
-      #   nvim-cmp
-      #   luasnip
-      #   friendly-snippets
-      #   cmp_luasnip
-      #   cmp-buffer
-      #   cmp-path
-      #   cmp-nvim-lua
-      #   cmp-nvim-lsp
-      #   cmp-cmdline
-      #   cmp-nvim-lsp-signature-help
-      #   cmp-cmdline-history
-      #   ctrlp-vim
-      #
-      #   blink-cmp
-      #   pkgs.neovimPlugins.blink-cmp-supermaven
-      # ];
-
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
@@ -262,6 +242,7 @@ in {
         mini-nvim
         render-markdown-nvim
         obsidian-nvim
+        nvim-ufo
         # If it was included in your flake inputs as plugins-hlargs,
         # this would be how to add that plugin in your config.
         # pkgs.neovimPlugins.hlargs

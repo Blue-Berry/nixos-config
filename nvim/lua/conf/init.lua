@@ -31,3 +31,5 @@ if nixCats('neovide') then
 end
 
 require("conf.merlin")
+
+require("conf.folding")
