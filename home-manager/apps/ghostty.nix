@@ -11,6 +11,7 @@
       initial-command = "tmux";
       background-blur = true;
       window-decoration = "server";
+      app-notifications = "false";
     };
   };
 }

@@ -20,6 +20,21 @@ in let
       pkg: (fallbackPackage pkg)
     )
     packageList;
+in let
+  fallbackPackageWithName = exe: originalPackage: let
+    originalName = builtins.baseNameOf (pkgs.lib.getExe' originalPackage exe);
+    fallbackName = "${originalName}-fallback";
+  in
+    pkgs.writeShellScriptBin fallbackName ''
+      exec ${pkgs.lib.getExe originalPackage} "$@"
+    '';
+in let
+  fallbackAttrSet = packageSet:
+  builtins.attrValues (
+    builtins.mapAttrs (
+      exe: pkg: (fallbackPackageWithName exe pkg)
+    )
+    packageSet);
 in {
   # to define and use a new category, simply add a new list to a set here,
   # and later, you will include categoryname = true; in the set you
@@ -67,11 +82,17 @@ in {
         nixd
       ];
 
-      fallbackLsps = fallbackList (with pkgs; [
-        ocamlPackages.ocaml-lsp
-        gopls
-        clang
-      ]);
+      # fallbackLsps = fallbackList (with pkgs; [
+      #   ocamlPackages.ocaml-lsp
+      #   gopls
+      #   clang
+      # ]);
+
+      fallbackLsps = fallbackAttrSet (with pkgs; {
+        ocamllsp = ocamlPackages.ocaml-lsp;
+        gopls = gopls;
+        clangd = clang;
+      });
     };
   };
 
