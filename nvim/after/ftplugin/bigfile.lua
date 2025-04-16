@@ -1,6 +1,8 @@
 
 local function free_services()
-     require("cmp").suspend()
+     if nixCats("completion") == "cmp" then
+          require("cmp").suspend()
+     end
      require("noice").disable()
      local api = require("supermaven-nvim.api")
      api.stop()

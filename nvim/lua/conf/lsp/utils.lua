@@ -41,6 +41,8 @@ M.enable_and_start = function(server_name, fallback_server)
 			end,
 		})
 		if started_lsp == nil and fallback_server ~= nil then
+			vim.lsp.config[fallback_server] = vim.lsp.config[server_name]
+			vim.lsp.config[fallback_server].cmd[1] = vim.lsp.config[fallback_server].cmd[1] .. "-fallback"
 			vim.lsp.enable(server_name, false)
 			M.enable_and_start(fallback_server)
 		end

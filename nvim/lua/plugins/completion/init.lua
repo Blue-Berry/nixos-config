@@ -340,6 +340,7 @@ elseif nixCats("completion") == "blink" then
 							menu = { auto_show = true },
 						},
 					},
+					enabled = function() return not vim.tbl_contains({ "bigfile" }, vim.bo.filetype) end,
 					keymap = {
 						preset = "default",
 						["<C-y>"] = {

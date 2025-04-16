@@ -7,26 +7,12 @@
   mkNvimPlugin,
   ...
 } @ packageDef: let
-  fallbackPackage = originalPackage: let
-    originalName = builtins.baseNameOf (pkgs.lib.getExe originalPackage);
-    fallbackName = "${originalName}-fallback";
-  in
-    pkgs.writeShellScriptBin fallbackName ''
-      exec ${pkgs.lib.getExe originalPackage} "$@"
-    '';
-in let
-  fallbackList = packageList:
-    builtins.map (
-      pkg: (fallbackPackage pkg)
-    )
-    packageList;
-in let
   fallbackPackageWithName = exe: originalPackage: let
     originalName = builtins.baseNameOf (pkgs.lib.getExe' originalPackage exe);
     fallbackName = "${originalName}-fallback";
   in
     pkgs.writeShellScriptBin fallbackName ''
-      exec ${pkgs.lib.getExe originalPackage} "$@"
+      exec ${pkgs.lib.getExe' originalPackage exe} "$@"
     '';
 in let
   fallbackAttrSet = packageSet:
@@ -91,7 +77,7 @@ in {
       fallbackLsps = fallbackAttrSet (with pkgs; {
         ocamllsp = ocamlPackages.ocaml-lsp;
         gopls = gopls;
-        clangd = clang;
+        clangd = clang-tools;
       });
     };
   };
