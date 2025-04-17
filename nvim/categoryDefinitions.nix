@@ -68,16 +68,11 @@ in {
         nixd
       ];
 
-      # fallbackLsps = fallbackList (with pkgs; [
-      #   ocamlPackages.ocaml-lsp
-      #   gopls
-      #   clang
-      # ]);
-
       fallbackLsps = fallbackAttrSet (with pkgs; {
         ocamllsp = ocamlPackages.ocaml-lsp;
         gopls = gopls;
         clangd = clang-tools;
+        rust-analyzer = rust-analyzer;
       });
     };
   };
@@ -158,6 +153,9 @@ in {
         pkgs.neovimPlugins.nvim-repl
         inputs.alloc_scan.packages.${pkgs.system}.default
         vim-ocaml
+      ];
+      rust = with pkgs.vimPlugins; [
+        rustaceanvim
       ];
     };
     general = {

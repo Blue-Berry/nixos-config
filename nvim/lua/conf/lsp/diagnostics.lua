@@ -53,3 +53,7 @@ vim.api.nvim_create_autocmd('ModeChanged', {
     pcall(vim.diagnostic.show)
   end
 })
+
+vim.api.nvim_create_user_command("DiagnosticsToggle", function ()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, {desc = "Enables/Disables diagnostics"})
