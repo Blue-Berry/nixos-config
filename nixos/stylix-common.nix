@@ -38,11 +38,13 @@
     fonts = {
       monospace = {
         package = pkgs.hello;
-        name = "Hasklug Nerd Font Mono";
+        # name = "Hasklug Nerd Font Mono";
+        name = "FiraCode Nerd Font Mono";
       };
       emoji = {
         package = pkgs.hello;
-        name = "Hasklug Nerd Font Mono";
+        name = "FiraCode Nerd Font Mono";
+        # name = "Hasklug Nerd Font Mono";
       };
       sizes = {
         terminal = 10;
