@@ -35,7 +35,7 @@ return {
   root_markers = { '*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace' },
   settings = {
     codelens = { enable = true },
-    inlayHints = { hintPatternVariables = true, hintLetBindings = true },
+    inlayHints = { hintPatternVariables = true, hintLetBindings = true, hintFunctionParams= true, },
     extendedHover = { enable = true },
     syntaxDocumentation = { enable = true },
     merlinJumpCodeActions = { enable = true },
