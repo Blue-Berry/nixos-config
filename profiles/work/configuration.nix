@@ -53,6 +53,7 @@
     ../../nixos/desktop/gnome/default.nix
 
     ../../nixos/system/gc.nix
+    ../../nixos/preload.nix
   ];
 
   nixpkgs = {
