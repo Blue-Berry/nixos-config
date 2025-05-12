@@ -62,7 +62,31 @@ require("lze").load({
 	{
 		"obsidian.nvim",
 		-- TODO: make more lazy
-		event = "DeferredUIEnter",
+		-- event = "DeferredUIEnter",
+		cmd = {
+			"ObsidianOpen",
+			"ObsidianNew",
+			"ObsidianQuickSwitch",
+			"ObsidianFollowLink",
+			"ObsidianBacklinks",
+			"ObsidianTags",
+			"ObsidianToday",
+			"ObsidianYesterday",
+			"ObsidianTomorrow",
+			"ObsidianDailies",
+			"ObsidianTemplate",
+			"ObsidianSearch",
+			"ObsidianLink",
+			"ObsidianLinkNew",
+			"ObsidianLinks",
+			"ObsidianExtractNote",
+			"ObsidianWorkspace",
+			"ObsidianPasteImg",
+			"ObsidianRename",
+			"ObsidianToggleCheckbox",
+			"ObsidianNewFromTemplate",
+			"ObsidianTOC",
+		},
 		load = function(name)
 			vim.cmd.packadd(name)
 			vim.cmd.packadd("plenary.nvim")
