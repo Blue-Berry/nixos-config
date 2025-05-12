@@ -61,6 +61,7 @@ require("lze").load({
 	},
 	{
 		"obsidian.nvim",
+		-- TODO: make more lazy
 		event = "DeferredUIEnter",
 		load = function(name)
 			vim.cmd.packadd(name)
