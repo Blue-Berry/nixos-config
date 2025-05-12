@@ -106,7 +106,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.extraModulePackages = [config.boot.kernelPackages.rtl8814au];
-  # boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
   networking.hostName = "liam-nixos";
   networking.networkmanager.enable = true;
