@@ -67,12 +67,29 @@ require("lze").load({
 			vim.cmd.packadd("plenary.nvim")
 		end,
 		after = function()
+			local nvim_cmp_enable = false
+			local blink_enable = false
+			if nixCats("completion") == "cmp" then
+				nvim_cmp_enable = true
+			end
+
+			if nixCats("completion") == "blink" then
+				blink_enable = true
+			end
 			require("obsidian").setup({
 				workspaces = {
 					{
 						name = "Knowledge-base",
 						path = "~/knowledge-base",
 					},
+				},
+				completion = {
+					-- Enables completion using nvim_cmp
+					nvim_cmp = nvim_cmp_enable,
+					-- Enables completion using blink.cmp
+					blink = blink_enable,
+					-- Trigger completion at 2 chars.
+					min_chars = 2,
 				},
 			})
 		end,
@@ -95,9 +112,9 @@ require("lze").load({
 	},
 	{
 		"hex.nvim",
-		cmd = {"HexDump", "HexAssemble", "HexToggle"},
+		cmd = { "HexDump", "HexAssemble", "HexToggle" },
 		after = function(_)
 			require("hex").setup()
-		end
-	}
+		end,
+	},
 })
