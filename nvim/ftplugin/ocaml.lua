@@ -5,3 +5,10 @@ vim.keymap.set("n", "<space>od", require("ocaml.mappings").destruct, { buffer = 
 
 vim.o.conceallevel = 1
 vim.o.concealcursor = "n"
+
+local function search_by_type()
+	require("ocaml.search_by_type")
+	SEARCH_BY_TYPE()
+end
+
+vim.keymap.set("n", "<leader>os", search_by_type, { desc = "[O]caml [S]earch by type" })
