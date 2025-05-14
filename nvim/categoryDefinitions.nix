@@ -16,11 +16,12 @@
     '';
 in let
   fallbackAttrSet = packageSet:
-  builtins.attrValues (
-    builtins.mapAttrs (
-      exe: pkg: (fallbackPackageWithName exe pkg)
-    )
-    packageSet);
+    builtins.attrValues (
+      builtins.mapAttrs (
+        exe: pkg: (fallbackPackageWithName exe pkg)
+      )
+      packageSet
+    );
 in {
   # to define and use a new category, simply add a new list to a set here,
   # and later, you will include categoryname = true; in the set you
@@ -66,6 +67,9 @@ in {
         nix-doc
         alejandra
         nixd
+      ];
+      asm = [
+        asm-lsp
       ];
 
       fallbackLsps = fallbackAttrSet (with pkgs; {
