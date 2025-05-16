@@ -71,6 +71,9 @@ in {
       asm = [
         asm-lsp
       ];
+      typescript = [
+        typescript-language-server
+      ];
 
       fallbackLsps = fallbackAttrSet (with pkgs; {
         ocamllsp = ocamlPackages.ocaml-lsp;
