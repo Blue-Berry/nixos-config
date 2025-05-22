@@ -55,6 +55,9 @@
 
     ../../nixos/system/gc.nix
     ../../nixos/preload.nix
+
+
+    ../../nixos/flatpack.nix
   ];
 
   #NOTE: Basic system configuration

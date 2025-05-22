@@ -103,10 +103,10 @@
         "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
       ];
 
-      windowrulev2 = [
-        "opacity 0.98 0.94,class:^zen$"
-      ];
-
+      # windowrulev2 = [
+      #   "opacity 0.98 0.94,class:^zen$"
+      # ];
+      #
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
       "$fileManager" = "Ark";
