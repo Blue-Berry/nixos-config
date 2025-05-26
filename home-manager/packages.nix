@@ -32,7 +32,6 @@
     gleam
     glow
     gmp
-    gmp
     gnumake
     go
     gparted
@@ -77,7 +76,6 @@
     rustup
     showcolors
     sshfs
-    starship
     starship
     steam-run
     tealdeer
