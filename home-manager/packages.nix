@@ -19,6 +19,7 @@
     dotool
     duf
     dust
+    easyeffects
     eza
     fastfetch
     fd
@@ -41,8 +42,6 @@
     inetutils
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
-    wineWowPackages.stable
-    winetricks
     iputils
     kitty
     lazydocker
@@ -87,6 +86,8 @@
     vlc
     vscode
     wget
+    wineWowPackages.stable
+    winetricks
     wireshark
     xclip
     zed-editor
