@@ -123,10 +123,10 @@ require("lze").load({
 		"nvim-repl",
 		ft = "ocaml",
 		keys = {
+			{ "<Leader>rt", "<Plug>(ReplToggle)", mode = "n", desc = "Toggle Repl" },
 			{ "<Leader>rc", "<Plug>(ReplSendCell)", mode = "n", desc = "Send Repl Cell" },
 			{ "<Leader>rr", "<Plug>(ReplSendLine)", mode = "n", desc = "Send Repl Line" },
 			{ "<Leader>rr", "<Plug>(ReplSendVisual)", mode = "x", desc = "Send Repl Visual Selection" },
-			{ "<Leader>rt", "<Plug>(ReplToggle)", mode = "x", desc = "Toggle Repl" },
 		},
 		after = function(_)
 			require("repl").setup({
