@@ -12,6 +12,7 @@
     btop-rocm
     calibre
     chromium
+    claude-code
     codecrafters-cli
     dig
     discord
