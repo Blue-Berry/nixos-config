@@ -13,6 +13,7 @@
     calibre
     chromium
     claude-code
+    statix
     codecrafters-cli
     dig
     discord

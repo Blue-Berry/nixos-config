@@ -1,4 +1,4 @@
-{...}: {
+_: {
   home.sessionVariables = {
     EDITOR = "n";
     BROWSER = "zen";

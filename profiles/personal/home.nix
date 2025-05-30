@@ -35,7 +35,7 @@
   ];
 
   home = {
-    username = userSettings.username;
+    inherit (userSettings) username;
     homeDirectory = "/home/" + userSettings.username;
   };
 

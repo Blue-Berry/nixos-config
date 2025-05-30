@@ -14,7 +14,7 @@
     pkgs.writeShellScriptBin fallbackName ''
       exec ${pkgs.lib.getExe' originalPackage exe} "$@"
     '';
-in let
+
   fallbackAttrSet = packageSet:
     builtins.attrValues (
       builtins.mapAttrs (
@@ -77,9 +77,9 @@ in {
 
       fallbackLsps = fallbackAttrSet (with pkgs; {
         ocamllsp = ocamlPackages.ocaml-lsp;
-        gopls = gopls;
+        inherit gopls;
         clangd = clang-tools;
-        rust-analyzer = rust-analyzer;
+        inherit rust-analyzer;
       });
     };
   };
