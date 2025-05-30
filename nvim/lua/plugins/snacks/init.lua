@@ -14,7 +14,7 @@ return {
 			image = { enabled = false },
 			bigfile = { enabled = true },
 			dim = { enabled = true },
-      input = { enabled = true },
+			input = { enabled = true },
 			debug = require("plugins.snacks.debug"),
 			profiler = { enabled = true, pick = { picker = "trouble" } },
 		})

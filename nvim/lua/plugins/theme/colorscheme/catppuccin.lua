@@ -29,11 +29,11 @@ return {
 						require("plugins.theme.colorscheme.ocaml").setup(colors),
 					}
 					for _, style in pairs(extra_styles) do
-					for key, value in pairs(style) do
-						base_styles[key] = value
+						for key, value in pairs(style) do
+							base_styles[key] = value
+						end
 					end
-				end
-				return base_styles
+					return base_styles
 				end,
 				flavour = "mocha",
 				integrations = {
@@ -74,7 +74,6 @@ return {
 
 -- Styles list
 -- :h highlight-args
-
 
 -- "rosewater"
 -- "flamingo"

@@ -46,22 +46,22 @@ dap.configurations.ocaml = {
 			return coroutine.create(function(coro)
 				local opts = {}
 				pickers
-				    .new(opts, {
-					    prompt_title = "Path to executable",
-					    finder = finders.new_oneshot_job(
-						    { "fd", "--no-ignore", "--type", "x", "--full-path", "_build/.*" },
-						    {}
-					    ),
-					    sorter = conf.generic_sorter(opts),
-					    attach_mappings = function(buffer_number)
-						    actions.select_default:replace(function()
-							    actions.close(buffer_number)
-							    coroutine.resume(coro, action_state.get_selected_entry()[1])
-						    end)
-						    return true
-					    end,
-				    })
-				    :find()
+					.new(opts, {
+						prompt_title = "Path to executable",
+						finder = finders.new_oneshot_job(
+							{ "fd", "--no-ignore", "--type", "x", "--full-path", "_build/.*" },
+							{}
+						),
+						sorter = conf.generic_sorter(opts),
+						attach_mappings = function(buffer_number)
+							actions.select_default:replace(function()
+								actions.close(buffer_number)
+								coroutine.resume(coro, action_state.get_selected_entry()[1])
+							end)
+							return true
+						end,
+					})
+					:find()
 			end)
 		end,
 	},

@@ -3,14 +3,14 @@ vim.loader.enable()
 
 -- This block is to start the profiler if the environ PROF is set
 if vim.env.PROF then
-  local ok, sp = pcall(require, 'snacks.profiler')
-  if ok then
-    sp.startup({
-      startup = {
-        event = 'VimEnter',
-      },
-    })
-  end
+	local ok, sp = pcall(require, "snacks.profiler")
+	if ok then
+		sp.startup({
+			startup = {
+				event = "VimEnter",
+			},
+		})
+	end
 end
 
 --[[
@@ -33,9 +33,9 @@ Of course, if you only ever download nvim with nix, this isnt needed.]]
 --[[ function so that it will not throw  ]]
 --[[ an error if not loaded via nixCats  ]]
 --[[ ----------------------------------- ]]
-require('nixCatsUtils').setup {
-  non_nix_value = true,
-}
+require("nixCatsUtils").setup({
+	non_nix_value = true,
+})
 --[[
 Nix puts the plugins
 into the directories paq-nvim expects them to be in,
@@ -72,5 +72,5 @@ and the lua/conf/non_nix_download.lua file.
 the rest is just example of how to configure nvim making use of various
 features of nixCats and using the plugin lze for lazy loading.
 --]]
-require('conf.init')
+require("conf.init")
 -- TODO: reformat so that other lua is flat with conf

@@ -54,7 +54,7 @@ M.enable_and_start_with_fallback = function(server_name)
 end
 
 M.attached_lsp_name = function(bufnr)
-if bufnr == 0 then
+	if bufnr == 0 then
 		bufnr = vim.api.nvim_get_current_buf()
 	end
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })

@@ -1,6 +1,6 @@
 return {
-  {
-    "rustaceanvim",
-    lazy = false,
-  }
+	{
+		"rustaceanvim",
+		lazy = false,
+	},
 }

@@ -5,12 +5,14 @@ return
 -- 		event = "DeferredUIEnter",
 -- }
 {
-  'guess-indent.nvim',
-	for_cat = 'general.always',
+	"guess-indent.nvim",
+	for_cat = "general.always",
 	event = "DeferredUIEnter",
-  after = function() require('guess-indent').setup {
-			filetype_exclude = {  -- A list of filetypes for which the auto command gets disabled
+	after = function()
+		require("guess-indent").setup({
+			filetype_exclude = { -- A list of filetypes for which the auto command gets disabled
 				"bigfile",
 			},
-	} end,
+		})
+	end,
 }

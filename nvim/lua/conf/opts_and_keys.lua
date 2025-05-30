@@ -81,37 +81,37 @@ vim.o.termguicolors = true
 -- [[ Disable auto comment on enter ]]
 -- See :help formatoptions
 vim.api.nvim_create_autocmd("FileType", {
-  desc = "remove formatoptions",
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
+	desc = "remove formatoptions",
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
 })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- Remember last cursor position
 local lastplace = vim.api.nvim_create_augroup("LastPlace", {})
 vim.api.nvim_clear_autocmds({ group = lastplace })
 vim.api.nvim_create_autocmd("BufReadPost", {
-  group = lastplace,
-  pattern = { "*" },
-  desc = "remember last cursor place",
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
+	group = lastplace,
+	pattern = { "*" },
+	desc = "remember last cursor place",
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		local lcount = vim.api.nvim_buf_line_count(0)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
+	end,
 })
 
 vim.g.netrw_liststyle = 0
@@ -156,28 +156,28 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.keymap.set({ "v", "x" }, "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.keymap.set(
-  { "n", "v", "x" },
-  "<leader>yy",
-  '"+yy',
-  { noremap = true, silent = true, desc = "Yank line to clipboard" }
+	{ "n", "v", "x" },
+	"<leader>yy",
+	'"+yy',
+	{ noremap = true, silent = true, desc = "Yank line to clipboard" }
 )
 vim.keymap.set(
-  { "n", "v", "x" },
-  "<leader>Y",
-  '"+yy',
-  { noremap = true, silent = true, desc = "Yank line to clipboard" }
+	{ "n", "v", "x" },
+	"<leader>Y",
+	'"+yy',
+	{ noremap = true, silent = true, desc = "Yank line to clipboard" }
 )
 vim.keymap.set({ "n", "v", "x" }, "<C-a>", "gg0vG$", { noremap = true, silent = true, desc = "Select all" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.keymap.set(
-  "i",
-  "<C-p>",
-  "<C-r><C-p>+",
-  { noremap = true, silent = true, desc = "Paste from clipboard from within insert mode" }
+	"i",
+	"<C-p>",
+	"<C-r><C-p>+",
+	{ noremap = true, silent = true, desc = "Paste from clipboard from within insert mode" }
 )
 vim.keymap.set(
-  "x",
-  "<leader>P",
-  '"_dP',
-  { noremap = true, silent = true, desc = "Paste over selection without erasing unnamed register" }
+	"x",
+	"<leader>P",
+	'"_dP',
+	{ noremap = true, silent = true, desc = "Paste over selection without erasing unnamed register" }
 )
