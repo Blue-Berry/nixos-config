@@ -81,7 +81,6 @@
     steam-run
     tealdeer
     teams-for-linux
-    thefuck
     tmux
     tokei
     unzip

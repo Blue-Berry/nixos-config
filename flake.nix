@@ -25,7 +25,7 @@
     stylix.url = "github:danth/stylix";
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    zen-browser.url = "github:omarcresp/zen-browser-flake";
+    zen-browser.url = "github:Blue-Berry/zen-browser-flake";
     nixCats.url = "./nvim/";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -79,7 +79,7 @@
     nixosModules = import ./modules/nixos;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
+    homeModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -127,7 +127,7 @@
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/personal/home.nix")
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
         ];
       };
       work = home-manager.lib.homeManagerConfiguration {
@@ -141,7 +141,7 @@
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/work/home.nix")
-          stylix.homeManagerModules.stylix
+          stylix.homeModules.stylix
         ];
       };
     };

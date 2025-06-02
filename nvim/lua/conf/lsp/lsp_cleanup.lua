@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- u/see https://github.com/neovim/nvim-lspconfig/blob/ff6471d4f837354d8257dfa326b031dd8858b16e/lua/lspconfig/configs.lua#L97-L99
 		if #bufname ~= 0 and not require("conf.lsp.utils").bufname_valid(bufname) then
 			if client ~= nil then
-				client.stop()
+				client.stop({force = false})
 			end
 			return
 		end

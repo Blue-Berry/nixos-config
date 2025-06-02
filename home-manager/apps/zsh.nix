@@ -23,7 +23,6 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "thefuck"
         "git"
         "npm"
         "history"
@@ -41,7 +40,7 @@
   };
 
   # for yazi
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     function y() {
       local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
       yazi "$@" --cwd-file="$tmp"
