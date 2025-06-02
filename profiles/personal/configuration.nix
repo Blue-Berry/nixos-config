@@ -21,6 +21,7 @@
     # inputs.hardware.nixosModules.common-ssd
 
     # Import your generated (nixos-generate-config) hardware configuration
+    ../../nixos/common
     ../../nixos/boot.nix
     ../../nixos/apps/zsh.nix
 

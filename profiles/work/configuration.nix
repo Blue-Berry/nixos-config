@@ -22,6 +22,7 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
+    ../../nixos/common
     ../../nixos/packages/default.nix
     ../../overlays/enable.nix
     ../../nixos/flake-options.nix
