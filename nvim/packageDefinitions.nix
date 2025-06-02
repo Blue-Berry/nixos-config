@@ -32,7 +32,7 @@
       noice = true;
       fallbackLsps = true;
       general = true;
- 
+
       # completion = "cmp";
       completion = "blink";
 

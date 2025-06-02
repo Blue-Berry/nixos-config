@@ -23,38 +23,14 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ../../nixos/common
-    ../../nixos/packages/default.nix
-    ../../overlays/enable.nix
-    ../../nixos/flake-options.nix
-    ../../nixos/fonts.nix
-    ../../nixos/containers.nix
 
-    ../../nixos/hardware/bluetooth.nix
-    ../../nixos/hardware/sound.nix
     # ./hardware/graphics-amd.nix
     ../../nixos/hardware/touchpad.nix
     ../../nixos/hardware/displaylink/default.nix
-    ../../nixos/hardware/solaar.nix
-    ../../nixos/hardware/ratbag.nix
-    ../../nixos/hardware/wooting.nix
-    ../../nixos/hardware/ntfs.nix
-    ../../nixos/hardware/logic-analyzer.nix
     ../../nixos/hardware/optimus/default.nix
     ../../nixos/hardware/optimus/nvidia.nix
 
-    ../../nixos/apps/nvim.nix
     # ./../../nixos/apps/steam.nix
-    ../../nixos/apps/wireguard.nix
-
-    ../../nixos/ports.nix
-    ../../nixos/stylix.nix
-
-    ../../nixos/desktop/hyprland/default.nix
-    # ./desktop/kde/default.nix
-    ../../nixos/desktop/gnome/default.nix
-
-    ../../nixos/system/gc.nix
-    ../../nixos/preload.nix
   ];
 
   nixpkgs = {
