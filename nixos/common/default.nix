@@ -12,7 +12,7 @@
     ../hardware/wooting.nix
     ../hardware/ntfs.nix
     ../hardware/logic-analyzer.nix
-    ../apps/nvim.nix
+    # ../apps/nvim.nix
     ../apps/wireguard.nix
     ../ports.nix
     ../stylix.nix
