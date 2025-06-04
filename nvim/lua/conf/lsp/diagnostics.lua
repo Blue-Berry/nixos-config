@@ -47,13 +47,63 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "DiagnosticChanged" }, {
 	end,
 })
 
+local valid_modes = { "VirtLines", "VirtText", "Both", "Enable", "Disable" }
+vim.api.nvim_create_user_command("DiagnosticsMode", function(opts)
+	local mode = opts.fargs[1]
+	if not vim.tbl_contains(valid_modes, mode) then
+		vim.notify("Invalid mode. Valid modes: " .. table.concat(valid_modes, ", "), vim.log.levels.ERROR)
+		return
+	end
+
+	local diag_config = vim.diagnostic.config()
+	if not diag_config then
+		vim.notify("Diagnostics not enabled", vim.log.levels.ERROR)
+		return
+	end
+
+	local mode_handlers = {
+		VirtLines = function()
+			diag_config.virtual_lines = { current_line = false }
+			diag_config.virtual_text = false
+			return diag_config
+		end,
+		VirtText = function()
+			diag_config.virtual_lines = false
+			diag_config.virtual_text = true
+			return diag_config
+		end,
+		Both = function()
+			diag_config.virtual_lines = { current_line = true }
+			diag_config.virtual_text = true
+			return diag_config
+		end,
+		Enable = function()
+			vim.diagnostic.enable(true)
+			return diag_config
+		end,
+		Disable = function()
+			vim.diagnostic.enable(false)
+			return diag_config
+		end,
+	}
+	local handler = mode_handlers[mode]
+	if handler then
+		vim.diagnostic.config(handler())
+		og_virt_line = nil
+	else
+		vim.notify("Invalid mode: " .. mode, vim.log.levels.ERROR)
+	end
+end, {
+	nargs = 1,
+	complete = function()
+		return valid_modes
+	end,
+	desc = "Change diagnostics mode",
+})
+
 vim.api.nvim_create_autocmd("ModeChanged", {
 	group = vim.api.nvim_create_augroup("diagnostic_redraw", {}),
 	callback = function()
 		pcall(vim.diagnostic.show)
 	end,
 })
-
-vim.api.nvim_create_user_command("DiagnosticsToggle", function()
-	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { desc = "Enables/Disables diagnostics" })
