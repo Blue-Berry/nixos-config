@@ -8,7 +8,6 @@
     base16-schemes
     bat
     bottom
-    bruno
     btop-rocm
     calibre
     chromium
