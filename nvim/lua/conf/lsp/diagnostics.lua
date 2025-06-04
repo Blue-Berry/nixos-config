@@ -15,6 +15,7 @@ vim.diagnostic.config({
 	},
 })
 
+-- Use combination of virt lines and virt text to show diagnostics
 local og_virt_text
 local og_virt_line
 vim.api.nvim_create_autocmd({ "CursorMoved", "DiagnosticChanged" }, {
