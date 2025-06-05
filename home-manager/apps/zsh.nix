@@ -6,6 +6,7 @@
     zsh-autopair
     starship
   ];
+  # TODO: config ctrl-p to mimic up arrow, ctrl-n to mimic down arrow and ctrl-y to accept completeions
   programs.zsh = {
     enable = true;
     #enableAutosuggestions = true;
@@ -29,6 +30,7 @@
         "node"
         "rust"
         "deno"
+        "vi-mode"
       ];
       theme = "";
     };
