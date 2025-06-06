@@ -47,8 +47,9 @@
         }
 
         bindkey "^Y" autosuggest-accept
-        bindkey "^N" up-line-or-search
-        bindkey "^P" down-line-or-beginning-search
+        bindkey '^p' down-line-or-beginning-search
+        bindkey '^n' up-line-or-beginning-search
+
       '';
     };
     # z
