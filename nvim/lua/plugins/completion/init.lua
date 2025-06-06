@@ -153,7 +153,7 @@ if nixCats("completion") == "cmp" then
 							if lsp_utils.attached_lsp_name() == "ocamllsp" then
 								vim_item.kind = require("plugins.completion.ocaml").cmp_kinds[vim_item.kind]
 							end
-							local lsp_icon = lsp_utils.attached_icon(0)
+							local lsp_icon, _ = lsp_utils.attached_icon(0)
 							vim_item.menu = ({
 								buffer = "🅱",
 								nvim_lsp = lsp_icon,
@@ -272,6 +272,14 @@ if nixCats("completion") == "cmp" then
 	}
 elseif nixCats("completion") == "blink" then
 	plugins = {
+		{ "nvim-web-devicons", dep_of = "blink.cmp" },
+		{
+			"lspkind",
+			dep_of = "blink.cmp",
+			after = function(_)
+				require("lspkind").setup({ mode = "symbol" })
+			end,
+		},
 		{
 			"friendly-snippets",
 			for_cat = "general.cmp",
@@ -334,6 +342,8 @@ elseif nixCats("completion") == "blink" then
 			after = function(_)
 				local lsp_utils = require("conf.lsp.utils")
 				local ocaml = require("plugins.completion.ocaml")
+				local lspkind = require("lspkind")
+				local nvim_web_devicons = require("nvim-web-devicons")
 				require("blink.cmp").setup({
 					cmdline = {
 						enabled = true,
@@ -419,13 +429,35 @@ elseif nixCats("completion") == "blink" then
 													return kind_icon
 												end
 											end
-											local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-											return kind_icon
+											local icon = ctx.kind_icon
+											if vim.tbl_contains({ "Path" }, ctx.source_name) then
+												local dev_icon, _ = nvim_web_devicons.get_icon(ctx.label)
+												if dev_icon then
+													icon = dev_icon
+												end
+											else
+												icon = lspkind.symbolic(ctx.kind, {
+													mode = "symbol",
+												})
+											end
+
+											return icon .. ctx.icon_gap
+										end,
+
+										highlight = function(ctx)
+											local hl = ctx.kind_hl
+											if vim.tbl_contains({ "Path" }, ctx.source_name) then
+												local dev_icon, dev_hl = nvim_web_devicons.get_icon(ctx.label)
+												if dev_icon then
+													hl = dev_hl
+												end
+											end
+											return hl
 										end,
 									},
 									source_name = {
 										text = function(ctx)
-											local lsp_icon = require("conf.lsp.utils").attached_icon(0)
+											local lsp_icon, _ = lsp_utils.attached_icon(0)
 											local source_icon = ({
 												buffer = "📖",
 												LSP = lsp_icon,
@@ -433,6 +465,20 @@ elseif nixCats("completion") == "blink" then
 												supermaven = "",
 											})[ctx.source_name]
 											return source_icon
+										end,
+
+										highlight = function(ctx)
+											local hl = ctx.kind_hl
+											local _, lsp_hl = lsp_utils.attached_icon(0)
+											local source_hl = ({
+												buffer = "Normal",
+												LSP = lsp_hl,
+												supermaven = "ErrorMsg",
+											})[ctx.source_name]
+											if source_hl then
+												hl = source_hl
+											end
+											return hl
 										end,
 									},
 								},

@@ -102,6 +102,7 @@ in {
       extra = [
         oil-nvim
         nvim-web-devicons
+        lspkind-nvim
         snacks-nvim
       ];
     };
