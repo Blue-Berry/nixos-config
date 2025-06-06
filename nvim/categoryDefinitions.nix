@@ -233,6 +233,7 @@ in {
         git-conflict-nvim
         vim-sleuth
         guess-indent-nvim
+        vim-tmux-navigator
       ];
       extra = with pkgs.vimPlugins; [
         fidget-nvim
