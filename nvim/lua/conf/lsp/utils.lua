@@ -64,20 +64,21 @@ M.attached_lsp_name = function(bufnr)
 	return nil
 end
 
-local nvim_web_devicons =  require("nvim-web-devicons")
+local nvim_web_devicons = require("nvim-web-devicons")
 M.attached_icon = function(bufnr)
 	if bufnr == 0 then
 		bufnr = vim.api.nvim_get_current_buf()
 	end
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })
 	local icons = {
-		ocamllsp = "🐫", "Normal",
+		ocamllsp = "🐫",
+		"Normal",
 	}
 	for _, client in ipairs(clients) do
 		if icons[client.name] then
 			return icons[client.name]
 		end
-		local icon, hl = nvim_web_devicons.get_icon_by_filetype(vim.o.filetype, {mode = "symbol"})
+		local icon, hl = nvim_web_devicons.get_icon_by_filetype(vim.o.filetype, { mode = "symbol" })
 		return icon, hl
 	end
 	return "𝕷", "Normal"
