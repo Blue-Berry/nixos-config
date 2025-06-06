@@ -46,10 +46,16 @@
           rm -f -- "$tmp"
         }
 
-        bindkey "^Y" autosuggest-accept
-        bindkey '^p' down-line-or-beginning-search
-        bindkey '^n' up-line-or-beginning-search
+        source $ZSH/oh-my-zsh.sh
 
+        PROMPT="$PROMPT\$(vi_mode_prompt_info)"
+        RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
+
+        bindkey "^Y" autosuggest-accept
+        bindkey -M vicmd "^N" up-history
+        bindkey -M vicmd "^P" down-history
+        bindkey -M viins '^P' down-line-or-beginning-search
+        bindkey -M viins '^N' up-line-or-beginning-search
       '';
     };
     # z
