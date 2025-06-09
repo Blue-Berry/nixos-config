@@ -133,6 +133,22 @@
         "type": "github"
       }
     },
+    "plugins-colorful-menu-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749475900,
+        "narHash": "sha256-RTc0QSA38V7tWyFybqVAE6VKDgNdBPBamdIk4y5BYow=",
+        "owner": "Blue-Berry",
+        "repo": "colorful-menu.nvim",
+        "rev": "70e1c4fc897da1a09c0a18368eede56fdeab3f82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Blue-Berry",
+        "repo": "colorful-menu.nvim",
+        "type": "github"
+      }
+    },
     "plugins-nvim-repl": {
       "flake": false,
       "locked": {
@@ -171,6 +187,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_3",
         "plugins-blink-cmp-supermaven": "plugins-blink-cmp-supermaven",
+        "plugins-colorful-menu-nvim": "plugins-colorful-menu-nvim",
         "plugins-nvim-repl": "plugins-nvim-repl",
         "plugins-ocaml": "plugins-ocaml"
       }

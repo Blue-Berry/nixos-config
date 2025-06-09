@@ -55,6 +55,7 @@ M.setup = function(colors)
 		["@lsp.type.number.ocaml"] = tokens.constants,
 		["@lsp.type.string.ocaml"] = tokens.strings,
 		["@lsp.type.type.ocaml"] = tokens.types,
+		["@type.builtin.ocaml"] = tokens.types,
 		["@module.ocaml"] = tokens.modules,
 		["@punctuation.bracket.ocaml"] = tokens.parantheses_delimiters,
 		["@punctuation.delimiter.ocaml"] = tokens.parantheses_delimiters,

@@ -102,7 +102,8 @@ in {
       extra = [
         oil-nvim
         snacks-nvim
-        colorful-menu-nvim
+        # colorful-menu-nvim
+        pkgs.neovimPlugins.colorful-menu-nvim
         lspkind-nvim
       ];
     };

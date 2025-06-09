@@ -17,6 +17,8 @@
 
 ("fun" @keyword.function (#set! conceal "λ") (#set! priority 135))
 
+((type_constructor) @type.builtin (#set! priority 135))
+
 ((type_constructor) @type.builtin
   (#eq? @type.builtin
     "unit") (#set! priority 135) (#set! conceal "⊤"))

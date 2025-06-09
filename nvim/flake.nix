@@ -44,6 +44,12 @@
       flake = true;
     };
 
+
+    "plugins-colorful-menu-nvim" = {
+      url = "github:Blue-Berry/colorful-menu.nvim";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
