@@ -101,9 +101,9 @@ in {
       ];
       extra = [
         oil-nvim
-        nvim-web-devicons
-        lspkind-nvim
         snacks-nvim
+        colorful-menu-nvim
+        lspkind-nvim
       ];
     };
     languages.latex = [
@@ -184,6 +184,7 @@ in {
           ctrlp-vim
         ];
         blink = [
+          nvim-web-devicons
           pkgs.neovimPlugins.blink-cmp-supermaven
           blink-cmp
           luasnip

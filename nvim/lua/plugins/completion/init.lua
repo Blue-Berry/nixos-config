@@ -272,7 +272,15 @@ if nixCats("completion") == "cmp" then
 	}
 elseif nixCats("completion") == "blink" then
 	plugins = {
+
 		{ "nvim-web-devicons", dep_of = "blink.cmp" },
+		{
+			"colorful-menu",
+			dep_of = "blink.cmp",
+			after = function(_)
+				require("colorful-menu").setup({})
+			end,
+		},
 		{
 			"lspkind",
 			dep_of = "blink.cmp",
@@ -344,6 +352,7 @@ elseif nixCats("completion") == "blink" then
 				local ocaml = require("plugins.completion.ocaml")
 				local lspkind = require("lspkind")
 				local nvim_web_devicons = require("nvim-web-devicons")
+				local colorful_menu = require("colorful-menu")
 				require("blink.cmp").setup({
 					cmdline = {
 						enabled = true,
@@ -414,10 +423,18 @@ elseif nixCats("completion") == "blink" then
 								-- },
 								columns = {
 									{ "kind_icon" },
-									{ "label", "label_description", gap = 1 },
+									{ "label", gap = 1 },
 									{ "source_name" },
 								},
 								components = {
+									label = {
+										text = function(ctx)
+											return colorful_menu.blink_components_text(ctx)
+										end,
+										highlight = function(ctx)
+											return colorful_menu.blink_components_highlight(ctx)
+										end,
+									},
 									kind_icon = {
 										text = function(ctx)
 											if ctx.source_name == "supermaven" then
