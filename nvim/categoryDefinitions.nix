@@ -58,6 +58,9 @@ in {
       ];
       latex = [
         python3Packages.pylatexenc
+        pkgs.miktex
+        pkgs.texpresso
+        pkgs.zathura
       ];
       lua = [
         lua-language-server
@@ -109,6 +112,7 @@ in {
     };
     languages.latex = [
       vimtex
+      texpresso-vim
     ];
     # You can retreive information from the
     # packageDefinitions of the package this was packaged with.
