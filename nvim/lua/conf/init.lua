@@ -29,6 +29,6 @@ if nixCats("neovide") then
 	require("conf.neovide")
 end
 
-require("conf.merlin")
+-- require("conf.merlin") TODO: this broke in the latest update
 
 require("conf.folding")
