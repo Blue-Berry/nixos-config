@@ -136,11 +136,11 @@
     "plugins-colorful-menu-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1749475900,
-        "narHash": "sha256-RTc0QSA38V7tWyFybqVAE6VKDgNdBPBamdIk4y5BYow=",
+        "lastModified": 1749556264,
+        "narHash": "sha256-yijiF8FB9x6bQP4pmXPdaS1qX4Yr1z8mPWp3DFrXQPE=",
         "owner": "Blue-Berry",
         "repo": "colorful-menu.nvim",
-        "rev": "70e1c4fc897da1a09c0a18368eede56fdeab3f82",
+        "rev": "a65cbbb00a913d827706cc87a1f972b805d6cd2c",
         "type": "github"
       },
       "original": {
