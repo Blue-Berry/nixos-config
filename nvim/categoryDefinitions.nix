@@ -60,7 +60,6 @@ in {
         python3Packages.pylatexenc
         pkgs.miktex
         pkgs.texpresso
-        pkgs.zathura
       ];
       lua = [
         lua-language-server

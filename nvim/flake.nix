@@ -44,7 +44,6 @@
       flake = true;
     };
 
-
     "plugins-colorful-menu-nvim" = {
       url = "github:Blue-Berry/colorful-menu.nvim";
       flake = false;

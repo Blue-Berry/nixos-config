@@ -16,23 +16,8 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
 
-    ../../home-manager/apps/delta.nix
-    ../../home-manager/apps/direnv.nix
-    ../../home-manager/apps/git.nix
-    ../../home-manager/apps/kitty.nix
-    ../../home-manager/apps/ghostty.nix
-    ../../home-manager/apps/spotify.nix
-    ../../home-manager/apps/starship.nix
-    ../../home-manager/apps/yazi/yazi.nix
-    ../../home-manager/apps/zsh.nix
-    ../../home-manager/apps/neovide.nix
-    ../../home-manager/env-vars.nix
-    ../../home-manager/packages.nix
-    ../../home-manager/stylix.nix
-    ../../home-manager/desktop/dconf.nix
-    ../../overlays/enable.nix
-
     ../../home-manager/desktop/hyprland/hyprland.nix
+    ../../home-manager/common
   ];
 
   home = {
@@ -41,7 +26,6 @@
   };
 
   # Add stuff for your user as you see fit:
-  programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
