@@ -4,5 +4,7 @@ pkgs: {
   # example = pkgs.callPackage ./example { };
   wooting-udev = pkgs.callPackage ./wooting-udev {};
   gowin-udev = pkgs.callPackage ./gowin-udev {};
+  gowin-ide = pkgs.callPackage ./gowin {};
+  gowin-edu = pkgs.callPackage ./gowin-edu {};
   showcolors = pkgs.callPackage ./showcolors {};
 }

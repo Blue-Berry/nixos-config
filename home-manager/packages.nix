@@ -43,6 +43,8 @@
     inetutils
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
+    gowin-ide
+    gowin-edu
     iputils
     kitty
     lazydocker
