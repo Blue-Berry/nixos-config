@@ -63,6 +63,9 @@ require("lze").load({
 		"obsidian.nvim",
 		-- TODO: make more lazy
 		-- event = "DeferredUIEnter",
+		keys = {
+			{ "<leader>o", "<cmd>Obsidian<cr>", mode = { "n" }, noremap = true, desc = "Open Obsidian picker" },
+		},
 		cmd = {
 			"ObsidianOpen",
 			"ObsidianNew",
