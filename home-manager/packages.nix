@@ -72,6 +72,7 @@
     python3
     qalculate-qt
     qbittorrent
+    swe-agent
     ripgrep
     rsync
     rustup
