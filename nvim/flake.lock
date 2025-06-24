@@ -39,11 +39,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1749615682,
-        "narHash": "sha256-3T2Yl+xSnx7snXZkMaQNHCvlj0CB+lyAj+Q/+eeh+Ns=",
+        "lastModified": 1750385661,
+        "narHash": "sha256-JpIEf5IrOzMTjowkxB6kgh4AK3Dp9i/T9G4w2ZiKMgQ=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "c0148957e961100bff3fd213b8a4bc5f669f3028",
+        "rev": "04379fef2fbd4c9d8f4c9a6203cef135ab0b1acd",
         "type": "github"
       },
       "original": {
@@ -103,11 +103,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1750215678,
-        "narHash": "sha256-Rc/ytpamXRf6z8UA2SGa4aaWxUXRbX2MAWIu2C8M+ok=",
+        "lastModified": 1750731501,
+        "narHash": "sha256-Ah4qq+SbwMaGkuXCibyg+Fwn00el4KmI3XFX6htfDuk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5395fb3ab3f97b9b7abca147249fa2e8ed27b192",
+        "rev": "69dfebb3d175bde602f612915c5576a41b18486b",
         "type": "github"
       },
       "original": {
@@ -136,11 +136,11 @@
     "plugins-colorful-menu-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1749556264,
-        "narHash": "sha256-yijiF8FB9x6bQP4pmXPdaS1qX4Yr1z8mPWp3DFrXQPE=",
+        "lastModified": 1750763666,
+        "narHash": "sha256-+zZ3ZQtMLoHvm77ozH8Tx707PvdW5XdSzFq7jDo0KRQ=",
         "owner": "Blue-Berry",
         "repo": "colorful-menu.nvim",
-        "rev": "a65cbbb00a913d827706cc87a1f972b805d6cd2c",
+        "rev": "d0add4b5bfe8a4101aef5bbb89526f98f4e3ed67",
         "type": "github"
       },
       "original": {
