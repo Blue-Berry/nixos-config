@@ -1,3 +1,12 @@
+local render_markdown_completion = {}
+if nixCats("completion") == "cmp" then
+	local cmp = require("cmp")
+	render_markdown_completion = cmp.config.sources({
+		{ name = "render-markdown" },
+	})
+elseif nixCats("completion") == "blink" then
+	render_markdown_completion = { blink = { enabled = true } }
+end
 return {
 	{
 		"render-markdown.nvim",
@@ -9,7 +18,9 @@ return {
 			vim.cmd.packadd("mini.nvim")
 		end,
 		after = function(_)
-			require("render-markdown").setup({})
+			require("render-markdown").setup({
+				completions = render_markdown_completion,
+			})
 		end,
 	},
 	{
