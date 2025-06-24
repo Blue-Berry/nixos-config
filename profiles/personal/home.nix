@@ -17,6 +17,7 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
     ../../home-manager/desktop/hyprland/hyprland.nix
+    ../../home-manager/common
   ];
 
   home = {
