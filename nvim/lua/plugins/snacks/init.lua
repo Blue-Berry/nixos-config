@@ -15,8 +15,9 @@ return {
 			bigfile = { enabled = true },
 			dim = { enabled = true },
 			input = { enabled = true },
+			picker = {},
 			debug = require("plugins.snacks.debug"),
-			profiler = { enabled = true, pick = { picker = "trouble" } },
+			profiler = { enabled = true, pick = { picker = "snacks" } },
 		})
 
 		-- Config for dim
