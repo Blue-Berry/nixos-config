@@ -29,7 +29,7 @@
       languages = true;
       debug = true;
       neovide = true;
-      noice = true;
+      noice = false;
       fallbackLsps = true;
       general = true;
 

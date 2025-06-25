@@ -42,7 +42,7 @@ return {
 					nvimtree = true,
 					telescope = true,
 					treesitter = true,
-					noice = true,
+					noice = nixCats("noice"),
 					notify = true,
 					dap = true,
 					fzf = true,

@@ -15,9 +15,11 @@ return {
 			bigfile = { enabled = true },
 			dim = { enabled = true },
 			input = { enabled = true },
-			picker = {},
+			picker = require("plugins.snacks.picker"),
 			debug = require("plugins.snacks.debug"),
 			profiler = { enabled = true, pick = { picker = "snacks" } },
+			Snacks.toggle.profiler():map("<leader>pp"),
+			Snacks.toggle.profiler_highlights():map("<leader>ph"),
 		})
 
 		-- Config for dim
@@ -39,5 +41,12 @@ return {
 		vim.keymap.set("n", "<Leader>ps", function()
 			Snacks.profiler.scratch()
 		end, { desc = "Profiler Scratch Bufer" })
+
+		-- Toggles
+		local snacks_toggle = require("snacks").toggle
+		snacks_toggle.profiler():map("<leader>pp")
+		snacks_toggle.profiler_highlights():map("<leader>ph")
+		snacks_toggle.diagnostics():map("<leader>td")
+		snacks_toggle.inlay_hints():map("<leader>th")
 	end,
 }
