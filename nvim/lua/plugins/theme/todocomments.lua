@@ -1,7 +1,7 @@
 return {
 	"todo-comments.nvim",
-	on_plugin = "nvim-lspconfig",
-	after = function(plugin)
+	cmd = { "TodoTrouble", "TodoTelescope", "TodoLoclist", "TodoQuickfix" },
+	after = function(_)
 		require("todo-comments").setup({})
 	end,
 }
