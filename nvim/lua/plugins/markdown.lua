@@ -11,8 +11,7 @@ return {
 	{
 		"render-markdown.nvim",
 		for_cat = "general.extra",
-		event = "DeferredUIEnter",
-		on_plugin = "nvim-treesitter",
+		ft = "markdown",
 		load = function(name)
 			vim.cmd.packadd(name)
 			vim.cmd.packadd("mini.nvim")
