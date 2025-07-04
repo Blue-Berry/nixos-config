@@ -32,3 +32,5 @@ end
 -- require("conf.merlin") TODO: this broke in the latest update
 
 require("conf.folding")
+
+require("conf.spelling")
