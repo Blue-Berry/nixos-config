@@ -4,6 +4,7 @@ _: {
       "/home/liam/.cargo/bin"
       "/home/liam/.cache/rebar3/bin"
       "/home/liam/bin"
+      "/home/liam/.config/emacs/bin"
     ];
   };
 }

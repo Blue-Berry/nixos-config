@@ -21,6 +21,7 @@
     ../desktop/gnome/default.nix
     ../system/gc.nix
     ../preload.nix
+    ../apps/emacs.nix
   ];
   services.cachix-agent.enable = true;
   nix.settings.trusted-users = ["root" "liam"];
