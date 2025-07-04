@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # gowin-ide
     alejandra
     base16-schemes
     bat
@@ -12,7 +13,6 @@
     calibre
     chromium
     claude-code
-    statix
     codecrafters-cli
     dig
     discord
@@ -29,6 +29,7 @@
     font-awesome
     fzf
     gcc
+    gemini-cli
     gh
     git
     gleam
@@ -43,7 +44,6 @@
     inetutils
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
-    # gowin-ide
     iputils
     kitty
     lazydocker
@@ -72,14 +72,15 @@
     python3
     qalculate-qt
     qbittorrent
-    swe-agent
     ripgrep
     rsync
     rustup
     showcolors
     sshfs
     starship
+    statix
     steam-run
+    swe-agent
     tealdeer
     teams-for-linux
     tmux
