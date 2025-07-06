@@ -2,6 +2,11 @@
   home.packages = [pkgs.starship];
   programs.starship = {
     enable = true;
-    #settings = { };
+    settings = {
+      character = {
+        success_symbol = "[λ](bold green)";
+        error_symbol = "[λ](bold red)";
+      };
+    };
   };
 }

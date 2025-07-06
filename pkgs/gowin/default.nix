@@ -1,28 +1,28 @@
-{ lib
-, stdenv
-, fetchurl
-, autoPatchelfHook
-, makeWrapper
-, libX11
-, libXext
-, libXrender
-, libXtst
-, fontconfig
-, freetype
-, glib
-, gtk3
-, qt5
-, zlib
-, openssl
-, libusb1
-, udev
-, alsa-lib
-, nss
-, nspr
-, postgresql
-, unixODBC
+{
+  lib,
+  stdenv,
+  fetchurl,
+  autoPatchelfHook,
+  makeWrapper,
+  libX11,
+  libXext,
+  libXrender,
+  libXtst,
+  fontconfig,
+  freetype,
+  glib,
+  gtk3,
+  qt5,
+  zlib,
+  openssl,
+  libusb1,
+  udev,
+  alsa-lib,
+  nss,
+  nspr,
+  postgresql,
+  unixODBC,
 }:
-
 stdenv.mkDerivation rec {
   pname = "gowin";
   version = "1.9.11.02_SP1";
@@ -71,14 +71,14 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    
+
     mkdir -p $out
     cp -r IDE/* $out/
-    
+
     # Make binaries executable
     chmod +x $out/bin/gw_ide
     find $out/bin -type f -executable -exec chmod +x {} \;
-    
+
     # Create wrapper for main executable that prioritizes bundled Qt libraries
     makeWrapper $out/bin/gw_ide $out/bin/gowin \
       --prefix LD_LIBRARY_PATH : "$out/lib:${lib.makeLibraryPath buildInputs}" \
@@ -88,7 +88,7 @@ stdenv.mkDerivation rec {
       --run 'mkdir -p "$GOWIN_DATA_DIR"' \
       --run 'cd "$GOWIN_DATA_DIR"' \
       --run 'if [ ! -f gwlicense.ini ]; then ln -sf $out/gwlicense.ini gwlicense.ini 2>/dev/null || true; fi'
-    
+
     runHook postInstall
   '';
 
@@ -96,7 +96,7 @@ stdenv.mkDerivation rec {
     description = "Gowin FPGA development IDE";
     homepage = "https://www.gowinsemi.com/";
     license = licenses.unfree;
-    platforms = [ "x86_64-linux" ];
-    maintainers = [ ];
+    platforms = ["x86_64-linux"];
+    maintainers = [];
   };
 }

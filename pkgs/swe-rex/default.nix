@@ -1,8 +1,8 @@
-{ lib
-, python3
-, fetchPypi
+{
+  lib,
+  python3,
+  fetchPypi,
 }:
-
 python3.pkgs.buildPythonPackage rec {
   pname = "swe-rex";
   version = "1.3.0";
@@ -57,6 +57,6 @@ python3.pkgs.buildPythonPackage rec {
     description = "A runtime interface for interacting with sandboxed shell environments";
     homepage = "https://github.com/swe-agent/SWE-ReX";
     license = licenses.mit;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [];
   };
 }

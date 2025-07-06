@@ -1,9 +1,9 @@
-{ lib
-, python3
-, fetchFromGitHub
-, callPackage
+{
+  lib,
+  python3,
+  fetchFromGitHub,
+  callPackage,
 }:
-
 python3.pkgs.buildPythonApplication rec {
   pname = "sweagent";
   version = "1.1.0";
@@ -41,7 +41,7 @@ python3.pkgs.buildPythonApplication rec {
     ghapi
     tabulate
     textual
-    (callPackage ../swe-rex { })
+    (callPackage ../swe-rex {})
   ];
 
   # Copy config, tools, and trajectories directories to fix runtime assertions
@@ -74,7 +74,7 @@ python3.pkgs.buildPythonApplication rec {
     description = "An open source Agent Computer Interface for running language models as software engineers";
     homepage = "https://github.com/SWE-agent/SWE-agent";
     license = licenses.mit;
-    maintainers = with maintainers; [ ];
+    maintainers = with maintainers; [];
     mainProgram = "sweagent";
   };
 }
