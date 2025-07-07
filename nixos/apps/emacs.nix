@@ -2,14 +2,27 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+let
+  emacs =
+    with pkgs;
+    (emacsPackagesFor (emacs-git-pgtk)).emacsWithPackages (
+      epkgs: with epkgs; [
+        treesit-grammars.with-all-grammars
+        vterm
+        mu4e
+        nixfmt
+        apheleia
+      ]
+    );
+in
+{
   nixpkgs.overlays = [
     inputs.emacs-overlay.overlays.default
   ];
 
   environment.systemPackages = with pkgs; [
     libvterm
-    emacsPackages.vterm
     binutils
     ripgrep
     fd
@@ -19,7 +32,11 @@
     cmake
     libtool
     ispell
-    emacs-git # Installs Emacs 28 + native-comp
+    pandoc
+    sqlite
+    clang-tools
+    texlive.combined.scheme-medium
+    emacs
   ];
 
   services.emacs = {
