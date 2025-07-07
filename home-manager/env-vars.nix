@@ -5,4 +5,6 @@ _: {
     TERMINAL = "ghostty";
     MANPAGER = "n +Man!";
   };
+
+  home.sessionPath = [ "$HOME/.config/emacs/bin/" ];
 }
