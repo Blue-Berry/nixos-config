@@ -6,5 +6,5 @@ _: {
     MANPAGER = "n +Man!";
   };
 
-  home.sessionPath = [ "$HOME/.config/emacs/bin/" ];
+  home.sessionPath = ["$HOME/.config/emacs/bin/"];
 }
