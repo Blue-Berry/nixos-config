@@ -16,7 +16,6 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-emacs;
     settings = {
-      # allow-loopback-entry = "";
       allow-emacs-pinentry = "";
     };
   };
