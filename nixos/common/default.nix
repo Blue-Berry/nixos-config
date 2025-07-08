@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ../../overlays/enable.nix
     ../packages/default.nix
@@ -22,7 +23,11 @@
     ../system/gc.nix
     ../preload.nix
     ../apps/emacs.nix
+    ../apps/pass.nix
   ];
   services.cachix-agent.enable = true;
-  nix.settings.trusted-users = ["root" "liam"];
+  nix.settings.trusted-users = [
+    "root"
+    "liam"
+  ];
 }

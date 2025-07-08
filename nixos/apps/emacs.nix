@@ -18,6 +18,7 @@ let
         merlin
         shfmt
         utop
+        pinentry
       ]
     );
 in
