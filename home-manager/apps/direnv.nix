@@ -6,4 +6,5 @@ _: {
       nix-direnv.enable = true;
     };
   };
+  services.lorri.enable = true;
 }

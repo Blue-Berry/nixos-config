@@ -17,6 +17,7 @@ let
         ocamlformat
         merlin
         shfmt
+        utop
       ]
     );
 in
