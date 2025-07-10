@@ -2,31 +2,39 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+let
+  themes = {
+    catppuccin = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    tokyo = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    custom = {
+      base00 = "#0E132C";
+      base01 = "#1A2132";
+      base02 = "#11112F";
+      base03 = "#1B3E49";
+      base04 = "#27666C";
+      base05 = "#35918B";
+      base06 = "#2D292D";
+      base07 = "#2F1A31";
+      base08 = "#544C52";
+      base09 = "#43C8C3";
+      base0A = "#6A2D43";
+      base0B = "#65604C";
+      base0C = "#899681";
+      base0D = "#D1CBBD";
+      base0E = "#B17F83";
+      base0F = "#B43764";
+    };
+  };
+in
+
+{
   stylix = {
-    image = "${inputs.wallpapers}/SolarSystem.jpg";
+    # image = "${inputs.wallpapers}/SolarSystem.jpg";
+    image = "${inputs.wallpapers}/dark_space_black_hole_1920x1080.jpeg";
     enable = true;
     polarity = "dark";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    # base16Scheme = {
-    #   base00 = "#0E132C";
-    #   base01 = "#1A2132";
-    #   base02 = "#11112F";
-    #   base03 = "#1B3E49";
-    #   base04 = "#27666C";
-    #   base05 = "#35918B";
-    #   base06 = "#2D292D";
-    #   base07 = "#2F1A31";
-    #   base08 = "#544C52";
-    #   base09 = "#43C8C3";
-    #   base0A = "#6A2D43";
-    #   base0B = "#65604C";
-    #   base0C = "#899681";
-    #   base0D = "#D1CBBD";
-    #   base0E = "#B17F83";
-    #   base0F = "#B43764";
-    # };
+    # base16Scheme = themes.catppuccin; # Comment out to use wallpaper
     autoEnable = true;
 
     cursor = {
@@ -326,4 +334,3 @@
 # xcode-dusk.yaml
 # zenbones.yaml
 # zenburn.yaml
-
