@@ -24,7 +24,7 @@ with lib; let
       # Special files and directories
       di = mkColor colors.base0D; # directory
       fi = mkColor colors.base05; # regular file
-      ln = mkColor colors.base06; # symbolic link
+      ln = mkColor colors.base0C; # symbolic link
       ex = mkColor colors.base0A; # executable file
       bd = mkColor colors.base0E; # block device
       cd = mkColor colors.base0E; # character device

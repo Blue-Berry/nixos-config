@@ -31,7 +31,7 @@ in {
     image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
     enable = true;
     polarity = "dark";
-    # base16Scheme = themes.catppuccin; # Comment out to use wallpaper
+    base16Scheme = themes.tokyo; # Comment out to use wallpaper
     autoEnable = true;
 
     cursor = {
