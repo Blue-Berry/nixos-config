@@ -34,6 +34,8 @@ in {
     imagemagick
     age
     cmake
+    graphviz
+    scrot
     libtool
     ispell
     pandoc
