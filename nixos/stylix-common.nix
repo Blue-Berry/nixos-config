@@ -31,7 +31,7 @@ in
 {
   stylix = {
     # image = "${inputs.wallpapers}/SolarSystem.jpg";
-    image = "${inputs.wallpapers}/dark_space_black_hole_1920x1080.jpeg";
+    image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
     enable = true;
     polarity = "dark";
     # base16Scheme = themes.catppuccin; # Comment out to use wallpaper

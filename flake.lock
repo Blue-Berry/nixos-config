@@ -1292,11 +1292,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1744398716,
-        "narHash": "sha256-+7nfMDmFWbF+ShdFOECWN+PMNgyZEHxiWZbjm0A58aw=",
+        "lastModified": 1752155142,
+        "narHash": "sha256-5g4CvwuzAv2dbwS7AR6/7jaQlu7dZmHOUJD1dIdq3zs=",
         "ref": "refs/heads/main",
-        "rev": "a46b55a6a8af2f5f81236345bdca7f5ae2e8a693",
-        "revCount": 3,
+        "rev": "d72c10e34b1a6d28666664d04d817b7e71550385",
+        "revCount": 5,
         "type": "git",
         "url": "file:wallpapers"
       },

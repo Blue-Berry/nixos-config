@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ../nixos/stylix-common.nix
   ];
@@ -15,6 +16,12 @@
       hyprland.enable = true;
       waybar.enable = false;
       spicetify.enable = false;
+      ghostty.enable = true;
+      fzf.enable = true;
+      gtk.enable = true;
+      qt.enable = true;
+      starship.enable = true;
+      zathura.enable = true;
     };
   };
 }
