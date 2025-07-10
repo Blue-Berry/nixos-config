@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   themes = {
     catppuccin = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     tokyo = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
@@ -26,9 +25,7 @@ let
       base0F = "#B43764";
     };
   };
-in
-
-{
+in {
   stylix = {
     # image = "${inputs.wallpapers}/SolarSystem.jpg";
     image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
@@ -334,3 +331,4 @@ in
 # xcode-dusk.yaml
 # zenbones.yaml
 # zenburn.yaml
+

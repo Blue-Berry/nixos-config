@@ -2,27 +2,25 @@
   pkgs,
   inputs,
   ...
-}:
-let
-  emacs =
-    with pkgs;
+}: let
+  emacs = with pkgs;
     (emacsPackagesFor emacs-git-pgtk).emacsWithPackages (
-      epkgs: with epkgs; [
-        treesit-grammars.with-all-grammars
-        vterm
-        mu4e
-        nixfmt
-        apheleia
-        ocp-indent
-        ocamlformat
-        merlin
-        shfmt
-        utop
-        pinentry
-      ]
+      epkgs:
+        with epkgs; [
+          treesit-grammars.with-all-grammars
+          vterm
+          mu4e
+          nixfmt
+          apheleia
+          ocp-indent
+          ocamlformat
+          merlin
+          shfmt
+          utop
+          pinentry
+        ]
     );
-in
-{
+in {
   nixpkgs.overlays = [
     inputs.emacs-overlay.overlays.default
   ];
@@ -44,11 +42,12 @@ in
     texlive.combined.scheme-medium
     emacs
     (aspellWithDicts (
-      ds: with ds; [
-        en
-        en-computers
-        en-science
-      ]
+      ds:
+        with ds; [
+          en
+          en-computers
+          en-science
+        ]
     ))
   ];
 

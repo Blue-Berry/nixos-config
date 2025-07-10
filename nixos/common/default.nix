@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ../../overlays/enable.nix
     ../packages/default.nix
