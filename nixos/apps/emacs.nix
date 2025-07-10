@@ -42,6 +42,7 @@ in {
     sqlite
     clang-tools
     texlive.combined.scheme-medium
+    nixfmt-rfc-style
     emacs
     (aspellWithDicts (
       ds:
