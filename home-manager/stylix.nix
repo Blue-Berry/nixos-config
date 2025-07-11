@@ -23,7 +23,7 @@
       ghostty.enable = true;
       fzf.enable = true;
       dunst.enable = true;
-      firefix = {
+      firefox = {
         enable = true;
         colorTheme.enable = true;
       };
