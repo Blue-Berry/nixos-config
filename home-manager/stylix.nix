@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ../nixos/stylix-common.nix
   ];
@@ -21,7 +22,15 @@
       spicetify.enable = false;
       ghostty.enable = true;
       fzf.enable = true;
-      gtk.enable = true;
+      dunst.enable = true;
+      firefix = {
+        enable = true;
+        colorTheme.enable = true;
+      };
+      gtk = {
+        enable = true;
+        extraCss = true;
+      };
       qt.enable = true;
       starship.enable = true;
       zathura.enable = true;
@@ -29,6 +38,7 @@
         useWallpaper = true;
         enable = true;
       };
+      lazygit.enable = true;
     };
   };
 }

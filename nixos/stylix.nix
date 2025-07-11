@@ -13,6 +13,8 @@
         useWallpaper = true;
       };
       gnome.enable = true;
+      gtk.enable = true;
+      qt.enable = true;
     };
   };
 }
