@@ -200,6 +200,15 @@
           "2,monitor:DVI-I-2"
           "3,monitor:HDMI-A-1"
         ];
+      animation = [
+        "windowsIn, 0, 8, default"
+      ];
+      input = {
+        natural_scroll = true;
+        touchpad = {
+          natural_scroll = true;
+        };
+      };
     };
   };
 }
