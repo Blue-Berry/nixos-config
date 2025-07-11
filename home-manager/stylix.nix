@@ -29,7 +29,6 @@
       };
       gtk = {
         enable = true;
-        extraCss = true;
       };
       qt.enable = true;
       starship.enable = true;
