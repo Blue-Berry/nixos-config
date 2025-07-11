@@ -17,12 +17,15 @@
     ../ports.nix
     ../stylix.nix
     ../desktop/hyprland/default.nix
+    ../desktop/gdm/default.nix
     # ./desktop/kde/default.nix
     ../desktop/gnome/default.nix
     ../system/gc.nix
     ../preload.nix
     ../apps/emacs.nix
     ../apps/pass.nix
+
+    ../boot.nix
   ];
   services.cachix-agent.enable = true;
   nix.settings.trusted-users = [

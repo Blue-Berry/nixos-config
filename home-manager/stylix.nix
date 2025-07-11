@@ -9,6 +9,10 @@
     targets = {
       hyprland.hyprpaper.enable = true;
       hyprpaper.enable = true;
+      hyprlock = {
+        enable = true;
+        useWallpaper = true;
+      };
       yazi.enable = true;
       bat.enable = true;
       btop.enable = true;
@@ -21,6 +25,10 @@
       qt.enable = true;
       starship.enable = true;
       zathura.enable = true;
+      gnome = {
+        useWallpaper = true;
+        enable = true;
+      };
     };
   };
 }
