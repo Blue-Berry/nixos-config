@@ -5,9 +5,9 @@
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub = {
-    enable     = true;
+    enable = true;
     efiSupport = true;
     useOSProber = true;
-    device     = "nodev";
+    device = "nodev";
   };
 }

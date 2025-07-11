@@ -10,6 +10,7 @@
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # Whether to enable XWayland
     xwayland.enable = true;
+    withUWSM = true;
     # portalPackage = pkgs.xdg-desktop-portal-hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
