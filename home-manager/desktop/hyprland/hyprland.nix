@@ -120,7 +120,7 @@
         "$mod, T, exec, $terminal"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, E, exec, $fileManager"
+        "$mod, E, exec, emacsclient --create-frame"
         "$mod, V, togglefloating,"
         # "$mod, R, exec, $menu"
         # "$mod, R, exec, rofi -show drun -show-icons"
