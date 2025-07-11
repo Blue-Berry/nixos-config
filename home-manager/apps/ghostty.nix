@@ -12,6 +12,7 @@
       background-blur = true;
       window-decoration = "server";
       app-notifications = "false";
+      confirm-close-surface = false;
     };
   };
 }
