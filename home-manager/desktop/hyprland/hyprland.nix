@@ -192,8 +192,8 @@
       workspace =
         if profile == "personal"
         then [
-          "2,monitor:DP-2"
-          "1,monitor:HDMI-1"
+          "1, monitor:DP-2, default:true"
+          "2, monitor:HDMI-A-1, default:true"
         ]
         else [
           "1,monitor:DVI-I-1"
