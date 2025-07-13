@@ -204,7 +204,7 @@
         "windowsIn, 0, 8, default"
       ];
       input = {
-        natural_scroll = true;
+        natural_scroll = false;
         touchpad = {
           natural_scroll = true;
         };
