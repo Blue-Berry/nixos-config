@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   programs.regreet = {
     enable = true;
     cageArgs = ["-s" "-mlast"];

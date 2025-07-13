@@ -30,11 +30,10 @@
     ../../nixos/hardware/optimus/default.nix
     ../../nixos/hardware/optimus/nvidia.nix
 
-
     ../../nixos/desktop/hyprland
     ../../nixos/greeter/gdm
     ../../nixos/desktop/gnome
-# ./../../nixos/apps/steam.nix
+    # ./../../nixos/apps/steam.nix
   ];
 
   nixpkgs = {

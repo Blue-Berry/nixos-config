@@ -96,9 +96,9 @@
           "format-disconnected" = " ⚠ ";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
-        "battery" ={
-          "format"= "{capacity}% {icon}";
-            "format-icons"= ["" "" "" "" ""];
+        "battery" = {
+          "format" = "{capacity}% {icon}";
+          "format-icons" = ["" "" "" "" ""];
         };
         "temperature" = {
           #"critical-threshold"= 80;
