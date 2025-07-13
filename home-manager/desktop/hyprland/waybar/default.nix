@@ -25,13 +25,14 @@
         ];
         modules-right = [
           "pulseaudio"
-          "backlight"
+          # "backlight"
           "memory"
           "cpu"
           "bluetooth"
           "network"
           "tray"
           "clock"
+          "battery"
         ];
         "hyprland/workspaces" = {
           "format" = "{icon}";
@@ -45,13 +46,13 @@
           };
           separate-outputs = true;
         };
-        "backlight" = {
-          "device" = "intel_backlight";
-          "on-scroll-up" = "light -A 5";
-          "on-scroll-down" = "light -U 5";
-          "format" = "{icon} {percent}%";
-          "format-icons" = ["󰃝" "󰃞" "󰃟" "󰃠"];
-        };
+        # "backlight" = {
+        #   "device" = "intel_backlight";
+        #   "on-scroll-up" = "light -A 5";
+        #   "on-scroll-down" = "light -U 5";
+        #   "format" = "{icon} {percent}%";
+        #   "format-icons" = ["󰃝" "󰃞" "󰃟" "󰃠"];
+        # };
         "pulseaudio" = {
           "scroll-step" = 1;
           "format" = "{icon}   {volume}%";
@@ -94,6 +95,10 @@
           "format-linked" = "{ifname} (No IP) ";
           "format-disconnected" = " ⚠ ";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+        };
+        "battery" ={
+          "format"= "{capacity}% {icon}";
+            "format-icons"= ["" "" "" "" ""];
         };
         "temperature" = {
           #"critical-threshold"= 80;
