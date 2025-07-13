@@ -36,6 +36,11 @@
     ../../nixos/apps/ollama.nix
 
     ../../nixos/flatpack.nix
+
+
+   ../../nixos/desktop/hyprland
+   ../../nixos/greeter/regreet
+   ../../nixos/desktop/gnome
   ];
 
   #NOTE: Basic system configuration
