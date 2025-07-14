@@ -79,7 +79,7 @@
       general = {
         # "col.active_border" = lib.mkForce "rgba(74c7ecff)";
         gaps_in = 4;
-        gaps_out = 14;
+        gaps_out = 8;
       };
       misc = {
         force_default_wallpaper = -1;
@@ -171,13 +171,21 @@
         ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
       ];
-      bindl = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-      ];
-
+      bindl =
+        [
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+        ]
+        ++ (
+          if profile == "work"
+          then [
+            ",switch:on:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, disable\""
+            ",switch:off:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, 1920x1080, auto, 1\""
+          ]
+          else []
+        );
       # env = [
       #   "HYPRCURSOR_THEME,rose-pine-hyprcursor"
       # ];
