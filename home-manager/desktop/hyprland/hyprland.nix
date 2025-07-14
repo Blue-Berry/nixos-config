@@ -194,6 +194,10 @@
         if profile == "work"
         then [
           "AQ_DRM_DEVICES,/dev/dri/card3:/dev/dri/card0:/dev/dri/card2:/dev/dri/card1"
+          # card0 => EVDI
+          # card1 => NVIDIA
+          # card2 => AMD
+          # card3 => EVDI
         ]
         else [];
 
@@ -217,6 +221,10 @@
           natural_scroll = true;
         };
       };
+      cursor.no_hardware_cursors =
+        if profile == "personal"
+        then false
+        else true;
     };
   };
 }

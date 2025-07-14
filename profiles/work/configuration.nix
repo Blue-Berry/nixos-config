@@ -31,7 +31,7 @@
     ../../nixos/hardware/optimus/nvidia.nix
 
     ../../nixos/desktop/hyprland
-    ../../nixos/greeter/gdm
+    ../../nixos/greeter/regreet
     ../../nixos/desktop/gnome
     # ./../../nixos/apps/steam.nix
   ];
