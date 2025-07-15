@@ -48,12 +48,21 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    inherit (nixpkgs) lib;
+    personalSettings = {
+      profile = "personal";
+      desktopEnv = ["hyprland" "gnome"];
+      username = "liam";
+      greeter = "hyprlock"; # or "gdm" for home config
+    };
+    workSettings = {
+      profile = "work";
+      desktopEnv = ["hyprland" "gnome"];
+      username = "liam";
+      greeter = "gdm";
+    };
     systemSettings = {
       hostname = "liam-nixos";
-    };
-    userSettings = {
-      username = "liam";
-      profile = "personal";
     };
     # Supported systems for your flake packages, shell, etc.
     systems = [
@@ -65,7 +74,7 @@
     ];
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
-    forAllSystems = nixpkgs.lib.genAttrs systems;
+    forAllSystems = lib.genAttrs systems;
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -88,29 +97,33 @@
     nixosConfigurations = {
       personal = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs;
+          inherit (self) inputs outputs;
           inherit systemSettings;
-          inherit userSettings;
-          profile = "personal";
+          userSettings = personalSettings;
         };
         modules = [
           # > Our main nixos configuration file <
           stylix.nixosModules.stylix
           solaar.nixosModules.default
+          ./modules/user-settings.nix
+          {config.userSettings = personalSettings;}
+          ./modules/nixos/conditional-imports.nix
           (./. + "/profiles" + "/personal/configuration.nix")
         ];
       };
       work = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs;
+          inherit (self) inputs outputs;
           inherit systemSettings;
-          inherit userSettings;
-          profile = "work";
+          userSettings = workSettings;
         };
         modules = [
           solaar.nixosModules.default
           stylix.nixosModules.stylix
           (./. + "/profiles" + "/work/configuration.nix")
+          ./modules/user-settings.nix
+          {config.userSettings = workSettings;}
+          ./modules/nixos/conditional-imports.nix
         ];
       };
     };
@@ -123,13 +136,13 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
-          inherit userSettings;
-          profile = "personal";
         };
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/personal/home.nix")
           stylix.homeModules.stylix
+          ./modules/user-settings.nix
+          {config.userSettings = personalSettings;}
         ];
       };
       work = home-manager.lib.homeManagerConfiguration {
@@ -137,13 +150,13 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
-          inherit userSettings;
-          profile = "work";
         };
         modules = [
           # > Our main home-manager configuration file <
           (./. + "/profiles" + "/work/home.nix")
           stylix.homeModules.stylix
+          ./modules/user-settings.nix
+          {config.userSettings = workSettings;}
         ];
       };
     };

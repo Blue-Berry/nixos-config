@@ -100,7 +100,8 @@
       exec-once = [
         "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
         # "${pkgs.hyprpanel}/bin/hyprpanel"
-        "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
+        # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
+        "hyprlock || hyprctl dispatch exit"
       ];
 
       # windowrulev2 = [

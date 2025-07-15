@@ -3,4 +3,5 @@
 {
   # List your module files here
   # my-module = import ./my-module.nix;
+  conditional-imports = import ./conditional-imports.nix;
 }

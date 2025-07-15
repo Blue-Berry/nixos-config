@@ -7,7 +7,6 @@
   config,
   pkgs,
   systemSettings,
-  userSettings,
   ...
 }: {
   # You can import other NixOS modules here
@@ -36,10 +35,6 @@
     ../../nixos/apps/ollama.nix
 
     ../../nixos/flatpack.nix
-
-    ../../nixos/desktop/hyprland
-    ../../nixos/greeter/regreet
-    ../../nixos/desktop/gnome
   ];
 
   #NOTE: Basic system configuration
@@ -71,7 +66,7 @@
   services.printing.enable = true;
 
   users.users = {
-    ${userSettings.username} = {
+    ${config.userSettings.username} = {
       isNormalUser = true;
       initialPassword = "stuff";
       openssh.authorizedKeys.keys = [

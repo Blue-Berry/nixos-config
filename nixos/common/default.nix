@@ -1,4 +1,9 @@
-{...}: {
+{
+  outputs,
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ../../overlays/enable.nix
     ../packages/default.nix
@@ -22,6 +27,7 @@
     ../apps/pass.nix
 
     ../boot.nix
+    outputs.nixosModules.conditional-imports
   ];
   services.cachix-agent.enable = true;
   nix.settings.trusted-users = [
