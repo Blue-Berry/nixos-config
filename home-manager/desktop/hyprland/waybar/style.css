@@ -1,30 +1,3 @@
-@define-color rosewater #f4dbd6;
-@define-color flamingo #f0c6c6;
-@define-color pink #f5bde6;
-@define-color mauve #c6a0f6;
-@define-color red #ed8796;
-@define-color maroon #ee99a0;
-@define-color peach #f5a97f;
-@define-color yellow #eed49f;
-@define-color green #a6da95;
-@define-color teal #8bd5ca;
-@define-color sky #91d7e3;
-@define-color sapphire #7dc4e4;
-@define-color blue #8aadf4;
-@define-color lavender #b7bdf8;
-@define-color text #cad3f5;
-@define-color subtext1 #b8c0e0;
-@define-color subtext0 #a5adcb;
-@define-color overlay2 #939ab7;
-@define-color overlay1 #8087a2;
-@define-color overlay0 #6e738d;
-@define-color surface2 #5b6078;
-@define-color surface1 #494d64;
-@define-color surface0 #363a4f;
-@define-color base #24273a;
-@define-color mantle #1e2030;
-@define-color crust #181926;
-
 * {
     font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
@@ -59,13 +32,10 @@ button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #ffffff;
 }
-#pulseaudio:hover {
-    background-color: @surface2;
-}
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    /* color: #ffffff; */
 }
 
 
@@ -74,57 +44,16 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: @lavender;
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#workspaces button.active {
-    /* background-color: @lavender; */
-    color: @mauve;
-}
 
 #mode, #clock, #memory, #temperature,#cpu, #temperature, #backlight, #pulseaudio, #network, #bluetooth {
     padding: 0 10px;
 }
-#memory {
-    color: #8EBBBA;
-}
-#cpu {
-    color: #B38DAC;
-}
-#clock {
-    color: @flamingo;
-}
-#temperature {
-    color: #80A0C0;
-}
-#backlight {
-    color: #A2BD8B;
-}
-#pulseaudio {
-    color: @maroon;
-}
-#network {
-    color: @yellow;
-}
 
-#bluetooth {
-    color: @blue;
-}
-
-#window {
-    color: @rosewater;
-}
-
-#network.disconnected {
-    color: #CCCCCC;
-}
 .modules-right,.modules-left,.modules-center {
-    background-color: @base;
+    background-color: @base02;
     border-radius: 15px;
 }
 .modules-right {
@@ -140,3 +69,72 @@ button:hover {
 }
 
 
+window .modules-right #workspaces button {
+    color: @base07;
+}
+.modules-right #wireplumber,
+.modules-right #pulseaudio,
+.modules-right #sndio {
+    color: @base09;
+}
+.modules-right #wireplumber.muted,
+.modules-right #pulseaudio.muted,
+.modules-right #sndio.muted {
+    color: @base0C;
+}
+.modules-right #upower,
+.modules-right #battery {
+    color: @base0D;
+}
+.modules-right #upower.charging,
+.modules-right #battery.Charging {
+    color: @base0E;
+}
+.modules-right #network {
+    color: @base0B;
+}
+.modules-right #network.disconnected {
+    color: @base0C;
+}
+.modules-right #user {
+    color: @base0F;
+}
+.modules-right #clock {
+    color: @base07;
+}
+.modules-right #backlight {
+    color: @base0E;
+}
+.modules-right #cpu {
+    color: @base0B;
+}
+.modules-right #disk {
+    color: @base02;
+}
+.modules-right #idle_inhibitor {
+    color: @base06;
+}
+.modules-right #temperature {
+    color: @base07;
+}
+.modules-right #mpd {
+    color: @base02;
+}
+.modules-right #language {
+    color: @base02;
+}
+.modules-right #keyboard-state {
+    color: @base03;
+}
+.modules-right #memory {
+    color: @base09;
+}
+.modules-right #window {
+    color: @base0C;
+}
+.modules-right #bluetooth {
+    color: @base0E;
+}
+.modules-right #bluetooth.disabled {
+    color: @base0C;
+}

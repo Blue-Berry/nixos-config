@@ -17,7 +17,6 @@
       bat.enable = true;
       btop.enable = true;
       hyprland.enable = true;
-      waybar.enable = false;
       spicetify.enable = false;
       ghostty.enable = true;
       fzf.enable = true;

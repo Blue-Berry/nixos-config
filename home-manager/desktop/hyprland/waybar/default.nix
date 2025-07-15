@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     mpc-cli
     waybar
@@ -64,8 +68,9 @@
           "tooltip" = false;
         };
         "clock" = {
+          format = "{:%Y-%m-%d %H:%M:%S}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%Y-%m-%d}";
+          format-alt = "{:%Y-%m-%d %H:%M}";
           "interval" = 1;
           "tooltip" = true;
         };
@@ -112,6 +117,13 @@
       }
     ];
 
-    style = ./style.css;
+    style = lib.mkAfter (builtins.readFile ./style.css);
+  };
+  stylix.targets.waybar = {
+    enable = true;
+    addCss = true;
+    enableCenterBackColors = false;
+    enableLeftBackColors = false;
+    enableRightBackColors = false;
   };
 }
