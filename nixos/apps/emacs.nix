@@ -26,6 +26,11 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
+    (mkLauncherEntry "Emacs (Debug Mode)" {
+      description = "Start Emacs in debug mode";
+      icon = "emacs";
+      exec = "${emacs}/bin/emacs --debug-init";
+    })
     libvterm
     binutils
     ripgrep
