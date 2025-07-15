@@ -126,6 +126,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
+          userSettings = personalSettings;
         };
         modules = [
           # > Our main home-manager configuration file <
@@ -140,6 +141,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
+          userSettings = workSettings;
         };
         modules = [
           # > Our main home-manager configuration file <

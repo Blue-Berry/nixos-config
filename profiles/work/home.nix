@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  userSettings,
   ...
 }: {
   # You can import other home-manager modules here
@@ -21,8 +22,8 @@
   ];
 
   home = {
-    username = "liam";
-    homeDirectory = "/home/liam";
+    username = userSettings.username;
+    homeDirectory = "/home/" + userSettings.username;
   };
 
   # Add stuff for your user as you see fit:

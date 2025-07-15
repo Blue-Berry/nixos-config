@@ -2,8 +2,8 @@
   config,
   lib,
   pkgs,
-  profile,
   inputs,
+  userSettings,
   ...
 }: {
   home.packages = with pkgs; [
@@ -27,7 +27,7 @@
     ./waybar/default.nix
     # ./hyprpanel/default.nix
     (
-      if profile == "personal"
+      if userSettings.profile == "personal"
       then ./monitors/personal.nix
       else ./monitors/work.nix
     )
@@ -180,7 +180,7 @@
           ", XF86AudioPlay, exec, playerctl play-pause"
         ]
         ++ (
-          if profile == "work"
+          if userSettings.profile == "work"
           then [
             ",switch:on:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, disable\""
             ",switch:off:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, 1920x1080, auto, 1\""
@@ -192,7 +192,7 @@
       # ];
 
       env =
-        if profile == "work"
+        if userSettings.profile == "work"
         then [
           "AQ_DRM_DEVICES,/dev/dri/card3:/dev/dri/card0:/dev/dri/card2:/dev/dri/card1"
           # card0 => EVDI
@@ -203,7 +203,7 @@
         else [];
 
       workspace =
-        if profile == "personal"
+        if userSettings.profile == "personal"
         then [
           "1, monitor:DP-2, default:true"
           "2, monitor:HDMI-A-1, default:true"
@@ -223,7 +223,7 @@
         };
       };
       cursor.no_hardware_cursors =
-        if profile == "personal"
+        if userSettings.profile == "personal"
         then false
         else true;
     };
