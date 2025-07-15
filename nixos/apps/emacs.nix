@@ -20,6 +20,25 @@
           pinentry
         ]
     );
+  mkLauncherEntry = title: {
+    prefix ? "launcher-",
+    description ? "",
+    icon,
+    exec,
+    categories ? [],
+  }:
+    pkgs.makeDesktopItem ({
+        inherit icon exec categories;
+        name = "${prefix}${builtins.hashString "md5" exec}";
+        desktopName = title;
+      }
+      // (
+        if description != ""
+        then {
+          genericName = description;
+        }
+        else {}
+      ));
 in {
   nixpkgs.overlays = [
     inputs.emacs-overlay.overlays.default
