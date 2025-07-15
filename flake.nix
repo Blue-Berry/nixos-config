@@ -49,18 +49,8 @@
   } @ inputs: let
     inherit (self) outputs;
     inherit (nixpkgs) lib;
-    personalSettings = {
-      profile = "personal";
-      desktopEnv = ["hyprland" "gnome"];
-      username = "liam";
-      greeter = "hyprlock"; # or "gdm" for home config
-    };
-    workSettings = {
-      profile = "work";
-      desktopEnv = ["hyprland" "gnome"];
-      username = "liam";
-      greeter = "gdm";
-    };
+    personalSettings = import ./profiles/personal/userSettings.nix;
+    workSettings = import ./profiles/work/userSettings.nix;
     systemSettings = {
       hostname = "liam-nixos";
     };
