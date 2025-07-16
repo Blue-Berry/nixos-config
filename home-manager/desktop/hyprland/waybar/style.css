@@ -71,7 +71,7 @@ button:hover {
 }
 
 /* Group modules styling with tighter spacing */
-#cpu, #memory, #clock, #tray {
+#usage, #clock, #tray {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 1px;
