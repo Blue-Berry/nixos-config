@@ -28,13 +28,12 @@
           "hyprland/window"
         ];
         modules-right = [
-          "group/usage"
+          "group/tray"
+          "battery"
           "pulseaudio"
           # "backlight"
-          "bluetooth"
-          "network"
-          "battery"
-          "group/tray"
+          "group/comms"
+          "group/usage"
           "group/clock"
         ];
         "hyprland/workspaces" = {
@@ -60,6 +59,10 @@
         "group/tray" = {
           "orientation"= "horizontal";
           "modules"= ["tray"];
+        };
+        "group/comms" = {
+          "orientation"= "horizontal";
+          "modules"= ["network" "bluetooth"];
         };
         "backlight" = {
           "device" = "intel_backlight";

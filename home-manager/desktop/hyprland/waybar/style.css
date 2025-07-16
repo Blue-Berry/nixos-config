@@ -63,7 +63,7 @@ button:hover {
 }
 
 /* Individual modules styling */
-#pulseaudio, #pulseaudio.muted, #bluetooth, #network, #battery {
+#pulseaudio, #pulseaudio.muted, #battery {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 3px;
@@ -71,7 +71,7 @@ button:hover {
 }
 
 /* Group modules styling with tighter spacing */
-#usage, #clock, #tray {
+#usage, #clock, #tray, #comms {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 1px;
