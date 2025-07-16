@@ -28,13 +28,13 @@
           "hyprland/window"
         ];
         modules-right = [
-          "group/tray"
+          "group/trayG"
           "battery"
           "pulseaudio"
           # "backlight"
           "group/comms"
           "group/usage"
-          "group/clock"
+          "group/clockG"
         ];
         "hyprland/workspaces" = {
           "format" = "{icon}";
@@ -52,11 +52,11 @@
           "orientation"= "horizontal";
           "modules"= ["cpu" "memory"];
         };
-        "group/clock"= {
+        "group/clockG"= {
           "orientation"= "horizontal";
           "modules"= ["clock"];
         };
-        "group/tray" = {
+        "group/trayG" = {
           "orientation"= "horizontal";
           "modules"= ["tray"];
         };

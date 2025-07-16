@@ -63,10 +63,10 @@ button:hover {
 }
 
 /* Group modules styling with tighter spacing */
-#usage, #clock, #tray, #comms, #pulseaudio, #pulseaudio.muted, #battery {
+#usage, #clockG, #trayG, #comms, #pulseaudio, #pulseaudio.muted, #battery {
     background-color: @base02;
     border-radius: 15px;
-    margin: 0 1px;
+    margin: 0 3px;
     padding: 0 12px;
 }
 
