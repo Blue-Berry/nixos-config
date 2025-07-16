@@ -1,13 +1,17 @@
+/* Global styles */
 * {
     font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
+
+/* Animations */
 @keyframes blink_red {
     to {
         background-color: rgb(242, 143, 173);
         color: rgb(26, 24, 38);
     }
 }
+
 .warning, .critical, .urgent {
     animation-name: blink_red;
     animation-duration: 1s;
@@ -15,29 +19,28 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+
+/* Window and button styles */
 window#waybar {
     background-color: transparent;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #ffffff;
 }
+
+/* Workspace styles */
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    /* color: #ffffff; */
 }
-
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
@@ -47,37 +50,27 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-
-#mode, #clock, #memory, #temperature,#cpu, #temperature, #backlight, #pulseaudio, #network, #bluetooth {
-    padding: 0 10px;
-}
-
-#battery {
-    padding-right: 20px;
-}
-
-.modules-left,.modules-center {
+/* Module container styles */
+.modules-left, .modules-center {
     background-color: @base02;
     border-radius: 15px;
-}
-
-.modules-left {
     padding: 0 10px;
 }
 
-.modules-center {
+.modules-right {
+    background-color: transparent;
     padding: 0 10px;
 }
 
 /* Individual modules styling */
-#pulseaudio, #pulseaudio.muted, #bluetooth, #network, #battery {
+#pulseaudio, #bluetooth, #network, #battery {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 3px;
-    padding: 0 20px;
+    padding: 0 12px;
 }
 
-/* Group modules styling with less padding */
+/* Group modules styling with tighter spacing */
 #cpu, #memory, #clock, #tray {
     background-color: @base02;
     border-radius: 15px;
@@ -85,89 +78,93 @@ button:hover {
     padding: 0 8px;
 }
 
-/* Group styling using various approaches */
-#usage, #clock, #tray,
-.usage, .clock, .tray,
-usage, clock, tray {
-    background-color: @base02;
-    border-radius: 15px;
-    margin: 0 3px;
-    padding: 0 12px;
-}
-
-/* Remove the main modules-right background to make spaces transparent */
-.modules-right {
-    background-color: transparent;
-    padding: 0 10px;
-}
-
-
-window .modules-right #workspaces button {
-    color: @base07;
-}
-.modules-right #wireplumber,
+/* Module colors */
 .modules-right #pulseaudio,
+.modules-right #wireplumber,
 .modules-right #sndio {
     color: @base09;
 }
-.modules-right #wireplumber.muted,
+
 .modules-right #pulseaudio.muted,
+.modules-right #wireplumber.muted,
 .modules-right #sndio.muted {
     color: @base0C;
 }
-.modules-right #upower,
-.modules-right #battery {
+
+.modules-right #battery,
+.modules-right #upower {
     color: @base0D;
 }
-.modules-right #upower.charging,
-.modules-right #battery.Charging {
+
+.modules-right #battery.Charging,
+.modules-right #upower.charging {
     color: @base0E;
 }
+
 .modules-right #network {
     color: @base0B;
 }
+
 .modules-right #network.disconnected {
     color: @base0C;
 }
-.modules-right #user {
-    color: @base0F;
-}
-.modules-right #clock {
-    color: @base05;
-}
-.modules-right #backlight {
-    color: @base0E;
-}
-.modules-right #cpu {
-    color: @base0B;
-}
-.modules-right #disk {
-    color: @base02;
-}
-.modules-right #idle_inhibitor {
-    color: @base06;
-}
-.modules-right #temperature {
-    color: @base07;
-}
-.modules-right #mpd {
-    color: @base02;
-}
-.modules-right #language {
-    color: @base02;
-}
-.modules-right #keyboard-state {
-    color: @base03;
-}
-.modules-right #memory {
-    color: @base09;
-}
-.modules-right #window {
-    color: @base0C;
-}
+
 .modules-right #bluetooth {
     color: @base0E;
 }
+
 .modules-right #bluetooth.disabled {
     color: @base0C;
+}
+
+.modules-right #clock {
+    color: @base05;
+}
+
+.modules-right #cpu {
+    color: @base0B;
+}
+
+.modules-right #memory {
+    color: @base09;
+}
+
+.modules-right #backlight {
+    color: @base0E;
+}
+
+.modules-right #temperature {
+    color: @base07;
+}
+
+.modules-right #user {
+    color: @base0F;
+}
+
+.modules-right #disk {
+    color: @base02;
+}
+
+.modules-right #idle_inhibitor {
+    color: @base06;
+}
+
+.modules-right #mpd {
+    color: @base02;
+}
+
+.modules-right #language {
+    color: @base02;
+}
+
+.modules-right #keyboard-state {
+    color: @base03;
+}
+
+.modules-right #window {
+    color: @base0C;
+}
+
+.modules-right #workspaces button {
+    color: @base07;
 }
