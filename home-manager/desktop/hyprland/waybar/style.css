@@ -63,7 +63,7 @@ button:hover {
 }
 
 /* Individual modules styling */
-#pulseaudio, #bluetooth, #network, #battery {
+#pulseaudio, #pulseaudio.muted, #bluetooth, #network, #battery {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 3px;
