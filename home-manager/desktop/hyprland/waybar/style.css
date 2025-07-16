@@ -56,12 +56,9 @@ button:hover {
     padding-right: 20px;
 }
 
-.modules-right,.modules-left,.modules-center {
+.modules-left,.modules-center {
     background-color: @base02;
     border-radius: 15px;
-}
-.modules-right {
-    padding: 0 10px;
 }
 
 .modules-left {
@@ -69,6 +66,38 @@ button:hover {
 }
 
 .modules-center {
+    padding: 0 10px;
+}
+
+/* Individual modules styling */
+#pulseaudio, #pulseaudio.muted, #bluetooth, #network, #battery {
+    background-color: @base02;
+    border-radius: 15px;
+    margin: 0 3px;
+    padding: 0 20px;
+}
+
+/* Group modules styling with less padding */
+#cpu, #memory, #clock, #tray {
+    background-color: @base02;
+    border-radius: 15px;
+    margin: 0 1px;
+    padding: 0 8px;
+}
+
+/* Group styling using various approaches */
+#usage, #clock, #tray,
+.usage, .clock, .tray,
+usage, clock, tray {
+    background-color: @base02;
+    border-radius: 15px;
+    margin: 0 3px;
+    padding: 0 12px;
+}
+
+/* Remove the main modules-right background to make spaces transparent */
+.modules-right {
+    background-color: transparent;
     padding: 0 10px;
 }
 

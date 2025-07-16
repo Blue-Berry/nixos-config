@@ -128,7 +128,7 @@
         # "$mod, R, exec, $menu"
         # "$mod, R, exec, rofi -show drun -show-icons"
         "$mod, R, exec, rofi -show drun -theme $HOME/.config/rofi/launchers/type-5/style-4.rasi"
-        "$mod, L, exec, $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
+        "$mod, D, exec, $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
         "$mod, P, pseudo, # dwindle"
         "$mod, J, togglesplit, # dwindle"
 
@@ -137,6 +137,10 @@
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
 
         # Switch workspaces with mod + [0-9]
         "$mod, 1, workspace, 1"
