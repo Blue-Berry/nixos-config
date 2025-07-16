@@ -26,6 +26,7 @@
         ];
         modules-center = [
           "hyprland/window"
+          "gamemode"
         ];
         modules-right = [
           "group/trayG"
@@ -50,7 +51,7 @@
         };
         "group/usage" = {
           "orientation"= "horizontal";
-          "modules"= ["cpu" "memory"];
+          "modules"= ["cpu" "memory" "temperature"];
         };
         "group/clockG"= {
           "orientation"= "horizontal";
@@ -90,19 +91,20 @@
         };
         "memory" = {
           "interval" = 1;
-          "format" = "󰍛 {percentage}%";
+          "format" = " {percentage}%";
           "states" = {
             "warning" = 85;
           };
         };
         "cpu" = {
           "interval" = 1;
-          "format" = "󰻠 {usage}%";
+          "format" = " {usage}%";
         };
         "bluetooth" = {
           # "controller"= "controller1", // specify the alias of the controller if there are more than 1 on the system
           "format" = " {status}";
-          "format-disabled" = "";
+          "format-no-controller" = "󰂲";
+          "format-disabled" = "󰂲";
           "format-connected" = "";
           "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
           "tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
@@ -120,9 +122,9 @@
           "format-icons" = ["" "" "" "" ""];
         };
         "temperature" = {
-          #"critical-threshold"= 80;
+          "critical-threshold"= 80;
           "tooltip" = false;
-          "format" = " {temperatureC}°C";
+          "format" = " {temperatureC}°C";
         };
         "tray" = {
           "icon-size" = 15;
