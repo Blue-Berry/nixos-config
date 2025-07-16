@@ -101,8 +101,10 @@
         "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
         # "${pkgs.hyprpanel}/bin/hyprpanel"
         # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
-        "hyprlock || hyprctl dispatch exit"
-      ];
+      ] ++ (if userSettings.greeter == "hyprlock"
+            then [
+                "hyprlock || hyprctl dispatch exit"
+               ] else []);
 
       # windowrulev2 = [
       #   "opacity 0.98 0.94,class:^zen$"
