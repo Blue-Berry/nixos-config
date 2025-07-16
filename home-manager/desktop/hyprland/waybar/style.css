@@ -62,20 +62,12 @@ button:hover {
     padding: 0 10px;
 }
 
-/* Individual modules styling */
-#pulseaudio, #pulseaudio.muted, #battery {
-    background-color: @base02;
-    border-radius: 15px;
-    margin: 0 3px;
-    padding: 0 12px;
-}
-
 /* Group modules styling with tighter spacing */
-#usage, #clock, #tray, #comms {
+#usage, #clock, #tray, #comms, #pulseaudio, #pulseaudio.muted, #battery {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 1px;
-    padding: 0 8px;
+    padding: 0 12px;
 }
 
 /* Module colors */
