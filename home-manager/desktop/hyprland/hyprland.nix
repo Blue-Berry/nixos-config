@@ -97,14 +97,19 @@
       #   # 	1920x1080@60.00000 at 3200x0
       # ];
       # Execute your favorite apps at launch
-      exec-once = [
-        "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
-        # "${pkgs.hyprpanel}/bin/hyprpanel"
-        # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
-      ] ++ (if userSettings.greeter == "hyprlock"
-            then [
-                "hyprlock || hyprctl dispatch exit"
-               ] else []);
+      exec-once =
+        [
+          "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+          # "${pkgs.hyprpanel}/bin/hyprpanel"
+          # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
+        ]
+        ++ (
+          if userSettings.greeter == "hyprlock"
+          then [
+            "hyprlock || hyprctl dispatch exit"
+          ]
+          else []
+        );
 
       # windowrulev2 = [
       #   "opacity 0.98 0.94,class:^zen$"

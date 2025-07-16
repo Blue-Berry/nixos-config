@@ -50,20 +50,20 @@
           separate-outputs = true;
         };
         "group/usage" = {
-          "orientation"= "horizontal";
-          "modules"= ["cpu" "memory" "temperature"];
+          "orientation" = "horizontal";
+          "modules" = ["cpu" "memory" "temperature"];
         };
-        "group/clockG"= {
-          "orientation"= "horizontal";
-          "modules"= ["clock"];
+        "group/clockG" = {
+          "orientation" = "horizontal";
+          "modules" = ["clock"];
         };
         "group/trayG" = {
-          "orientation"= "horizontal";
-          "modules"= ["tray"];
+          "orientation" = "horizontal";
+          "modules" = ["tray"];
         };
         "group/comms" = {
-          "orientation"= "horizontal";
-          "modules"= ["network" "bluetooth"];
+          "orientation" = "horizontal";
+          "modules" = ["network" "bluetooth"];
         };
         "backlight" = {
           "device" = "intel_backlight";
@@ -122,7 +122,7 @@
           "format-icons" = ["" "" "" "" ""];
         };
         "temperature" = {
-          "critical-threshold"= 80;
+          "critical-threshold" = 80;
           "tooltip" = false;
           "format" = " {temperatureC}°C";
         };
