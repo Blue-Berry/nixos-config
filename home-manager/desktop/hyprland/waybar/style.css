@@ -52,6 +52,10 @@ button:hover {
     padding: 0 10px;
 }
 
+#battery {
+    padding-right: 20px;
+}
+
 .modules-right,.modules-left,.modules-center {
     background-color: @base02;
     border-radius: 15px;

@@ -28,15 +28,14 @@
           "hyprland/window"
         ];
         modules-right = [
+          "group/usage"
           "pulseaudio"
           # "backlight"
-          "memory"
-          "cpu"
           "bluetooth"
           "network"
-          "tray"
-          "clock"
           "battery"
+          "group/tray"
+          "group/clock"
         ];
         "hyprland/workspaces" = {
           "format" = "{icon}";
@@ -50,13 +49,25 @@
           };
           separate-outputs = true;
         };
-        # "backlight" = {
-        #   "device" = "intel_backlight";
-        #   "on-scroll-up" = "light -A 5";
-        #   "on-scroll-down" = "light -U 5";
-        #   "format" = "{icon} {percent}%";
-        #   "format-icons" = ["󰃝" "󰃞" "󰃟" "󰃠"];
-        # };
+        "group/usage" = {
+          "orientation"= "horizontal";
+          "modules"= ["cpu" "memory"];
+        };
+        "group/clock"= {
+          "orientation"= "horizontal";
+          "modules"= ["clock"];
+        };
+        "group/tray" = {
+          "orientation"= "horizontal";
+          "modules"= ["tray"];
+        };
+        "backlight" = {
+          "device" = "intel_backlight";
+          "on-scroll-up" = "light -A 5";
+          "on-scroll-down" = "light -U 5";
+          "format" = "{icon} {percent}%";
+          "format-icons" = ["󰃝" "󰃞" "󰃟" "󰃠"];
+        };
         "pulseaudio" = {
           "scroll-step" = 1;
           "format" = "{icon}   {volume}%";
