@@ -63,7 +63,7 @@ button:hover {
 }
 
 /* Group modules styling with tighter spacing */
-#usage, #clockG, #trayG, #comms, #pulseaudio, #pulseaudio.muted, #battery. #gamemode {
+#usage, #clockG, #trayG, #comms, #pulseaudio, #pulseaudio.muted, #battery, #gamemode {
     background-color: @base02;
     border-radius: 15px;
     margin: 0 3px;

@@ -226,6 +226,7 @@
         ];
       animation = [
         "windowsIn, 0, 8, default"
+        "windows, 1, 8, default"
       ];
       input = {
         natural_scroll = false;
