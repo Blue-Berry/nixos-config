@@ -29,8 +29,6 @@
     ../../nixos/hardware/displaylink/default.nix
     ../../nixos/hardware/optimus/default.nix
     ../../nixos/hardware/optimus/nvidia.nix
-
-    # ./../../nixos/apps/steam.nix
   ];
 
   nixpkgs = {

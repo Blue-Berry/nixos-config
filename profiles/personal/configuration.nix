@@ -35,6 +35,10 @@
     ../../nixos/apps/ollama.nix
 
     ../../nixos/flatpack.nix
+
+
+    ../../nixos/hardware/solaar.nix
+    ../../nixos/hardware/ratbag.nix
   ];
 
   #NOTE: Basic system configuration

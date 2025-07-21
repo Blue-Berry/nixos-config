@@ -12,8 +12,6 @@
     ../flake-options.nix
     ../fonts.nix
     ../containers.nix
-    ../hardware/solaar.nix
-    ../hardware/ratbag.nix
     ../hardware/wooting.nix
     ../hardware/ntfs.nix
     ../hardware/logic-analyzer.nix
