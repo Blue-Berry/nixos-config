@@ -2,5 +2,5 @@
   profile = "work";
   desktopEnv = ["hyprland" "gnome"];
   username = "liam";
-  greeter = "regreet";
+  greeter = "gdm";
 }

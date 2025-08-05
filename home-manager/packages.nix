@@ -24,6 +24,7 @@
     eza
     fastfetch
     fd
+    bubblewrap # For opam
     ffmpeg
     firefox
     font-awesome
@@ -67,6 +68,7 @@
     ocamlPackages.findlib
     ocamlPackages.magic-trace
     okolors
+    opam
     postman
     prismlauncher
     python3

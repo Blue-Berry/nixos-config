@@ -10,6 +10,8 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+
+    opam = inputs.nix-ocaml-overlay.legacyPackages.${final.system}.opam;
   };
 
   # hyprpanel = inputs.hyprpanel.overlay;

@@ -33,6 +33,9 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
+    nix-ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     wallpapers = {
       url = "git+file:wallpapers";
       flake = false;

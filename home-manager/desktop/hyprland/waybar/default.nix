@@ -110,12 +110,12 @@
           "tooltip-format-enumerate-connected" = "{device_alias}\t{device_address}";
         };
         "network" = {
-          "format-wifi" = "  {signalStrength}%";
-          "format-ethernet" = "{cidr} ";
-          "tooltip-format" = "{ifname} via {gwaddr} ";
-          "format-linked" = "{ifname} (No IP) ";
+          "format-wifi" = "  {signalStrength}% {bandwidthTotalBytes}";
+          "format-ethernet" = "{bandwidthTotalBytes}";
+          "tooltip-format" = "{ifname} via {gwaddr}";
+          "format-linked" = "{ifname} (No IP)";
           "format-disconnected" = " ⚠ ";
-          "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+          "format-alt" = "{ifname}: {ipaddr}/{cidr} {bandwidthTotalBytes}";
         };
         "battery" = {
           "format" = "{capacity}% {icon}";

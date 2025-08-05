@@ -36,7 +36,6 @@
 
     ../../nixos/flatpack.nix
 
-
     ../../nixos/hardware/solaar.nix
     ../../nixos/hardware/ratbag.nix
   ];
