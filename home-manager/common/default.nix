@@ -18,6 +18,8 @@
 
     ../desktop/dconf.nix
     ../../overlays/enable.nix
+
+    ../syncthing.nix
   ];
 
   programs.neovim.enable = true;
