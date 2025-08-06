@@ -25,6 +25,7 @@
     ../apps/pass.nix
 
     ../boot.nix
+    ../syncthing.nix
     outputs.nixosModules.conditional-imports
   ];
   services.cachix-agent.enable = true;
