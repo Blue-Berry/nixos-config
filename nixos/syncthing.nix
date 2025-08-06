@@ -11,8 +11,8 @@
       enable = true;
       group = "liamDocs";
       user = "liam";
-      dataDir = "~/Documents/";
-      configDir = "~/Documents/.config/syncthing";
+      dataDir = "/home/liam/Documents/";
+      configDir = "/home/liam/Documents/.config/syncthing";
       overrideDevices = true; # overrides any devices added or deleted through the WebUI
       overrideFolders = true; # overrides any folders added or deleted through the WebUI
       settings = {
@@ -30,7 +30,7 @@
             ]; # Which devices to share the folder with
           };
           "roam" = {
-            path = "~/org/roam/";
+            path = "/home/liam/org/roam/";
             devices = [ "phone" ];
             ignorePerms = false; # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
           };
