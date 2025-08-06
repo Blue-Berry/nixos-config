@@ -1,3 +1,6 @@
-_: {
-  services.solaar.enable = true;
+{ pkgs, ... }: {
+  services.solaar = {
+    enable = true;
+    package = pkgs.solaar;
+  };
 }
