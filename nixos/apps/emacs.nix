@@ -18,6 +18,7 @@
           shfmt
           utop
           pinentry
+          djvu
         ]
     );
   mkLauncherEntry = title: {
