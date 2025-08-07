@@ -31,6 +31,7 @@
     fzf
     gcc
     gemini-cli
+    git-commit-ai
     gh
     git
     gleam
