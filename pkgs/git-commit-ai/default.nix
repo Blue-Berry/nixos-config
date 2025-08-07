@@ -27,8 +27,8 @@ writeShellScriptBin "git-commit-ai" ''
   # Generate commit message using claude
   ${git}/bin/git diff --cached | claude -p "Generate a concise git commit message for these changes. Return only the commit message with no explanations, formatting, or extra text, use emojis when relevant. Add a body to the message with more details from the change." > /tmp/commit_msg.txt
 
-  # Open the commit message in nvim for editing
-  ${neovim}/bin/nvim /tmp/commit_msg.txt
+  # Open the commit message in nvim for editing (without config)
+  ${neovim}/bin/nvim --clean /tmp/commit_msg.txt
 
   # Commit with the message from the file
   ${git}/bin/git commit -F /tmp/commit_msg.txt
