@@ -4,8 +4,7 @@
   pkgs,
   userSettings,
   ...
-}:
-{
+}: {
   services.syncthing = {
     enable = true;
     overrideDevices = true; # overrides any devices added or deleted through the WebUI
