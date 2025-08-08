@@ -1,16 +1,62 @@
 #+title: Todo
 
 * TODO Mu todos
-** [ ] build from anywhere not only from directory
+
+** DONE Environment Variable Support
+- [X] MU_PROFILE environment variable for default profile
+
+** High Priority Features
+
+*** [ ] build from anywhere not only from directory
 insert it during the package build
-** [ ] update flake
-** [ ] better command names
-** [ ] check the dotfiles
-from here: https://uithub.com/hlissner/dotfiles
-** [ ] build vm
-and run it
-** [ ] prompting
-run build then prompt to select either home-manager or nixos or both. If build succeeds then prompt to switch.
-** [ ] gc
-gargage collection
-** [ ] tests
+
+*** [ ] Interactive Build/Switch Workflow 
+**** [ ] Interactive build - `mu build` prompts: "Build what? [N]ixOS, [H]ome-manager, [B]oth"
+**** [ ] Interactive switch - `mu switch` prompts: "Switch what? [N]ixOS, [H]ome-manager, [B]oth"  
+**** [ ] Build-then-switch flow - After successful build, prompt "Switch now? [y/N]"
+**** [ ] Smart defaults - Remember last choice per session
+
+*** [ ] Core System Management
+**** [ ] update command - `mu update` to update flake inputs (renamed from pull)
+**** [ ] profile command - `mu profile list/switch` to manage Nix profiles
+**** [ ] generations command - `mu generations` to list/manage system generations
+**** [ ] gc - garbage collection
+
+*** [ ] Debug & Error Handling
+**** [ ] Multiple debug levels - `-?`, `-??`, `-???` for increasing verbosity
+**** [ ] Better error reporting - Show build logs, command outputs
+**** [ ] Timing information - Show how long operations take
+
+*** [ ] UX Improvements
+**** [ ] Short aliases with better names - Need to design intuitive aliases
+**** [ ] Unified help - Better command documentation and examples
+**** [ ] Command completion - Shell completion for commands and profiles
+
+** Medium Priority Features
+
+*** [ ] System Management
+**** [ ] Script execution - `mu run <script>` to execute custom scripts
+**** [ ] Hook system - Before/after hooks for build, switch, etc.
+**** [ ] Configuration validation - `mu check` to validate flake before operations
+**** [ ] System info - `mu info` showing system state, versions, disk usage
+**** [ ] Repair operations - `mu repair` to fix common issues
+**** [ ] Rollback - rollback home-manager or nixos generations
+**** [ ] Diffing - diffing home-manager or nixos generations
+
+*** [ ] Advanced Features
+**** [ ] Interactive mode - `mu interactive` for guided workflows
+**** [ ] Template support - `mu new <template>` for bootstrapping configs
+**** [ ] Dependency visualization - `mu deps` to show flake dependencies
+**** [ ] Remote operations - `mu remote <host> <command>` for remote systems
+
+** Low Priority / Future
+*** [ ] build vm and run it
+*** [ ] tests
+
+** Items Needing Clarification
+*** [ ] Smart dispatch - Context-aware commands based on hostname/environment
+*** [ ] System optimization - Things like `nix-store --optimise`, cleaning build artifacts, etc.
+
+** References
+- Henrik's dotfiles: [[https://github.com/hlissner/dotfiles]]
+- Hey tool inspiration for command structure and workflow

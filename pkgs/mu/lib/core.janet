@@ -15,7 +15,13 @@
   (def filtered-args (filter |(not= $ "--dry-run") real-args))
   
   (def command (get filtered-args 0))
-  (def profile (get filtered-args 1))
+  (def explicit-profile (get filtered-args 1))
+  
+  # Use explicit profile if provided and valid, otherwise fall back to MU_PROFILE env var
+  (def env-profile (os/getenv "MU_PROFILE"))
+  (def profile (if (and explicit-profile (not (string/has-prefix? "--" explicit-profile)))
+                 explicit-profile
+                 env-profile))
   
   {:command command :profile profile :dry-run dry-run})
 
