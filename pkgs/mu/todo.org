@@ -1,0 +1,16 @@
+#+title: Todo
+
+* TODO Mu todos
+** [ ] build from anywhere not only from directory
+insert it during the package build
+** [ ] update flake
+** [ ] better command names
+** [ ] check the dotfiles
+from here: https://uithub.com/hlissner/dotfiles
+** [ ] build vm
+and run it
+** [ ] prompting
+run build then prompt to select either home-manager or nixos or both. If build succeeds then prompt to switch.
+** [ ] gc
+gargage collection
+** [ ] tests
