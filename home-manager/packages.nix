@@ -47,7 +47,6 @@
     inputs.zen-browser.packages."${pkgs.system}".specific
     iputils
     janet
-    jdoc
     kitty
     lazydocker
     lazygit

@@ -24,13 +24,52 @@
       (log :error (string "Invalid profile: " profile ". Must be 'personal' or 'work'"))
       false)))
 
+(defn prompt-choice [question choices default]
+  "Prompt user for a choice from given options"
+  (print question)
+  (each choice choices
+    (def is-default (= choice default))
+    (def first-char (string/ascii-upper (string/slice choice 0 1)))
+    (printf "  [%s] %s%s" 
+            first-char
+            choice
+            (if is-default " (default)" "")))
+  (printf "> ")
+  (flush)
+  (def input (string/trim (getline)))
+  (if (empty? input)
+    default
+    (do
+      (def input-lower (string/ascii-lower input))
+      (def input-first (string/ascii-lower (string/slice input 0 1)))
+      # Find matching choice by full name or first letter
+      (var matched-choice nil)
+      (each choice choices
+        (def choice-first (string/ascii-lower (string/slice choice 0 1)))
+        (when (or (= input-lower (string/ascii-lower choice))
+                  (= input-first choice-first))
+          (set matched-choice choice)))
+      (or matched-choice default))))
+
+(defn prompt-confirm [question default]
+  "Prompt user for yes/no confirmation"
+  (def default-text (if default "Y/n" "y/N"))
+  (printf "%s [%s]: " question default-text)
+  (flush)
+  (def input (string/trim (getline)))
+  (if (empty? input)
+    default
+    (do
+      (def input-lower (string/ascii-lower input))
+      (or (= input-lower "y") (= input-lower "yes")))))
+
 (defn show-help []
   "Display help information"
   (print (colored :cyan "mu") " - NixOS Configuration Manager\n")
   (print "Usage: mu <command> [profile] [options]\n")
   (print "Commands:")
-  (print "  build [profile]     Build NixOS configuration for profile")
-  (print "  switch [profile]    Switch to NixOS configuration for profile")  
+  (print "  build [profile]     Build NixOS/home-manager configurations (interactive)")
+  (print "  switch [profile]    Switch to NixOS/home-manager configurations (interactive)")  
   (print "  home [profile]      Build/switch home-manager for profile")
   (print "  status              Show current system status")
   (print "  help                Show this help message")
