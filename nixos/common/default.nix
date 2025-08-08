@@ -32,4 +32,10 @@
     "root"
     "liam"
   ];
+  networking.nameservers = [
+    "10.64.0.1"
+    "grovewalk.duckdns.org"
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 }

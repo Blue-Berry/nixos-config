@@ -29,7 +29,7 @@
   (print (colored :cyan "mu") " - NixOS Configuration Manager\n")
   (print "Usage: mu <command> [profile] [options]\n")
   (print "Commands:")
-  (print "  build <profile>     Build NixOS configuration for profile")
+  (print "  build <profile>     Build NixOS and home-manager configurations for profile")
   (print "  switch <profile>    Switch to NixOS configuration for profile")
   (print "  home <profile>      Build/switch home-manager for profile")
   (print "  status              Show current system status")

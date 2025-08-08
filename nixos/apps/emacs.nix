@@ -9,7 +9,6 @@
         with epkgs; [
           treesit-grammars.with-all-grammars
           vterm
-          mu4e
           nixfmt
           apheleia
           ocp-indent

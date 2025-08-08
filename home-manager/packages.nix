@@ -4,12 +4,12 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # gowin-ide
     alejandra
     base16-schemes
     bat
     bottom
     btop-rocm
+    bubblewrap # For opam
     calibre
     chromium
     claude-code
@@ -24,17 +24,15 @@
     eza
     fastfetch
     fd
-    bubblewrap # For opam
     ffmpeg
     firefox
     font-awesome
     fzf
     gcc
     gemini-cli
-    git-commit-ai
     gh
     git
-    mu
+    git-commit-ai
     gleam
     glow
     gmp
@@ -48,6 +46,8 @@
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
     iputils
+    janet
+    jdoc
     kitty
     lazydocker
     lazygit
@@ -62,6 +62,7 @@
     neovide
     newsflash
     nil
+    nix-mu  # Your custom NixOS management tool
     nixd
     nmap
     nodejs
@@ -100,5 +101,6 @@
     zed-editor
     zip
     zoxide
+# gowin-ide
   ];
 }
