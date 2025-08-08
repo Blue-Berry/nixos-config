@@ -34,6 +34,7 @@
     git-commit-ai
     gh
     git
+    mu
     gleam
     glow
     gmp
