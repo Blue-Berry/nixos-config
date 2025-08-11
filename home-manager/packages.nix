@@ -31,6 +31,7 @@
     gcc
     gemini-cli
     gh
+    jpm
     git
     git-commit-ai
     gleam

@@ -2,6 +2,15 @@
 
 (import ./utils :as u)
 
+(defn diff-nvd [cmd dry-run]
+  "Run nvd command with output always visible"
+  (if dry-run
+    (do
+      (u/log :info (string "Would run: " cmd))
+      0)
+    # Always show nvd output regardless of verbosity
+    (os/shell cmd)))
+
 (defn should-use-nom [cmd verbosity]
   "Check if command should use nix-output-monitor for prettier output"
   (and (= verbosity 0)
@@ -87,7 +96,12 @@
   (def cmd (string "sudo nixos-rebuild switch --flake .#" profile))
   (def result (run-command cmd dry-run))
   (if (= result 0)
-    (u/log :success (string "Switched to NixOS " profile " profile"))
+    (do
+      (u/log :success (string "Switched to NixOS " profile " profile"))
+      # Show what changed unless dry run
+      (unless dry-run
+        (u/log :info "What changed:")
+        (diff-nvd "nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link | tail -2)" false)))
     (u/log :error "NixOS switch failed"))
   result)
 
@@ -96,7 +110,12 @@
   (def cmd (string "home-manager switch --flake .#" profile))
   (def result (run-command cmd dry-run))
   (if (= result 0)
-    (u/log :success (string "Switched to home-manager " profile " profile"))
+    (do
+      (u/log :success (string "Switched to home-manager " profile " profile"))
+      # Show what changed unless dry run
+      (unless dry-run
+        (u/log :info "What changed:")
+        (diff-nvd "nvd diff $(ls -d1v ~/.local/state/nix/profiles/home-manager-*-link | tail -2)" false)))
     (u/log :error "Home-manager switch failed"))
   result)
 
@@ -188,3 +207,14 @@
   (u/log :info "Current system status:")
   (run-command "nixos-version" dry-run)
   (run-command "home-manager generations | head -5" dry-run))
+
+(defn diff-command [profile dry-run]
+  "Show differences between system generations using nvd"
+  (unless (u/validate-profile profile) (os/exit 1))
+  
+  (u/log :info "System differences:")
+  (u/log :info "Comparing last two NixOS generations...")
+  (diff-nvd "nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link | tail -2)" dry-run)
+  
+  (u/log :info "Comparing last two home-manager generations...")
+  (diff-nvd "nvd diff $(ls -d1v ~/.local/state/nix/profiles/home-manager-*-link | tail -2)" dry-run))

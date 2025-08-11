@@ -16,6 +16,7 @@
   "Return text with ANSI color codes if terminal supports colors"
   (if (has-color)
     (case color
+      #TODO Switch to using standard terminal colours so that it works with custom themes. The only issue is that red doesn't have any colour if I do that, I don't know if that is my issue will have to debug.
       :red (rgb-color 220 50 47 text)        # Solarized red
       :green (rgb-color 133 153 0 text)      # Solarized green  
       :yellow (rgb-color 181 137 0 text)     # Solarized yellow
@@ -93,6 +94,7 @@
   (print "  switch [profile]    Switch to NixOS/home-manager configurations (interactive)")  
   (print "  home [profile]      Build/switch home-manager for profile")
   (print "  status              Show current system status")
+  (print "  diff [profile]      Show differences between system generations")
   (print "  help                Show this help message")
   (print "\nProfiles: personal, work")
   (print "Default profile: Uses MU_PROFILE environment variable if set")

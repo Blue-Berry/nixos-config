@@ -55,6 +55,7 @@
     "switch" (c/switch-command profile dry-run)
     "home" (c/home-command profile dry-run)
     "status" (c/status-command dry-run)
+    "diff" (c/diff-command profile dry-run)
     # default
     (do
       (u/log :error (string "Unknown command: " command))
