@@ -8,17 +8,21 @@
        (not (string/has-suffix? term "mono"))
        (not (= term "dumb"))))
 
+(defn rgb-color [r g b text]
+  "Create RGB color ANSI sequence"
+  (string "\e[38;2;" r ";" g ";" b "m" text "\e[0m"))
+
 (defn colored [text color]
   "Return text with ANSI color codes if terminal supports colors"
   (if (has-color)
     (case color
-      :red (string "\e[31m" text "\e[0m")
-      :green (string "\e[32m" text "\e[0m")
-      :yellow (string "\e[33m" text "\e[0m")
-      :blue (string "\e[34m" text "\e[0m")
-      :magenta (string "\e[35m" text "\e[0m")
-      :cyan (string "\e[36m" text "\e[0m")
-      :white (string "\e[37m" text "\e[0m")
+      :red (rgb-color 220 50 47 text)        # Solarized red
+      :green (rgb-color 133 153 0 text)      # Solarized green  
+      :yellow (rgb-color 181 137 0 text)     # Solarized yellow
+      :blue (rgb-color 38 139 210 text)      # Solarized blue
+      :magenta (rgb-color 211 54 130 text)   # Solarized magenta
+      :cyan (rgb-color 42 161 152 text)      # Solarized cyan
+      :white (rgb-color 238 232 213 text)    # Solarized base2
       text)
     text))
 
@@ -93,4 +97,8 @@
   (print "\nProfiles: personal, work")
   (print "Default profile: Uses MU_PROFILE environment variable if set")
   (print "\nOptions:")
-  (print "  --dry-run           Show what would be done without executing"))
+  (print "  --dry-run           Show what would be done without executing")
+  (print "  -v, --verbose       Show raw command output (default: uses nom for build commands)")
+  (print "                      Use -v for raw output, higher levels for more detail")
+  (print "\nEnvironment Variables:")
+  (print "  MU_NO_NOM=1         Disable nix-output-monitor if experiencing encoding issues"))

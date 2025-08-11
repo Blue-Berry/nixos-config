@@ -12,7 +12,14 @@
   # Skip the first argument (script name)
   (def real-args (drop 1 args))
   (def dry-run (has-flag? real-args "--dry-run"))
-  (def filtered-args (filter |(not= $ "--dry-run") real-args))
+  
+  # Count verbosity flags (-v, -vv, etc.)
+  (def verbose-count (count |(or (= $ "-v") (= $ "--verbose")) real-args))
+  
+  # Filter out flags to get command and profile
+  (def filtered-args (filter |(not (or (= $ "--dry-run") 
+                                      (= $ "-v") 
+                                      (= $ "--verbose"))) real-args))
   
   (def command (get filtered-args 0))
   (def explicit-profile (get filtered-args 1))
@@ -23,7 +30,7 @@
                  explicit-profile
                  env-profile))
   
-  {:command command :profile profile :dry-run dry-run})
+  {:command command :profile profile :dry-run dry-run :verbosity verbose-count})
 
 (defn run-mu [args]
   "Main entry point for mu - parse args and dispatch to commands"
@@ -31,7 +38,10 @@
   (def command (get parsed :command))
   (def profile (get parsed :profile))
   (def dry-run (get parsed :dry-run))
+  (def verbosity (get parsed :verbosity))
   
+  # Set global verbosity for commands to access
+  (setdyn :mu-verbosity verbosity)
   
   # Handle help and no-command cases
   (when (or (not command) (= command "help"))

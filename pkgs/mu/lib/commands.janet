@@ -2,15 +2,63 @@
 
 (import ./utils :as u)
 
+(defn should-use-nom [cmd verbosity]
+  "Check if command should use nix-output-monitor for prettier output"
+  (and (= verbosity 0)
+       (not (os/getenv "MU_NO_NOM"))
+       (or (and (string/has-prefix? "sudo nixos-rebuild" cmd)
+                (string/find "build" cmd)
+                (not (string/find "switch" cmd)))
+           (and (string/has-prefix? "home-manager" cmd)
+                (string/find "build" cmd)
+                (not (string/find "switch" cmd))))))
+
+(defn wrap-with-nom [cmd]
+  "Wrap command with nom if it's a nix command"
+  (cond
+    (string/has-prefix? "sudo nixos-rebuild" cmd)
+    (string "unbuffer " cmd " |& nom")
+    
+    (string/has-prefix? "home-manager" cmd)
+    (string "unbuffer " cmd " |& nom")
+    
+    cmd))
+
 (defn run-command [cmd &opt dry-run]
-  "Execute a shell command, or show what would be run if dry-run is true"
+  "Execute a shell command with verbosity control"
+  (def verbosity (or (dyn :mu-verbosity) 0))
+  
   (if dry-run
     (do
-      (u/log :info (string "Would run: " cmd))
+      (def use-nom (and (= verbosity 0) (should-use-nom cmd 0)))
+      (def actual-cmd (if use-nom
+                        (wrap-with-nom cmd)
+                        cmd))
+      (u/log :info (string "Would run: " actual-cmd))
       0)
     (do
-      (u/log :info (string "Running: " cmd))
-      (os/shell cmd))))
+      (when (>= verbosity 1)
+        (u/log :info (string "Running: " cmd)))
+      
+      (if (= verbosity 0)
+        # Default mode - use nom for nix commands, otherwise capture output
+        (if (should-use-nom cmd verbosity)
+          # Use nom with proper JSON format
+          (do
+            (def nom-cmd (wrap-with-nom cmd))
+            (os/shell nom-cmd))
+          # Capture output for non-nix commands
+          (do
+            (def silent-cmd (string cmd " 2>&1"))
+            (def proc (os/spawn ["/bin/sh" "-c" silent-cmd] :p {:out :pipe :err :pipe}))
+            (def result (os/proc-wait proc))
+            (def output (string/trim (ev/read (proc :out) :all)))
+            (ev/close (proc :out))
+            (when (and (not= result 0) (not (empty? output)))
+              (u/log :error (string "Command failed:\n" output)))
+            result))
+        # Verbose mode - show all output without nom
+        (os/shell cmd)))))
 
 (defn build-nixos [profile dry-run]
   "Build NixOS configuration for the given profile"

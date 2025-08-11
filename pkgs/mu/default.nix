@@ -4,6 +4,8 @@
   janet,
   nixos-rebuild,
   home-manager,
+  nix-output-monitor,
+  expect,
   makeWrapper,
 }:
 
@@ -31,7 +33,7 @@ stdenv.mkDerivation rec {
     
     # Create wrapper script with proper PATH (use system sudo, not Nix store sudo)
     makeWrapper $out/lib/mu/mu-core $out/bin/mu \
-      --prefix PATH : ${lib.makeBinPath [ nixos-rebuild home-manager ]} \
+      --prefix PATH : ${lib.makeBinPath [ nixos-rebuild home-manager nix-output-monitor expect ]} \
       --prefix PATH : /run/wrappers/bin
     
     runHook postInstall
