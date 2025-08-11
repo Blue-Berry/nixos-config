@@ -32,6 +32,7 @@
   (def profile (get parsed :profile))
   (def dry-run (get parsed :dry-run))
   
+  
   # Handle help and no-command cases
   (when (or (not command) (= command "help"))
     (u/show-help)

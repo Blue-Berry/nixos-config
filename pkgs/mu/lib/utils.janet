@@ -1,27 +1,44 @@
 # Utility functions for mu - colors, logging, validation
 
-# Color constants
-(def colors {:red "\e[31m" :green "\e[32m" :yellow "\e[33m" :blue "\e[34m" :magenta "\e[35m" :cyan "\e[36m" :white "\e[37m" :reset "\e[0m"})
+# Check if terminal supports colors by checking TERM environment variable
+(defn has-color []
+  "Check if terminal supports colors"
+  (def term (os/getenv "TERM"))
+  (and term 
+       (not (string/has-suffix? term "mono"))
+       (not (= term "dumb"))))
 
-(defn colored [color text]
-  "Apply color formatting to text"
-  (string (get colors color "") text (get colors :reset "")))
+(defn colored [text color]
+  "Return text with ANSI color codes if terminal supports colors"
+  (if (has-color)
+    (case color
+      :red (string "\e[31m" text "\e[0m")
+      :green (string "\e[32m" text "\e[0m")
+      :yellow (string "\e[33m" text "\e[0m")
+      :blue (string "\e[34m" text "\e[0m")
+      :magenta (string "\e[35m" text "\e[0m")
+      :cyan (string "\e[36m" text "\e[0m")
+      :white (string "\e[37m" text "\e[0m")
+      text)
+    text))
 
 (defn log [level message]
   "Log a message with color-coded level"
   (case level
-    :info (print (colored :blue "[INFO]") " " message)
-    :warn (print (colored :yellow "[WARN]") " " message)
-    :error (print (colored :red "[ERROR]") " " message)
-    :success (print (colored :green "[SUCCESS]") " " message)
-    (print message)))
+    :info (printf "%s %s\n" (colored "[INFO]" :blue) message)
+    :warn (printf "%s %s\n" (colored "[WARN]" :yellow) message)
+    :error (printf "%s %s\n" (colored "[ERROR]" :red) message)
+    :success (printf "%s %s\n" (colored "[SUCCESS]" :green) message)
+    (printf "%s\n" message)))
 
 (defn validate-profile [profile]
   "Validate that profile is either 'personal' or 'work'"
-  (if (or (= profile "personal") (= profile "work"))
+  (if (and profile (or (= profile "personal") (= profile "work")))
     true
     (do
-      (log :error (string "Invalid profile: " profile ". Must be 'personal' or 'work'"))
+      (if profile
+        (log :error (string "Invalid profile: " profile ". Must be 'personal' or 'work'"))
+        (log :error "No profile specified. Set MU_PROFILE environment variable or provide profile argument."))
       false)))
 
 (defn prompt-choice [question choices default]
@@ -65,7 +82,7 @@
 
 (defn show-help []
   "Display help information"
-  (print (colored :cyan "mu") " - NixOS Configuration Manager\n")
+  (print "mu - NixOS Configuration Manager\n")
   (print "Usage: mu <command> [profile] [options]\n")
   (print "Commands:")
   (print "  build [profile]     Build NixOS/home-manager configurations (interactive)")

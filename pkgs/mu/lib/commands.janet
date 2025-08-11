@@ -63,7 +63,7 @@
   "Interactive build command - prompts for what to build"
   (unless (u/validate-profile profile) (os/exit 1))
   
-  (print (string "Profile: " (u/colored :cyan profile)))
+  (printf "Profile: %s\n" (u/colored profile :cyan))
   (def choice (u/prompt-choice 
                "What would you like to build?"
                ["nixos" "home-manager" "both"]
@@ -110,7 +110,7 @@
   "Interactive switch command - prompts for what to switch"
   (unless (u/validate-profile profile) (os/exit 1))
   
-  (print (string "Profile: " (u/colored :cyan profile)))
+  (printf "Profile: %s\n" (u/colored profile :cyan))
   (def choice (u/prompt-choice 
                "What would you like to switch?"
                ["nixos" "home-manager" "both"]

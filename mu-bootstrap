@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell --pure -p nix -i bash
+#!nix-shell --pure -p nix -i bash --keep MU_PROFILE
 
 # Bootstrap mu - builds the package and runs it
 # Usage: ./mu-bootstrap help, ./mu-bootstrap build personal, etc.
