@@ -10,6 +10,5 @@ pkgs: {
   swe-agent = pkgs.callPackage ./swe-agent {};
   swe-rex = pkgs.callPackage ./swe-rex {};
   git-commit-ai = pkgs.callPackage ./git-commit-ai {};
-  nix-mu = pkgs.callPackage ./mu {};
   janet-lsp = pkgs.callPackage ./janet-lsp {};
 }

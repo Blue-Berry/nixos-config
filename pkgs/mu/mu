@@ -1,8 +1,0 @@
-#!/usr/bin/env nix-shell
-#!nix-shell --pure -i janet -p janet
-
-# Import the core module
-(import ./lib/core :as core)
-
-# Direct execution - no main function to avoid double execution
-(core/run-mu (dyn :args))
