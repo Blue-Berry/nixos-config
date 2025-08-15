@@ -63,7 +63,6 @@
     neovide
     newsflash
     nil
-    nix-mu  # Your custom NixOS management tool
     nixd
     nmap
     nodejs

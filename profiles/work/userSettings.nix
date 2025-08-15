@@ -2,7 +2,7 @@
   profile = "work";
   desktopEnv = ["hyprland" "gnome"];
   username = "liam";
-  greeter = "gdm";
+  greeter = "regreet";
   syncDevices = {
     "phone" = {
       id = "7FACKTB-VRXUUBY-62KQYCB-XUSHLG2-7UGUEDP-O2DXFOF-LCG67E5-TCFNOAO";
