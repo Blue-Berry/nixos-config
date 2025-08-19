@@ -1,0 +1,34 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    bat
+    bottom
+    dig
+    doggo
+    duf
+    dust
+    eza
+    fd
+    ffmpeg
+    gping
+    git-commit-ai
+    gh
+    fzf
+    hyperfine
+    iputils
+    linuxPackages_latest.perf
+    ncdu
+    nmap
+    codex
+    ripgrep
+    rsync
+    sshfs
+    starship
+    tealdeer
+    tmux
+    tokei
+    unzip
+    wget
+    zip
+    zoxide
+  ];
+}

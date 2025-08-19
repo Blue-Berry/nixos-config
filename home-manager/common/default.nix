@@ -13,7 +13,7 @@
     ../apps/zathura.nix
 
     ../env-vars.nix
-    ../packages.nix
+    ../packages
     ../stylix.nix
 
     ../desktop/dconf.nix

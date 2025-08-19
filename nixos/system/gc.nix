@@ -7,7 +7,7 @@ _: {
   };
   nix.optimise = {
     automatic = true;
-    dates = [ "daily" ];
+    dates = ["daily"];
   };
   nix.settings.auto-optimise-store = true;
   nix.settings.min-free = 1024 * 1024 * 1024; # 1GB

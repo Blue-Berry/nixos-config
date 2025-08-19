@@ -1,11 +1,11 @@
-{ lib
-, stdenv
-, writeShellScriptBin
-, git
-, neovim
-, coreutils
+{
+  lib,
+  stdenv,
+  writeShellScriptBin,
+  git,
+  neovim,
+  coreutils,
 }:
-
 writeShellScriptBin "git-commit-ai" ''
   set -euo pipefail
 

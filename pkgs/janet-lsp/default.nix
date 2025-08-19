@@ -31,7 +31,7 @@ stdenv.mkDerivation {
     description = "Language Server Protocol implementation for Janet";
     homepage = "https://github.com/CFiggers/janet-lsp";
     license = licenses.mit;
-    maintainers = [ ];
+    maintainers = [];
     platforms = platforms.unix;
   };
 }

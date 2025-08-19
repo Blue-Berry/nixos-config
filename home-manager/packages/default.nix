@@ -3,105 +3,50 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./cli.nix
+    ./programming.nix
+  ];
   home.packages = with pkgs; [
-    alejandra
     base16-schemes
-    bat
-    bottom
     btop-rocm
     bubblewrap # For opam
     calibre
     chromium
     claude-code
-    codecrafters-cli
-    dig
     discord
-    doggo
     dotool
-    duf
-    dust
     easyeffects
-    eza
-    fastfetch
-    fd
-    ffmpeg
     firefox
     font-awesome
-    fzf
-    gcc
-    gemini-cli
-    gh
-    jpm
     git
-    git-commit-ai
-    gleam
     glow
-    gmp
-    gnumake
-    go
-    gparted
-    gping
     hydrapaper
-    hyperfine
     inetutils
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
-    iputils
-    janet
-    janet-lsp
     kitty
-    lazydocker
-    lazygit
     libqalculate
     libreoffice-fresh
-    linuxPackages_latest.perf
-    lrzip
-    lua-language-server
-    minicom
     mpv
-    ncdu
     neovide
     newsflash
-    nil
-    nixd
-    nmap
-    nodejs
     ntfs3g
     obsidian
-    ocamlPackages.findlib
-    ocamlPackages.magic-trace
     okolors
-    opam
-    postman
-    codex
     prismlauncher
-    python3
     qalculate-qt
     qbittorrent
-    ripgrep
-    rsync
-    rustup
     showcolors
-    sshfs
-    starship
-    statix
     steam-run
-    swe-agent
-    tealdeer
     teams-for-linux
-    tmux
-    tokei
-    unzip
     vlc
     vscode
-    wget
     wineWowPackages.stable
     winetricks
     wireshark
     xclip
     zed-editor
-    zip
-    zoxide
-# gowin-ide
+    # gowin-ide
   ];
 }
