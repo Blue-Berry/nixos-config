@@ -73,6 +73,7 @@
     okolors
     opam
     postman
+    codex
     prismlauncher
     python3
     qalculate-qt

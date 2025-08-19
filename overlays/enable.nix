@@ -6,6 +6,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
+      outputs.overlays.codex
       # outputs.overlays.hyprpanel
 
       # You can also add overlays exported from other flakes:
