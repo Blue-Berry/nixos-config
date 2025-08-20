@@ -79,5 +79,11 @@ in {
       };
       description = "Folders to sync with";
     };
+
+    kanataKbds = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      description = "List of kbd devices to use for kanata";
+    };
   };
 }

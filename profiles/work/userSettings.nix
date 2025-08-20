@@ -24,4 +24,12 @@
       ignorePerms = false;
     };
   };
+
+  kanataKbds = [
+    # Replace the paths below with the appropriate device paths for your setup.
+    # Use `ls /dev/input/by-path/` to find your keyboard devices.
+    "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+    "/dev/input/by-path/pci-0000:05:00.3-usb-0:2.2.1:1.0-event-kbd"
+    "/dev/input/by-path/pci-0000:05:00.3-usbv2-0:2.2.1:1.0-event-kbd"
+  ];
 }

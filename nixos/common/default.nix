@@ -22,6 +22,7 @@
     ../system/gc.nix
     ../preload.nix
     ../apps/emacs.nix
+    ../apps/kanata.nix
     ../apps/pass.nix
 
     ../boot.nix

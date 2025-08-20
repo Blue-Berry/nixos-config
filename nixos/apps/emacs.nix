@@ -18,6 +18,8 @@
           utop
           pinentry
           djvu
+          flymake-golangci
+          flycheck-golangci-lint
         ]
     );
   mkLauncherEntry = title: {
