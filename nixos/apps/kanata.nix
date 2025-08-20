@@ -4,18 +4,16 @@
   pkgs,
   userSettings,
   ...
-}:
-
-{
-  boot.kernelModules = [ "uinput" ];
+}: {
+  boot.kernelModules = ["uinput"];
   hardware.uinput.enable = true;
 
- # Set up udev rules for uinput
+  # Set up udev rules for uinput
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
   '';
 
-  users.groups.uinput = { };
+  users.groups.uinput = {};
 
   # Add the Kanata service user to necessary groups
   systemd.services.kanata-internalKeyboard.serviceConfig = {
@@ -39,27 +37,31 @@
         devices = userSettings.kanataKbds;
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
-          (defsrc
-           caps tab d h j k l
-          )
           (defvar
-           tap-time 200
-           hold-time 200
+            tap-time 200
+            hold-time 200
           )
+
+          (defsrc
+            a s d f   j k l ;
+          )
+
           (defalias
-           caps (tap-hold 200 200 esc lctl)
-           tab (tap-hold $tap-time $hold-time tab (layer-toggle arrow))
-           del del  ;; Alias for the true delete key action
+            a-mod (tap-hold $tap-time $hold-time a lmet)
+            s-mod (tap-hold $tap-time $hold-time s lalt)
+            d-mod (tap-hold $tap-time $hold-time d lsft)
+            f-mod (tap-hold $tap-time $hold-time f lctl)
+            j-mod (tap-hold $tap-time $hold-time j rctl)
+            k-mod (tap-hold $tap-time $hold-time k rsft)
+            l-mod (tap-hold $tap-time $hold-time l ralt)
+            ;-mod (tap-hold $tap-time $hold-time ; rmet)
           )
+
           (deflayer base
-           @caps @tab d h j k l
-          )
-          (deflayer arrow
-           _ _ @del left down up right
+            @a-mod @s-mod @d-mod @f-mod   @j-mod @k-mod @l-mod @;-mod
           )
         '';
       };
     };
   };
-
 }

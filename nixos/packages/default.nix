@@ -12,5 +12,6 @@
     pkgs.linuxPackages_latest.perf
     pkgs.man-pages
     pkgs.man-pages-posix
+    pkgs.nmap
   ];
 }

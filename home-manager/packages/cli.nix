@@ -17,7 +17,6 @@
     iputils
     linuxPackages_latest.perf
     ncdu
-    nmap
     codex
     ripgrep
     rsync

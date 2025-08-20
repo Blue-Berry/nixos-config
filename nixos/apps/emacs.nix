@@ -70,6 +70,7 @@ in {
     texlive.combined.scheme-medium
     nixfmt-rfc-style
     emacs
+    golangci-lint
     (aspellWithDicts (
       ds:
         with ds; [
