@@ -29,5 +29,7 @@
     wget
     zip
     zoxide
+    nix-output-monitor
+    inotify-tools
   ];
 }
