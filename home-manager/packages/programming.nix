@@ -4,6 +4,7 @@
     ocamlPackages.findlib
     ocamlPackages.magic-trace
     opam
+    dune_3
 
     # Nix
     nil
