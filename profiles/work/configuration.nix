@@ -78,8 +78,6 @@
   #NOTE: Basic system configuration
   programs.firefox.enable = true;
 
-  boot.extraModulePackages = [config.boot.kernelPackages.rtl8814au];
-
   networking.hostName = "liam-nixos";
   networking.networkmanager.enable = true;
 

@@ -29,7 +29,6 @@
     # ./hardware/graphics-amd.nix
     # ../../nixos/hardware/touchpad.nix
     # ../../nixos/hardware/displaylink/default.nix
-    ../../nixos/hardware/tp-link-archer-usb-wifi.nix
 
     ../../nixos/apps/steam.nix
     ../../nixos/apps/ollama.nix
