@@ -12,6 +12,12 @@
     # });
 
     opam = inputs.nix-ocaml-overlay.legacyPackages.${final.system}.opam;
+
+    # Override janet-lsp to use Blue-Berry/janet-lsp.nix package
+    janet-lsp = let
+      src = inputs.janet-lsp-nix;
+      expr = src + "/default.nix";
+    in prev.callPackage expr {};
   };
 
   # hyprpanel = inputs.hyprpanel.overlay;

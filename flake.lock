@@ -617,6 +617,22 @@
         "type": "github"
       }
     },
+    "janet-lsp-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757504214,
+        "narHash": "sha256-XcIUAmfzBNcsln/XZu9dZoTCTyxoCjNeg//6IK35INs=",
+        "owner": "Blue-Berry",
+        "repo": "janet-lsp.nix",
+        "rev": "b8334a469d38f191198a20a75a6c470c2ea588d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Blue-Berry",
+        "repo": "janet-lsp.nix",
+        "type": "github"
+      }
+    },
     "nix-ocaml-overlay": {
       "inputs": {
         "nixpkgs": [
@@ -950,6 +966,7 @@
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "janet-lsp-nix": "janet-lsp-nix",
         "nix-ocaml-overlay": "nix-ocaml-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_5",

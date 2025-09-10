@@ -40,6 +40,12 @@
       url = "git+file:wallpapers";
       flake = false;
     };
+
+    # Use external janet-lsp package definition
+    janet-lsp-nix = {
+      url = "github:Blue-Berry/janet-lsp.nix";
+      flake = false;
+    };
   };
 
   outputs = {
