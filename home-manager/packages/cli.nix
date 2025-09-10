@@ -15,7 +15,7 @@
     fzf
     hyperfine
     iputils
-    linuxPackages_latest.perf
+    perf
     ncdu
     codex
     ripgrep
