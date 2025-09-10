@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  imports = [./janet.nix];
   home.packages = with pkgs; [
     # Ocaml
     ocamlPackages.findlib
@@ -14,13 +15,10 @@
 
     # Other
     gcc
-    jpm
     gleam
     gmp
     gnumake
     go
-    janet
-    janet-lsp
     lazydocker
     lazygit
     lua-language-server
