@@ -32,4 +32,6 @@
     "/dev/input/by-path/pci-0000:05:00.3-usb-0:2.2.1:1.0-event-kbd"
     "/dev/input/by-path/pci-0000:05:00.3-usbv2-0:2.2.1:1.0-event-kbd"
   ];
+
+  kanataEnable = true;
 }

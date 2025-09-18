@@ -24,7 +24,7 @@
   };
 
   services.kanata = {
-    enable = true;
+    enable = userSettings.kanataEnable;
     keyboards = {
       internalKeyboard = {
         # devices = [
