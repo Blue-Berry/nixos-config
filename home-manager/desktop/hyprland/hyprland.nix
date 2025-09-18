@@ -10,7 +10,7 @@
     dunst
     libnotify
     swww
-    rofi-wayland
+    rofi
     networkmanagerapplet
     font-awesome
     blueman
