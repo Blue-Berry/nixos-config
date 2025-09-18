@@ -37,6 +37,7 @@
 
     ../../nixos/hardware/solaar.nix
     ../../nixos/hardware/ratbag.nix
+    ../../nixos/games/sunshine.nix
   ];
 
   #NOTE: Basic system configuration
