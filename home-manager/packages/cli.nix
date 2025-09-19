@@ -31,5 +31,6 @@
     zoxide
     nix-output-monitor
     inotify-tools
+    jq
   ];
 }

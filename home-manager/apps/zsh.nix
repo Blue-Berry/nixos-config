@@ -5,6 +5,7 @@
     zsh-syntax-highlighting
     zsh-autopair
     starship
+    jq-zsh-plugin
   ];
   # TODO: config ctrl-p to mimic up arrow, ctrl-n to mimic down arrow and ctrl-y to accept completeions
   programs = {
@@ -32,6 +33,7 @@
           "rust"
           "deno"
           "vi-mode"
+          "jq"
         ];
         theme = "";
       };
