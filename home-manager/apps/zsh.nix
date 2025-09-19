@@ -33,7 +33,6 @@
           "rust"
           "deno"
           "vi-mode"
-          "jq"
         ];
         theme = "";
       };
