@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     pass
     gnupg
+    passff-host
   ];
 
   programs.gnupg.agent = {

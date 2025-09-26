@@ -1,0 +1,11 @@
+#+title: Tool Todo
+
+* TODO Features
+ * Build home + nixos
+ * run tests
+ * change config
+ * generate user config
+ * create vm for testing
+ * search for packages
+ * diff changes
+ * progress
