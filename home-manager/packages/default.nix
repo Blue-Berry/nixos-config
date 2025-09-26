@@ -48,5 +48,6 @@
     xclip
     zed-editor
     # gowin-ide
+    localsend
   ];
 }
