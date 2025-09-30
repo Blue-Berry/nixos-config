@@ -32,5 +32,6 @@
     nix-output-monitor
     inotify-tools
     jq
+    unixtools.netstat
   ];
 }
