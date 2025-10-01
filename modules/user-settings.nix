@@ -86,7 +86,7 @@ in {
       description = "List of kbd devices to use for kanata";
     };
 
-      kanataEnable = lib.mkOption {
+    kanataEnable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable kanata";

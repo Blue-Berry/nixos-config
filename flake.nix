@@ -46,6 +46,8 @@
       url = "github:Blue-Berry/janet-lsp.nix";
       flake = false;
     };
+
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs = {

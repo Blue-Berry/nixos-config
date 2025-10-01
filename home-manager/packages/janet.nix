@@ -1,9 +1,13 @@
-{pkgs, config, ...} : {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.sessionVariables = {
     JANET_LIBPATH = "${pkgs.janet}/lib";
-    JANET_HEADERPATH ="${pkgs.janet}/include/janet";
+    JANET_HEADERPATH = "${pkgs.janet}/include/janet";
     JANET_TREE = "${config.home.homeDirectory}/.local/janet/tree";
-    JANET_PATH="${config.home.homeDirectory}/.local/janet/tree/lib";
+    JANET_PATH = "${config.home.homeDirectory}/.local/janet/tree/lib";
   };
   home.file.".local/janet/tree/.keep".text = "";
 
@@ -12,5 +16,4 @@
     janet-lsp
     jpm
   ];
-
 }

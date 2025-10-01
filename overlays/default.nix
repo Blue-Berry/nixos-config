@@ -17,7 +17,8 @@
     janet-lsp = let
       src = inputs.janet-lsp-nix;
       expr = src + "/default.nix";
-    in prev.callPackage expr {};
+    in
+      prev.callPackage expr {};
   };
 
   # hyprpanel = inputs.hyprpanel.overlay;

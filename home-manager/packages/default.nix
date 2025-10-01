@@ -7,6 +7,8 @@
     ./cli.nix
     ./programming.nix
   ];
+
+  nixpkgs.overlays = [inputs.claude-code.overlays.default];
   home.packages = with pkgs; [
     base16-schemes
     btop-rocm
