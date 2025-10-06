@@ -11,6 +11,7 @@
     ../apps/zsh.nix
     ../apps/neovide.nix
     ../apps/zathura.nix
+    ../apps/nushell
 
     ../env-vars.nix
     ../packages

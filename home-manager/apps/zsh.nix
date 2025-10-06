@@ -64,5 +64,8 @@
       enable = true;
       enableZshIntegration = true;
     };
+
+    carapace.enable = true;
+    carapace.enableZshIntegration = true;
   };
 }
