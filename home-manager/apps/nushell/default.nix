@@ -39,4 +39,5 @@
     carapace.enableNushellIntegration = true;
 
   };
+  stylix.targets.nushell.enable = true;
 }
