@@ -25,6 +25,7 @@
     ../apps/kanata.nix
     ../apps/pass.nix
     ../vm.nix
+    ../cache.nix
 
     ../boot.nix
     outputs.nixosModules.conditional-imports
