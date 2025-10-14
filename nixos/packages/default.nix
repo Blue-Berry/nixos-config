@@ -13,5 +13,6 @@
     pkgs.man-pages
     pkgs.man-pages-posix
     pkgs.nmap
+    pkgs.cachix
   ];
 }
