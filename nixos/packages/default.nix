@@ -9,7 +9,7 @@
     pkgs.zsh
     pkgs.git
     pkgs.usbutils
-    pkgs.linuxPackages_latest.perf
+    pkgs.perf
     pkgs.man-pages
     pkgs.man-pages-posix
     pkgs.nmap
