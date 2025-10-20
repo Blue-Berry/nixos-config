@@ -28,7 +28,8 @@
 in {
   stylix = {
     # image = "${inputs.wallpapers}/SolarSystem.jpg";
-    image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
+    # image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
+    image = "${inputs.wallpapers}/Library.jpg";
     enable = true;
     polarity = "dark";
     base16Scheme = themes.tokyo; # Comment out to use wallpaper
