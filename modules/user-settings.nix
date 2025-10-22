@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  availableDesktops = ["hyprland" "gnome" "kde"];
+  availableDesktops = ["hyprland" "gnome" "kde" "niri"];
   availableGreeters = ["gdm" "hyprlock" "regreet" "sddm"];
 in {
   options.userSettings = {

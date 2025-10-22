@@ -7,6 +7,7 @@
     hyprland = ../../nixos/desktop/hyprland;
     gnome = ../../nixos/desktop/gnome;
     kde = ../../nixos/desktop/kde;
+    niri = ../../nixos/desktop/niri;
   };
 
   greeterModules = {

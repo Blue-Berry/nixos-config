@@ -24,7 +24,7 @@
     nwg-look
   ];
   imports = [
-    ./waybar/default.nix
+    ../waybar/default.nix
     # ./hyprpanel/default.nix
     (
       if userSettings.profile == "personal"
