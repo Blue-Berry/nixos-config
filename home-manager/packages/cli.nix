@@ -33,5 +33,6 @@
     inotify-tools
     jq
     unixtools.netstat
+    nh
   ];
 }
