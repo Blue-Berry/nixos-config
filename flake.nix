@@ -108,6 +108,7 @@
           ./modules/user-settings.nix
           {config.userSettings = personalSettings;}
           ./modules/nixos/conditional-imports.nix
+          ./modules/home-manager/conditional-imports.nix
           (./. + "/profiles" + "/personal/configuration.nix")
           # Binary cache
           {
