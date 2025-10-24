@@ -10,7 +10,8 @@
     settings = {
       initial-command = "tmux";
       background-blur = true;
-      window-decoration = "server";
+      # window-decoration = "server";
+      window-decoration = "none";
       app-notifications = "false";
       confirm-close-surface = false;
     };

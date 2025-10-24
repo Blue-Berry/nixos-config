@@ -48,8 +48,9 @@
     winetricks
     wireshark
     xclip
-    zed-editor
+    # zed-editor
     # gowin-ide
     localsend
+    gparted
   ];
 }
