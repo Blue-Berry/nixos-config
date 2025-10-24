@@ -23,4 +23,10 @@
     swaybg # wallpaper
   ];
   xdg.configFile."niri/config.kdl".source = ./config.kdl;
+
+  stylix.targets = {
+    fuzzel.enable = true;
+    swaylock.enable = true;
+    mako.enable = true;
+  };
 }
