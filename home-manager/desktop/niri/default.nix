@@ -5,7 +5,8 @@
   ...
 }: {
   imports = [
-    ../waybar
+    # waybar is imported at a higher level to avoid duplicate imports
+    # ../waybar
   ];
   programs.fuzzel = {
     enable = true; # Super+D in the default setting (app launcher)

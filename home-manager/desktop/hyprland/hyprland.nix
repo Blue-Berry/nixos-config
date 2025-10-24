@@ -24,7 +24,8 @@
     nwg-look
   ];
   imports = [
-    ../waybar/default.nix
+    # waybar is imported at a higher level to avoid duplicate imports
+    # ../waybar/default.nix
     # ./hyprpanel/default.nix
     (
       if userSettings.profile == "personal"
@@ -99,7 +100,7 @@
       # Execute your favorite apps at launch
       exec-once =
         [
-          "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+          "swww & networkmanagerapplet & dunst & blueman-applet &"
           # "${pkgs.hyprpanel}/bin/hyprpanel"
           # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
         ]
