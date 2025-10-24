@@ -107,8 +107,7 @@
           solaar.nixosModules.default
           ./modules/user-settings.nix
           {config.userSettings = personalSettings;}
-          ./modules/nixos/conditional-imports.nix
-          ./modules/home-manager/conditional-imports.nix
+          outputs.nixosModules.conditional-imports
           (./. + "/profiles" + "/personal/configuration.nix")
           # Binary cache
           {
@@ -137,7 +136,7 @@
           (./. + "/profiles" + "/work/configuration.nix")
           ./modules/user-settings.nix
           {config.userSettings = workSettings;}
-          ./modules/nixos/conditional-imports.nix
+          outputs.nixosModules.conditional-imports
         ];
       };
     };
@@ -158,6 +157,7 @@
           stylix.homeModules.stylix
           ./modules/user-settings.nix
           {config.userSettings = personalSettings;}
+          outputs.homeModules.conditional-imports
         ];
       };
       work = home-manager.lib.homeManagerConfiguration {
@@ -173,6 +173,7 @@
           stylix.homeModules.stylix
           ./modules/user-settings.nix
           {config.userSettings = workSettings;}
+          outputs.homeModules.conditional-imports
         ];
       };
     };
