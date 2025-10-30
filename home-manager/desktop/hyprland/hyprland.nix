@@ -100,7 +100,7 @@
       # Execute your favorite apps at launch
       exec-once =
         [
-          "swww & networkmanagerapplet & dunst & blueman-applet &"
+          "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
           # "${pkgs.hyprpanel}/bin/hyprpanel"
           # "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice"
         ]

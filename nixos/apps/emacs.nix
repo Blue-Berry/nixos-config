@@ -52,6 +52,9 @@ in {
       icon = "emacs";
       exec = "${emacs}/bin/emacs --debug-init";
     })
+    pkg-config
+    openssl
+    asm-lsp
     libvterm
     binutils
     ripgrep
