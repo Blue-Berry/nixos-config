@@ -20,7 +20,7 @@
     grim
     slurp
     wl-clipboard
-    qt6ct
+    qt6Packages.qt6ct
     nwg-look
   ];
   imports = [

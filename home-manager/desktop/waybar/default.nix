@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    mpc-cli
+    mpc
     waybar
     pamixer
   ];
