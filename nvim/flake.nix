@@ -24,8 +24,13 @@
     #   flake = false;
     # };
 
+    # "plugins-ocaml" = {
+    #   url = "github:tjdevries/ocaml.nvim";
+    #   flake = false;
+    # };
+
     "plugins-ocaml" = {
-      url = "github:tjdevries/ocaml.nvim";
+      url = "github:tarides/ocaml.nvim";
       flake = false;
     };
 

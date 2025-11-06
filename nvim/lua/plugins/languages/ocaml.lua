@@ -9,17 +9,25 @@ return {
 		ft = "ocaml",
 		for_cat = "languages.ocaml",
 	},
+	-- {
+	-- 	"ocaml",
+	-- 	for_cat = "languages.ocaml",
+	-- 	on_require = { "ocaml" },
+	-- 	after = function(_)
+	-- 		require("ocaml").setup({
+	-- 			install_rapper = false,
+	-- 			install_mlx = false,
+	-- 			setup_lspconfig = false,
+	-- 			setup_conform = false,
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"ocaml",
 		for_cat = "languages.ocaml",
-		on_require = { "ocaml" },
+		event = "DeferredUIEnter",
 		after = function(_)
-			require("ocaml").setup({
-				install_rapper = false,
-				install_mlx = false,
-				setup_lspconfig = false,
-				setup_conform = false,
-			})
+			require("ocaml").setup()
 		end,
 	},
 	{

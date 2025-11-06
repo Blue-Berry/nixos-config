@@ -39,11 +39,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1750385661,
-        "narHash": "sha256-JpIEf5IrOzMTjowkxB6kgh4AK3Dp9i/T9G4w2ZiKMgQ=",
+        "lastModified": 1762227818,
+        "narHash": "sha256-GSnU4XJucZojGVBGY7djqsT37P9YViCMTVw58tsqrOs=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "04379fef2fbd4c9d8f4c9a6203cef135ab0b1acd",
+        "rev": "fa7991a4fa7d7227486910ce6724215b88eb8296",
         "type": "github"
       },
       "original": {
@@ -103,11 +103,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1750731501,
-        "narHash": "sha256-Ah4qq+SbwMaGkuXCibyg+Fwn00el4KmI3XFX6htfDuk=",
+        "lastModified": 1762361079,
+        "narHash": "sha256-lz718rr1BDpZBYk7+G8cE6wee3PiBUpn8aomG/vLLiY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "69dfebb3d175bde602f612915c5576a41b18486b",
+        "rev": "ffcdcf99d65c61956d882df249a9be53e5902ea5",
         "type": "github"
       },
       "original": {
@@ -136,11 +136,11 @@
     "plugins-colorful-menu-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1750763666,
-        "narHash": "sha256-+zZ3ZQtMLoHvm77ozH8Tx707PvdW5XdSzFq7jDo0KRQ=",
+        "lastModified": 1762425548,
+        "narHash": "sha256-uM9w69s3aALFpTBE+PaTEu7ibiSjEuel8YUfw1ldekk=",
         "owner": "Blue-Berry",
         "repo": "colorful-menu.nvim",
-        "rev": "d0add4b5bfe8a4101aef5bbb89526f98f4e3ed67",
+        "rev": "7dd4a8af314231b81eb9478f58a3ca439cc744b5",
         "type": "github"
       },
       "original": {
@@ -168,15 +168,15 @@
     "plugins-ocaml": {
       "flake": false,
       "locked": {
-        "lastModified": 1737517714,
-        "narHash": "sha256-k3qiV5jVaQMegs5R+s6lmKM6fY2J3nvNUr1eO4fL118=",
-        "owner": "tjdevries",
+        "lastModified": 1762340347,
+        "narHash": "sha256-EoIU4DAMSz0HqztrhcyYWFCSSzybil+MpwIxXXYuqyk=",
+        "owner": "tarides",
         "repo": "ocaml.nvim",
-        "rev": "9320bf553121ff269920510dfe65e9887ce314b5",
+        "rev": "98f501607f326652d1c9ac842656ad75908ef129",
         "type": "github"
       },
       "original": {
-        "owner": "tjdevries",
+        "owner": "tarides",
         "repo": "ocaml.nvim",
         "type": "github"
       }
