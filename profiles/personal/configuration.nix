@@ -31,7 +31,7 @@
     # ../../nixos/hardware/displaylink/default.nix
 
     ../../nixos/apps/steam.nix
-    ../../nixos/apps/ollama.nix
+    # ../../nixos/apps/ollama.nix
 
     ../../nixos/flatpack.nix
 
