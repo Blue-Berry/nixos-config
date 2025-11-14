@@ -29,16 +29,11 @@
 ("*" @operator
    (#set! priority 135) (#set! conceal "×"))
 
+(["(" ")" "[" "]" "{" "}" "[|" "|]" "[<" "[>"] @punctuation.bracket (#set! priority 134))
+("|]" @punctuation.bracket (#set! priority 135) (#set! conceal "〛"))
+("[|" @punctuation.bracket (#set! priority 135) (#set! conceal "〚"))
 
-
-("|]" @punctuation.bracket
-   (#set! priority 135) (#set! conceal "〛"))
-
-("[|" @punctuation.bracket
-   (#set! priority 135) (#set! conceal "〚"))
-
-
-
+ 
 ((type_variable) @type_variable
   (#eq? @type_variable
     "'a") (#set! priority 135) (#set! conceal "α"))
