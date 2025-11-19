@@ -20,7 +20,7 @@ in {
   imports = let
     inherit (userSettings) desktopEnv greeter;
 
-    selectedDesktops = lib.flatten( map (desktop: desktopModules.${desktop}) desktopEnv);
+    selectedDesktops = lib.flatten (map (desktop: desktopModules.${desktop}) desktopEnv);
     selectedGreeter = lib.optional (greeterModules ? ${greeter}) greeterModules.${greeter};
   in
     selectedDesktops ++ selectedGreeter;

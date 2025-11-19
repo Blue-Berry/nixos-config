@@ -5,7 +5,7 @@
 }: let
   desktopModules = {
     hyprland = ../../home-manager/desktop/hyprland/hyprland.nix;
-    niri =  ../../home-manager/desktop/niri;
+    niri = ../../home-manager/desktop/niri;
     gnome = [];
   };
 in {
@@ -15,7 +15,8 @@ in {
     selectedDesktops = lib.flatten (map (desktop: desktopModules.${desktop}) desktopEnv);
 
     # Import waybar once if any Wayland compositor is enabled
-    waybarModule = if (lib.any (de: de == "hyprland" || de == "niri") desktopEnv)
+    waybarModule =
+      if (lib.any (de: de == "hyprland" || de == "niri") desktopEnv)
       then [../../home-manager/desktop/waybar]
       else [];
   in

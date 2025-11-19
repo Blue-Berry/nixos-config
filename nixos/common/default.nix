@@ -15,6 +15,7 @@
     ../hardware/wooting.nix
     ../hardware/ntfs.nix
     ../hardware/logic-analyzer.nix
+    ../hardware/gowin.nix
     # ../apps/nvim.nix
     ../apps/wireguard.nix
     ../ports.nix
