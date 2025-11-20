@@ -16,6 +16,7 @@
     ../hardware/ntfs.nix
     ../hardware/logic-analyzer.nix
     ../hardware/gowin.nix
+    ../hardware/ddcutil.nix
     # ../apps/nvim.nix
     ../apps/wireguard.nix
     ../ports.nix

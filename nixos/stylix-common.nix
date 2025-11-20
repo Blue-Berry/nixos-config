@@ -28,11 +28,11 @@
 in {
   stylix = {
     # image = "${inputs.wallpapers}/SolarSystem.jpg";
-    image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
-    # image = "${inputs.wallpapers}/Library.jpg";
+    # image = "${inputs.wallpapers}/Bit_Shiro.jpeg";
+    image = "${inputs.wallpapers}/cherry_blossom_scenery_4k_3840x2160.jpeg";
     enable = true;
     polarity = "dark";
-    base16Scheme = themes.tokyo; # Comment out to use wallpaper
+    # base16Scheme = themes.tokyo; # Comment out to use wallpaper
     autoEnable = true;
 
     cursor = {
