@@ -1,6 +1,6 @@
 {
   profile = "work";
-  desktopEnv = ["hyprland" "gnome" "niri"];
+  desktopEnv = ["hyprland" "gnome"];
   username = "liam";
   greeter = "regreet";
   syncDevices = {

@@ -27,6 +27,7 @@
     inetutils
     inputs.nixCats.packages."${pkgs.system}".default
     inputs.zen-browser.packages."${pkgs.system}".specific
+    inputs.gowin-eda.packages."${pkgs.system}".gowin-eda
     kitty
     libqalculate
     libreoffice-fresh

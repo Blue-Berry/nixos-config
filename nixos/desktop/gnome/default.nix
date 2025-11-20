@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   services.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = [pkgs.orca];
   environment.systemPackages = [
     pkgs.gnomeExtensions.blur-my-shell
   ];
