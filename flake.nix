@@ -36,8 +36,8 @@
     nix-ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     gowin-eda = {
-        url = "github:Blue-Berry/gowin-eda.nix";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Blue-Berry/gowin-eda.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     wallpapers = {

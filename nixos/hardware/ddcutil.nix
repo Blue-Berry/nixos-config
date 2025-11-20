@@ -1,6 +1,10 @@
-{ config, lib, pkgs, userSettings, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}: {
   environment.systemPackages = [pkgs.ddcutil];
   boot.kernelModules = ["i2c-dev"];
   services.udev.extraRules = ''

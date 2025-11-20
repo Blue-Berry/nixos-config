@@ -7,6 +7,7 @@
     mpc
     waybar
     pamixer
+    ddcutil
   ];
 
   programs.waybar = {
