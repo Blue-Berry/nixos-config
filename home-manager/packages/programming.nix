@@ -26,5 +26,6 @@
     postman
     python3
     rustup
+    arduino-ide
   ];
 }
