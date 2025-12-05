@@ -13,6 +13,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    niri.url = "github:sodiboo/niri-flake";
 
     solaar = {
       url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
@@ -69,6 +70,37 @@
     systemSettings = {
       hostname = "liam-nixos";
     };
+    commonModules = [
+      solaar.nixosModules.default
+      stylix.nixosModules.stylix
+      inputs.niri.nixosModules.niri
+      ./modules/user-settings.nix
+      {config.userSettings = personalSettings;}
+      outputs.nixosModules.conditional-imports
+      # Binary cache
+      {
+        nix.settings = {
+          substituters = [
+            "https://nix-community.cachix.org"
+            "https://cache.nixos.org/"
+            "https://niri.cachix.org"
+          ];
+
+          trusted-public-keys = [
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+          ];
+        };
+      }
+    ];
+    commonHomeModules = [
+      stylix.homeModules.stylix
+      inputs.niri.homeModules.niri
+      inputs.niri.homeModules.stylix
+      ./modules/user-settings.nix
+      {config.userSettings = personalSettings;}
+      outputs.homeModules.conditional-imports
+    ];
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
@@ -106,28 +138,11 @@
           inherit systemSettings;
           userSettings = personalSettings;
         };
-        modules = [
-          # > Our main nixos configuration file <
-          stylix.nixosModules.stylix
-          solaar.nixosModules.default
-          ./modules/user-settings.nix
-          {config.userSettings = personalSettings;}
-          outputs.nixosModules.conditional-imports
-          (./. + "/profiles" + "/personal/configuration.nix")
-          # Binary cache
-          {
-            nix.settings = {
-              substituters = [
-                "https://nix-community.cachix.org"
-                "https://cache.nixos.org/"
-              ];
-
-              trusted-public-keys = [
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-              ];
-            };
-          }
-        ];
+        modules =
+          [
+            (./. + "/profiles" + "/personal/configuration.nix")
+          ]
+          ++ commonModules;
       };
       work = nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -135,14 +150,11 @@
           inherit systemSettings;
           userSettings = workSettings;
         };
-        modules = [
-          solaar.nixosModules.default
-          stylix.nixosModules.stylix
-          (./. + "/profiles" + "/work/configuration.nix")
-          ./modules/user-settings.nix
-          {config.userSettings = workSettings;}
-          outputs.nixosModules.conditional-imports
-        ];
+        modules =
+          [
+            (./. + "/profiles" + "/work/configuration.nix")
+          ]
+          ++ commonModules;
       };
     };
 
@@ -156,14 +168,11 @@
           inherit systemSettings;
           userSettings = personalSettings;
         };
-        modules = [
-          # > Our main home-manager configuration file <
-          (./. + "/profiles" + "/personal/home.nix")
-          stylix.homeModules.stylix
-          ./modules/user-settings.nix
-          {config.userSettings = personalSettings;}
-          outputs.homeModules.conditional-imports
-        ];
+        modules =
+          [
+            (./. + "/profiles" + "/personal/home.nix")
+          ]
+          ++ commonHomeModules;
       };
       work = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
@@ -172,14 +181,11 @@
           inherit systemSettings;
           userSettings = workSettings;
         };
-        modules = [
-          # > Our main home-manager configuration file <
-          (./. + "/profiles" + "/work/home.nix")
-          stylix.homeModules.stylix
-          ./modules/user-settings.nix
-          {config.userSettings = workSettings;}
-          outputs.homeModules.conditional-imports
-        ];
+        modules =
+          [
+            (./. + "/profiles" + "/work/home.nix")
+          ]
+          ++ commonHomeModules;
       };
     };
   };

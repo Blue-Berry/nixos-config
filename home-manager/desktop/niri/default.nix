@@ -4,10 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [
-    # waybar is imported at a higher level to avoid duplicate imports
-    # ../waybar
-  ];
+  imports = [];
   programs.fuzzel = {
     enable = true; # Super+D in the default setting (app launcher)
     package = pkgs.fuzzel;
@@ -22,11 +19,27 @@
   home.packages = with pkgs; [
     swaybg # wallpaper
   ];
-  xdg.configFile."niri/config.kdl".source = ./config.kdl;
+  # xdg.configFile."niri/config.kdl".source = ./config.kdl;
 
   stylix.targets = {
     fuzzel.enable = true;
     swaylock.enable = true;
     mako.enable = true;
+    niri.enable = true;
+  };
+  programs.niri.settings = {
+    # TODO: make this dynamic
+    outputs."DVI-I-1" = {
+      position.x = 0;
+      position.y = 0;
+    };
+    outputs."DVI-I-2" = {
+      position.x = 1920;
+      position.y = 0;
+    };
+    outputs."HDMI-A-1" = {
+      position.x = 3840;
+      position.y = 0;
+    };
   };
 }

@@ -19,10 +19,10 @@
     ../hardware/ddcutil.nix
     # ../apps/nvim.nix
     ../apps/wireguard.nix
+    ../apps/vivid.nix
     ../ports.nix
     ../stylix.nix
     ../system/gc.nix
-    ../preload.nix
     ../apps/emacs.nix
     ../apps/kanata.nix
     ../apps/pass.nix

@@ -12,6 +12,7 @@
     ../apps/neovide.nix
     ../apps/zathura.nix
     ../apps/nushell
+    ../apps/opencode.nix
 
     ../env-vars.nix
     ../packages

@@ -1,11 +1,11 @@
 {...}: {
   imports = [
     ./stylix-common.nix
-    ./stylix-ls-colors.nix
+    # ./stylix-ls-colors.nix # Trying out vivid instead
   ];
 
   stylix = {
-    ls-colors.enable = true;
+    # ls-colors.enable = true;
     targets = {
       grub = {
         enable = true;
