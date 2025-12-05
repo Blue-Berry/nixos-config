@@ -13,6 +13,7 @@
     ../apps/zathura.nix
     ../apps/nushell
     ../apps/opencode.nix
+    ../apps/vivid.nix
 
     ../env-vars.nix
     ../packages
