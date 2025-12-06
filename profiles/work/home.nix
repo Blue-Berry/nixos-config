@@ -6,7 +6,6 @@
   lib,
   config,
   pkgs,
-  userSettings,
   ...
 }: {
   # You can import other home-manager modules here
@@ -17,13 +16,13 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
 
-    ../../home-manager/desktop/hyprland/hyprland.nix
-    ../../home-manager/common
+    ../../overlays/enable.nix
+    ./homeModules.nix
   ];
 
   home = {
-    username = userSettings.username;
-    homeDirectory = "/home/" + userSettings.username;
+    username = "liam";
+    homeDirectory = "/home/liam";
   };
 
   # Enable home-manager and git

@@ -6,7 +6,6 @@
   lib,
   config,
   pkgs,
-  systemSettings,
   ...
 }: {
   # You can import other NixOS modules here
@@ -19,34 +18,68 @@
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
 
-    # Import your generated (nixos-generate-config) hardware configuration
-    ../../nixos/common
-    ../../nixos/boot.nix
-    ../../nixos/apps/zsh.nix
+    # You can also split up your configuration and import pieces of it here:
+    # ./users.nix
 
-    # ../../nixos/cursor.nix
+    # Import your generated (nixos-generate-config) hardware configuration
+    # ../../nixos/common
 
     # ./hardware/graphics-amd.nix
     # ../../nixos/hardware/touchpad.nix
     # ../../nixos/hardware/displaylink/default.nix
-
-    ../../nixos/apps/steam.nix
-    # ../../nixos/apps/ollama.nix
-
-    ../../nixos/flatpack.nix
-
-    ../../nixos/hardware/solaar.nix
-    ../../nixos/hardware/ratbag.nix
-    ../../nixos/games/sunshine.nix
+    # ../../nixos/hardware/optimus/default.nix
+    # ../../nixos/hardware/optimus/nvidia.nix
+    ./nixosModules.nix
   ];
 
-  #NOTE: Basic system configuration
+  nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
 
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+    # Configure your nixpkgs instance
+    config = {
+      # Disable if you don't want unfree packages
+      allowUnfree = true;
+    };
+  };
+
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Opinionated: disable global registry
+      flake-registry = "";
+      # Workaround for https://github.com/NixOS/nix/issues/9574
+      nix-path = config.nix.nixPath;
+    };
+    # Opinionated: disable channels
+    channel.enable = false;
+
+    # Opinionated: make flake registry and nix path match flake inputs
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+  };
+
+  #NOTE: Basic system configuration
   programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = systemSettings.hostname;
+  networking.hostName = "liam-nixos";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -58,9 +91,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = [];
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "za";
@@ -69,7 +99,7 @@
   services.printing.enable = true;
 
   users.users = {
-    ${config.userSettings.username} = {
+    liam = {
       isNormalUser = true;
       initialPassword = "stuff";
       openssh.authorizedKeys.keys = [
@@ -81,6 +111,13 @@
 
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = false;
+
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.

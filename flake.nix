@@ -65,8 +65,6 @@
   } @ inputs: let
     inherit (self) outputs;
     inherit (nixpkgs) lib;
-    personalSettings = import ./profiles/personal/userSettings.nix;
-    workSettings = import ./profiles/work/userSettings.nix;
     systemSettings = {
       hostname = "liam-nixos";
     };
@@ -74,9 +72,7 @@
       solaar.nixosModules.default
       stylix.nixosModules.stylix
       inputs.niri.nixosModules.niri
-      ./modules/user-settings.nix
-      {config.userSettings = personalSettings;}
-      outputs.nixosModules.conditional-imports
+      ./modules/nixos/modules/defualt.nix
       # Binary cache
       {
         nix.settings = {
@@ -99,9 +95,7 @@
       stylix.homeModules.stylix
       inputs.niri.homeModules.niri
       inputs.niri.homeModules.stylix
-      ./modules/user-settings.nix
-      {config.userSettings = personalSettings;}
-      outputs.homeModules.conditional-imports
+      ./modules/home-manager/modules
     ];
     # Supported systems for your flake packages, shell, etc.
     systems = [
@@ -127,6 +121,8 @@
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
     nixosModules = import ./modules/nixos;
+    # Common modules shared between NixOS and home-manager
+    commonModules = import ./modules/common;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeModules = import ./modules/home-manager;
@@ -138,7 +134,6 @@
         specialArgs = {
           inherit (self) inputs outputs;
           inherit systemSettings;
-          userSettings = personalSettings;
         };
         modules =
           [
@@ -150,7 +145,6 @@
         specialArgs = {
           inherit (self) inputs outputs;
           inherit systemSettings;
-          userSettings = workSettings;
         };
         modules =
           [
@@ -164,11 +158,14 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       personal = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = builtins.attrValues outputs.overlays;
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
-          userSettings = personalSettings;
         };
         modules =
           [
@@ -177,11 +174,14 @@
           ++ commonHomeModules;
       };
       work = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          overlays = builtins.attrValues outputs.overlays;
+          config.allowUnfree = true;
+        };
         extraSpecialArgs = {
           inherit inputs outputs;
           inherit systemSettings;
-          userSettings = workSettings;
         };
         modules =
           [

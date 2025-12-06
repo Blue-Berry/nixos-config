@@ -22,13 +22,14 @@
     # ./users.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
-    ../../nixos/common
+    # ../../nixos/common
 
     # ./hardware/graphics-amd.nix
-    ../../nixos/hardware/touchpad.nix
-    ../../nixos/hardware/displaylink/default.nix
-    ../../nixos/hardware/optimus/default.nix
-    ../../nixos/hardware/optimus/nvidia.nix
+    # ../../nixos/hardware/touchpad.nix
+    # ../../nixos/hardware/displaylink/default.nix
+    # ../../nixos/hardware/optimus/default.nix
+    # ../../nixos/hardware/optimus/nvidia.nix
+    ./nixosModules.nix
   ];
 
   nixpkgs = {
@@ -96,11 +97,6 @@
     variant = "";
   };
   services.printing.enable = true;
-
-  # Zsh
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
 
   users.users = {
     liam = {
