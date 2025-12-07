@@ -9,38 +9,37 @@
   ];
 
   # Apps
-  homeModules.apps = {
-    delta = true;
-    direnv = true;
-    git.enable = true; # Uses common user config for name/email
-    kitty = true;
-    ghostty = true;
-    neovide = true;
-    nushell = true;
-    opencode = true;
-    spotify = true;
-    starship = true;
-    vivid = true;
-    yazi = true;
-    zathura = true;
-    zsh = true;
-  };
+  homeModules.apps.enable = true;
 
   # Desktop
   homeModules.desktop = {
     dconf = true;
     hyprland = {
       enable = true;
-      monitorProfile = "personal";
+      monitorProfile = "work";
     };
-    niri.enable = true; # Uses default empty outputs
+    niri = {
+      enable = true;
+      outputs = {
+        "DP-2".position = {
+          x = 0;
+          y = 0;
+        };
+        "HDMI-A-1".position = {
+          x = 1920;
+          y = 0;
+        };
+      };
+    };
     waybar = true;
   };
 
   # Packages
   homeModules.packages = {
     cli = true;
+    gui = true;
     programming = true;
+    llm.enable = true;
   };
 
   # Other modules
