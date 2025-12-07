@@ -80,31 +80,34 @@ in {
         internalKeyboard = {
           devices = cfg.devices;
           extraDefCfg = cfg.extraDefCfg;
-          config = if cfg.config != null then cfg.config else ''
-            (defvar
-              tap-time ${toString cfg.tapTime}
-              hold-time ${toString cfg.holdTime}
-            )
+          config =
+            if cfg.config != null
+            then cfg.config
+            else ''
+              (defvar
+                tap-time ${toString cfg.tapTime}
+                hold-time ${toString cfg.holdTime}
+              )
 
-            (defsrc
-              a s d f   j k l ;
-            )
+              (defsrc
+                a s d f   j k l ;
+              )
 
-            (defalias
-              a-mod (tap-hold $tap-time $hold-time a lmet)
-              s-mod (tap-hold $tap-time $hold-time s lalt)
-              d-mod (tap-hold $tap-time $hold-time d lsft)
-              f-mod (tap-hold $tap-time $hold-time f lctl)
-              j-mod (tap-hold $tap-time $hold-time j rctl)
-              k-mod (tap-hold $tap-time $hold-time k rsft)
-              l-mod (tap-hold $tap-time $hold-time l ralt)
-              ;-mod (tap-hold $tap-time $hold-time ; rmet)
-            )
+              (defalias
+                a-mod (tap-hold $tap-time $hold-time a lmet)
+                s-mod (tap-hold $tap-time $hold-time s lalt)
+                d-mod (tap-hold $tap-time $hold-time d lsft)
+                f-mod (tap-hold $tap-time $hold-time f lctl)
+                j-mod (tap-hold $tap-time $hold-time j rctl)
+                k-mod (tap-hold $tap-time $hold-time k rsft)
+                l-mod (tap-hold $tap-time $hold-time l ralt)
+                ;-mod (tap-hold $tap-time $hold-time ; rmet)
+              )
 
-            (deflayer base
-              @a-mod @s-mod @d-mod @f-mod   @j-mod @k-mod @l-mod @;-mod
-            )
-          '';
+              (deflayer base
+                @a-mod @s-mod @d-mod @f-mod   @j-mod @k-mod @l-mod @;-mod
+              )
+            '';
         };
       };
     };

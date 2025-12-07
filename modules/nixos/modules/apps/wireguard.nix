@@ -45,10 +45,14 @@ in {
     };
 
     # Apply default privateKeyFile to interfaces that don't specify one
-    networking.wireguard.interfaces = lib.mapAttrs (name: iface:
-      iface // {
-        privateKeyFile = iface.privateKeyFile or cfg.privateKeyFile;
-      }
-    ) cfg.interfaces;
+    networking.wireguard.interfaces =
+      lib.mapAttrs (
+        name: iface:
+          iface
+          // {
+            privateKeyFile = iface.privateKeyFile or cfg.privateKeyFile;
+          }
+      )
+      cfg.interfaces;
   };
 }

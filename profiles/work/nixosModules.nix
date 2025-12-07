@@ -3,9 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let username = "liam";
-  in {
+}: let
+  username = "liam";
+in {
   imports = [
     ./commonModules.nix
   ];

@@ -21,9 +21,18 @@
     niri = {
       enable = true;
       outputs = {
-        "DVI-I-1".position = { x = 0; y = 0; };
-        "DVI-I-2".position = { x = 1920; y = 0; };
-        "HDMI-A-1".position = { x = 3840; y = 0; };
+        "DVI-I-1".position = {
+          x = 0;
+          y = 0;
+        };
+        "DVI-I-2".position = {
+          x = 1920;
+          y = 0;
+        };
+        "HDMI-A-1".position = {
+          x = 3840;
+          y = 0;
+        };
       };
     };
     waybar = true;

@@ -9,7 +9,7 @@
   commonModules.system.user = {
     username = "liam";
     fullName = "Liam Berry";
-    email = "liam.berry@work.com";  # Change to work email
+    email = "liam.berry@work.com"; # Change to work email
   };
 
   # Common Styling Configuration

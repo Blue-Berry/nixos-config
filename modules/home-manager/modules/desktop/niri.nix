@@ -20,8 +20,8 @@ in {
           position = lib.mkOption {
             type = lib.types.submodule {
               options = {
-                x = lib.mkOption { type = lib.types.int; };
-                y = lib.mkOption { type = lib.types.int; };
+                x = lib.mkOption {type = lib.types.int;};
+                y = lib.mkOption {type = lib.types.int;};
               };
             };
             description = "Output position";
@@ -30,8 +30,18 @@ in {
       });
       default = {};
       example = {
-        "DP-1" = { position = { x = 0; y = 0; }; };
-        "HDMI-A-1" = { position = { x = 1920; y = 0; }; };
+        "DP-1" = {
+          position = {
+            x = 0;
+            y = 0;
+          };
+        };
+        "HDMI-A-1" = {
+          position = {
+            x = 1920;
+            y = 0;
+          };
+        };
       };
       description = "Monitor output configurations";
     };

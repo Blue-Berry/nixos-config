@@ -12,7 +12,7 @@
   homeModules.apps = {
     delta = true;
     direnv = true;
-    git.enable = true;  # Uses common user config for name/email
+    git.enable = true; # Uses common user config for name/email
     kitty = true;
     ghostty = true;
     neovide = true;
@@ -33,7 +33,7 @@
       enable = true;
       monitorProfile = "personal";
     };
-    niri.enable = true;  # Uses default empty outputs
+    niri.enable = true; # Uses default empty outputs
     waybar = true;
   };
 

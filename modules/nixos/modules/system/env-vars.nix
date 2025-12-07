@@ -31,11 +31,13 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.sessionVariables = {
-      PATH = [
-        "${userCfg.homeDirectory}/.cargo/bin"
-        "${userCfg.homeDirectory}/.cache/rebar3/bin"
-        "${userCfg.homeDirectory}/bin"
-      ] ++ cfg.extraPaths;
+      PATH =
+        [
+          "${userCfg.homeDirectory}/.cargo/bin"
+          "${userCfg.homeDirectory}/.cache/rebar3/bin"
+          "${userCfg.homeDirectory}/bin"
+        ]
+        ++ cfg.extraPaths;
       MU_PROFILE = cfg.muProfile;
     };
   };
