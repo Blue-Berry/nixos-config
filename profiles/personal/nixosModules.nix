@@ -68,15 +68,16 @@
   nixosModules.desktop = {
     gnome = true;
     hyprland = true;
+    niri = true;
   };
 
   # Greeter
   nixosModules.greeter = {
-    regreet = false;
+    regreet = true;
     gdm = false;
     sddm = false;
     greetdHyprland = {
-      enable = true;
+      enable = false;
       username = "liam";
     };
   };
