@@ -132,6 +132,9 @@ in {
 
     programs.niri.settings = {
       outputs = cfg.outputs;
+      spawn-at-startup = [
+        {command = ["waybar"];}
+      ];
       input = {
         keyboard.numlock = cfg.input.numlockEnable;
         touchpad = {
@@ -372,6 +375,13 @@ in {
 
         # Tabbed display
         "Mod+W".action.toggle-column-tabbed-display = [];
+
+        # Keyboard layout switching
+        "Mod+Space".action.switch-layout = "next";
+        "Mod+Shift+Space".action.switch-layout = "prev";
+
+        # Mouse bindings
+        "Mod+MouseMiddle".action.close-window = [];
 
         # Screenshots
         "Print".action.screenshot = [];
