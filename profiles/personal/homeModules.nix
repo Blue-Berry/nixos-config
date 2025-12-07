@@ -16,7 +16,7 @@
     dconf = true;
     hyprland = {
       enable = true;
-      monitorProfile = "work";
+      monitorProfile = "personal";
     };
     niri = {
       enable = true;

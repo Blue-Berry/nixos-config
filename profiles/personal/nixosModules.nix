@@ -9,7 +9,10 @@
   ];
 
   # Boot Configuration
-  nixosModules.boot.enable = true;
+  nixosModules.boot = {
+    enable = true;
+    dualBoot = false;
+  };
 
   # Apps
   nixosModules.apps = {

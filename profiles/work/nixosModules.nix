@@ -14,6 +14,7 @@ in {
   nixosModules.boot = {
     enable = true;
     kernelPackages = pkgs.linuxPackages_6_12;
+    dualBoot = true;
   };
 
   # Apps
