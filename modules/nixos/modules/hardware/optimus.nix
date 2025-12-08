@@ -22,10 +22,11 @@ in {
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       hardware.nvidia.prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
+        sync.enable = true;
+        # offload = {
+        #     enable = true;
+        #     enableOffloadCmd = true;
+        #   };
 
         amdgpuBusId = "PCI:5:0:0";
         nvidiaBusId = "PCI:1:0:0";
