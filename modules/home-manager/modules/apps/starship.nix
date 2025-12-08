@@ -23,6 +23,9 @@ in {
           error_symbol = "[λ](bold red)";
         };
       };
+      enableBashIntegration= true;
+      enableNushellIntegration = true;
+      enableZshIntegration= true;
     };
   };
 }
