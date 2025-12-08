@@ -96,6 +96,7 @@ in {
     programs.fuzzel = {
       enable = true;
       package = pkgs.fuzzel;
+      settings.main.font = lib.mkForce "${config.stylix.fonts.monospace.name}:size=14";
     };
     programs.swaylock = {
       enable = true;
