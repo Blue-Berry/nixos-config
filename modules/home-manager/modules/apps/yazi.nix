@@ -54,6 +54,10 @@ in {
         };
       };
       settings = {
+        tasks = {
+          image_alloc = 1610612736; # 1.5GB (tripled from 512MB)
+          image_bound = [15000 15000]; # tripled from [5000, 5000]
+        };
         plugin = {
           prepend_previewers = [
             # { name = "*.md"; run = "glow"; }
