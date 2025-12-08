@@ -238,10 +238,10 @@ in {
         "Mod+Right".action.focus-column-right = [];
 
         # Focus navigation - Vim keys
-        "Mod+H".action.focus-column-left = [];
-        "Mod+J".action.focus-window-down = [];
-        "Mod+K".action.focus-window-up = [];
-        "Mod+L".action.focus-column-right = [];
+        "Mod+H".action.focus-column-or-monitor-left = [];
+        "Mod+J".action.focus-window-or-workspace-down = [];
+        "Mod+K".action.focus-window-or-workspace-up = [];
+        "Mod+L".action.focus-column-or-monitor-right = [];
 
         # Move windows - Arrow keys
         "Mod+Ctrl+Left".action.move-column-left = [];
