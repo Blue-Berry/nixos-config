@@ -43,7 +43,7 @@
               scale = 1.0;
             }
             {
-              criteria = "DP-1";
+              criteria = "eDP-1";
               status = "disable";
             }
           ];
