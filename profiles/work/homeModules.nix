@@ -62,6 +62,11 @@
     };
     niri = {
       enable = true;
+      monitors = [
+        "DVI-I-1" # Mod+1 - Left monitor
+        "DVI-I-2" # Mod+2 - Center monitor
+        "HDMI-A-1" # Mod+3 - Right monitor
+      ];
     };
     waybar = true;
   };
