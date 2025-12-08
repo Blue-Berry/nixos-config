@@ -14,38 +14,6 @@ in {
       description = "Enable Niri compositor configuration";
     };
 
-    outputs = lib.mkOption {
-      type = lib.types.attrsOf (lib.types.submodule {
-        options = {
-          position = lib.mkOption {
-            type = lib.types.submodule {
-              options = {
-                x = lib.mkOption {type = lib.types.int;};
-                y = lib.mkOption {type = lib.types.int;};
-              };
-            };
-            description = "Output position";
-          };
-        };
-      });
-      default = {};
-      example = {
-        "DP-1" = {
-          position = {
-            x = 0;
-            y = 0;
-          };
-        };
-        "HDMI-A-1" = {
-          position = {
-            x = 1920;
-            y = 0;
-          };
-        };
-      };
-      description = "Monitor output configurations";
-    };
-
     terminal = lib.mkOption {
       type = lib.types.str;
       default = config.homeModules.envVars.terminal or "ghostty";
@@ -141,7 +109,6 @@ in {
     };
 
     programs.niri.settings = {
-      outputs = cfg.outputs;
       spawn-at-startup = [
         {command = ["waybar"];}
       ];

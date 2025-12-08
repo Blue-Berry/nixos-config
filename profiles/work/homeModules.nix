@@ -18,22 +18,50 @@
       enable = true;
       monitorProfile = "work";
     };
+    kanshi = {
+      enable = true;
+      settings = [
+        {
+          profile.name = "work-docked";
+          profile.outputs = [
+            {
+              criteria = "DVI-I-1";
+              mode = "1920x1080";
+              position = "0,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "DVI-I-2";
+              mode = "1920x1080";
+              position = "1920,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "HDMI-A-1";
+              mode = "1920x1080";
+              position = "3840,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "DP-1";
+              status = "disable";
+            }
+          ];
+        }
+        {
+          profile.name = "work-undocked";
+          profile.outputs = [
+            {
+              criteria = "DP-1";
+              mode = "1920x1080@120Hz";
+              scale = 1.0;
+            }
+          ];
+        }
+      ];
+    };
     niri = {
       enable = true;
-      outputs = {
-        "DVI-I-1".position = {
-          x = 0;
-          y = 0;
-        };
-        "DVI-I-2".position = {
-          x = 1920;
-          y = 0;
-        };
-        "HDMI-A-1".position = {
-          x = 3840;
-          y = 0;
-        };
-      };
     };
     waybar = true;
   };

@@ -8,6 +8,7 @@
   imports = [
     ./dconf.nix
     ./hyprland.nix
+    ./kanshi.nix
     ./niri.nix
     ./waybar.nix
   ];

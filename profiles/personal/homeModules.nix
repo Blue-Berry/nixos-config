@@ -18,18 +18,30 @@
       enable = true;
       monitorProfile = "personal";
     };
+    kanshi = {
+      enable = true;
+      settings = [
+        {
+          profile.name = "personal";
+          profile.outputs = [
+            {
+              criteria = "DP-2";
+              mode = "1920x1080";
+              position = "0,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "HDMI-A-1";
+              mode = "1920x1080";
+              position = "1920,0";
+              scale = 1.0;
+            }
+          ];
+        }
+      ];
+    };
     niri = {
       enable = true;
-      outputs = {
-        "DP-2".position = {
-          x = 0;
-          y = 0;
-        };
-        "HDMI-A-1".position = {
-          x = 1920;
-          y = 0;
-        };
-      };
     };
     waybar = true;
   };

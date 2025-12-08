@@ -18,14 +18,7 @@ in {
     monitorProfile = lib.mkOption {
       type = lib.types.enum ["work" "personal" "custom"];
       default = "personal";
-      description = "Monitor configuration profile to use";
-    };
-
-    monitors = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      example = ["DP-1,1920x1080@144,0x0,1" "HDMI-A-1,1920x1080,1920x0,1"];
-      description = "Custom monitor configurations (used when monitorProfile = 'custom')";
+      description = "Configuration profile to use (affects workspaces, cursor, and other settings)";
     };
 
     input = {
@@ -132,22 +125,6 @@ in {
         "$mod" = mod;
         "$terminal" = terminal;
         "$fileManager" = cfg.fileManager;
-
-        monitor =
-          if cfg.monitorProfile == "custom"
-          then cfg.monitors
-          else if cfg.monitorProfile == "personal"
-          then [
-            "DP-2, 1920x1080, 0x0, 1"
-            "HDMI-A-1,1920x1080, 1920x0,1"
-          ]
-          else [
-            "DVI-I-1,1920x1080, 0x0,1"
-            "DVI-I-2, 1920x1080, 1920x0, 1"
-            "HDMI-A-1, 1920x1080, 3840x0, 1"
-            "DP-1,1920x1080@120,auto,1"
-            ",preferred,auto,1"
-          ];
 
         input = {
           accel_profile = cfg.input.accelProfile;
