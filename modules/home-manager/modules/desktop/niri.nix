@@ -228,15 +228,15 @@ in {
 
           # Move windows - Vim keys
           "Mod+Ctrl+H".action.move-column-left = [];
-          "Mod+Ctrl+J".action.move-window-down = [];
-          "Mod+Ctrl+K".action.move-window-up = [];
+          "Mod+Ctrl+J".action.move-window-down-or-to-workspace-down = [];
+          "Mod+Ctrl+K".action.move-window-up-or-to-workspace-up = [];
           "Mod+Ctrl+L".action.move-column-right = [];
 
           # Column navigation
-          "Mod+Home".action.focus-column-first = [];
-          "Mod+End".action.focus-column-last = [];
-          "Mod+Ctrl+Home".action.move-column-to-first = [];
-          "Mod+Ctrl+End".action.move-column-to-last = [];
+          # "Mod+Home".action.focus-column-first = [];
+          # "Mod+End".action.focus-column-last = [];
+          # "Mod+Ctrl+Home".action.move-column-to-first = [];
+          # "Mod+Ctrl+End".action.move-column-to-last = [];
 
           # Monitor focus - Arrow keys
           "Mod+Shift+Left".action.focus-monitor-left = [];
@@ -269,14 +269,10 @@ in {
           "Mod+I".action.focus-workspace-up = [];
 
           # Move column to workspace
-          "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [];
-          "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [];
           "Mod+Ctrl+U".action.move-column-to-workspace-down = [];
           "Mod+Ctrl+I".action.move-column-to-workspace-up = [];
 
           # Move workspace
-          "Mod+Shift+Page_Down".action.move-workspace-down = [];
-          "Mod+Shift+Page_Up".action.move-workspace-up = [];
           "Mod+Shift+U".action.move-workspace-down = [];
           "Mod+Shift+I".action.move-workspace-up = [];
 
@@ -389,6 +385,14 @@ in {
             idx: monitor:
               lib.nameValuePair "Mod+${toString (idx + 1)}" {
                 action = sh "niri msg action focus-monitor '${monitor}'";
+              }
+          )
+          cfg.monitors))
+        # Generate move column to monitor keybinds dynamically
+        // (lib.listToAttrs (lib.imap0 (
+            idx: monitor:
+              lib.nameValuePair "Mod+Shift+Ctrl+${toString (idx + 1)}" {
+                action = sh "niri msg action move-column-to-monitor '${monitor}'";
               }
           )
           cfg.monitors));
