@@ -83,6 +83,19 @@ in {
       default = -1;
       description = "Force default wallpaper (-1 = disabled, 0-2 = specific wallpaper)";
     };
+
+    fileManager = lib.mkOption {
+      type = lib.types.str;
+      default = "Ark";
+      description = "Default file manager application";
+    };
+
+    windowRules = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [];
+      example = ["opacity 0.98 0.94,class:^zen$"];
+      description = "Window rules (windowrulev2)";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -118,6 +131,7 @@ in {
       in {
         "$mod" = mod;
         "$terminal" = terminal;
+        "$fileManager" = cfg.fileManager;
 
         monitor =
           if cfg.monitorProfile == "custom"
@@ -161,6 +175,12 @@ in {
           force_default_wallpaper = cfg.forceDefaultWallpaper;
         };
 
+        exec-once = [
+          "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+        ];
+
+        windowrulev2 = cfg.windowRules;
+
         workspace =
           if cfg.monitorProfile == "personal"
           then [
@@ -182,6 +202,12 @@ in {
           if cfg.monitorProfile == "personal"
           then false
           else true;
+
+        bindm = [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+          "$mod ALT, mouse:272, resizewindow"
+        ];
 
         bind = [
           # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
@@ -240,12 +266,21 @@ in {
           "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
         ];
 
-        bindl = [
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ", XF86AudioPlay, exec, playerctl play-pause"
-        ];
+        bindl =
+          [
+            ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            ", XF86AudioPlay, exec, playerctl play-pause"
+          ]
+          ++ (
+            if cfg.monitorProfile == "work"
+            then [
+              ",switch:on:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, disable\""
+              ",switch:off:Lid Switch,exec,hyprctl keyword monitor \"eDP-1, 1920x1080, auto, 1\""
+            ]
+            else []
+          );
 
         env =
           if cfg.monitorProfile == "work"

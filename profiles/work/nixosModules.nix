@@ -69,7 +69,10 @@ in {
   nixosModules.desktop = {
     gnome = true;
     hyprland = true;
-    niri = true;
+    niri = {
+      enable = true;
+      unstable = true;
+    };
   };
 
   # Greeter
