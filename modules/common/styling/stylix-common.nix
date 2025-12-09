@@ -152,6 +152,7 @@ in {
           popups = cfg.fontSize.popups;
         };
       };
+      targets.nixos-icons.enable = true;
     };
   };
 }
