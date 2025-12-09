@@ -25,6 +25,7 @@ in {
         window-decoration = "none";
         app-notifications = "false";
         confirm-close-surface = false;
+        shell-integration-features = "ssh-terminfo,ssh-env";
       };
     };
   };

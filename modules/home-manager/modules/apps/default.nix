@@ -21,5 +21,6 @@
     ./yazi.nix
     ./zathura.nix
     ./zsh.nix
+    ./gitui.nix
   ];
 }

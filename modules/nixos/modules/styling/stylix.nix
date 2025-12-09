@@ -30,6 +30,7 @@ in {
           enable = true;
           useWallpaper = true;
         };
+        console.enable = true;
         gnome.enable = true;
         gtk.enable = true;
         qt.enable = true;
