@@ -167,7 +167,6 @@ vim.keymap.set(
 	'"+yy',
 	{ noremap = true, silent = true, desc = "Yank line to clipboard" }
 )
-vim.keymap.set({ "n", "v", "x" }, "<C-a>", "gg0vG$", { noremap = true, silent = true, desc = "Select all" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.keymap.set(
 	"i",
