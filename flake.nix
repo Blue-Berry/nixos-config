@@ -88,6 +88,8 @@
             "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
             "ocaml.cachix.org-1:8iCoF5mD6PVwNKVfdr4lLs3W7KxfQoYEoPpP+f6f4nM="
           ];
+
+          trusted-users = [ "root" "@wheel" ];
         };
       }
     ];
