@@ -110,6 +110,7 @@ in {
       nwg-look
     ];
 
+    stylix.targets.rofi.enable = true;
     services.hyprpaper.enable = true;
 
     wayland.windowManager.hyprland = {
@@ -121,6 +122,7 @@ in {
       settings = let
         mod = "SUPER";
         terminal = config.homeModules.envVars.terminal or "ghostty";
+        rofiTheme = ./rofi/style-4.rasi;
       in {
         "$mod" = mod;
         "$terminal" = terminal;
@@ -193,7 +195,7 @@ in {
           "$mod, M, exit,"
           "$mod, E, exec, emacsclient --create-frame"
           "$mod, V, togglefloating,"
-          "$mod, R, exec, rofi -show drun -theme $HOME/.config/rofi/launchers/type-5/style-4.rasi"
+          "$mod, R, exec, rofi -show drun -theme ${rofiTheme}"
           "$mod, D, exec, $HOME/.config/rofi/powermenu/type-1/powermenu.sh"
           "$mod, P, pseudo, # dwindle"
           "$mod, J, togglesplit, # dwindle"

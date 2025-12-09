@@ -87,7 +87,11 @@ in {
     monitors = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
-      example = ["HDMI-A-1" "DP-1" "eDP-1"];
+      example = [
+        "HDMI-A-1"
+        "DP-1"
+        "eDP-1"
+      ];
       description = "List of monitor names in order for Mod+<number> keybinds";
     };
   };
@@ -102,7 +106,14 @@ in {
       enable = true;
       package = pkgs.swaylock;
     };
-    services.mako.enable = true;
+    services.mako = {
+      enable = true;
+      settings = {
+        default-timeout = 3000;
+        ignore-timeout = false;
+      };
+    };
+
     services.swayidle.enable = true;
     services.polkit-gnome.enable = true;
     home.packages = with pkgs; [
@@ -195,11 +206,21 @@ in {
           # Brightness controls
           "XF86MonBrightnessUp" = {
             allow-when-locked = true;
-            action.spawn = ["brightnessctl" "--class=backlight" "set" "+10%"];
+            action.spawn = [
+              "brightnessctl"
+              "--class=backlight"
+              "set"
+              "+10%"
+            ];
           };
           "XF86MonBrightnessDown" = {
             allow-when-locked = true;
-            action.spawn = ["brightnessctl" "--class=backlight" "set" "10%-"];
+            action.spawn = [
+              "brightnessctl"
+              "--class=backlight"
+              "set"
+              "10%-"
+            ];
           };
 
           # Overview
@@ -381,21 +402,25 @@ in {
           "Mod+Shift+P".action.power-off-monitors = [];
         }
         # Generate monitor focus keybinds dynamically
-        // (lib.listToAttrs (lib.imap0 (
+        // (lib.listToAttrs (
+          lib.imap0 (
             idx: monitor:
               lib.nameValuePair "Mod+${toString (idx + 1)}" {
                 action = sh "niri msg action focus-monitor '${monitor}'";
               }
           )
-          cfg.monitors))
+          cfg.monitors
+        ))
         # Generate move column to monitor keybinds dynamically
-        // (lib.listToAttrs (lib.imap0 (
+        // (lib.listToAttrs (
+          lib.imap0 (
             idx: monitor:
               lib.nameValuePair "Mod+Shift+Ctrl+${toString (idx + 1)}" {
                 action = sh "niri msg action move-column-to-monitor '${monitor}'";
               }
           )
-          cfg.monitors));
+          cfg.monitors
+        ));
     };
   };
 }
