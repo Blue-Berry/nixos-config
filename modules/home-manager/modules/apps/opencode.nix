@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  inputs,
   pkgs,
   ...
 }: let
@@ -14,7 +15,10 @@ in {
   };
 
   config = lib.mkIf cfg {
-    programs.opencode.enable = true;
+    programs.opencode = {
+      enable = true;
+      package = inputs.opencode-nix.packages.${pkgs.system}.default;
+    };
     stylix.targets.opencode.enable = true;
   };
 }
