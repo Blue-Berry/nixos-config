@@ -37,6 +37,7 @@ in {
           la = "exa --icons -la";
           tree = "exa --icons --tree --level 3";
           lr = "exa --icons --recurse --level 3";
+          nix-shell = "nix-shell --run zsh";
         };
         oh-my-zsh = {
           enable = true;
