@@ -42,6 +42,10 @@
     };
     niri = {
       enable = true;
+      monitors = [
+        "DP-2" # Mod+1 - Left monitor
+        "HDMI-A-1" # Mod+2 - Right monitor
+      ];
     };
     waybar = true;
   };
