@@ -94,7 +94,7 @@ if nixCats("completion") == "cmp" then
 		{
 			"luasnip",
 			for_cat = "general.cmp",
-			dep_of = { "nvim-cmp", "obsidian.nvim" },
+			dep_of = { "nvim-cmp" },
 			after = function(plugin)
 				local luasnip = require("luasnip")
 				require("luasnip.loaders.from_vscode").lazy_load()
@@ -343,7 +343,6 @@ elseif nixCats("completion") == "blink" then
 			for_cat = "general.cmp",
 			-- cmd = { "" },
 			event = { "DeferredUIEnter" },
-			dep_of = { "obsidian.nvim" },
 			-- ft = "",
 			-- keys = "",
 			-- colorscheme = "",

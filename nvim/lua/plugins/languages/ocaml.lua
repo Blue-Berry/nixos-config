@@ -25,10 +25,7 @@ return {
 	{
 		"ocaml",
 		for_cat = "languages.ocaml",
-		event = "DeferredUIEnter",
-		after = function(_)
-			require("ocaml").setup()
-		end,
+		on_require = { "ocaml" },
 	},
 	{
 		"alloc_scan",

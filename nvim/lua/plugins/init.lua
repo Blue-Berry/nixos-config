@@ -60,69 +60,6 @@ require("lze").load({
 		end,
 	},
 	{
-		"obsidian.nvim",
-		-- TODO: make more lazy
-		-- event = "DeferredUIEnter",
-		keys = {
-			{ "<leader>o", "<cmd>Obsidian<cr>", mode = { "n" }, noremap = true, desc = "Open Obsidian picker" },
-		},
-		cmd = {
-			"ObsidianOpen",
-			"ObsidianNew",
-			"ObsidianQuickSwitch",
-			"ObsidianFollowLink",
-			"ObsidianBacklinks",
-			"ObsidianTags",
-			"ObsidianToday",
-			"ObsidianYesterday",
-			"ObsidianTomorrow",
-			"ObsidianDailies",
-			"ObsidianTemplate",
-			"ObsidianSearch",
-			"ObsidianLink",
-			"ObsidianLinkNew",
-			"ObsidianLinks",
-			"ObsidianExtractNote",
-			"ObsidianWorkspace",
-			"ObsidianPasteImg",
-			"ObsidianRename",
-			"ObsidianToggleCheckbox",
-			"ObsidianNewFromTemplate",
-			"ObsidianTOC",
-		},
-		load = function(name)
-			vim.cmd.packadd(name)
-			vim.cmd.packadd("plenary.nvim")
-		end,
-		after = function()
-			local nvim_cmp_enable = false
-			local blink_enable = false
-			if nixCats("completion") == "cmp" then
-				nvim_cmp_enable = true
-			end
-
-			if nixCats("completion") == "blink" then
-				blink_enable = true
-			end
-			require("obsidian").setup({
-				workspaces = {
-					{
-						name = "Knowledge-base",
-						path = "~/knowledge-base",
-					},
-				},
-				completion = {
-					-- Enables completion using nvim_cmp
-					nvim_cmp = nvim_cmp_enable,
-					-- Enables completion using blink.cmp
-					blink = blink_enable,
-					-- Trigger completion at 2 chars.
-					min_chars = 2,
-				},
-			})
-		end,
-	},
-	{
 		"nvim-repl",
 		ft = "ocaml",
 		keys = {
