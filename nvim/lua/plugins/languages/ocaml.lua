@@ -25,7 +25,26 @@ return {
 	{
 		"ocaml",
 		for_cat = "languages.ocaml",
-		on_require = { "ocaml" },
+		ft = "ocaml",
+		after = function(_)
+			require("ocaml").setup({
+				keymaps = {
+					jump_next_hole = "<leader>on",
+					jump_prev_hole = "<leader>op",
+					construct = "<leader>oc",
+					jump = "<leader>oj",
+					phrase_prev = "<leader>opp",
+					phrase_next = "<leader>opn",
+					infer = "<leader>oi",
+					switch_ml_mli = "<leader>os",
+					type_enclosing = "<leader>ot",
+					type_enclosing_grow = "<Up>",
+					type_enclosing_shrink = "<Down>",
+					type_enclosing_increase = "<Right>",
+					type_enclosing_decrease = "<Left>",
+				},
+			})
+		end,
 	},
 	{
 		"alloc_scan",
