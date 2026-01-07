@@ -61,6 +61,10 @@ in {
         pkgs.miktex
         pkgs.texpresso
       ];
+      typst = [
+        pkgs.tinymist
+        pkgs.typst
+      ];
       lua = [
         lua-language-server
         stylua
