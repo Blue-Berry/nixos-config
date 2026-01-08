@@ -22,5 +22,6 @@
     ./zathura.nix
     ./zsh.nix
     ./gitui.nix
+    ./anki.nix
   ];
 }

@@ -50,7 +50,6 @@ in {
         xresources.enable = true;
         qt.enable = true;
         starship.enable = true;
-        zathura.enable = true;
         gnome = {
           useWallpaper = true;
           enable = true;
