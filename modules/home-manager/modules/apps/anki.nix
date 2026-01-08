@@ -22,6 +22,11 @@ in {
       default = true;
       description = "Use dark mode";
     };
+    keyFile = lib.mkOption {
+      type = lib.types.path;
+      default = "/home/liam/.config/ankiKey.txt";
+      description = "Path to Anki key file";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -32,6 +37,7 @@ in {
         autoSync = true;
         username = cfg.username;
         syncMedia = true;
+        keyFile = cfg.keyFile;
       };
     };
     stylix.targets.anki = {
