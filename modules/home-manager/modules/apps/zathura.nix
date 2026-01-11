@@ -17,9 +17,9 @@ in {
       enable = true;
     };
     stylix.targets.zathura = {
-        enable = true;
-        colors.enable = true;
-        opacity.enable = true;
-      };
+      enable = true;
+      colors.enable = true;
+      opacity.enable = true;
+    };
   };
 }

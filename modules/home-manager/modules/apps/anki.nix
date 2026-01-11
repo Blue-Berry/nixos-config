@@ -32,7 +32,10 @@ in {
   config = lib.mkIf cfg.enable {
     programs.anki = {
       enable = true;
-      theme = if cfg.darkMode then "dark" else "light";
+      theme =
+        if cfg.darkMode
+        then "dark"
+        else "light";
       sync = {
         autoSync = true;
         username = cfg.username;

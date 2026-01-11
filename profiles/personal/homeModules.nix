@@ -56,6 +56,7 @@
     gui = true;
     programming = true;
     llm.enable = true;
+    games = true;
   };
 
   # Other modules

@@ -11,5 +11,6 @@
     ./janet.nix
     ./programming.nix
     ./llm.nix
+    ./games.nix
   ];
 }
