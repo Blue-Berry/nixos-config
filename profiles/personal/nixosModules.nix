@@ -69,6 +69,7 @@
     gnome = true;
     hyprland = true;
     niri.enable = true;
+    niri.unstable = true;
   };
 
   # Greeter
