@@ -76,16 +76,24 @@
       "work" = {
         id = "R6KDI5U-O4CUY7L-IATHVCY-MIDKOJR-MSLFJVT-VE6HTMN-JDALETZ-AX4SRQC";
       };
+      "iPad" = {
+        id = "OMHQ3OT-D4PW3LQ-5A75Z4K-4I6OUMM-YGKIQCV-IKPEJJC-7FR6TUR-CUL5EQZ";
+      };
     };
     folders = {
       "Documents" = {
         path = "~/Documents";
-        devices = ["phone" "work"];
+        devices = ["phone" "work" "iPad"];
         ignorePerms = false;
       };
       "roam" = {
         path = "~/org/roam/";
         devices = ["phone" "work"];
+        ignorePerms = false;
+      };
+      "library" = {
+        path = "~/library/";
+        devices = ["phone" "work" "iPad"];
         ignorePerms = false;
       };
     };

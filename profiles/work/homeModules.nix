@@ -96,11 +96,14 @@
       "personal" = {
         id = "EAQAYXJ-XQMSQRB-F4FCS5Q-W7AC2LO-S7EBTFK-EHWSU5O-LAN5RBC-5CXP5AC";
       };
+      "iPad" = {
+        id = "OMHQ3OT-D4PW3LQ-5A75Z4K-4I6OUMM-YGKIQCV-IKPEJJC-7FR6TUR-CUL5EQZ";
+      };
     };
     folders = {
       "Documents" = {
         path = "~/Documents";
-        devices = ["phone" "personal"];
+        devices = ["phone" "personal" "iPad"];
         ignorePerms = false;
       };
       "roam" = {
@@ -110,7 +113,7 @@
       };
       "library" = {
         path = "~/library/";
-        devices = ["phone" "personal"];
+        devices = ["phone" "personal" "iPad"];
         ignorePerms = false;
       };
     };
