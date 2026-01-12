@@ -47,33 +47,6 @@ in {
         pkgs.ankiAddons.review-heatmap
         pkgs.ankiAddons.passfail2
         # pkgs.ankiAddons.recolor
-        (pkgs.anki-utils.buildAnkiAddon (finalAttrs: {
-          pname = "onigiri";
-          version = "1.0.7.1";
-          src = pkgs.fetchFromGitHub {
-            owner = "thepeacemonk";
-            repo = "Onigiri";
-            rev = "v.${finalAttrs.version}-beta";
-            hash = "sha256-VVBZk+AUKk90+weFiHqGqP3uzXUP+j+lc/0HWLO8uco=";
-          };
-          sourceRoot = "${finalAttrs.src.name}";
-          postPatch = let
-            xdgBase = ''os.path.expanduser("~"), ".local", "share", "anki-onigiri"'';
-          in ''
-            # Redirect user_files to writable XDG directory instead of read-only Nix store
-            substituteInPlace fonts.py \
-              --replace-fail 'os.path.join(addon_path, "user_files", "fonts")' \
-                'os.path.join(${xdgBase}, "fonts")'
-            substituteInPlace settings.py \
-              --replace-fail 'os.path.join(self.addon_path, "user_files"' \
-                'os.path.join(${xdgBase}' \
-              --replace-fail 'os.path.join(self.addon_path, gallery['"'"'folder'"'"'])' \
-                'os.path.join(${xdgBase}, gallery['"'"'folder'"'"'].removeprefix("user_files/"))'
-            substituteInPlace config.py \
-              --replace-fail "os.path.join(current_dir, 'user_files')" \
-                'os.path.join(${xdgBase})'
-          '';
-        }))
       ];
     };
     stylix.targets.anki = {
