@@ -108,6 +108,11 @@
         devices = ["phone" "personal"];
         ignorePerms = false;
       };
+      "library" = {
+        path = "~/library/";
+        devices = ["phone" "personal"];
+        ignorePerms = false;
+      };
     };
   };
 }
