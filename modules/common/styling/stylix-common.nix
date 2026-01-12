@@ -53,7 +53,7 @@ in {
 
     wallpaper = lib.mkOption {
       type = lib.types.str;
-      default = "cherry_blossom_scenery_4k_3840x2160.jpeg";
+      default = "stained-glass-planets.jpg";
       example = "SolarSystem.jpg";
       description = ''
         Wallpaper filename from the wallpapers flake input.
@@ -62,7 +62,10 @@ in {
     };
 
     polarity = lib.mkOption {
-      type = lib.types.enum ["dark" "light"];
+      type = lib.types.enum [
+        "dark"
+        "light"
+      ];
       default = "dark";
       description = "Whether to use dark or light theme";
     };

@@ -3,11 +3,9 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.homeModules.apps.anki;
-in
-{
+in {
   options.homeModules.apps.anki = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -35,7 +33,10 @@ in
   config = lib.mkIf cfg.enable {
     programs.anki = {
       enable = true;
-      theme = if cfg.darkMode then "dark" else "light";
+      theme =
+        if cfg.darkMode
+        then "dark"
+        else "light";
       sync = {
         autoSync = true;
         username = cfg.username;
@@ -56,6 +57,22 @@ in
             hash = "sha256-VVBZk+AUKk90+weFiHqGqP3uzXUP+j+lc/0HWLO8uco=";
           };
           sourceRoot = "${finalAttrs.src.name}";
+          postPatch = let
+            xdgBase = ''os.path.expanduser("~"), ".local", "share", "anki-onigiri"'';
+          in ''
+            # Redirect user_files to writable XDG directory instead of read-only Nix store
+            substituteInPlace fonts.py \
+              --replace-fail 'os.path.join(addon_path, "user_files", "fonts")' \
+                'os.path.join(${xdgBase}, "fonts")'
+            substituteInPlace settings.py \
+              --replace-fail 'os.path.join(self.addon_path, "user_files"' \
+                'os.path.join(${xdgBase}' \
+              --replace-fail 'os.path.join(self.addon_path, gallery['"'"'folder'"'"'])' \
+                'os.path.join(${xdgBase}, gallery['"'"'folder'"'"'].removeprefix("user_files/"))'
+            substituteInPlace config.py \
+              --replace-fail "os.path.join(current_dir, 'user_files')" \
+                'os.path.join(${xdgBase})'
+          '';
         }))
       ];
     };

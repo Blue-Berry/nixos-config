@@ -23,5 +23,6 @@
     ./zsh.nix
     ./gitui.nix
     ./anki.nix
+    ./dolphin.nix
   ];
 }

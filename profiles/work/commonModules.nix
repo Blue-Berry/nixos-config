@@ -19,7 +19,10 @@
     # Use null to derive colors from wallpaper, or choose a color scheme:
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
     colorScheme = null; # Derive from wallpaper
-    wallpaper = "cherry_blossom_scenery_4k_3840x2160.jpeg";
+    wallpaper = "stained-glass-planets.jpg";
+    # wallpaper = "solar-system-map.jpg";
+    # wallpaper = "anime-pagoda-river.jpeg";
+    # wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";
     cursorTheme = "Bibata-Modern-Ice";
     cursorSize = 20;
