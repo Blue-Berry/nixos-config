@@ -19,6 +19,17 @@
       expr = src + "/default.nix";
     in
       prev.callPackage expr {};
+
+    dune_3 = prev.dune_3.overrideAttrs (old: rec {
+      version = "3.21.0";
+      src = prev.fetchFromGitHub {
+        owner = "ocaml";
+        repo = "dune";
+        rev = version;
+        hash = "sha256-7l5WNXyCcMJfNw39xxIAhVGeQkR5KzthmGnbH0iQxos=";
+      };
+    });
+    dune = final.dune_3;
   };
 
   # hyprpanel = inputs.hyprpanel.overlay;

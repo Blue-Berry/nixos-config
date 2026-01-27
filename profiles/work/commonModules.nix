@@ -20,7 +20,8 @@
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
     colorScheme = null; # Derive from wallpaper
     # wallpaper = "stained-glass-planets.jpg";
-    wallpaper = "solar-system-map.jpg";
+    # wallpaper = "solar-system-map.jpg";
+    wallpaper = "Soyuz-craft.jpg";
     # wallpaper = "anime-pagoda-river.jpeg";
     # wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";

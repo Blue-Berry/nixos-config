@@ -91,7 +91,10 @@
             "ocaml.cachix.org-1:8iCoF5mD6PVwNKVfdr4lLs3W7KxfQoYEoPpP+f6f4nM="
           ];
 
-          trusted-users = ["root" "@wheel"];
+          trusted-users = [
+            "root"
+            "@wheel"
+          ];
         };
       }
     ];

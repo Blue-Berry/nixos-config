@@ -25,12 +25,15 @@ in {
     in {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [
-        adblock
-        hidePodcasts
+        # adblock
+        # hidePodcasts
         shuffle # shuffle+ (special characters are sanitized out of extension names)
+        keyboardShortcut
       ];
-      theme = spicePkgs.themes.dribbblish;
-      colorScheme = "catppuccin-macchiato";
+      # theme = spicePkgs.themes.dribbblish;
+      # colorScheme = "catppuccin-macchiato";
+      theme = spicePkgs.themes.matte;
+      colorScheme = "matte";
     };
   };
 }
