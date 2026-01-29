@@ -58,6 +58,27 @@
             }
           ];
         }
+        {
+          profile.name = "Ferdi-Desk";
+          profile.outputs = [
+            {
+              criteria = "DVI-I-2";
+              mode = "1920x1080";
+              position = "0,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "DVI-I-1";
+              mode = "1920x1080";
+              position = "1920,0";
+              scale = 1.0;
+            }
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+          ];
+        }
       ];
     };
     niri = {

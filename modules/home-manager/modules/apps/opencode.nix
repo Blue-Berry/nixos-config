@@ -37,6 +37,10 @@ in {
             command = ["nixd"];
             extensions = [".nix"];
           };
+          tinymist = {
+            command = ["tinymist"];
+            extensions = [".typst"];
+          };
         };
         mcp = {
           ocaml-mcp-server = {
