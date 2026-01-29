@@ -1,10 +1,43 @@
 {
   lib,
   config,
+  pkgs,
+  nix-update-script,
   ...
 }: let
   cfg = config.homeModules.apps.nushell;
   userCfg = config.commonModules.system.user;
+  nu_plugin_clipboard = pkgs.rustPlatform.buildRustPackage (finalAttrs: {
+    pname = "nu_plugin_clipboard";
+    version = "v0.109.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "FMotalleb";
+      repo = "nu_plugin_clipboard";
+      tag = finalAttrs.version;
+      hash = "sha256-Lh701XvoVaFxa3Cx4/zo0Yr3NLTzZI9GEwipJwkAzDQ=";
+    };
+
+    cargoHash = "sha256-dz9sTT1kMt2oAvmdvhrN7j4qwhGg3SbGk4PB4humlBo=";
+    buildFeatures = [
+      "use-wayland"
+    ];
+
+    nativeBuildInputs =
+      [
+        pkgs.pkg-config
+      ]
+      ++ lib.optionals pkgs.stdenv.cc.isClang [pkgs.rustPlatform.bindgenHook];
+    buildInputs = [pkgs.dbus];
+
+    passthru.updateScript = nix-update-script {};
+    meta = {
+      description = "Nushell plugin for clipboard interface";
+      mainProgram = "nu_plugin_clipboard";
+      license = lib.licenses.mit;
+      platforms = lib.platforms.linux;
+    };
+  });
 in {
   options.homeModules.apps.nushell = lib.mkOption {
     type = lib.types.bool;
@@ -17,6 +50,7 @@ in {
     programs = {
       nushell = {
         enable = true;
+        plugins = [nu_plugin_clipboard];
         # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
         configFile.source = ./nushell/config.nu;
         # for editing directly to config.nu

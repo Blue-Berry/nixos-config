@@ -36,7 +36,7 @@
     nix-ocaml-overlay.url = "github:nix-ocaml/nix-overlays";
     nix-ocaml-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    opencode-nix.url = "github:sst/opencode";
+    opencode-nix.url = "github:anomalyco/opencode";
 
     gowin-eda = {
       url = "github:Blue-Berry/gowin-eda.nix";
