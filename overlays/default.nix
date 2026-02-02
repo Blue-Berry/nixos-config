@@ -11,7 +11,7 @@
     # ...
     # });
 
-    opam = inputs.nix-ocaml-overlay.legacyPackages.${final.system}.opam;
+    # opam = inputs.nix-ocaml-overlay.legacyPackages.${final.system}.opam;
 
     # Override janet-lsp to use Blue-Berry/janet-lsp.nix package
     janet-lsp = let
@@ -21,13 +21,8 @@
       prev.callPackage expr {};
 
     dune_3 = prev.dune_3.overrideAttrs (old: rec {
-      version = "3.21.0";
-      src = prev.fetchFromGitHub {
-        owner = "ocaml";
-        repo = "dune";
-        rev = version;
-        hash = "sha256-7l5WNXyCcMJfNw39xxIAhVGeQkR5KzthmGnbH0iQxos=";
-      };
+      version = "dev";
+      src = inputs."dune-src";
     });
     dune = final.dune_3;
   };
