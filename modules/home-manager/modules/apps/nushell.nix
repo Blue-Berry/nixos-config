@@ -9,16 +9,16 @@
   userCfg = config.commonModules.system.user;
   nu_plugin_clipboard = pkgs.rustPlatform.buildRustPackage (finalAttrs: {
     pname = "nu_plugin_clipboard";
-    version = "v0.109.0";
+    version = "v0.110.0";
 
     src = pkgs.fetchFromGitHub {
       owner = "FMotalleb";
       repo = "nu_plugin_clipboard";
       tag = finalAttrs.version;
-      hash = "sha256-Lh701XvoVaFxa3Cx4/zo0Yr3NLTzZI9GEwipJwkAzDQ=";
+      hash = "sha256-9SFQJJun/7Ze3+P4zNJu+U5VOjQiM5VfPieu+2fNIXA=";
     };
 
-    cargoHash = "sha256-dz9sTT1kMt2oAvmdvhrN7j4qwhGg3SbGk4PB4humlBo=";
+    cargoHash = "sha256-tJ+xxrQHvX2tk1CMSn1wL7VrnqA4znzaaBuD3oyrzx4=";
     buildFeatures = [
       "use-wayland"
     ];
