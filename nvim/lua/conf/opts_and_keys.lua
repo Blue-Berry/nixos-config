@@ -180,3 +180,10 @@ vim.keymap.set(
 	'"_dP',
 	{ noremap = true, silent = true, desc = "Paste over selection without erasing unnamed register" }
 )
+
+vim.keymap.set("n", "<A-x>", function()
+	require("telescope.builtin").keymaps(require("telescope.themes").get_ivy({
+		winblend = 5,
+		previewer = false,
+	}))
+end, { desc = "[/keys] execute keymaps or functions]" })
