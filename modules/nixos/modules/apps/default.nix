@@ -16,5 +16,6 @@
     ./steam.nix
     ./wireguard.nix
     ./zsh.nix
+    ./platformio.nix
   ];
 }

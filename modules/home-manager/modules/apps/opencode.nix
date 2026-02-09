@@ -11,7 +11,7 @@ in {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
     defaultText = lib.literalExpression "config.homeModules.apps.enable";
-    description = "Enable OpenCode VSCode launcher";
+    description = "Enable OpenCode";
   };
 
   config = lib.mkIf cfg {

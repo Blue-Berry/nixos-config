@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.gui;
-in {
+in
+{
   options.homeModules.packages.gui = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.packages.enable;
@@ -31,7 +33,7 @@ in {
       vlc
 
       # Development
-      vscode
+      # vscode
       obsidian
 
       # Utilities

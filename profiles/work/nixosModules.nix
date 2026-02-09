@@ -63,6 +63,7 @@ in {
       };
     };
     zsh = true;
+    platformio = true;
   };
 
   # Desktop Environments
