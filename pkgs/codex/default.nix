@@ -14,9 +14,10 @@
   libgcc ? null,
   stdenvNoCC ? null,
   glibc ? null,
+  libcap ? null,
 }: let
   pname = "codex";
-  version = "0.61.0";
+  version = "0.98.0";
   tag = "rust-v${version}";
 
   system = stdenv.hostPlatform.system;
@@ -27,7 +28,7 @@
   assets = {
     x86_64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-yJjEFI+ZgtMKd1UTiSuQHBZXk29AKdIdEdYfqoSnM7g=";
+      sha256 = "sha256-smZ5dxFkFVdRZRs6Z/v7SLZove/TUsGhVssDU4NJDUA=";
     };
     aarch64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-aarch64-unknown-linux-gnu.tar.gz";
@@ -63,6 +64,7 @@ in
       libgcc # provides libgcc_s.so.1
       stdenv.cc.cc # provides libstdc++.so.6
       glibc
+      libcap
     ];
 
     installPhase = ''
