@@ -6,10 +6,13 @@
   };
 
   imports = [
+    ./anki.nix
     ./delta.nix
     ./direnv.nix
+    ./dolphin.nix
     ./ghostty.nix
     ./git.nix
+    ./gitui.nix
     ./kitty.nix
     ./neovide.nix
     ./nushell.nix
@@ -17,12 +20,10 @@
     ./opencode.nix
     ./spotify.nix
     ./starship.nix
+    ./thunderbird.nix
     ./vivid.nix
     ./yazi.nix
     ./zathura.nix
     ./zsh.nix
-    ./gitui.nix
-    ./anki.nix
-    ./dolphin.nix
   ];
 }

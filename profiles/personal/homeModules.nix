@@ -10,6 +10,7 @@
 
   # Apps
   homeModules.apps.enable = true;
+  homeModules.apps.thunderbird = false;
 
   # Desktop
   homeModules.desktop = {
@@ -83,17 +84,28 @@
     folders = {
       "Documents" = {
         path = "~/Documents";
-        devices = ["phone" "work" "iPad"];
+        devices = [
+          "phone"
+          "work"
+          "iPad"
+        ];
         ignorePerms = false;
       };
       "roam" = {
         path = "~/org/roam/";
-        devices = ["phone" "work"];
+        devices = [
+          "phone"
+          "work"
+        ];
         ignorePerms = false;
       };
       "library" = {
         path = "~/library/";
-        devices = ["phone" "work" "iPad"];
+        devices = [
+          "phone"
+          "work"
+          "iPad"
+        ];
         ignorePerms = false;
       };
     };
