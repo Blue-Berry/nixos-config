@@ -13,16 +13,6 @@ in {
       description = "Enable Kanata keyboard remapping service";
     };
 
-    devices = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
-      default = [];
-      example = [
-        "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-        "/dev/input/by-path/pci-0000:05:00.3-usb-0:2.2.1:1.0-event-kbd"
-      ];
-      description = "List of keyboard device paths for Kanata to monitor";
-    };
-
     extraDefCfg = lib.mkOption {
       type = lib.types.str;
       default = "process-unmapped-keys yes";
@@ -78,7 +68,7 @@ in {
       enable = true;
       keyboards = {
         internalKeyboard = {
-          devices = cfg.devices;
+          devices = [];
           extraDefCfg = cfg.extraDefCfg;
           config =
             if cfg.config != null

@@ -23,11 +23,6 @@ in {
     emacs = true;
     kanata = {
       enable = true;
-      devices = [
-        "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-        "/dev/input/by-path/pci-0000:05:00.3-usb-0:2.2.2:1.0-event-kbd"
-        "/dev/input/by-path/pci-0000:05:00.3-usbv2-0:2.2.2:1.0-event-kbd"
-      ];
     };
     nvim = true;
     pass = true;
