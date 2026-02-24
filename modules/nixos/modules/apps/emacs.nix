@@ -8,10 +8,10 @@
   cfg = config.nixosModules.apps.emacs;
 
   emacs = with pkgs;
-    (emacsPackagesFor emacs-git-pgtk).emacsWithPackages (
+    (emacsPackagesFor emacs-pgtk).emacsWithPackages (
       epkgs:
         with epkgs; [
-          treesit-grammars.with-all-grammars
+          # treesit-grammars.with-all-grammars
           vterm
           nixfmt
           apheleia
