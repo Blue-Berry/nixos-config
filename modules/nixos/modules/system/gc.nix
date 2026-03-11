@@ -22,8 +22,8 @@ in {
 
     dates = lib.mkOption {
       type = lib.types.str;
-      default = "daily";
-      example = "weekly";
+      default = "weekly";
+      example = "daily";
       description = "How often to run garbage collection (systemd timer format)";
     };
 
