@@ -88,6 +88,7 @@
         "DVI-I-2" # Mod+2 - Center monitor
         "HDMI-A-1" # Mod+3 - Right monitor
       ];
+      layout.gaps = 5;
     };
     waybar = true;
   };
@@ -124,17 +125,28 @@
     folders = {
       "Documents" = {
         path = "~/Documents";
-        devices = ["phone" "personal" "iPad"];
+        devices = [
+          "phone"
+          "personal"
+          "iPad"
+        ];
         ignorePerms = false;
       };
       "roam" = {
         path = "~/org/roam/";
-        devices = ["phone" "personal"];
+        devices = [
+          "phone"
+          "personal"
+        ];
         ignorePerms = false;
       };
       "library" = {
         path = "~/library/";
-        devices = ["phone" "personal" "iPad"];
+        devices = [
+          "phone"
+          "personal"
+          "iPad"
+        ];
         ignorePerms = false;
       };
     };
