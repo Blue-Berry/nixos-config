@@ -7,6 +7,10 @@
 }: let
   cfg = config.homeModules.packages.gui;
 in {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
   options.homeModules.packages.gui = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.packages.enable;
@@ -15,6 +19,7 @@ in {
   };
 
   config = lib.mkIf cfg {
+    programs.zen-browser.enable = true;
     home.packages = with pkgs; [
       # Browsers
       chromium
@@ -65,7 +70,6 @@ in {
       inputs.gowin-eda.packages.${pkgs.system}.gowin-eda
       ntfs3g
       okolors
-      inputs.zen-browser.packages.${pkgs.system}.specific
     ];
   };
 }

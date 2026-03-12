@@ -24,7 +24,13 @@
 
     stylix.url = "github:danth/stylix";
 
-    zen-browser.url = "github:Blue-Berry/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     nixCats.url = "./nvim/";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
