@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.greeter.dankGreeter;
-in {
+in
+{
   imports = [
     inputs.dms.nixosModules.greeter
   ];
@@ -35,6 +37,10 @@ in {
       enable = true;
       compositor.name = cfg.compositor;
       configHome = "/home/${cfg.username}";
+      logs = {
+        save = true;
+        path = "/tmp/dms-greeter.log";
+      };
     };
   };
 }
