@@ -2,10 +2,14 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   cfg = config.homeModules.desktop.niri;
 in {
+  imports = [
+    inputs.niri.homeModules.niri
+  ];
   options.homeModules.desktop.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
