@@ -52,7 +52,7 @@ in {
       niri =
         if config.homeModules.desktop.niri.enable
         then {
-          enableSpawn = true; # Auto-start DMS with niri, if enabled
+          enableSpawn = false; # Using systemd service instead
           # Using includes (default) instead of enableKeybinds to avoid conflicts
         }
         else {};

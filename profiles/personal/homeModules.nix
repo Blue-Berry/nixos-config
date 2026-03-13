@@ -48,7 +48,8 @@
         "HDMI-A-1" # Mod+2 - Right monitor
       ];
     };
-    waybar = true;
+    waybar = false;
+    dms = true;
   };
 
   # Packages

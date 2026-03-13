@@ -3,7 +3,7 @@
     "currentThemeCategory": "dynamic",
     "customThemeFile": "",
     "registryThemeVariants": {},
-    "matugenScheme": "scheme-expressive",
+    "matugenScheme": "scheme-rainbow",
     "runUserMatugenTemplates": true,
     "matugenTargetMonitor": "",
     "popupTransparency": 1,
@@ -420,13 +420,13 @@
                 "launcherButton",
                 "workspaceSwitcher",
                 {
-                    "id": "focusedWindow",
                     "enabled": true,
-                    "focusedWindowCompactMode": false
+                    "focusedWindowCompactMode": false,
+                    "id": "focusedWindow"
                 },
                 {
-                    "id": "appsDock",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "appsDock"
                 }
             ],
             "maximizeWidgetIcons": false,
@@ -440,40 +440,40 @@
             "removeWidgetPadding": false,
             "rightWidgets": [
                 {
-                    "id": "systemTray",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "systemTray"
                 },
                 {
-                    "id": "vpn",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "vpn"
                 },
                 {
-                    "id": "nixMonitor",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "nixMonitor"
                 },
                 {
-                    "id": "clipboard",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "clipboard"
                 },
                 {
-                    "id": "cpuUsage",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "cpuUsage"
                 },
                 {
-                    "id": "memUsage",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "memUsage"
                 },
                 {
-                    "id": "notificationButton",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "notificationButton"
                 },
                 {
-                    "id": "battery",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "battery"
                 },
                 {
-                    "id": "controlCenterButton",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "controlCenterButton"
                 }
             ],
             "screenPreferences": ["all"],

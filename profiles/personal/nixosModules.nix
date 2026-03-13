@@ -64,6 +64,7 @@
     hyprland = true;
     niri.enable = true;
     niri.unstable = true;
+    dms.enable = true;
   };
 
   # Greeter
@@ -74,6 +75,11 @@
     greetdHyprland = {
       enable = false;
       username = "liam";
+    };
+    dankGreeter = {
+      username = "liam";
+      compositor = "niri";
+      enable = true;
     };
   };
 
