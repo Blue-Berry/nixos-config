@@ -3,11 +3,9 @@
   config,
   inputs,
   ...
-}:
-let
+}: let
   cfg = config.nixosModules.greeter.dankGreeter;
-in
-{
+in {
   imports = [
     inputs.dms.nixosModules.greeter
   ];

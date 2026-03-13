@@ -397,8 +397,7 @@ in {
 
           "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
 
-          # Tabbed display
-          "Mod+W".action.toggle-column-tabbed-display = [];
+          # Tabbed display / Wallpaper carousel (DMS)
 
           # Keyboard layout switching
           # "Mod+Space".action.switch-layout = "next";
@@ -420,6 +419,26 @@ in {
           "Mod+Shift+E".action.quit = [];
           "Ctrl+Alt+Delete".action.quit = [];
           "Mod+Shift+P".action.power-off-monitors = [];
+        }
+        // lib.optionalAttrs config.homeModules.desktop.dms {
+          "Mod+W" = {
+            action.spawn = [
+              "dms"
+              "ipc"
+              "wallpaperCarousel"
+              "toggle"
+            ];
+            hotkey-overlay.title = "Wallpaper Carousel toggle";
+          };
+          "Mod+P" = {
+            action.spawn = [
+              "dms"
+              "ipc"
+              "clipboard"
+              "toggle"
+            ];
+            hotkey-overlay.title = "Toggle Clipboard Manager";
+          };
         }
         # Generate monitor focus keybinds dynamically
         // (lib.listToAttrs (
