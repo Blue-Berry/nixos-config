@@ -6,6 +6,7 @@
   };
 
   imports = [
+    ./dank-greeter.nix
     ./gdm.nix
     ./greetd-hyprland.nix
     ./regreet.nix

@@ -74,12 +74,17 @@ in {
 
   # Greeter
   nixosModules.greeter = {
-    regreet = true;
+    regreet = false;
     gdm = false;
     sddm = false;
     greetdHyprland = {
       enable = false;
       username = username;
+    };
+    dankGreeter = {
+      username = username;
+      compositor = "niri";
+      enable = true;
     };
   };
 
