@@ -69,6 +69,7 @@ in {
       enable = true;
       unstable = true;
     };
+    dms.enable = true;
   };
 
   # Greeter

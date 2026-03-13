@@ -7,9 +7,9 @@
 }: let
   cfg = config.homeModules.desktop.niri;
 in {
-  imports = [
-    inputs.niri.homeModules.niri
-  ];
+  # imports = [
+  #   inputs.niri.homeModules.niri
+  # ];
   options.homeModules.desktop.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -132,6 +132,19 @@ in {
     };
 
     programs.niri.settings = {
+      window-rules = [
+        {
+          geometry-corner-radius = let
+            r = 0.0;
+          in {
+            bottom-left = r;
+            bottom-right = r;
+            top-left = r;
+            top-right = r;
+          };
+          clip-to-geometry = true;
+        }
+      ];
       spawn-at-startup = [
         {command = ["waybar"];}
       ];
@@ -189,24 +202,6 @@ in {
             action = sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           };
 
-          # Media controls
-          "XF86AudioPlay" = {
-            allow-when-locked = true;
-            action = sh "playerctl play-pause";
-          };
-          "XF86AudioStop" = {
-            allow-when-locked = true;
-            action = sh "playerctl stop";
-          };
-          "XF86AudioPrev" = {
-            allow-when-locked = true;
-            action = sh "playerctl previous";
-          };
-          "XF86AudioNext" = {
-            allow-when-locked = true;
-            action = sh "playerctl next";
-          };
-
           # Brightness controls
           "XF86MonBrightnessUp" = {
             allow-when-locked = true;
@@ -225,6 +220,24 @@ in {
               "set"
               "10%-"
             ];
+          };
+
+          # Media controls
+          "XF86AudioPlay" = {
+            allow-when-locked = true;
+            action = sh "playerctl play-pause";
+          };
+          "XF86AudioStop" = {
+            allow-when-locked = true;
+            action = sh "playerctl stop";
+          };
+          "XF86AudioPrev" = {
+            allow-when-locked = true;
+            action = sh "playerctl previous";
+          };
+          "XF86AudioNext" = {
+            allow-when-locked = true;
+            action = sh "playerctl next";
           };
 
           # Overview
@@ -356,8 +369,10 @@ in {
           # Column consume/expel
           "Mod+BracketLeft".action.consume-or-expel-window-left = [];
           "Mod+BracketRight".action.consume-or-expel-window-right = [];
-          "Mod+Comma".action.consume-window-into-column = [];
-          "Mod+Period".action.expel-window-from-column = [];
+          # "Mod+Comma".action.consume-window-into-column = [];
+          # "Mod+Period".action.expel-window-from-column = [];
+          "Mod+Shift+BracketLeft".action.consume-window-into-column = [];
+          "Mod+Shift+BracketRight".action.expel-window-from-column = [];
 
           # Window/column sizing
           "Mod+R".action.switch-preset-column-width = [];
@@ -379,14 +394,15 @@ in {
 
           # Floating windows
           "Mod+V".action.toggle-window-floating = [];
+
           "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
 
           # Tabbed display
           "Mod+W".action.toggle-column-tabbed-display = [];
 
           # Keyboard layout switching
-          "Mod+Space".action.switch-layout = "next";
-          "Mod+Shift+Space".action.switch-layout = "prev";
+          # "Mod+Space".action.switch-layout = "next";
+          # "Mod+Shift+Space".action.switch-layout = "prev";
 
           # Mouse bindings
           "Mod+MouseMiddle".action.close-window = [];

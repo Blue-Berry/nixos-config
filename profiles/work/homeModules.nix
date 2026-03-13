@@ -90,7 +90,8 @@
       ];
       layout.gaps = 5;
     };
-    waybar = true;
+    waybar = false;
+    dms = true;
   };
 
   # Packages

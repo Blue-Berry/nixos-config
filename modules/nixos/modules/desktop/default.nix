@@ -6,6 +6,7 @@
   };
 
   imports = [
+    ./dms.nix
     ./gnome.nix
     ./hyprland.nix
     ./hyprlock.nix

@@ -5,18 +5,19 @@
   inputs,
   ...
 }: let
-  cfg = config.homeModules.desktop.dsm;
+  cfg = config.homeModules.desktop.dms;
 in {
+  options.homeModules.desktop.dms = lib.mkOption {
+    type = lib.types.bool;
+    default = !config.homeModules.desktop.waybar;
+    defaultText = lib.literalExpression "!config.homeModules.desktop.waybar";
+    description = "Enable DankMaterialShell";
+  };
   imports = [
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
+    inputs.dms-plugin-registry.modules.default
   ];
-  options.homeModules.desktop.dsm = lib.mkOption {
-    type = lib.types.bool;
-    default = !config.homeModules.desktop.waybar;
-    defaultText = lib.literalExpression "config.homeModules.desktop.enable";
-    description = "Enable DankMaterialShell";
-  };
 
   config = lib.mkIf cfg {
     programs.dank-material-shell = {
@@ -38,7 +39,14 @@ in {
       settings = {
         theme = "dark";
         dynamicTheming = true;
-        # Add any other settings here
+        cornerRadius = 0;
+        niriLayoutRadiusOverride = 0;
+        # barConfigs = [{
+        #   id = "default";
+        #   name = "Main Bar";
+        #   enabled = true;
+        #   noBackground = true;
+        # }];
       };
 
       clipboardSettings = {
@@ -52,12 +60,30 @@ in {
       };
       # Niri integrations
       niri =
-        if config.homeModules.desktop.niri
+        if config.homeModules.desktop.niri.enable
         then {
-          enableKeybinds = true; # Sets static preset keybinds
           enableSpawn = true; # Auto-start DMS with niri, if enabled
+          # Using includes (default) instead of enableKeybinds to avoid conflicts
         }
         else {};
+
+      plugins = {
+        # Simply enable plugins by their ID (from the registry)
+        dankBatteryAlerts.enable = true;
+        dockerManager.enable = true;
+        wallpaperCarousel.enable = true;
+        nixMonitor.enable = true;
+
+        # Add plugin-specific settings
+        mediaPlayer = {
+          enable = true;
+
+          # You can only define settings here if using the home-manager module
+          settings = {
+            preferredSource = "spotify";
+          };
+        };
+      };
     };
   };
 }
