@@ -439,6 +439,15 @@ in {
             ];
             hotkey-overlay.title = "Toggle Clipboard Manager";
           };
+          "Super+Alt+L" = lib.mkForce {
+            action.spawn = [
+              "dms"
+              "ipc"
+              "lock"
+              "lock"
+            ];
+            hotkey-overlay.title = "Toggle Lock Screen";
+          };
         }
         # Generate monitor focus keybinds dynamically
         // (lib.listToAttrs (
