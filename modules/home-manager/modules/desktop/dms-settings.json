@@ -1,9 +1,9 @@
 {
-    "currentThemeName": "custom",
-    "currentThemeCategory": "generic",
+    "currentThemeName": "dynamic",
+    "currentThemeCategory": "dynamic",
     "customThemeFile": "",
     "registryThemeVariants": {},
-    "matugenScheme": "scheme-tonal-spot",
+    "matugenScheme": "scheme-vibrant",
     "runUserMatugenTemplates": true,
     "matugenTargetMonitor": "",
     "popupTransparency": 1,
@@ -12,6 +12,7 @@
     "widgetColorMode": "default",
     "controlCenterTileColorMode": "primary",
     "buttonColorMode": "primary",
+    "cornerRadius": 12,
     "niriLayoutGapsOverride": -1,
     "niriLayoutRadiusOverride": 0,
     "niriLayoutBorderSize": -1,
@@ -205,7 +206,7 @@
     "dankLauncherV2BorderColor": "primary",
     "dankLauncherV2ShowFooter": true,
     "dankLauncherV2UnloadOnClose": false,
-    "useAutoLocation": false,
+    "useAutoLocation": true,
     "weatherEnabled": true,
     "networkPreference": "auto",
     "iconTheme": "System Default",
@@ -431,36 +432,36 @@
             "removeWidgetPadding": false,
             "rightWidgets": [
                 {
-                    "id": "systemTray",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "systemTray"
                 },
                 {
-                    "id": "clipboard",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "clipboard"
                 },
                 {
-                    "id": "cpuUsage",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "cpuUsage"
                 },
                 {
-                    "id": "memUsage",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "memUsage"
                 },
                 {
-                    "id": "notificationButton",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "notificationButton"
                 },
                 {
-                    "id": "battery",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "battery"
                 },
                 {
-                    "id": "nixMonitor",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "nixMonitor"
                 },
                 {
-                    "id": "controlCenterButton",
-                    "enabled": true
+                    "enabled": true,
+                    "id": "controlCenterButton"
                 }
             ],
             "screenPreferences": ["all"],
@@ -539,7 +540,11 @@
     "desktopWidgetGridSettings": {},
     "desktopWidgetInstances": [],
     "desktopWidgetGroups": [],
-    "builtInPluginSettings": {},
+    "builtInPluginSettings": {
+        "dms_settings_search": {
+            "trigger": "?"
+        }
+    },
     "clipboardEnterToPaste": false,
     "launcherPluginVisibility": {},
     "launcherPluginOrder": [],
