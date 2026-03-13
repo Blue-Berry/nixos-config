@@ -62,6 +62,7 @@ in {
         dankBatteryAlerts.enable = true;
         dockerManager.enable = true;
         wallpaperCarousel.enable = true;
+        nixMonitor.enable = true;
 
         # Add plugin-specific settings
         mediaPlayer = {
