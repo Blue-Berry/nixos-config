@@ -838,6 +838,21 @@
         "type": "github"
       }
     },
+    "nix-monitor": {
+      "locked": {
+        "lastModified": 1771568669,
+        "narHash": "sha256-lTbQ13lQ3ZPNkdnFmxAMGf1Gjx//80lDDlcJR8msREI=",
+        "owner": "antonjah",
+        "repo": "nix-monitor",
+        "rev": "ef3db9d5a525ddf41355e8c456b40d56480a6626",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antonjah",
+        "repo": "nix-monitor",
+        "type": "github"
+      }
+    },
     "nixCats": {
       "inputs": {
         "alloc_scan": "alloc_scan",
@@ -1230,6 +1245,7 @@
         "hyprland": "hyprland",
         "janet-lsp-nix": "janet-lsp-nix",
         "niri": "niri",
+        "nix-monitor": "nix-monitor",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_6",
         "nixpkgs-stable": "nixpkgs-stable_3",

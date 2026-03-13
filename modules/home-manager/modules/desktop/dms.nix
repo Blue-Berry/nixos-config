@@ -17,6 +17,7 @@ in {
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
     inputs.dms-plugin-registry.modules.default
+    inputs.nix-monitor.homeManagerModules.default
   ];
 
   config = lib.mkIf cfg {
@@ -36,18 +37,7 @@ in {
       enableCalendarEvents = true; # Calendar integration (khal)
       enableClipboardPaste = true; # Pasting items from the clipboard (wtype)
 
-      settings = {
-        theme = "dark";
-        dynamicTheming = true;
-        cornerRadius = 0;
-        niriLayoutRadiusOverride = 0;
-        # barConfigs = [{
-        #   id = "default";
-        #   name = "Main Bar";
-        #   enabled = true;
-        #   noBackground = true;
-        # }];
-      };
+      settings = lib.mkForce (builtins.fromJSON (builtins.readFile ./dms-settings.json));
 
       clipboardSettings = {
         maxHistory = 25;
@@ -72,7 +62,6 @@ in {
         dankBatteryAlerts.enable = true;
         dockerManager.enable = true;
         wallpaperCarousel.enable = true;
-        nixMonitor.enable = true;
 
         # Add plugin-specific settings
         mediaPlayer = {
@@ -84,6 +73,15 @@ in {
           };
         };
       };
+    };
+
+    programs.nix-monitor = {
+      enable = true;
+      rebuildCommand = [
+        "bash"
+        "-c"
+        "sudo nixos-rebuild switch --flake ~/nixos-config#work && home-manager switch --flake ~/nixos-config#work 2>&1"
+      ];
     };
   };
 }
