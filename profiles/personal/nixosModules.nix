@@ -69,7 +69,7 @@
 
   # Greeter
   nixosModules.greeter = {
-    regreet = true;
+    regreet = false;
     gdm = false;
     sddm = false;
     greetdHyprland = {
