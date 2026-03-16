@@ -23,7 +23,7 @@
     "mangoLayoutRadiusOverride": -1,
     "mangoLayoutBorderSize": -1,
     "use24HourClock": true,
-    "showSeconds": false,
+    "showSeconds": true,
     "padHours12Hour": false,
     "useFahrenheit": false,
     "windSpeedUnit": "kmh",
@@ -200,7 +200,7 @@
     "spotlightSectionViewModes": {},
     "appDrawerSectionViewModes": {},
     "niriOverviewOverlayEnabled": true,
-    "dankLauncherV2Size": "compact",
+    "dankLauncherV2Size": "micro",
     "dankLauncherV2BorderEnabled": false,
     "dankLauncherV2BorderThickness": 2,
     "dankLauncherV2BorderColor": "primary",
@@ -226,9 +226,9 @@
         "size": 24,
         "theme": "System Default"
     },
-    "launcherLogoMode": "apps",
+    "launcherLogoMode": "os",
     "launcherLogoCustomPath": "",
-    "launcherLogoColorOverride": "",
+    "launcherLogoColorOverride": "primary",
     "launcherLogoColorInvertOnMode": false,
     "launcherLogoBrightness": 0.5,
     "launcherLogoContrast": 1,
@@ -408,7 +408,15 @@
             "borderOpacity": 1,
             "borderThickness": 1,
             "bottomGap": 0,
-            "centerWidgets": ["music", "clock", "weather"],
+            "centerWidgets": [
+                "music",
+                {
+                    "id": "clock",
+                    "enabled": true,
+                    "clockCompactMode": false
+                },
+                "weather"
+            ],
             "enabled": true,
             "fontScale": 1,
             "gothCornerRadiusOverride": false,
@@ -420,9 +428,9 @@
                 "launcherButton",
                 "workspaceSwitcher",
                 {
+                    "id": "focusedWindow",
                     "enabled": true,
-                    "focusedWindowCompactMode": false,
-                    "id": "focusedWindow"
+                    "focusedWindowCompactMode": false
                 },
                 {
                     "enabled": true,

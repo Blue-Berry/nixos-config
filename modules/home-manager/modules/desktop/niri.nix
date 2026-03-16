@@ -421,6 +421,15 @@ in {
           "Mod+Shift+P".action.power-off-monitors = [];
         }
         // lib.optionalAttrs config.homeModules.desktop.dms {
+          "Mod+D" = lib.mkForce {
+            action.spawn = [
+              "dms"
+              "ipc"
+              "spotlight"
+              "toggle"
+            ];
+            hotkey-overlay.title = "Toggle Spotlight";
+          };
           "Mod+W" = {
             action.spawn = [
               "dms"

@@ -11,6 +11,13 @@ in {
       default = true;
       description = "Enable XDG MIME type associations";
     };
+
+    defaultBrowser = lib.mkOption {
+      type = lib.types.str;
+      default = "zen-browser.desktop";
+      example = "firefox.desktop";
+      description = "Desktop file for the default web browser";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -21,16 +28,16 @@ in {
         "x-scheme-handler/msteams" = ["teams-for-linux.desktop"];
         "x-scheme-handler/wootwoot" = ["wootility-lekker.desktop"];
         "x-scheme-handler/web+wootwoot" = ["wootility-lekker.desktop"];
-        "x-scheme-handler/http" = ["zen-browser.desktop"];
-        "x-scheme-handler/https" = ["zen-browser.desktop"];
-        "x-scheme-handler/chrome" = ["zen-browser.desktop"];
-        "text/html" = ["zen-browser.desktop"];
-        "application/x-extension-htm" = ["zen-browser.desktop"];
-        "application/x-extension-html" = ["zen-browser.desktop"];
-        "application/x-extension-shtml" = ["zen-browser.desktop"];
-        "application/xhtml+xml" = ["zen-browser.desktop"];
-        "application/x-extension-xhtml" = ["zen-browser.desktop"];
-        "application/x-extension-xht" = ["zen-browser.desktop"];
+        "x-scheme-handler/http" = [cfg.defaultBrowser];
+        "x-scheme-handler/https" = [cfg.defaultBrowser];
+        "x-scheme-handler/chrome" = [cfg.defaultBrowser];
+        "text/html" = [cfg.defaultBrowser];
+        "application/x-extension-htm" = [cfg.defaultBrowser];
+        "application/x-extension-html" = [cfg.defaultBrowser];
+        "application/x-extension-shtml" = [cfg.defaultBrowser];
+        "application/xhtml+xml" = [cfg.defaultBrowser];
+        "application/x-extension-xhtml" = [cfg.defaultBrowser];
+        "application/x-extension-xht" = [cfg.defaultBrowser];
         "x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc" = ["_nix_store_jsjfg2zmqdp1r90kzkc5ld7409w0yaxg-CodeComposerStudio-12.6.0_ccs_eclipse_.desktop"];
         "application/zip" = ["org.gnome.FileRoller.desktop;"];
         "text/plain" = ["neovide.desktop;"];
