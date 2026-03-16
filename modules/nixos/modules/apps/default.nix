@@ -17,5 +17,6 @@
     ./wireguard.nix
     ./zsh.nix
     ./platformio.nix
+    ./gnome-calendar.nix
   ];
 }

@@ -9,7 +9,6 @@
     ./anki.nix
     ./delta.nix
     ./direnv.nix
-    ./dolphin.nix
     ./ghostty.nix
     ./git.nix
     ./gitui.nix
