@@ -197,7 +197,9 @@
     "sortAppsAlphabetically": false,
     "appLauncherGridColumns": 4,
     "spotlightCloseNiriOverview": true,
-    "spotlightSectionViewModes": {},
+    "spotlightSectionViewModes": {
+        "apps": "list"
+    },
     "appDrawerSectionViewModes": {},
     "niriOverviewOverlayEnabled": true,
     "dankLauncherV2Size": "micro",
@@ -268,7 +270,9 @@
     "launchPrefix": "",
     "brightnessDevicePins": {},
     "wifiNetworkPins": {},
-    "bluetoothDevicePins": {},
+    "bluetoothDevicePins": {
+        "preferredDevice": ["AC:12:2F:F0:0A:03"]
+    },
     "audioInputDevicePins": {},
     "audioOutputDevicePins": {},
     "gtkThemingEnabled": false,
@@ -415,7 +419,11 @@
                     "enabled": true,
                     "clockCompactMode": false
                 },
-                "weather"
+                "weather",
+                {
+                    "id": "qcalCalendar",
+                    "enabled": true
+                }
             ],
             "enabled": true,
             "fontScale": 1,
@@ -428,13 +436,12 @@
                 "launcherButton",
                 "workspaceSwitcher",
                 {
-                    "id": "focusedWindow",
-                    "enabled": true,
-                    "focusedWindowCompactMode": false
-                },
-                {
                     "enabled": true,
                     "id": "appsDock"
+                },
+                {
+                    "id": "dockerManager",
+                    "enabled": true
                 }
             ],
             "maximizeWidgetIcons": false,
