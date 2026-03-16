@@ -14,7 +14,7 @@ in {
 
     defaultBrowser = lib.mkOption {
       type = lib.types.str;
-      default = "zen-browser.desktop";
+      default = "zen-beta.desktop";
       example = "firefox.desktop";
       description = "Desktop file for the default web browser";
     };
