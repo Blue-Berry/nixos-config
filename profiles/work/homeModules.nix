@@ -15,7 +15,7 @@
   homeModules.desktop = {
     dconf = true;
     hyprland = {
-      enable = true;
+      enable = false;
       monitorProfile = "work";
     };
     kanshi = {

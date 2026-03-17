@@ -63,8 +63,8 @@ in {
 
   # Desktop Environments
   nixosModules.desktop = {
-    gnome = true;
-    hyprland = true;
+    gnome = false;
+    hyprland = false;
     niri = {
       enable = true;
       unstable = true;
@@ -118,7 +118,7 @@ in {
     packages = true;
     ports.enable = true;
     vm = {
-      enable = true;
+      enable = false;
       username = username;
     };
   };
