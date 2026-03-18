@@ -21,6 +21,9 @@ in {
   ];
 
   config = lib.mkIf cfg {
+    # DMS handles notifications — disable dunst to avoid conflicts
+    services.dunst.enable = lib.mkForce false;
+
     programs.dank-material-shell = {
       enable = true;
 

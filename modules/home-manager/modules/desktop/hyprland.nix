@@ -154,8 +154,10 @@ in {
           force_default_wallpaper = cfg.forceDefaultWallpaper;
         };
 
-        exec-once = [
-          "swww & networkmanagerapplet & dunst & blueman-applet & waybar &"
+        exec-once = let
+          dunst = lib.optionalString (!config.homeModules.desktop.dms) "dunst &";
+        in [
+          "swww & networkmanagerapplet & ${dunst} blueman-applet & waybar &"
         ];
 
         windowrulev2 = cfg.windowRules;

@@ -39,7 +39,7 @@ in {
         spicetify.enable = false;
         ghostty.enable = true;
         fzf.enable = true;
-        dunst.enable = true;
+        dunst.enable = !config.homeModules.desktop.dms;
         firefox = {
           enable = true;
           colorTheme.enable = true;
