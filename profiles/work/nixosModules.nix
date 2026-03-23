@@ -63,7 +63,7 @@ in {
 
   # Desktop Environments
   nixosModules.desktop = {
-    gnome = false;
+    gnome = true;
     hyprland = false;
     niri = {
       enable = true;
