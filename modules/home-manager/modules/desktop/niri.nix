@@ -122,6 +122,7 @@ in {
     services.polkit-gnome.enable = true;
     home.packages = with pkgs; [
       swaybg
+      playerctl
     ];
 
     stylix.targets = {
