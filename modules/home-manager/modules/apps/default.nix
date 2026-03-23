@@ -24,5 +24,6 @@
     ./yazi.nix
     ./zathura.nix
     ./zsh.nix
+    ./cozy.nix
   ];
 }
