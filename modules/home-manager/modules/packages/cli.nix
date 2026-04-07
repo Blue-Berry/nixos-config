@@ -49,6 +49,7 @@ in {
       jq
       unixtools.netstat
       nh
+      wl-clipboard
     ];
   };
 }

@@ -17,7 +17,7 @@
   libcap ? null,
 }: let
   pname = "codex";
-  version = "0.98.0";
+  version = "0.118.0";
   tag = "rust-v${version}";
 
   system = stdenv.hostPlatform.system;
