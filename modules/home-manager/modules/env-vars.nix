@@ -28,7 +28,7 @@ in {
 
     browser = lib.mkOption {
       type = lib.types.str;
-      default = "zen";
+      default = "zen-beta";
       example = "firefox";
       description = "Default web browser command";
     };

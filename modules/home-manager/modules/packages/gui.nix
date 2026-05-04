@@ -57,7 +57,7 @@ in {
       wireshark
       wineWowPackages.stable
       winetricks
-      xclip
+      wl-clipboard-x11
 
       # Fonts
       font-awesome
