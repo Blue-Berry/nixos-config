@@ -18,6 +18,7 @@ in {
     programs.opencode = {
       enable = true;
       package = inputs.opencode-nix.packages.${pkgs.system}.default;
+      tui.theme = "orng";
       settings = {
         autoshare = false;
         autoupdate = true;
@@ -53,7 +54,7 @@ in {
         };
       };
     };
-    stylix.targets.opencode.enable = true;
+    stylix.targets.opencode.enable = false;
   };
 }
 # {

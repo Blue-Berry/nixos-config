@@ -145,6 +145,15 @@ in {
           };
           clip-to-geometry = true;
         }
+        # {
+        #   match = {
+        #     app-id = "^com.mitchellh.ghostty$";
+        #   };
+
+        #   background-effect = {
+        #     blur = true;
+        #   };
+        # }
       ];
       spawn-at-startup = [
         {command = ["waybar"];}
