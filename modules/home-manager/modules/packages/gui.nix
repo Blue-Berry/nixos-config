@@ -54,8 +54,7 @@ in {
       qbittorrent
       showcolors
       steam-run
-      wireshark
-      wineWowPackages.stable
+      wineWow64Packages.stable
       winetricks
       wl-clipboard-x11
 

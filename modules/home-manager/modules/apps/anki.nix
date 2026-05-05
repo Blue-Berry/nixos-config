@@ -37,7 +37,7 @@ in {
         if cfg.darkMode
         then "dark"
         else "light";
-      sync = {
+      profiles."User 1".sync = {
         autoSync = true;
         username = cfg.username;
         syncMedia = true;

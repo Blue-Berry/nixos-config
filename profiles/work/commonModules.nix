@@ -22,7 +22,8 @@
     # wallpaper = "stained-glass-planets.jpg";
     # wallpaper = "solar-system-map.jpg";
     # wallpaper = "Soyuz-craft.jpg";
-    wallpaper = "andreas-rocha-hiker02.jpg";
+    # wallpaper = "andreas-rocha-hiker02.jpg";
+    wallpaper = "andreas-rocha-amongtheclouds02.jpg";
     # wallpaper = "anime-pagoda-river.jpeg";
     # wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";

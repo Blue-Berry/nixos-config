@@ -17,7 +17,7 @@
   libcap ? null,
 }: let
   pname = "codex";
-  version = "0.118.0";
+  version = "0.128.0";
   tag = "rust-v${version}";
 
   system = stdenv.hostPlatform.system;
@@ -28,7 +28,7 @@
   assets = {
     x86_64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-x86_64-unknown-linux-gnu.tar.gz";
-      sha256 = "sha256-smZ5dxFkFVdRZRs6Z/v7SLZove/TUsGhVssDU4NJDUA=";
+      sha256 = "sha256-Ig8VyhxjnpBarjhdqWDhiXiC/udmU/X59d/6X3VPfJg=";
     };
     aarch64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-aarch64-unknown-linux-gnu.tar.gz";
@@ -55,7 +55,14 @@ in
     dontUnpack = true;
 
     nativeBuildInputs =
-      [file unzip findutils gnutar gnugrep coreutils]
+      [
+        file
+        unzip
+        findutils
+        gnutar
+        gnugrep
+        coreutils
+      ]
       ++ lib.optionals isLinux [autoPatchelfHook];
 
     buildInputs = lib.optionals isLinux [

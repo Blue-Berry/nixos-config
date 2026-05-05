@@ -42,13 +42,6 @@ in {
             extensions = [".typst"];
           };
         };
-        mcp = {
-          ocaml-mcp-server = {
-            type = "local";
-            command = ["ocaml-mcp-server"];
-            enabled = true;
-          };
-        };
         formatter = {
           ocamlformat = {
             command = ["ocamlformat"];
