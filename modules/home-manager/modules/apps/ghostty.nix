@@ -21,7 +21,7 @@ in {
       settings = {
         initial-command = "tmux";
         background-blur = true;
-        background-opacity = 0.9;
+        background-opacity = 0.7;
         # window-decoration = "server";
         window-decoration = "none";
         app-notifications = "false";
