@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.niri;
-in {
+in
+{
   options.nixosModules.desktop.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -14,24 +16,15 @@ in {
       defaultText = lib.literalExpression "config.nixosModules.desktop.enable";
       description = "Enable Niri compositor";
     };
-
-    unstable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable unstable Niri package";
-    };
   };
 
   config = lib.mkIf cfg.enable {
-    nixpkgs.overlays = [inputs.niri.overlays.niri];
-    programs.niri.package =
-      if cfg.unstable
-      then pkgs.niri-unstable
-      else pkgs.niri-stable;
+    nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+    programs.niri.package = pkgs.niri-unstable;
     programs.niri.enable = true;
     security.polkit.enable = true; # polkit
     services.gnome.gnome-keyring.enable = true; # secret service
-    security.pam.services.swaylock = {};
+    security.pam.services.swaylock = { };
     environment.systemPackages = with pkgs; [
       xwayland-satellite
     ];
