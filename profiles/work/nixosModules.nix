@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   username = "liam";
-in
-{
+in {
   imports = [
     ./commonModules.nix
   ];
@@ -32,26 +30,26 @@ in
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "10.12.0.200/32" ];
+          ips = ["10.12.0.200/32"];
           listenPort = 51820;
           privateKeyFile = "/home/liam/wireguard-keys/private";
           peers = [
             {
               publicKey = "r2drw8KEHF9OO1L/rGT4iNYl1k9XNmtO58l5UMyB3DM=";
-              allowedIPs = [ "10.12.0.0/16" ];
+              allowedIPs = ["10.12.0.0/16"];
               endpoint = "102.133.148.40:51820";
               persistentKeepalive = 25;
             }
           ];
         };
         wg1 = {
-          ips = [ "10.64.0.2/32" ];
+          ips = ["10.64.0.2/32"];
           listenPort = 51821;
           privateKeyFile = "/home/liam/wireguard-keys/private";
           peers = [
             {
               publicKey = "MYaTPEhxXQANDdHW9lPdJ4D4Yrbrk4PPP/v9X6BQ+hc=";
-              allowedIPs = [ "10.64.0.0/16" ];
+              allowedIPs = ["10.64.0.0/16"];
               endpoint = "grovewalk.duckdns.org:51820";
               persistentKeepalive = 25;
             }
