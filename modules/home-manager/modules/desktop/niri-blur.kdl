@@ -7,7 +7,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^(emacs|org\\.gnu\\.Emacs)$"
+    match app-id="^emacs$"
     background-effect {
         blur true
         xray false
