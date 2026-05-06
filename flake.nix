@@ -17,6 +17,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-config = {
+      url = "github:sodiboo/niri-flake/very-refactor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     solaar = {
       url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
       #url = "https://flakehub.com/f/Svenum/Solaar-Flake/0.1.1.tar.gz" # uncomment line for solaar version 1.1.13
@@ -126,8 +130,8 @@
     ];
     commonHomeModules = [
       stylix.homeModules.stylix
-      inputs.niri.homeModules.niri
-      inputs.niri.homeModules.stylix
+      inputs.niri-config.homeModules.niri
+      inputs.niri-config.homeModules.stylix
       ./modules/home-manager/modules
     ];
     # Supported systems for your flake packages, shell, etc.

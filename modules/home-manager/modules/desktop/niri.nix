@@ -135,6 +135,9 @@ in {
     nixpkgs.overlays = [inputs.niri.overlays.niri];
     programs.niri.package = pkgs.niri-unstable;
     programs.niri.settings = {
+      includes = lib.mkAfter [
+        ./niri-blur.kdl
+      ];
       window-rules = [
         {
           geometry-corner-radius = let
@@ -147,15 +150,6 @@ in {
           };
           clip-to-geometry = true;
         }
-        # {
-        #   match = {
-        #     app-id = "^com.mitchellh.ghostty$";
-        #   };
-
-        #   background-effect = {
-        #     blur = true;
-        #   };
-        # }
       ];
       spawn-at-startup = [
         {command = ["waybar"];}
