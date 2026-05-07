@@ -28,7 +28,7 @@ in {
       targets = {
         zen-browser = {
           profileNames = ["Main"];
-          enable = true;
+          enable = false;
         };
         hyprland.hyprpaper.enable = true;
         hyprpaper.enable = true;
