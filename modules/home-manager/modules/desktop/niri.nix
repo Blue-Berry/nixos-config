@@ -7,9 +7,10 @@
 }: let
   cfg = config.homeModules.desktop.niri;
 in {
-  # imports = [
-  #   inputs.niri.homeModules.niri
-  # ];
+  imports = [
+    # inputs.niri.homeModules.niri
+    ./fuzzel.nix
+  ];
   options.homeModules.desktop.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -101,11 +102,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.fuzzel = {
-      enable = true;
-      package = pkgs.fuzzel;
-      settings.main.font = lib.mkForce "${config.stylix.fonts.monospace.name}:size=14";
-    };
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock;
