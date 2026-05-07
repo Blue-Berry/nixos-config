@@ -13,3 +13,11 @@ window-rule {
         xray false
     }
 }
+
+window-rule {
+    match app-id="^zen-beta$"
+    background-effect {
+        blur true
+        xray false
+    }
+}

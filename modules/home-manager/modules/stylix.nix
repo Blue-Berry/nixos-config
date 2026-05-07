@@ -26,6 +26,10 @@ in {
         terminal = 0.8;
       };
       targets = {
+        zen-browser = {
+          profileNames = ["Main"];
+          enable = true;
+        };
         hyprland.hyprpaper.enable = true;
         hyprpaper.enable = true;
         hyprlock = {

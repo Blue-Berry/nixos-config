@@ -18,7 +18,7 @@ in {
     programs.opencode = {
       enable = true;
       package = inputs.opencode-nix.packages.${pkgs.system}.default;
-      tui.theme = "orng";
+      tui.theme = "lucent-orng";
       settings = {
         autoshare = false;
         autoupdate = true;
