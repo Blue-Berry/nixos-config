@@ -34,7 +34,8 @@
     exec,
     categories ? [],
   }:
-    pkgs.makeDesktopItem ({
+    pkgs.makeDesktopItem (
+      {
         inherit icon exec categories;
         name = "${prefix}${builtins.hashString "md5" exec}";
         desktopName = title;
@@ -45,7 +46,8 @@
           genericName = description;
         }
         else {}
-      ));
+      )
+    );
 in {
   options.nixosModules.apps.emacs = lib.mkOption {
     type = lib.types.bool;
@@ -82,6 +84,7 @@ in {
       ispell
       pandoc
       sqlite
+      symbola
       clang-tools
       texlive.combined.scheme-medium
       nixfmt-rfc-style
