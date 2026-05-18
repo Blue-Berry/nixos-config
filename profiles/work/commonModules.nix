@@ -19,12 +19,9 @@
     # Use null to derive colors from wallpaper, or choose a color scheme:
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
     colorScheme = null; # Derive from wallpaper
-    # wallpaper = "stained-glass-planets.jpg";
     # wallpaper = "solar-system-map.jpg";
     # wallpaper = "Soyuz-craft.jpg";
-    # wallpaper = "andreas-rocha-hiker02.jpg";
-    wallpaper = "andreas-rocha-amongtheclouds02.jpg";
-    # wallpaper = "anime-pagoda-river.jpeg";
+    wallpaper = "andreas-rocha-cabin01.jpg";
     # wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";
     cursorTheme = "Bibata-Modern-Ice";
