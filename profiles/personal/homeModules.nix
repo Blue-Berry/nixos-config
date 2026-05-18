@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./commonModules.nix
   ];
@@ -16,7 +17,7 @@
   homeModules.desktop = {
     dconf = true;
     hyprland = {
-      enable = true;
+      enable = false;
       monitorProfile = "personal";
     };
     kanshi = {
