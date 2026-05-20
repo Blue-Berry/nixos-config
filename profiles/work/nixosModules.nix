@@ -21,6 +21,7 @@ in {
   nixosModules.apps = {
     cachix-agent = true;
     emacs = true;
+    steam = false;
     kanata = {
       enable = true;
     };

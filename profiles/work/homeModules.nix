@@ -100,6 +100,7 @@
     gui = true;
     programming = true;
     llm.enable = true;
+    games = false;
   };
 
   # Other modules
