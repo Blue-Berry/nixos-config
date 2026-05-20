@@ -61,7 +61,7 @@
   # Desktop Environments
   nixosModules.desktop = {
     gnome = true;
-    hyprland = true;
+    hyprland = false;
     niri.enable = true;
     dms.enable = true;
   };
