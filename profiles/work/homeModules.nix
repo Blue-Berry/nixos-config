@@ -88,6 +88,44 @@
         "DVI-I-2" # Mod+2 - Center monitor
         "HDMI-A-1" # Mod+3 - Right monitor
       ];
+      startupApps = [
+        {
+          command = ["ghostty"];
+          appId = "com.mitchellh.ghostty";
+          monitor = "DVI-I-1";
+          workspace = 1;
+        }
+        {
+          command = [
+            "emacsclient"
+            "-c"
+            "-a"
+            ""
+          ];
+          appId = "emacs";
+          monitor = "DVI-I-2";
+          workspace = 1;
+        }
+        {
+          command = ["zen-beta"];
+          appId = "zen-beta";
+          monitor = "HDMI-A-1";
+          workspace = 1;
+        }
+        {
+          command = ["spotify"];
+          appId = "spotify";
+          monitor = "DVI-I-2";
+          workspace = 2;
+        }
+        {
+          command = ["teams-for-linux"];
+          appId = "electron";
+          title = ".*Microsoft Teams$";
+          monitor = "HDMI-A-1";
+          workspace = 2;
+        }
+      ];
       layout.gaps = 5;
     };
     waybar = false;
