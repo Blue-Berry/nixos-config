@@ -103,6 +103,7 @@
             ""
           ];
           appId = "emacs";
+          title = ".*Doom Emacs$";
           monitor = "DVI-I-2";
           workspace = 1;
         }

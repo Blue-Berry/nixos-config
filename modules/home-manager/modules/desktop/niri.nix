@@ -200,6 +200,8 @@ in {
       home.packages = with pkgs; [
         swaybg
         playerctl
+        wtype
+        wl-clipboard
       ];
 
       stylix.targets = {
@@ -227,6 +229,16 @@ in {
                 top-right = r;
               };
               clip-to-geometry = true;
+            }
+            {
+              matches = [
+                {
+                  app-id = "^emacs$";
+                  title = "[Ee]verywhere";
+                }
+              ];
+              open-floating = true;
+              open-focused = true;
             }
           ]
           ++ startupPlacementRules;
@@ -268,6 +280,7 @@ in {
 
             # Core application launches
             "Mod+T".action.spawn = cfg.terminal;
+            "Mod+E".action = sh "/home/liam/.config/emacs/bin/doom +everywhere";
             "Mod+D".action.spawn = cfg.launcher;
             "Super+Alt+L".action.spawn = "swaylock";
 
