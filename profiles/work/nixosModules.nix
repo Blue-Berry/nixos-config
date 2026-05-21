@@ -29,6 +29,7 @@ in {
     pass = true;
     wireguard = {
       enable = true;
+      autostart = true;
       interfaces = {
         wg0 = {
           ips = ["10.12.0.200/32"];
@@ -127,5 +128,10 @@ in {
   nixosModules.styling = {
     fonts = true;
     stylix = true;
+  };
+
+  # Boot-time tuning
+  systemd.services = {
+    NetworkManager-wait-online.enable = false;
   };
 }

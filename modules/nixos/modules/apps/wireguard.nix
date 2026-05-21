@@ -25,12 +25,21 @@ in {
     interfaces = lib.mkOption {
       type = lib.types.attrs;
       default = {};
-      description = "WireGuard interface configurations";
+      description = "WireGuard interface configurations (wg-quick style, with optional ips alias)";
+    };
+
+    autostart = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether WireGuard interfaces should autostart at boot";
     };
 
     allowedUDPPorts = lib.mkOption {
       type = lib.types.listOf lib.types.int;
-      default = [51820 51821];
+      default = [
+        51820
+        51821
+      ];
       description = "UDP ports to open in firewall for WireGuard";
     };
   };
@@ -44,13 +53,15 @@ in {
       allowedUDPPorts = cfg.allowedUDPPorts;
     };
 
-    # Apply default privateKeyFile to interfaces that don't specify one
-    networking.wireguard.interfaces =
+    # Apply default privateKeyFile and map legacy `ips` to wg-quick `address`
+    networking.wg-quick.interfaces =
       lib.mapAttrs (
         name: iface:
-          iface
+          (removeAttrs iface ["ips"])
           // {
             privateKeyFile = iface.privateKeyFile or cfg.privateKeyFile;
+            address = iface.address or iface.ips or [];
+            autostart = iface.autostart or cfg.autostart;
           }
       )
       cfg.interfaces;
