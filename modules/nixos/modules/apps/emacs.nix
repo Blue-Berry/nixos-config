@@ -86,6 +86,8 @@ in {
       sqlite
       symbola
       clang-tools
+      # for lsp booster
+      emacs-lsp-booster
       texlive.combined.scheme-medium
       nixfmt-rfc-style
       emacs
