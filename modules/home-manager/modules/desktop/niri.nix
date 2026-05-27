@@ -239,6 +239,12 @@ in {
               ];
               open-floating = true;
               open-focused = true;
+              default-column-width = {
+                proportion = 0.75;
+              };
+              default-window-height = {
+                proportion = 0.7;
+              };
             }
           ]
           ++ startupPlacementRules;
