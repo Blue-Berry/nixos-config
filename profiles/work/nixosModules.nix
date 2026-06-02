@@ -117,6 +117,7 @@ in {
     flatpak = true;
     gc.enable = true;
     packages = true;
+    jackett = true;
     ports.enable = true;
     vm = {
       enable = false;

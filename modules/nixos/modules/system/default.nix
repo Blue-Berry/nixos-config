@@ -14,5 +14,6 @@
     ./packages.nix
     ./ports.nix
     ./vm.nix
+    ./jackett.nix
   ];
 }
