@@ -105,7 +105,11 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = ["networkmanager" "wheel" "docker"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+      ];
     };
   };
 
@@ -131,6 +135,8 @@
       PasswordAuthentication = false;
     };
   };
+
+  hardware.steam-hardware.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05"; # Did you read the comment?
