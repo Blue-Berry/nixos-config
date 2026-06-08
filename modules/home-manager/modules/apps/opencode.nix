@@ -17,7 +17,7 @@ in {
   config = lib.mkIf cfg {
     programs.opencode = {
       enable = true;
-      package = inputs.opencode-nix.packages.${pkgs.system}.default;
+      # package = inputs.opencode-nix.packages.${pkgs.system}.default;
       tui.theme = "lucent-orng";
       settings = {
         autoshare = false;

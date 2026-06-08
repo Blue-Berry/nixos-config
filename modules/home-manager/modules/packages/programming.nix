@@ -30,7 +30,7 @@ in {
 
       # Other
       gcc
-      gleam
+      # gleam
       gmp
       gnumake
       go

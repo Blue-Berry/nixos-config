@@ -53,7 +53,7 @@
       flake = false;
     };
 
-    opencode-nix.url = "github:anomalyco/opencode";
+    # opencode-nix.url = "github:anomalyco/opencode";
 
     gowin-eda = {
       url = "github:Blue-Berry/gowin-eda.nix";

@@ -15,6 +15,7 @@ in {
 
   config = lib.mkIf cfg {
     services.jackett = {
+      package = pkgs.jackett;
       enable = true;
       port = 9117;
     };
