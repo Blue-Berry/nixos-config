@@ -27,7 +27,7 @@
       enable = true;
       interfaces = {
         wg0 = {
-          ips = ["10.12.0.200/32"];
+          ips = ["10.12.7.239/32"];
           listenPort = 51820;
           privateKeyFile = "/home/liam/wireguard-keys/private";
           peers = [
