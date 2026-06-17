@@ -24,6 +24,7 @@
           djvu
           flymake-golangci
           flycheck-golangci-lint
+          gnuplot
         ]
     );
 
@@ -86,6 +87,7 @@ in {
       sqlite
       symbola
       clang-tools
+      gnuplot
       # for lsp booster
       emacs-lsp-booster
       texlive.combined.scheme-medium
