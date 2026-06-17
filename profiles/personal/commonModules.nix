@@ -20,7 +20,7 @@
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
     colorScheme = null; # Derive from wallpaper
     # wallpaper = "solar-system-map.jpg";
-    wallpaper = "andreas-rocha-cabin01.jpg";
+    wallpaper = "helix-nebula.jpg";
     polarity = "dark";
     cursorTheme = "Bibata-Modern-Ice";
     cursorSize = 20;
