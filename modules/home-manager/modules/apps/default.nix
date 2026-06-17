@@ -25,5 +25,6 @@
     ./zathura.nix
     ./zsh.nix
     ./cozy.nix
+    ./qalculate.nix
   ];
 }

@@ -46,11 +46,9 @@ in {
       gparted
       hydrapaper
       inetutils
-      libqalculate
       libreoffice-fresh
       localsend
       newsflash
-      qalculate-qt
       qbittorrent
       showcolors
       steam-run
