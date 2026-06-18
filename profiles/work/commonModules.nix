@@ -21,7 +21,7 @@
     colorScheme = null; # Derive from wallpaper
     # wallpaper = "solar-system-map.jpg";
     # wallpaper = "Soyuz-craft.jpg";
-    wallpaper = "andreas-rocha-cabin01.jpg";
+    wallpaper = "black-hole-far.jpg";
     # wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";
     cursorTheme = "Bibata-Modern-Ice";
