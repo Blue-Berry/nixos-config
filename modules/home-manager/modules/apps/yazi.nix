@@ -56,33 +56,10 @@ in {
       settings = {
         tasks = {
           image_alloc = 1610612736; # 1.5GB (tripled from 512MB)
-          image_bound = [15000 15000]; # tripled from [5000, 5000]
-        };
-        plugin = {
-          prepend_previewers = [
-            # { name = "*.md"; run = "glow"; }
-            {
-              name = "*.csv";
-              run = "rich-preview";
-            } # for csv files
-            {
-              name = "*.md";
-              run = "rich-preview";
-            } # for markdown (.md) files
-            {
-              name = "*.rst";
-              run = "rich-preview";
-            } # for restructured text (.rst) files
-            {
-              name = "*.ipynb";
-              run = "rich-preview";
-            } # for jupyter notebooks (.ipynb)
-            {
-              name = "*.json";
-              run = "rich-preview";
-            } # for json (.json) files
-            #    { name = "*.lang_type"; run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
-          ];
+          image_bound = [
+            15000
+            15000
+          ]; # tripled from [5000, 5000]
         };
       };
     };
