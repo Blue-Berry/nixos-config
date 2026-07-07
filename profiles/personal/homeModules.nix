@@ -81,6 +81,9 @@
       "iPad" = {
         id = "OMHQ3OT-D4PW3LQ-5A75Z4K-4I6OUMM-YGKIQCV-IKPEJJC-7FR6TUR-CUL5EQZ";
       };
+      "server" = {
+        id = "JSPK5MY-IPIOJV6-ZN2WTXX-E5ZI62W-FWF4NCU-WU3NAZN-TQTBKQ2-IXTB2Q6";
+      };
     };
     folders = {
       "Documents" = {
@@ -89,6 +92,7 @@
           "phone"
           "work"
           "iPad"
+          "server"
         ];
         ignorePerms = false;
       };
@@ -106,6 +110,7 @@
           "phone"
           "work"
           "iPad"
+          "server"
         ];
         ignorePerms = false;
       };
