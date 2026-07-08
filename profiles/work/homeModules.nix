@@ -195,6 +195,16 @@
         ];
         ignorePerms = false;
       };
+      Audiobooks = {
+        path = "~/audiobooks/";
+        devices = [
+          "phone"
+          "personal"
+          "iPad"
+          "server"
+        ];
+        ignorePerms = false;
+      };
     };
   };
 }
