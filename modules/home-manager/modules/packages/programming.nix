@@ -27,6 +27,8 @@ in {
       nixd
       statix
       alejandra
+      nixfmt
+      nixfmt-tree
 
       # Other
       gcc
