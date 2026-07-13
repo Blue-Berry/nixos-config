@@ -21,6 +21,7 @@ in {
       zsh-autopair
       starship
       jq-zsh-plugin
+      eza
     ];
     # TODO: config ctrl-p to mimic up arrow, ctrl-n to mimic down arrow and ctrl-y to accept completeions
     programs = {
@@ -32,11 +33,11 @@ in {
         enableCompletion = true;
         #enableLsColors = true;
         shellAliases = {
-          ls = "exa --icons";
-          ll = "exa --icons -l";
-          la = "exa --icons -la";
-          tree = "exa --icons --tree --level 3";
-          lr = "exa --icons --recurse --level 3";
+          ls = "eza --icons";
+          ll = "eza --icons -l";
+          la = "eza --icons -la";
+          tree = "eza --icons --tree --level 3";
+          lr = "eza --icons --recurse --level 3";
           nix-shell = "nix-shell --run zsh";
         };
         oh-my-zsh = {
