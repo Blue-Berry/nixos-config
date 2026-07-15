@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.solaar;
-in {
+in
+{
   options.nixosModules.hardware.solaar = lib.mkOption {
     type = lib.types.bool;
     default = false;

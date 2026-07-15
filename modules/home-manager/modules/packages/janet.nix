@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.janet;
-in {
+in
+{
   options.homeModules.packages.janet = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.packages.programming;

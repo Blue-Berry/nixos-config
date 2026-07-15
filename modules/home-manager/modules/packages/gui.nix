@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.gui;
-in {
+in
+{
   imports = [
     inputs.zen-browser.homeModules.beta
   ];

@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.yazi;
   flavourRepo = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
@@ -11,7 +12,8 @@
     rev = "main";
     sha256 = "sha256-a9Ta0dLuxqay0TwcoAOzcQ0aqm40RyzFxXb25Qf8jcQ=";
   };
-in {
+in
+{
   options.homeModules.apps.yazi = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

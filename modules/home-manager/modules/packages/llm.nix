@@ -4,9 +4,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.llm;
-in {
+in
+{
   options.homeModules.packages.llm.enable = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.packages.programming;
@@ -15,7 +17,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    nixpkgs.overlays = [inputs.claude-code.overlays.default];
+    nixpkgs.overlays = [ inputs.claude-code.overlays.default ];
     home.packages = with pkgs; [
       claude-code
       codex

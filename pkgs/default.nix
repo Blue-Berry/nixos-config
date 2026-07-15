@@ -2,10 +2,10 @@
 # You can build them using 'nix build .#example'
 pkgs: {
   # example = pkgs.callPackage ./example { };
-  wooting-udev = pkgs.callPackage ./wooting-udev {};
-  gowin-udev = pkgs.callPackage ./gowin-udev {};
-  showcolors = pkgs.callPackage ./showcolors {};
-  swe-agent = pkgs.callPackage ./swe-agent {};
-  swe-rex = pkgs.callPackage ./swe-rex {};
-  git-commit-ai = pkgs.callPackage ./git-commit-ai {};
+  wooting-udev = pkgs.callPackage ./wooting-udev { };
+  gowin-udev = pkgs.callPackage ./gowin-udev { };
+  showcolors = pkgs.callPackage ./showcolors { };
+  swe-agent = pkgs.callPackage ./swe-agent { };
+  swe-rex = pkgs.callPackage ./swe-rex { };
+  git-commit-ai = pkgs.callPackage ./git-commit-ai { };
 }

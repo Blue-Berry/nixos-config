@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.gnome;
-in {
+in
+{
   options.nixosModules.desktop.gnome = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.desktop.enable;
@@ -15,7 +17,7 @@ in {
 
   config = lib.mkIf cfg {
     services.desktopManager.gnome.enable = true;
-    environment.gnome.excludePackages = [pkgs.orca];
+    environment.gnome.excludePackages = [ pkgs.orca ];
     environment.systemPackages = [
       pkgs.gnomeExtensions.blur-my-shell
     ];

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.anki;
-in {
+in
+{
   options.homeModules.apps.anki = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -33,10 +35,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.anki = {
       enable = true;
-      theme =
-        if cfg.darkMode
-        then "dark"
-        else "light";
+      theme = if cfg.darkMode then "dark" else "light";
       profiles."User 1".sync = {
         autoSync = true;
         username = cfg.username;

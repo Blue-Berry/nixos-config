@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.bluetooth;
-in {
+in
+{
   options.nixosModules.hardware.bluetooth = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -13,7 +15,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    environment.systemPackages = [pkgs.blueman];
+    environment.systemPackages = [ pkgs.blueman ];
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
   };

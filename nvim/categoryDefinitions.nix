@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   pkgs,
   settings,
   categories,
@@ -6,23 +7,23 @@
   name,
   mkNvimPlugin,
   ...
-} @ packageDef: let
-  fallbackPackageWithName = exe: originalPackage: let
-    originalName = builtins.baseNameOf (pkgs.lib.getExe' originalPackage exe);
-    fallbackName = "${originalName}-fallback";
-  in
+}@packageDef:
+let
+  fallbackPackageWithName =
+    exe: originalPackage:
+    let
+      originalName = builtins.baseNameOf (pkgs.lib.getExe' originalPackage exe);
+      fallbackName = "${originalName}-fallback";
+    in
     pkgs.writeShellScriptBin fallbackName ''
       exec ${pkgs.lib.getExe' originalPackage exe} "$@"
     '';
 
-  fallbackAttrSet = packageSet:
-    builtins.attrValues (
-      builtins.mapAttrs (
-        exe: pkg: (fallbackPackageWithName exe pkg)
-      )
-      packageSet
-    );
-in {
+  fallbackAttrSet =
+    packageSet:
+    builtins.attrValues (builtins.mapAttrs (exe: pkg: (fallbackPackageWithName exe pkg)) packageSet);
+in
+{
   # to define and use a new category, simply add a new list to a set here,
   # and later, you will include categoryname = true; in the set you
   # provide when you build the package using this builder function.
@@ -43,7 +44,7 @@ in {
     ];
     languages = {
       go = [
-        delve #Debugger
+        delve # Debugger
         # gopls
         # gotools
         # go-tools
@@ -81,12 +82,15 @@ in {
         typescript-language-server
       ];
 
-      fallbackLsps = fallbackAttrSet (with pkgs; {
-        ocamllsp = ocamlPackages.ocaml-lsp;
-        inherit gopls;
-        clangd = clang-tools;
-        inherit rust-analyzer;
-      });
+      fallbackLsps = fallbackAttrSet (
+        with pkgs;
+        {
+          ocamllsp = ocamlPackages.ocaml-lsp;
+          inherit gopls;
+          clangd = clang-tools;
+          inherit rust-analyzer;
+        }
+      );
     };
   };
 
@@ -120,16 +124,16 @@ in {
     # You can retreive information from the
     # packageDefinitions of the package this was packaged with.
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
-    themer = with pkgs.vimPlugins; (
-      builtins.getAttr (categories.colorscheme or "catppuccin") {
+    themer =
+      with pkgs.vimPlugins;
+      (builtins.getAttr (categories.colorscheme or "catppuccin") {
         # Theme switcher without creating a new category
         "onedark" = onedark-nvim;
         "catppuccin" = catppuccin-nvim;
         "tokyonight" = tokyonight-nvim;
         "tokyonight-day" = tokyonight-nvim;
         "nightfox" = nightfox-nvim;
-      }
-    );
+      });
     # This is obviously a fairly basic usecase for this, but still nice.
   };
 
@@ -149,7 +153,7 @@ in {
         nvim-dap-ui
         nvim-dap-virtual-text
       ];
-      go = [nvim-dap-go];
+      go = [ nvim-dap-go ];
     };
     lint = with pkgs.vimPlugins; [
       nvim-lint
@@ -175,49 +179,50 @@ in {
       ];
     };
     general = {
-      cmp = with pkgs.vimPlugins; (builtins.getAttr (categories.completion or "cmp") {
-        cmp = [
-          which-key-nvim
-          nvim-cmp
-          luasnip
-          friendly-snippets
-          cmp_luasnip
-          cmp-buffer
-          cmp-path
-          cmp-nvim-lua
-          cmp-nvim-lsp
-          cmp-cmdline
-          cmp-nvim-lsp-signature-help
-          cmp-cmdline-history
-          ctrlp-vim
-        ];
-        blink = [
-          nvim-web-devicons
-          pkgs.neovimPlugins.blink-cmp-supermaven
-          blink-cmp
-          luasnip
-          which-key-nvim
-          ctrlp-vim
-          friendly-snippets
-        ];
-      });
+      cmp =
+        with pkgs.vimPlugins;
+        (builtins.getAttr (categories.completion or "cmp") {
+          cmp = [
+            which-key-nvim
+            nvim-cmp
+            luasnip
+            friendly-snippets
+            cmp_luasnip
+            cmp-buffer
+            cmp-path
+            cmp-nvim-lua
+            cmp-nvim-lsp
+            cmp-cmdline
+            cmp-nvim-lsp-signature-help
+            cmp-cmdline-history
+            ctrlp-vim
+          ];
+          blink = [
+            nvim-web-devicons
+            pkgs.neovimPlugins.blink-cmp-supermaven
+            blink-cmp
+            luasnip
+            which-key-nvim
+            ctrlp-vim
+            friendly-snippets
+          ];
+        });
 
       treesitter = with pkgs.vimPlugins; [
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
         # This is for if you only want some of the grammars
         (nvim-treesitter.withPlugins (
-          plugins:
-            with plugins; [
-              nix
-              lua
-              ocaml
-              rust
-              go
-              lua
-              c
-              commonlisp
-            ]
+          plugins: with plugins; [
+            nix
+            lua
+            ocaml
+            rust
+            go
+            lua
+            c
+            commonlisp
+          ]
         ))
       ];
       telescope = with pkgs.vimPlugins; [
@@ -298,11 +303,11 @@ in {
   # vim.g.python3_host_prog
   # or run from nvim terminal via :!<packagename>-python3
   extraPython3Packages = {
-    test = _: [];
+    test = _: [ ];
   };
   # populates $LUA_PATH and $LUA_CPATH
   extraLuaPackages = {
-    general = [(_: [])];
+    general = [ (_: [ ]) ];
   };
 
   # see :help nixCats.flake.outputs.categoryDefinitions.default_values
@@ -313,10 +318,16 @@ in {
   # You may use it in any of the other sets.
   extraCats = {
     test = [
-      ["test" "default"]
+      [
+        "test"
+        "default"
+      ]
     ];
     debug = [
-      ["debug" "default"]
+      [
+        "debug"
+        "default"
+      ]
     ];
   };
 }

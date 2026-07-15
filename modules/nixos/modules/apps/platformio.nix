@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.platformio;
-in {
+in
+{
   options.nixosModules.apps.platformio = lib.mkOption {
     type = lib.types.bool;
     default = false;

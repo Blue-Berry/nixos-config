@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.optimus;
-in {
+in
+{
   options.nixosModules.hardware.optimus = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -38,7 +40,7 @@ in {
         enable = true;
       };
 
-      services.xserver.videoDrivers = ["nvidia"];
+      services.xserver.videoDrivers = [ "nvidia" ];
 
       hardware.nvidia = {
         modesetting.enable = true;

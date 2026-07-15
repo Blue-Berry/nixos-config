@@ -24,6 +24,6 @@ stdenv.mkDerivation {
     description = "udev rules that give NixOS permission to communicate with Gowin FPGA";
     platforms = platforms.linux;
     license = "unknown";
-    maintainers = with maintainers; [LiamBerry];
+    maintainers = with maintainers; [ LiamBerry ];
   };
 }

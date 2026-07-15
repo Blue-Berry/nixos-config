@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.hyprlock;
-in {
+in
+{
   options.nixosModules.desktop.hyprlock = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.desktop.enable;

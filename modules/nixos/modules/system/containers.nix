@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.system.containers;
-in {
+in
+{
   options.nixosModules.system.containers = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.system.enable;

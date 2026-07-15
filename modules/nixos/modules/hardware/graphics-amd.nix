@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.graphics.amd;
-in {
+in
+{
   options.nixosModules.hardware.graphics.amd = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -16,10 +18,10 @@ in {
     hardware.opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = [pkgs.amdvlk];
-      extraPackages32 = [pkgs.driversi686Linux.amdvlk];
+      extraPackages = [ pkgs.amdvlk ];
+      extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
     };
 
-    boot.initrd.kernelModules = ["amdgpu"];
+    boot.initrd.kernelModules = [ "amdgpu" ];
   };
 }

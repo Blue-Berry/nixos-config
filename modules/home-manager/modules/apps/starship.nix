@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.starship;
-in {
+in
+{
   options.homeModules.apps.starship = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -14,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    home.packages = [pkgs.starship];
+    home.packages = [ pkgs.starship ];
     programs.starship = {
       enable = true;
       settings = {

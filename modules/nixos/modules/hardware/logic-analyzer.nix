@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.logicAnalyzer;
-in {
+in
+{
   options.nixosModules.hardware.logicAnalyzer = lib.mkOption {
     type = lib.types.bool;
     default = false;

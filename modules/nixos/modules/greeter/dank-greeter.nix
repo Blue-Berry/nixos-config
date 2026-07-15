@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.greeter.dankGreeter;
   # Needed to fix a bug when starting dms-greeter (should remove when fixed)
   niriGreeterConfig = ''
@@ -25,7 +26,8 @@
       background-color "#000000"
     }
   '';
-in {
+in
+{
   imports = [
     inputs.dms.nixosModules.greeter
   ];

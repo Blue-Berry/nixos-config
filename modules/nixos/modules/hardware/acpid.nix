@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.acpid;
-in {
+in
+{
   options.nixosModules.hardware.acpid = lib.mkOption {
     type = lib.types.bool;
     default = false;

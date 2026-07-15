@@ -3,10 +3,12 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.wireguard;
   userCfg = config.commonModules.system.user;
-in {
+in
+{
   options.nixosModules.apps.wireguard = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -24,7 +26,7 @@ in {
 
     interfaces = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
       description = "WireGuard interface configurations (wg-quick style, with optional ips alias)";
     };
 
@@ -54,16 +56,14 @@ in {
     };
 
     # Apply default privateKeyFile and map legacy `ips` to wg-quick `address`
-    networking.wg-quick.interfaces =
-      lib.mapAttrs (
-        name: iface:
-          (removeAttrs iface ["ips"])
-          // {
-            privateKeyFile = iface.privateKeyFile or cfg.privateKeyFile;
-            address = iface.address or iface.ips or [];
-            autostart = iface.autostart or cfg.autostart;
-          }
-      )
-      cfg.interfaces;
+    networking.wg-quick.interfaces = lib.mapAttrs (
+      name: iface:
+      (removeAttrs iface [ "ips" ])
+      // {
+        privateKeyFile = iface.privateKeyFile or cfg.privateKeyFile;
+        address = iface.address or iface.ips or [ ];
+        autostart = iface.autostart or cfg.autostart;
+      }
+    ) cfg.interfaces;
   };
 }

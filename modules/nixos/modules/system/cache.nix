@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.system.cache;
-in {
+in
+{
   options.nixosModules.system.cache = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.system.enable;

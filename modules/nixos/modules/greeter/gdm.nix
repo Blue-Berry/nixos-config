@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.greeter.gdm;
-in {
+in
+{
   options.nixosModules.greeter.gdm = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.greeter.enable;

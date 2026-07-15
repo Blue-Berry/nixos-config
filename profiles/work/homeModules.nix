@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./commonModules.nix
   ];
@@ -90,7 +91,7 @@
       ];
       startupApps = [
         {
-          command = ["ghostty"];
+          command = [ "ghostty" ];
           appId = "com.mitchellh.ghostty";
           monitor = "DVI-I-1";
           workspace = 1;
@@ -108,19 +109,19 @@
           workspace = 1;
         }
         {
-          command = ["zen-beta"];
+          command = [ "zen-beta" ];
           appId = "zen-beta";
           monitor = "HDMI-A-1";
           workspace = 1;
         }
         {
-          command = ["spotify"];
+          command = [ "spotify" ];
           appId = "spotify";
           monitor = "DVI-I-2";
           workspace = 2;
         }
         {
-          command = ["teams-for-linux"];
+          command = [ "teams-for-linux" ];
           appId = "electron";
           title = ".*Microsoft Teams$";
           monitor = "HDMI-A-1";

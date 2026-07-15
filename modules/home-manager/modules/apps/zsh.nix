@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.zsh;
-in {
+in
+{
   options.homeModules.apps.zsh = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.zathura;
-in {
+in
+{
   options.homeModules.apps.zathura = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

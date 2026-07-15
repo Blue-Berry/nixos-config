@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.thunderbird;
-in {
+in
+{
   options.homeModules.apps.thunderbird = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -16,6 +18,6 @@ in {
   config = lib.mkIf cfg {
     # programs.thunderbird.enable = true;
 
-    home.packages = [pkgs.thunderbird-latest-unwrapped];
+    home.packages = [ pkgs.thunderbird-latest-unwrapped ];
   };
 }

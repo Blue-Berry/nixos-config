@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.greeter.regreet;
-in {
+in
+{
   options.nixosModules.greeter.regreet = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.greeter.enable;
@@ -15,7 +17,10 @@ in {
   config = lib.mkIf cfg {
     programs.regreet = {
       enable = true;
-      cageArgs = ["-s" "-mlast"];
+      cageArgs = [
+        "-s"
+        "-mlast"
+      ];
     };
     stylix.targets.regreet = {
       enable = true;

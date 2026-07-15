@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.cachix-agent;
-in {
+in
+{
   options.nixosModules.apps.cachix-agent = lib.mkOption {
     type = lib.types.bool;
     default = false;

@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.qalculate;
-in {
+in
+{
   options.homeModules.apps.qalculate = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

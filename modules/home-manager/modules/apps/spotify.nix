@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.spotify;
-in {
+in
+{
   options.homeModules.apps.spotify = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -20,20 +22,22 @@ in {
   ];
 
   config = lib.mkIf cfg {
-    programs.spicetify = let
-      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        # adblock
-        # hidePodcasts
-        shuffle # shuffle+ (special characters are sanitized out of extension names)
-        keyboardShortcut
-      ];
-      # theme = spicePkgs.themes.dribbblish;
-      # colorScheme = "catppuccin-macchiato";
-      theme = spicePkgs.themes.matte;
-      colorScheme = "matte";
-    };
+    programs.spicetify =
+      let
+        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+      in
+      {
+        enable = true;
+        enabledExtensions = with spicePkgs.extensions; [
+          # adblock
+          # hidePodcasts
+          shuffle # shuffle+ (special characters are sanitized out of extension names)
+          keyboardShortcut
+        ];
+        # theme = spicePkgs.themes.dribbblish;
+        # colorScheme = "catppuccin-macchiato";
+        theme = spicePkgs.themes.matte;
+        colorScheme = "matte";
+      };
   };
 }

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.neovide;
-in {
+in
+{
   options.homeModules.apps.neovide = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -14,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    home.packages = [pkgs.neovide];
+    home.packages = [ pkgs.neovide ];
     programs.neovide = {
       enable = true;
       settings = {

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.commonModules.system.user = {
     username = lib.mkOption {
       type = lib.types.str;
@@ -28,7 +29,7 @@
     homeDirectory = lib.mkOption {
       type = lib.types.str;
       default = "/home/${config.commonModules.system.user.username}";
-      defaultText = lib.literalExpression ''/home/''${config.commonModules.system.user.username}'';
+      defaultText = lib.literalExpression "/home/\${config.commonModules.system.user.username}";
       example = "/home/john";
       description = "User's home directory path";
     };

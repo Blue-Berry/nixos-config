@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   options.homeModules.desktop.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

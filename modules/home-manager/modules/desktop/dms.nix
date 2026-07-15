@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.desktop.dms;
-in {
+in
+{
   options.homeModules.desktop.dms = lib.mkOption {
     type = lib.types.bool;
     default = !config.homeModules.desktop.waybar;
@@ -53,12 +55,13 @@ in {
       };
       # Niri integrations
       niri =
-        if config.homeModules.desktop.niri.enable
-        then {
-          enableSpawn = false; # Using systemd service instead
-          # Using includes (default) instead of enableKeybinds to avoid conflicts
-        }
-        else {};
+        if config.homeModules.desktop.niri.enable then
+          {
+            enableSpawn = false; # Using systemd service instead
+            # Using includes (default) instead of enableKeybinds to avoid conflicts
+          }
+        else
+          { };
 
       plugins = {
         # Simply enable plugins by their ID (from the registry)

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.zsh;
-in {
+in
+{
   options.nixosModules.apps.zsh = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;
@@ -14,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    environment.shells = with pkgs; [zsh];
+    environment.shells = with pkgs; [ zsh ];
     users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
   };

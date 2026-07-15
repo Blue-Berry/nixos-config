@@ -1,5 +1,5 @@
 # This file defines overlays
-{inputs, ...}: {
+{ inputs, ... }: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -14,11 +14,12 @@
     # opam = inputs.nix-ocaml-overlay.legacyPackages.${final.system}.opam;
 
     # Override janet-lsp to use Blue-Berry/janet-lsp.nix package
-    janet-lsp = let
-      src = inputs.janet-lsp-nix;
-      expr = src + "/default.nix";
-    in
-      prev.callPackage expr {};
+    janet-lsp =
+      let
+        src = inputs.janet-lsp-nix;
+        expr = src + "/default.nix";
+      in
+      prev.callPackage expr { };
 
     dune_3 = prev.dune_3.overrideAttrs (old: rec {
       version = "dev";
@@ -40,6 +41,6 @@
 
   # Overlay to expose pkgs.codex from our local derivation
   codex = final: prev: {
-    codex = prev.callPackage ../pkgs/codex {};
+    codex = prev.callPackage ../pkgs/codex { };
   };
 }

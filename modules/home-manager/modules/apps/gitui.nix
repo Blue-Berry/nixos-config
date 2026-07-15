@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.gitui;
-in {
+in
+{
   options.homeModules.apps.gitui = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

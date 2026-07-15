@@ -4,9 +4,11 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.opencode;
-in {
+in
+{
   options.homeModules.apps.opencode = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -24,28 +26,28 @@ in {
         autoupdate = true;
         lsp = {
           ocamllsp = {
-            command = ["ocamllsp"];
+            command = [ "ocamllsp" ];
             extensions = [
               ".ml"
               ".mli"
             ];
           };
           nil = {
-            command = ["nil"];
-            extensions = [".nix"];
+            command = [ "nil" ];
+            extensions = [ ".nix" ];
           };
           nixd = {
-            command = ["nixd"];
-            extensions = [".nix"];
+            command = [ "nixd" ];
+            extensions = [ ".nix" ];
           };
           tinymist = {
-            command = ["tinymist"];
-            extensions = [".typst"];
+            command = [ "tinymist" ];
+            extensions = [ ".typst" ];
           };
         };
         formatter = {
           ocamlformat = {
-            command = ["ocamlformat"];
+            command = [ "ocamlformat" ];
             extensions = [
               ".ml"
               ".mli"
@@ -283,4 +285,3 @@ in {
 #     }
 #   }
 # }
-

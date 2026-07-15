@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.ddcutil;
-in {
+in
+{
   options.nixosModules.hardware.ddcutil = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -13,13 +15,13 @@ in {
   };
 
   config = lib.mkIf cfg {
-    environment.systemPackages = [pkgs.ddcutil];
-    boot.kernelModules = ["i2c-dev"];
+    environment.systemPackages = [ pkgs.ddcutil ];
+    boot.kernelModules = [ "i2c-dev" ];
 
     services.udev.extraRules = ''
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     '';
 
-    users.groups.i2c = {};
+    users.groups.i2c = { };
   };
 }

@@ -3,9 +3,11 @@
   config,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.dms;
-in {
+in
+{
   # imports = [
   #   inputs.dms.nixosModules.dank-material-shell
   # ];

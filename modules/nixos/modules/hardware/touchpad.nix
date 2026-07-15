@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.touchpad;
-in {
+in
+{
   options.nixosModules.hardware.touchpad = lib.mkOption {
     type = lib.types.bool;
     default = false;

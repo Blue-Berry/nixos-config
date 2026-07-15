@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.kitty;
-in {
+in
+{
   options.homeModules.apps.kitty = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -14,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    home.packages = [pkgs.kitty];
+    home.packages = [ pkgs.kitty ];
     programs.kitty = {
       enable = true;
       themeFile = "Catppuccin-Mocha";

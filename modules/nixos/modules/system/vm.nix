@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.system.vm;
-in {
+in
+{
   options.nixosModules.system.vm = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -26,7 +28,7 @@ in {
     programs.dconf.enable = true;
 
     # Add user to libvirtd group
-    users.users.${cfg.username}.extraGroups = ["libvirtd"];
+    users.users.${cfg.username}.extraGroups = [ "libvirtd" ];
 
     # Install necessary packages
     environment.systemPackages = with pkgs; [
@@ -54,7 +56,7 @@ in {
 
     networking = {
       firewall = {
-        trustedInterfaces = ["virbr0"];
+        trustedInterfaces = [ "virbr0" ];
       };
     };
   };

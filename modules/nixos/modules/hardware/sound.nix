@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.sound;
-in {
+in
+{
   options.nixosModules.hardware.sound = lib.mkOption {
     type = lib.types.bool;
     default = false;

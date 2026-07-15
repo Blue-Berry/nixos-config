@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.system.gc;
-in {
+in
+{
   options.nixosModules.system.gc = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -36,8 +38,8 @@ in {
 
     optimiseDates = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = ["daily"];
-      example = ["weekly"];
+      default = [ "daily" ];
+      example = [ "weekly" ];
       description = "When to run nix store optimization";
     };
 

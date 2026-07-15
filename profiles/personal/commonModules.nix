@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   # Common System Configuration
   # This file is imported by both nixosModules.nix and homeModules.nix
   commonModules.system.user = {

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.games;
-in {
+in
+{
   options.homeModules.packages.games = lib.mkOption {
     type = lib.types.bool;
     default = false;

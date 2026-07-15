@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.greeter.greetdHyprland;
-in {
+in
+{
   options.nixosModules.greeter.greetdHyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;

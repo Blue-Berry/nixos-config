@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.styling.fonts;
-in {
+in
+{
   options.nixosModules.styling.fonts = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.styling.enable;

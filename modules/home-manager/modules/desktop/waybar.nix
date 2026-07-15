@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.desktop.waybar;
-in {
+in
+{
   options.homeModules.desktop.waybar = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.desktop.enable;
@@ -33,8 +35,15 @@ in {
           margin-left = 10;
           margin-right = 10;
           height = 20;
-          modules-left = ["hyprland/workspaces" "niri/workspaces"];
-          modules-center = ["hyprland/window" "niri/window" "gamemode"];
+          modules-left = [
+            "hyprland/workspaces"
+            "niri/workspaces"
+          ];
+          modules-center = [
+            "hyprland/window"
+            "niri/window"
+            "gamemode"
+          ];
           modules-right = [
             "group/trayG"
             "battery"
@@ -69,30 +78,46 @@ in {
           };
           "group/usage" = {
             "orientation" = "horizontal";
-            "modules" = ["cpu" "memory" "temperature"];
+            "modules" = [
+              "cpu"
+              "memory"
+              "temperature"
+            ];
           };
           "group/clockG" = {
             "orientation" = "horizontal";
-            "modules" = ["clock"];
+            "modules" = [ "clock" ];
           };
           "group/trayG" = {
             "orientation" = "horizontal";
-            "modules" = ["tray"];
+            "modules" = [ "tray" ];
           };
           "group/comms" = {
             "orientation" = "horizontal";
-            "modules" = ["network" "bluetooth"];
+            "modules" = [
+              "network"
+              "bluetooth"
+            ];
           };
           "backlight" = {
             "format" = "{icon} {percent}%";
-            "format-icons" = ["󰃝" "󰃞" "󰃟" "󰃠"];
+            "format-icons" = [
+              "󰃝"
+              "󰃞"
+              "󰃟"
+              "󰃠"
+            ];
           };
           "pulseaudio" = {
             "scroll-step" = 1;
             "format" = "{icon}   {volume}%";
             "format-muted" = "󰖁 Muted";
             "format-icons" = {
-              "default" = ["" "" ""];
+              "default" = [
+                ""
+                ""
+                ""
+              ];
             };
             "on-click" = "pamixer -t";
             "tooltip" = false;
@@ -133,7 +158,13 @@ in {
           };
           "battery" = {
             "format" = "{capacity}% {icon}";
-            "format-icons" = ["" "" "" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
           "temperature" = {
             "critical-threshold" = 80;

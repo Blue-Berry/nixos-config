@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.ghostty;
-in {
+in
+{
   options.homeModules.apps.ghostty = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
@@ -14,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    home.packages = [pkgs.ghostty];
+    home.packages = [ pkgs.ghostty ];
     programs.ghostty = {
       enable = true;
       enableZshIntegration = true;

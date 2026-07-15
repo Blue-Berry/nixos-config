@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.packages.cli;
-in {
+in
+{
   options.homeModules.packages.cli = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.packages.enable;

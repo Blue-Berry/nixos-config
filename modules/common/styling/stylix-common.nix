@@ -4,7 +4,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.commonModules.styling.stylix;
 
   # Predefined theme schemes
@@ -38,7 +39,8 @@
       base0F = "#B43764";
     };
   };
-in {
+in
+{
   # Options for shared stylix configuration
   options.commonModules.styling.stylix = {
     colorScheme = lib.mkOption {
@@ -430,4 +432,3 @@ in {
 # xcode-dusk.yaml
 # zenbones.yaml
 # zenburn.yaml
-

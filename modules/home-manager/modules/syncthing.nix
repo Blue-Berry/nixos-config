@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.syncthing;
-in {
+in
+{
   options.homeModules.syncthing = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -15,7 +17,7 @@ in {
 
     devices = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
       example = lib.literalExpression ''
         {
           "phone" = {
@@ -31,7 +33,7 @@ in {
 
     folders = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = { };
       example = lib.literalExpression ''
         {
           "Documents" = {

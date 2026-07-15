@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.kde;
-in {
+in
+{
   options.nixosModules.desktop.kde = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.desktop.enable;

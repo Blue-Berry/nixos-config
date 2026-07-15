@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{ outputs, ... }: {
   imports = [
     outputs.commonModules.styling
     outputs.commonModules.system

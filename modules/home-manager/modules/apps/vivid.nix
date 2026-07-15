@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.vivid;
-in {
+in
+{
   options.homeModules.apps.vivid = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

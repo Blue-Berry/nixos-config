@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.delta;
-in {
+in
+{
   options.homeModules.apps.delta = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

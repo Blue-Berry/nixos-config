@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.cozy;
-in {
+in
+{
   options.homeModules.apps.cozy = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

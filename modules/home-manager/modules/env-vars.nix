@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.envVars;
-in {
+in
+{
   options.homeModules.envVars = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -49,8 +51,8 @@ in {
 
     extraSessionPaths = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
-      example = ["$HOME/.local/bin"];
+      default = [ ];
+      example = [ "$HOME/.local/bin" ];
       description = "Additional paths to add to session PATH";
     };
   };
@@ -64,6 +66,6 @@ in {
       MU_PROFILE = cfg.muProfile;
     };
 
-    home.sessionPath = ["$HOME/.config/emacs/bin/"] ++ cfg.extraSessionPaths;
+    home.sessionPath = [ "$HOME/.config/emacs/bin/" ] ++ cfg.extraSessionPaths;
   };
 }

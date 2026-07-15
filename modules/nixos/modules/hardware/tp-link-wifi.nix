@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.tpLinkWifi;
-in {
+in
+{
   options.nixosModules.hardware.tpLinkWifi = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -12,6 +14,6 @@ in {
   };
 
   config = lib.mkIf cfg {
-    boot.extraModulePackages = [config.boot.kernelPackages.rtl8814au];
+    boot.extraModulePackages = [ config.boot.kernelPackages.rtl8814au ];
   };
 }

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.boot;
-in {
+in
+{
   options.nixosModules.boot = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -28,8 +30,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelModules = ["uinput"];
-    boot.binfmt.emulatedSystems = ["aarch64-linux"];
+    boot.kernelModules = [ "uinput" ];
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
     boot.kernelPackages = cfg.kernelPackages;
 

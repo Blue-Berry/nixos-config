@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.desktop.hyprland;
-in {
+in
+{
   options.nixosModules.desktop.hyprland = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.desktop.enable;
@@ -28,8 +30,8 @@ in {
     };
     security.polkit.enable = true;
     nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
     programs.kdeconnect.enable = true;
   };

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.gowin;
-in {
+in
+{
   options.nixosModules.hardware.gowin = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -13,6 +15,6 @@ in {
   };
 
   config = lib.mkIf cfg {
-    services.udev.packages = [pkgs.gowin-udev];
+    services.udev.packages = [ pkgs.gowin-udev ];
   };
 }

@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.desktop.kanshi;
-in {
+in
+{
   options.homeModules.desktop.kanshi = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -16,7 +18,7 @@ in {
 
     settings = lib.mkOption {
       type = lib.types.listOf lib.types.attrs;
-      default = [];
+      default = [ ];
       example = lib.literalExpression ''
         [
           { include = "path/to/included/files"; }

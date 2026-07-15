@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.wooting;
-in {
+in
+{
   options.nixosModules.hardware.wooting = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -13,7 +15,7 @@ in {
   };
 
   config = lib.mkIf cfg {
-    environment.systemPackages = [pkgs.wootility];
-    services.udev.packages = [pkgs.wooting-udev];
+    environment.systemPackages = [ pkgs.wootility ];
+    services.udev.packages = [ pkgs.wooting-udev ];
   };
 }

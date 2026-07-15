@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   options.nixosModules.games.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

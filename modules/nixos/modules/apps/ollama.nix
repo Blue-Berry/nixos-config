@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.ollama;
-in {
+in
+{
   options.nixosModules.apps.ollama = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -14,7 +16,11 @@ in {
     };
 
     acceleration = lib.mkOption {
-      type = lib.types.enum ["rocm" "cuda" false];
+      type = lib.types.enum [
+        "rocm"
+        "cuda"
+        false
+      ];
       default = false;
       example = "rocm";
       description = "GPU acceleration type (rocm for AMD, cuda for NVIDIA, false for CPU-only)";
@@ -36,8 +42,11 @@ in {
 
     loadModels = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
-      example = ["llama2" "codellama"];
+      default = [ ];
+      example = [
+        "llama2"
+        "codellama"
+      ];
       description = "Models to automatically load on startup";
     };
 

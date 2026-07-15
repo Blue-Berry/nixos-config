@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.system.flatpak;
-in {
+in
+{
   options.nixosModules.system.flatpak = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.system.enable;

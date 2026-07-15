@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.ntfs;
-in {
+in
+{
   options.nixosModules.hardware.ntfs = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -12,6 +14,6 @@ in {
   };
 
   config = lib.mkIf cfg {
-    boot.supportedFilesystems = ["ntfs"];
+    boot.supportedFilesystems = [ "ntfs" ];
   };
 }

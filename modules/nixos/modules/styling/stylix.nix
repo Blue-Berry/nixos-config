@@ -4,9 +4,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.styling.stylix;
-in {
+in
+{
   options.nixosModules.styling.stylix = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.styling.enable;

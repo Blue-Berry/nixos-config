@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.gnomeCalendar;
-in {
+in
+{
   options.nixosModules.apps.gnomeCalendar = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;

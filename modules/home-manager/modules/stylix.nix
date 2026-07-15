@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.stylix;
-in {
+in
+{
   options.homeModules.stylix = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -27,7 +29,7 @@ in {
       };
       targets = {
         zen-browser = {
-          profileNames = ["Main"];
+          profileNames = [ "Main" ];
           enable = false;
         };
         hyprland.hyprpaper.enable = true;

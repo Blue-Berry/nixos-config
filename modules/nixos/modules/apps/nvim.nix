@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.nixosModules.apps.nvim = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;

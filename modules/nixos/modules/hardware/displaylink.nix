@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.hardware.displaylink;
-in {
+in
+{
   options.nixosModules.hardware.displaylink = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -13,7 +15,10 @@ in {
   };
 
   config = lib.mkIf cfg {
-    services.xserver.videoDrivers = ["displaylink" "modesetting"];
+    services.xserver.videoDrivers = [
+      "displaylink"
+      "modesetting"
+    ];
     environment.systemPackages = with pkgs; [
       displaylink
     ];

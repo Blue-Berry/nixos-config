@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.direnv;
-in {
+in
+{
   options.homeModules.apps.direnv = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

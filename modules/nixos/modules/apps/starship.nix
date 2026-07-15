@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.starship;
-in {
+in
+{
   options.nixosModules.apps.starship = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;
@@ -20,7 +22,7 @@ in {
 
     programs.starship = {
       enable = true;
-      presets = ["nerd-font-symbols"];
+      presets = [ "nerd-font-symbols" ];
     };
   };
 }

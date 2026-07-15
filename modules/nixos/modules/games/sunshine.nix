@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.games.sunshine;
-in {
+in
+{
   options.nixosModules.games.sunshine = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.games.enable;

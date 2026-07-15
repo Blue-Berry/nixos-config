@@ -4,37 +4,40 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.emacs;
 
-  emacs = with pkgs;
+  emacs =
+    with pkgs;
     (emacsPackagesFor emacs-pgtk).emacsWithPackages (
-      epkgs:
-        with epkgs; [
-          # treesit-grammars.with-all-grammars
-          vterm
-          nixfmt
-          apheleia
-          ocp-indent
-          ocamlformat
-          merlin
-          shfmt
-          utop
-          pinentry
-          djvu
-          flymake-golangci
-          flycheck-golangci-lint
-          gnuplot
-        ]
+      epkgs: with epkgs; [
+        # treesit-grammars.with-all-grammars
+        vterm
+        nixfmt
+        apheleia
+        ocp-indent
+        ocamlformat
+        merlin
+        shfmt
+        utop
+        pinentry
+        djvu
+        flymake-golangci
+        flycheck-golangci-lint
+        gnuplot
+      ]
     );
 
-  mkLauncherEntry = title: {
-    prefix ? "launcher-",
-    description ? "",
-    icon,
-    exec,
-    categories ? [],
-  }:
+  mkLauncherEntry =
+    title:
+    {
+      prefix ? "launcher-",
+      description ? "",
+      icon,
+      exec,
+      categories ? [ ],
+    }:
     pkgs.makeDesktopItem (
       {
         inherit icon exec categories;
@@ -42,14 +45,16 @@
         desktopName = title;
       }
       // (
-        if description != ""
-        then {
-          genericName = description;
-        }
-        else {}
+        if description != "" then
+          {
+            genericName = description;
+          }
+        else
+          { }
       )
     );
-in {
+in
+{
   options.nixosModules.apps.emacs = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;
@@ -95,12 +100,11 @@ in {
       emacs
       golangci-lint
       (aspellWithDicts (
-        ds:
-          with ds; [
-            en
-            en-computers
-            en-science
-          ]
+        ds: with ds; [
+          en
+          en-computers
+          en-science
+        ]
       ))
     ];
 

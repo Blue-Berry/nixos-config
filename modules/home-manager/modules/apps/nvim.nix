@@ -4,9 +4,11 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.nvim;
-in {
+in
+{
   options.homeModules.apps.nvim = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;

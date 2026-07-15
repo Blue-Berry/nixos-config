@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.desktop.dconf;
-in {
+in
+{
   options.homeModules.desktop.dconf = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.desktop.enable;

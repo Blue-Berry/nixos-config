@@ -4,10 +4,12 @@
   pkgs,
   nix-update-script,
   ...
-}: let
+}:
+let
   cfg = config.homeModules.apps.nushell;
   userCfg = config.commonModules.system.user;
-in {
+in
+{
   options.homeModules.apps.nushell = lib.mkOption {
     type = lib.types.bool;
     default = config.homeModules.apps.enable;
