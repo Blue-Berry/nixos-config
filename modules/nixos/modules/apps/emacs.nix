@@ -99,6 +99,8 @@ in
       nixfmt-rfc-style
       emacs
       golangci-lint
+      # wuzapi backend for wasabi (WhatsApp client)
+      wuzapi
       (aspellWithDicts (
         ds: with ds; [
           en
