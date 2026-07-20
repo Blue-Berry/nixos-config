@@ -50,7 +50,7 @@ in
       inetutils
       libreoffice-fresh
       localsend
-      newsflash
+      # newsflash # slow build
       qbittorrent
       showcolors
       steam-run

@@ -23,6 +23,9 @@ in
     # home-manager-specific stylix configuration
     # Base config comes from common module
 
+    # Explicitly enable cursor config generation (stylix sets package/name/size)
+    home.pointerCursor.enable = true;
+
     stylix = {
       opacity = {
         terminal = 0.8;
@@ -36,7 +39,7 @@ in
         hyprpaper.enable = true;
         hyprlock = {
           enable = true;
-          useWallpaper = true;
+          image.enable = true;
         };
         yazi.enable = true;
         bat.enable = true;
@@ -57,7 +60,7 @@ in
         qt.enable = true;
         starship.enable = true;
         gnome = {
-          useWallpaper = true;
+          image.enable = true;
           enable = true;
         };
         lazygit.enable = true;

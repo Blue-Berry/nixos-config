@@ -32,6 +32,8 @@ in
     programs.yazi = {
       enable = true;
       enableZshIntegration = true;
+      # Keep legacy shell wrapper name (stateVersion < 26.05)
+      shellWrapperName = "yy";
       flavors = {
         catppuccin-mocha = "${flavourRepo}/catppuccin-mocha.yazi";
         catppuccin-macchiato = "${flavourRepo}/catppuccin-macchiato.yazi";

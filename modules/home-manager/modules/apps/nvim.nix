@@ -17,7 +17,12 @@ in
   };
 
   config = lib.mkIf cfg {
-    programs.neovim.enable = true;
+    programs.neovim = {
+      enable = true;
+      # Keep legacy provider defaults (stateVersion < 26.05)
+      withRuby = true;
+      withPython3 = true;
+    };
 
     home.packages = [
       # Use the custom nvim configuration from nixCats flake

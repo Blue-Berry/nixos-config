@@ -21,7 +21,8 @@
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
     colorScheme = null; # Derive from wallpaper
     # wallpaper = "solar-system-map.jpg";
-    wallpaper = "black-hole-far.jpg";
+    # wallpaper = "black-hole-far.jpg";
+    wallpaper = "Soviet-Engine-Tree.png";
     polarity = "dark";
     cursorTheme = "Bibata-Modern-Ice";
     cursorSize = 20;

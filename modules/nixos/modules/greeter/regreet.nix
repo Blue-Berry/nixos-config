@@ -24,7 +24,7 @@ in
     };
     stylix.targets.regreet = {
       enable = true;
-      useWallpaper = true;
+      image.enable = true;
     };
   };
 }

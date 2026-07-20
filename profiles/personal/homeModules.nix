@@ -119,7 +119,7 @@
         path = "~/audiobooks/";
         devices = [
           "phone"
-          "personal"
+          "work"
           "iPad"
           "server"
         ];
