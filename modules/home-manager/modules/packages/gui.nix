@@ -49,7 +49,6 @@ in
       hydrapaper
       inetutils
       libreoffice-fresh
-      localsend
       # newsflash # slow build
       qbittorrent
       showcolors

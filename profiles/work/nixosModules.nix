@@ -27,6 +27,7 @@ in
     kanata = {
       enable = true;
     };
+    localsend = true;
     nvim = true;
     pass = true;
     wireguard = {

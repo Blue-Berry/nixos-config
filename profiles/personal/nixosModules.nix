@@ -22,6 +22,7 @@
     kanata = {
       enable = true;
     };
+    localsend = true;
     pass = true;
     steam = true;
     wireguard = {

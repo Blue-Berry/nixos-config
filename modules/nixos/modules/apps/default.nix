@@ -9,6 +9,7 @@
     ./cachix-agent.nix
     ./emacs.nix
     ./kanata.nix
+    ./localsend.nix
     ./nvim.nix
     ./ollama.nix
     ./pass.nix
