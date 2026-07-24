@@ -101,6 +101,8 @@ in
       golangci-lint
       # wuzapi backend for wasabi (WhatsApp client)
       wuzapi
+      # For image preview
+      vips
       (aspellWithDicts (
         ds: with ds; [
           en
