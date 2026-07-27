@@ -18,7 +18,7 @@
 }:
 let
   pname = "codex";
-  version = "0.128.0";
+  version = "0.145.0";
   tag = "rust-v${version}";
 
   system = stdenv.hostPlatform.system;
@@ -29,7 +29,7 @@ let
   assets = {
     x86_64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-iGuF5hGMC0MjRDfKAH++kjYRpTsQPQDg0650rvsg4jo=";
+      sha256 = "sha256-v68Tybo08q12TkqRbEnPcXeuujKc8PcZ4iJ1ZvyNZio=";
     };
     aarch64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-aarch64-unknown-linux-musl.tar.gz";
