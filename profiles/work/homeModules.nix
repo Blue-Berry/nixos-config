@@ -97,18 +97,6 @@
           workspace = 1;
         }
         {
-          command = [
-            "emacsclient"
-            "-c"
-            "-a"
-            ""
-          ];
-          appId = "emacs";
-          title = ".*Doom Emacs$";
-          monitor = "DVI-I-2";
-          workspace = 1;
-        }
-        {
           command = [ "zen-beta" ];
           appId = "zen-beta";
           monitor = "HDMI-A-1";
