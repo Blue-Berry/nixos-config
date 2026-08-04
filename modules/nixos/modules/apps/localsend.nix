@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.nixosModules.apps.localsend;
-in {
+in
+{
   options.nixosModules.apps.localsend = lib.mkOption {
     type = lib.types.bool;
     default = config.nixosModules.apps.enable;

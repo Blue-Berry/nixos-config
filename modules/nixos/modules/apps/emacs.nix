@@ -26,6 +26,7 @@ let
         flymake-golangci
         flycheck-golangci-lint
         gnuplot
+        mu4e
       ]
     );
 

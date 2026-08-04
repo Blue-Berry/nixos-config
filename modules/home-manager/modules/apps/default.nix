@@ -13,6 +13,7 @@
     ./git.nix
     ./gitui.nix
     ./kitty.nix
+    ./mail.nix
     ./neovide.nix
     ./nushell.nix
     ./nvim.nix
