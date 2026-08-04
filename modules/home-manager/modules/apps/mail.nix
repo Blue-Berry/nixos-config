@@ -101,6 +101,10 @@ in
             enable = true;
             create = "maildir"; # create missing local folders
             expunge = "both";
+            # Pin to password auth. Without this, now that the XOAUTH2 SASL
+            # plugin is on SASL_PATH (for Outlook), Gmail would negotiate
+            # XOAUTH2 and send the app password as a bearer token -> fails.
+            extraConfig.account.AuthMechs = "LOGIN";
             patterns = [
               "*"
               # Gmail exposes labels as folders; skip the ones that are pure
