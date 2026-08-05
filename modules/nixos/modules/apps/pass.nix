@@ -29,10 +29,7 @@ in
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-emacs;
-      settings = {
-        allow-emacs-pinentry = "";
-      };
+      pinentryPackage = pkgs.pinentry-qt;
     };
   };
 }

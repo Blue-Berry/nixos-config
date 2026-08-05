@@ -21,7 +21,6 @@ let
         merlin
         shfmt
         utop
-        pinentry
         djvu
         flymake-golangci
         flycheck-golangci-lint
