@@ -22,6 +22,10 @@ in
       passff-host
     ];
 
+    programs.firefox.nativeMessagingHosts.packages = [
+      pkgs.passff-host
+    ];
+
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

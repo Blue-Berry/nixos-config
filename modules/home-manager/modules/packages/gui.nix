@@ -21,7 +21,12 @@ in
   };
 
   config = lib.mkIf cfg {
-    programs.zen-browser.enable = true;
+    programs.zen-browser = {
+      enable = true;
+      nativeMessagingHosts = [
+        pkgs.passff-host
+      ];
+    };
     home.packages = with pkgs; [
       # Browsers
       chromium
