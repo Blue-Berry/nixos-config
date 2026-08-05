@@ -69,8 +69,6 @@ in
       ntfs3g
       okolors
 
-      # pass for Firefox
-      passff-host
     ];
   };
 }
