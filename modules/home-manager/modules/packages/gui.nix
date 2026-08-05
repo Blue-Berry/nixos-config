@@ -68,6 +68,9 @@ in
       inputs.gowin-eda.packages.${pkgs.system}.gowin-eda
       ntfs3g
       okolors
+
+      # pass for Firefox
+      passff-host
     ];
   };
 }
