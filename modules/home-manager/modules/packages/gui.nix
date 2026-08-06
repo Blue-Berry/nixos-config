@@ -24,6 +24,7 @@ in
     programs.zen-browser = {
       enable = true;
       nativeMessagingHosts = [
+        pkgs.browserpass
         pkgs.passff-host
       ];
     };

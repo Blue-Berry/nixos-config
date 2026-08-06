@@ -19,8 +19,11 @@ in
     environment.systemPackages = with pkgs; [
       pass
       gnupg
+      browserpass
       passff-host
     ];
+
+    programs.browserpass.enable = true;
 
     programs.firefox.nativeMessagingHosts.packages = [
       pkgs.passff-host
