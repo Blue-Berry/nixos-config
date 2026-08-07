@@ -33,6 +33,10 @@ in
       enable = true;
       enableSSHSupport = true;
       pinentryPackage = pkgs.pinentry-qt;
+      settings = {
+        default-cache-ttl = 604800; # 7 days
+        max-cache-ttl = 604800; # 7 days
+      };
     };
   };
 }
