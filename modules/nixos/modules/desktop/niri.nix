@@ -19,7 +19,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+    nixpkgs.overlays = [
+      # niri requires libdisplay-info 0.2.0, which our nixpkgs no longer ships
+      # (it's at 0.4.0). Borrow 0.2.0 from niri's own pinned nixpkgs so the
+      # niri overlay below finds it. Must come before the niri overlay.
+      (final: prev: {
+        libdisplay-info_0_2 =
+          inputs.nixpkgs-niri.legacyPackages.${prev.stdenv.hostPlatform.system}.libdisplay-info_0_2;
+      })
+      inputs.niri.overlays.niri
+    ];
     programs.niri.package = pkgs.niri-unstable;
     programs.niri.enable = true;
     security.polkit.enable = true; # polkit

@@ -7,10 +7,9 @@
 let
   cfg = config.homeModules.apps.mail;
 
-  # isync/msmtp speak XOAUTH2 (needed for Office365) via a Cyrus SASL plugin.
-  # SASL loads plugins from a single directory, so merge the base mechanisms
-  # (PLAIN/LOGIN, used by Gmail) with the xoauth2 plugin into one dir and
-  # point SASL_PATH at it below.
+  # XOAUTH2 (Office365) needs a Cyrus SASL plugin. SASL loads plugins from one
+  # dir, so merge the base mechs (PLAIN/LOGIN, for Gmail) with xoauth2 and point
+  # SASL_PATH at the result.
   saslPlugins = pkgs.symlinkJoin {
     name = "sasl2-plugins-with-xoauth2";
     paths = [
@@ -20,9 +19,37 @@ let
   };
   saslPath = "${saslPlugins}/lib/sasl2";
 
-  # oama hands out fresh OAuth2 access tokens for the Outlook account. Used
-  # as the "password" for both mbsync (IMAP) and msmtp (SMTP).
-  outlookToken = "${pkgs.oama}/bin/oama access liam.berry@rubiconsa.com";
+  # oama prints a fresh OAuth2 token, used as the password for mbsync, msmtp and
+  # goimapnotify. It shells out to gpg to decrypt its cache, so gpg must be on
+  # PATH — but the imapnotify units pin PATH to mbsync's bin, and goimapnotify
+  # exec's bare commands directly (a shell only for pipes/redirects), so a
+  # `PATH=... oama` prefix would become argv[0]. A wrapper script sidesteps both.
+  outlookToken = "${pkgs.writeShellScript "oama-outlook-token" ''
+    export PATH=${pkgs.gnupg}/bin:$PATH
+    exec ${pkgs.oama}/bin/oama access liam.berry@rubiconsa.com
+  ''}";
+
+  # emacsclient from the system profile (Emacs runs as a daemon here).
+  emacsclient = "/run/current-system/sw/bin/emacsclient";
+
+  # mbsync refuses concurrent channel access and mu allows only one writer, so
+  # the timer and both push hooks would collide. Run every sync under one lock.
+  # For indexing: an open mu4e holds the Xapian write lock, so a CLI `mu index`
+  # fails with "database locked" whenever Emacs is up — reindex through the live
+  # mu server via emacsclient when it's running, else fall back to the CLI.
+  mailSync =
+    name: syncCmd:
+    "${pkgs.writeShellScript "mail-sync-${name}" ''
+      exec ${pkgs.util-linux}/bin/flock -w 300 "$HOME/.cache/mail-sync.lock" \
+        ${pkgs.bash}/bin/bash -c '
+          ${syncCmd}
+          if [ "$(${emacsclient} -e "(and (fboundp (quote mu4e-running-p)) (mu4e-running-p))" 2>/dev/null)" = t ]; then
+            ${emacsclient} -e "(mu4e-update-index)" >/dev/null 2>&1
+          else
+            ${lib.getExe pkgs.mu} index
+          fi
+        '
+    ''}";
 in
 {
   options.homeModules.apps.mail = lib.mkOption {
@@ -33,22 +60,20 @@ in
   };
 
   config = lib.mkIf cfg {
-    # `mu` provides both the CLI indexer and the matching mu4e elisp
-    # (site-lisp). See emacs.nix note: prefer this over epkgs.mu4e so the
-    # mu4e library version always matches the `mu` binary.
+    # `mu` provides both the CLI indexer and the matching mu4e elisp; prefer it
+    # over epkgs.mu4e so the library version matches the binary (see emacs.nix).
     home.packages = [
       pkgs.mu
-      pkgs.oama # OAuth2 token manager for the Outlook account
+      pkgs.oama
     ];
 
-    # mbsync/msmtp need SASL_PATH set in the interactive shell so that a
-    # manual `mbsync outlook` finds the xoauth2 plugin. The systemd service
-    # gets it separately (see systemd.user.services.mbsync below).
+    # So a manual `mbsync outlook` in a shell finds the xoauth2 plugin (systemd
+    # services get it via Environment below).
     home.sessionVariables.SASL_PATH = saslPath;
 
-    # oama config. client_id is Thunderbird's public Microsoft client (no
-    # secret needed with device-code flow); tokens are encrypted to your GPG
-    # key. Authorize once:  oama authorize microsoft liam.berry@rubiconsa.com --device
+    # Thunderbird's public MS client_id (device-code flow, no secret); tokens
+    # encrypted to the GPG key. Authorize once:
+    #   oama authorize microsoft liam.berry@rubiconsa.com --device
     xdg.configFile."oama/config.yaml".text = ''
       encryption:
         tag: GPG
@@ -61,34 +86,35 @@ in
           auth_scope: https://outlook.office.com/IMAP.AccessAsUser.All https://outlook.office.com/SMTP.Send offline_access
     '';
 
-    # Generates ~/.mbsyncrc from the accounts.email definitions below.
     programs.mbsync.enable = true;
-
-    # msmtp is the send path for both accounts; it selects the account from
-    # the envelope From address (--read-envelope-from, set in Doom config).
     programs.msmtp.enable = true;
 
-    # systemd timer that runs `mbsync` periodically, then re-indexes mu.
+    # Hold an IMAP IDLE connection per account so a sync fires the instant mail
+    # lands (see the per-account `imapnotify` blocks).
+    services.imapnotify.enable = true;
+
+    # Periodic fallback for the IDLE connections (push handles the common case).
     services.mbsync = {
       enable = true;
-      frequency = "*:0/5"; # every 5 minutes
-      # Re-index after each sync. Requires `mu init ...` to have been run
-      # once already (see the one-time setup note at the bottom).
-      postExec = "${lib.getExe pkgs.mu} index";
+      frequency = "*:0/15";
     };
 
-    # The timer's service runs outside the login shell, so give it SASL_PATH
-    # (for the Outlook xoauth2 mech) explicitly.
-    systemd.user.services.mbsync.Service.Environment = [ "SASL_PATH=${saslPath}" ];
+    # These services run outside the login shell, so hand them SASL_PATH for the
+    # mbsync they spawn (Outlook XOAUTH2, Gmail LOGIN). goimapnotify itself
+    # speaks XOAUTH2 in Go and needs no plugin. The timer syncs both accounts
+    # through the same lock as the push hooks.
+    systemd.user.services.mbsync.Service = {
+      Environment = [ "SASL_PATH=${saslPath}" ];
+      ExecStart = lib.mkForce (mailSync "all" "${pkgs.isync}/bin/mbsync -a");
+    };
+    systemd.user.services."imapnotify-gmail".Service.Environment = [ "SASL_PATH=${saslPath}" ];
+    systemd.user.services."imapnotify-outlook".Service.Environment = [ "SASL_PATH=${saslPath}" ];
 
     accounts.email = {
-      # Maildirs live under ~/Mail/<account>. `mu init --maildir=~/Mail`.
-      maildirBasePath = "Mail";
+      maildirBasePath = "Mail"; # ~/Mail/<account>; `mu init --maildir=~/Mail`
 
       accounts = {
-        # ---- Gmail --------------------------------------------------------
-        # Uses an App Password (Google account > Security > App passwords),
-        # stored in pass:  pass insert email/gmail
+        # Gmail: App Password stored in `pass insert email/gmail`.
         gmail = {
           primary = true;
           realName = "Liam Berry";
@@ -99,37 +125,44 @@ in
 
           mbsync = {
             enable = true;
-            create = "maildir"; # create missing local folders
+            create = "maildir";
             expunge = "both";
-            # Pin to password auth. Without this, now that the XOAUTH2 SASL
-            # plugin is on SASL_PATH (for Outlook), Gmail would negotiate
-            # XOAUTH2 and send the app password as a bearer token -> fails.
+            # Pin to password auth, else the xoauth2 plugin on SASL_PATH makes
+            # Gmail negotiate XOAUTH2 and send the app password as a bearer.
             extraConfig.account.AuthMechs = "LOGIN";
             patterns = [
               "*"
-              # Gmail exposes labels as folders; skip the ones that are pure
-              # duplicates. [Gmail]/All Mail is kept: it's the archive target
-              # mu4e refiles into.
+              # Skip pure-duplicate/noise labels. [Gmail]/All Mail is the big
+              # one — a copy of every message — so excluding it ~halves the sync.
               "![Gmail]/Important"
               "![Gmail]/Starred"
+              "![Gmail]/All Mail"
+              "![Gmail]/Spam"
+              "![Gmail]/Trash"
             ];
           };
 
-          msmtp.enable = true; # send via msmtp using the same pass entry
+          msmtp.enable = true;
+
+          imapnotify = {
+            enable = true;
+            boxes = [ "INBOX" ];
+            # Sync only INBOX on push (the box we watch); a full multi-folder
+            # sync is ~4x slower over Gmail's latency. The timer covers the rest.
+            onNotify = mailSync "gmail" "${pkgs.isync}/bin/mbsync gmail:INBOX";
+            # mbsync reads only the first line of the pass entry, but
+            # goimapnotify sends the whole output; take line 1 to match.
+            extraConfig.passwordCmd = "${pkgs.pass}/bin/pass show email/gmail | ${pkgs.coreutils}/bin/head -n1";
+          };
         };
 
-        # ---- Outlook / Office365 (rubiconsa.com) --------------------------
-        # Office365 requires OAuth2 (XOAUTH2); there is no app-password path.
-        # `oama` obtains and refreshes the token; authorize it once with:
+        # Outlook / Office365: OAuth2 only. Authorize once:
         #   oama authorize microsoft liam.berry@rubiconsa.com --device
-        # See the one-time setup / caveats note in the assistant summary.
         outlook = {
           realName = "Liam Berry";
           address = "liam.berry@rubiconsa.com";
           userName = "liam.berry@rubiconsa.com";
           flavor = "outlook.office365.com";
-          # oama prints a fresh access token; used as the XOAUTH2 bearer for
-          # both IMAP (mbsync) and SMTP (msmtp).
           passwordCommand = outlookToken;
 
           mbsync = {
@@ -142,6 +175,13 @@ in
           msmtp = {
             enable = true;
             extraConfig.auth = "xoauth2";
+          };
+
+          imapnotify = {
+            enable = true;
+            boxes = [ "INBOX" ];
+            onNotify = mailSync "outlook" "${pkgs.isync}/bin/mbsync outlook:INBOX";
+            extraConfig.xoauth2 = true;
           };
         };
       };
