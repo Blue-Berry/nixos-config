@@ -71,7 +71,7 @@ in
 
       # Other
       base16-schemes
-      inputs.gowin-eda.packages.${pkgs.system}.gowin-eda
+      # inputs.gowin-eda.packages.${pkgs.system}.gowin-eda
       ntfs3g
       okolors
 
