@@ -26,6 +26,7 @@ let
         flycheck-golangci-lint
         gnuplot
         mu4e
+        pdf-tools
       ]
     );
 
