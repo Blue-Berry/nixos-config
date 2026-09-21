@@ -29,7 +29,7 @@ let
 in
 {
   imports = [
-    inputs.dms.nixosModules.greeter
+    inputs.dank-greeter.nixosModules.default
   ];
 
   options.nixosModules.greeter.dankGreeter = {
@@ -53,7 +53,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.dank-material-shell.greeter = {
+    programs.dms-greeter = {
       enable = true;
       compositor = {
         name = cfg.compositor;
