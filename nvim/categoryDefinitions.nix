@@ -171,7 +171,7 @@ in
       ocaml = [
         pkgs.neovimPlugins.ocaml
         pkgs.neovimPlugins.nvim-repl
-        inputs.alloc_scan.packages.${pkgs.system}.default
+        inputs.alloc_scan.packages.${pkgs.stdenv.hostPlatform.system}.default
         vim-ocaml
       ];
       rust = with pkgs.vimPlugins; [

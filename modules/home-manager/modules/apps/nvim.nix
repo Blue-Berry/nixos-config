@@ -26,7 +26,7 @@ in
 
     home.packages = [
       # Use the custom nvim configuration from nixCats flake
-      inputs.nixCats.packages.${pkgs.system}.default
+      inputs.nixCats.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }

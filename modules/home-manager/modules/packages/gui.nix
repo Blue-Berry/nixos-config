@@ -54,7 +54,7 @@ in
       gparted
       hydrapaper
       inetutils
-      libreoffice-fresh
+      libreoffice
       # newsflash # slow build
       qbittorrent
       showcolors

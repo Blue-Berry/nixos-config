@@ -46,7 +46,7 @@ let
   };
 
   asset = assets.${system} or (throw "Unsupported system: ${system}");
-  isLinux = stdenv.isLinux;
+  isLinux = stdenv.hostPlatform.isLinux;
 in
 stdenv.mkDerivation {
   inherit pname version;

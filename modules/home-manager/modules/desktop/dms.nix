@@ -65,7 +65,6 @@ in
 
       plugins = {
         # Simply enable plugins by their ID (from the registry)
-        dankBatteryAlerts.enable = true;
         dockerManager.enable = true;
         wallpaperCarousel.enable = true;
         nixMonitor.enable = true;
