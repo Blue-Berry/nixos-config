@@ -18,7 +18,7 @@
 }:
 let
   pname = "codex";
-  version = "0.145.0";
+  version = "0.156.1";
   tag = "rust-v${version}";
 
   system = stdenv.hostPlatform.system;
@@ -29,7 +29,7 @@ let
   assets = {
     x86_64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-x86_64-unknown-linux-musl.tar.gz";
-      sha256 = "sha256-v68Tybo08q12TkqRbEnPcXeuujKc8PcZ4iJ1ZvyNZio=";
+      sha256 = "sha256-r/RlOag6/4bjxixZK84sUNlTkfnfKJr68DpQwB0UUz0=";
     };
     aarch64-linux = {
       url = "https://github.com/openai/codex/releases/download/${tag}/codex-aarch64-unknown-linux-musl.tar.gz";
@@ -44,6 +44,15 @@ let
       sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     };
   };
+
+  codeModeHostSrc =
+    if system == "x86_64-linux" then
+      fetchurl {
+        url = "https://github.com/openai/codex/releases/download/${tag}/codex-code-mode-host-x86_64-unknown-linux-musl.tar.gz";
+        sha256 = "a929daa9f6a0bddc00c0c9e6402df117b125acd96f9d554f6c99c32c7e66c608";
+      }
+    else
+      null;
 
   asset = assets.${system} or (throw "Unsupported system: ${system}");
   isLinux = stdenv.hostPlatform.isLinux;
@@ -77,6 +86,12 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p "$out/bin"
+
+    ${lib.optionalString (codeModeHostSrc != null) ''
+      hostdir=$(mktemp -d)
+      tar -xf "${codeModeHostSrc}" -C "$hostdir"
+      install -Dm755 "$hostdir/codex-code-mode-host-x86_64-unknown-linux-musl" "$out/bin/codex-code-mode-host"
+    ''}
 
     kind=$(file -b "$src")
     workdir=$(mktemp -d)
