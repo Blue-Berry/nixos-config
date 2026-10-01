@@ -39,8 +39,5 @@
     };
   };
 
-  # Overlay to expose pkgs.codex from our local derivation
-  codex = final: prev: {
-    codex = prev.callPackage ../pkgs/codex { };
-  };
+  codex = inputs.codex-nix.overlays.default;
 }

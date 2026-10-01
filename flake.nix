@@ -72,6 +72,11 @@
 
     claude-code.url = "github:sadjow/claude-code-nix";
 
+    codex-nix = {
+      url = "github:SecBear/codex-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
