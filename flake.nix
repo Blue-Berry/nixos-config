@@ -16,6 +16,7 @@
     niri = {
       url = "github:sodiboo/niri-flake/very-refactor";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.niri-unstable.url = "github:niri-wm/niri";
     };
     niri-config.follows = "niri";
 

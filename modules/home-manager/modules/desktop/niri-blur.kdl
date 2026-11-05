@@ -1,3 +1,7 @@
+layout {
+    fullscreen-backdrop-color "transparent"
+}
+
 window-rule {
     match app-id="^com\\.mitchellh\\.ghostty$"
     background-effect {
