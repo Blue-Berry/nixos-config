@@ -13,19 +13,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # Pinned nixpkgs that still ships libdisplay-info 0.2.0, which niri-flake
-    # hard-requires (our main nixpkgs moved to 0.4.0 and dropped the _0_2
-    # alias). Used only to borrow that one lib in niri.nix. This is the same
-    # rev niri-flake itself pins.
-    nixpkgs-niri.url = "github:NixOS/nixpkgs/e72e4f299401a3689d4b3d5fc6496b11db7064eb";
     niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    niri-config = {
       url = "github:sodiboo/niri-flake/very-refactor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-config.follows = "niri";
 
     stylix.url = "github:danth/stylix";
 

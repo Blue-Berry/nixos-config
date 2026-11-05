@@ -68,7 +68,6 @@ in
         dockerManager.enable = true;
         wallpaperCarousel.enable = true;
         nixMonitor.enable = true;
-        qcalCalendar.enable = true;
 
         # Add plugin-specific settings
         mediaPlayer = {

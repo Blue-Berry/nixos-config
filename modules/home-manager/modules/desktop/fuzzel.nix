@@ -8,7 +8,11 @@
   programs.fuzzel = {
     enable = true;
     package = pkgs.fuzzel;
-    settings.main.font = lib.mkForce "${config.stylix.fonts.monospace.name}:size=14";
+    settings.main = {
+      font = lib.mkForce "${config.stylix.fonts.monospace.name}:size=14";
+      layer = "overlay";
+      keyboard-focus = "exclusive";
+    };
   };
   stylix.targets.fuzzel = {
     colors.enable = true;
