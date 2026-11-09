@@ -19,7 +19,8 @@
   commonModules.styling.stylix = {
     # Use null to derive colors from wallpaper, or choose a color scheme:
     # "catppuccin-mocha", "tokyo-night-dark", "gruvbox-dark-hard", "nord", "dracula", etc.
-    colorScheme = null; # Derive from wallpaper
+    # colorScheme = null; # Derive from wallpaper
+    colorScheme = "catppuccin-mocha"; # Derive from wallpaper
     # wallpaper = "Soviet-Engine-Tree.png";
     wallpaper = "pixel-japanese-castle.jpeg";
     polarity = "dark";
