@@ -109,7 +109,7 @@
       isNormalUser = true;
       initialPassword = "stuff";
       openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDF4Np5JlKC3AKJ2d+c3XN7i8KI+Yk/29gDBTAUly20T liamandberry@gmail.com"
       ];
       extraGroups = [
         "networkmanager"
