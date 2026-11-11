@@ -1,0 +1,19 @@
+{
+  dendritic.nixos.commonSystem = (
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }: {
+      config = {
+        fonts.packages = with pkgs; [
+          nerd-fonts.fira-code
+          nerd-fonts.droid-sans-mono
+          atkinson-monolegible
+          atkinson-hyperlegible
+        ];
+      };
+    }
+  );
+}

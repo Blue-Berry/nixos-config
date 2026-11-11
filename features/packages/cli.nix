@@ -1,0 +1,49 @@
+{
+  dendritic.home.commonPackages = (
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }: {
+      config = {
+        home.packages = with pkgs; [
+          bat
+          bottom
+          doggo
+          duf
+          dust
+          eza
+          fd
+          ffmpeg
+          gping
+          git-commit-ai
+          gh
+          fzf
+          hyperfine
+          iputils
+          perf
+          ncdu
+          codex
+          ripgrep
+          rsync
+          sshfs
+          starship
+          tealdeer
+          tmux
+          tokei
+          unzip
+          wget
+          zip
+          zoxide
+          nix-output-monitor
+          inotify-tools
+          jq
+          unixtools.netstat
+          nh
+          wl-clipboard
+        ];
+      };
+    }
+  );
+}
