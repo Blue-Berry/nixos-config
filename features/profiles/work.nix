@@ -68,7 +68,12 @@
       lib,
       pkgs,
       ...
-    }: {
+    }: let
+      # DisplayLink can swap the DVI-I-N names when dlm restarts, so match by serial.
+      left = "Samsung Electric Company LF24T35 HFAT604227";
+      center = "Samsung Electric Company LF24T35 HFAWA02918";
+      right = "HDMI-A-1";
+    in {
       # Apps
 
       # Desktop
@@ -79,19 +84,19 @@
               profile.name = "work-docked";
               profile.outputs = [
                 {
-                  criteria = "DVI-I-1";
+                  criteria = left;
                   mode = "1920x1080";
                   position = "0,0";
                   scale = 1.0;
                 }
                 {
-                  criteria = "DVI-I-2";
+                  criteria = center;
                   mode = "1920x1080";
                   position = "1920,0";
                   scale = 1.0;
                 }
                 {
-                  criteria = "HDMI-A-1";
+                  criteria = right;
                   mode = "1920x1080@60Hz";
                   position = "3840,0";
                   scale = 1.0;
@@ -137,34 +142,34 @@
         };
         niri = {
           monitors = [
-            "DVI-I-1" # Mod+1 - Left monitor
-            "DVI-I-2" # Mod+2 - Center monitor
-            "HDMI-A-1" # Mod+3 - Right monitor
+            left # Mod+1
+            center # Mod+2
+            right # Mod+3
           ];
           startupApps = [
             {
               command = ["ghostty"];
               appId = "com.mitchellh.ghostty";
-              monitor = "DVI-I-1";
+              monitor = left;
               workspace = 1;
             }
             {
               command = ["zen-beta"];
               appId = "zen-beta";
-              monitor = "HDMI-A-1";
+              monitor = right;
               workspace = 1;
             }
             {
               command = ["spotify"];
               appId = "spotify";
-              monitor = "DVI-I-2";
+              monitor = center;
               workspace = 2;
             }
             {
               command = ["teams-for-linux"];
               appId = "electron";
               title = ".*Microsoft Teams$";
-              monitor = "HDMI-A-1";
+              monitor = right;
               workspace = 2;
             }
           ];
